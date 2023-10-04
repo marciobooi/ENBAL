@@ -2,6 +2,8 @@
     const countryDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(1) > div > ul");
     countryDropDown.empty()
     let content = '';
+
+    log(defGeos)
   
     defGeos.forEach(geo => {
       const isActive = REF.geos.includes('all') ? (geo === 'all' ? 'active' : '') : (REF.geos.includes(geo) ? 'active' : '');    

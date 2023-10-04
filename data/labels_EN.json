@@ -529,7 +529,22 @@
  "COOKIECOMPLETEclose": "Close",
  "COOKIECOMPLETEacceptAll": "Accept all cookies",
  "COOKIECOMPLETEonlyTechnical": "Accept only essential cookies",
- "COOKIECOMPLETE": "Your cookie preferences have been saved. To change your preferences at any time, see our\u00a0<a href=\"//ec.europa.eu/info/cookies_en\" target=\"_blank\">cookies policy<\/a> or visit the link in the page footer."
+ "COOKIECOMPLETE": "Your cookie preferences have been saved. To change your preferences at any time, see our\u00a0<a href=\"//ec.europa.eu/info/cookies_en\" target=\"_blank\">cookies policy<\/a> or visit the link in the page footer.",
+
+ "header-title-label": "Energy prices",
+ "MAINMENU": "Menu",
+ "COUNTRY": "Country",
+ "FUEL": "Fuel",
+ "CONSUMER": "Consumer",
+ "REFERENCE": "Reference period",
+ "CONSUME": "Consumption level",
+ "all": "Select all countries",
+ "KWH_GE15000" : "band DE: Consumption for 15 000 kWh or over",
+ "FEED": "Feedback",
+ "TOOLS": "Tools",
+ "DB": "Access to dataset",
+ "%": "in percentages",
+ "TOGGLEAGREGATES": "Toggle aggregates"
 
   
 }
