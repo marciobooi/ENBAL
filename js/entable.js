@@ -95,19 +95,19 @@ function getYear(params) {
 
   a = JSONstat(url).Dataset(0);
 
-  if (a == undefined) {
-    setTimeout(() => {     
-      formDown()
+  // if (a == undefined) {
+  //   setTimeout(() => {     
+  //     formDown()
       
-      let match = $('#message').val().match(message);
+  //     let match = $('#message').val().match(message);
 
-      if(match) {
-        document.getElementById("formDown").submit();  
-        $("#formDown").remove();
-      } 
+  //     if(match) {
+  //       document.getElementById("formDown").submit();  
+  //       $("#formDown").remove();
+  //     } 
    
-    }, 100);
-  } else {
+  //   }, 100);
+  // } else {
     years = a.Dimension("time").id;
     geo = a.Dimension("geo").id;
     fuelList = REF.fuelList;  
@@ -129,7 +129,7 @@ function getYear(params) {
       REF.year = REF.year
     }
   }
-  }
+  // }
 }
 
 

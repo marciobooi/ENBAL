@@ -1,0 +1,39 @@
+
+
+#componentFooter {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#footer {
+  z-index: 1;
+  background-color: white;
+  margin-top: 0.5rem;
+}
+
+ul#footerCredits {
+  margin-right: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+hr {
+  height: 1.5vh;
+  width: 0.1vw;
+  border-width: 0;
+  background-color: var(--main-color);
+  margin: 0.6rem 0;
+  opacity: 1;
+}
+
+ul#footerCredits li a {
+  color: var(--main-color);
+  font-size: 0.8em;
+  padding: 0.3rem;
+}
+
+ul#footerCredits li a:hover {
+  font-weight: bold;
+}
+

@@ -1,0 +1,57 @@
+#menuToolbar {
+    background-color: #e9eaeb !important;
+}
+
+
+.text-group {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+#title, #subtitle {
+    font-size: .8em;
+    color: var(--main-color);
+    line-height: 10px;
+}
+
+ul.dropdown-menu {
+    max-width: 19rem;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+
+.flag {
+    max-width: 25px;
+    height: auto;
+}
+
+
+#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(1) > div > ul > div.d-flex.justify-content-evenly.py-2 {
+    background-color: var(--sub-nav-color) !important;
+}
+
+#btn-country-ok, #btn-country-cancel, #btn-country-reset {
+    min-width: 5vw;    
+}
+
+#btn-country-ok:hover {
+    border-color: var(--tool-1) ; 
+    color: var(--tool-1) ; 
+    background-color: white;
+}
+
+.btn-outline-secondary {
+    border-color: var(--tool-1);
+    color: var(--tool-1);
+}
+
+
+.invisible {
+    visibility: hidden !important;
+}
+

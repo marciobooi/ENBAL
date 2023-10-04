@@ -1,0 +1,677 @@
+/* Portrait */
+@media only screen 
+  and (min-device-width: 100px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+
+    #header-title-label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      margin-left: -18px;
+    }
+
+  #social-media {
+    display: none !important;
+  }
+
+  #lang-section {
+    display: flex;
+    justify-content: flex-end;
+    align-content: space-around;
+  }
+  select#lang-selection {
+    width: 2.5rem;
+    height: 3rem;
+    font-size: 0.6em;
+    background-color: transparent;
+    color: white;
+    border: none;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 0;
+  }
+
+  img#eurostatLogo {
+    height: 0.85rem;
+    width: 7rem;
+    object-fit: contain;
+    margin-right: -26px;
+  }
+
+  .social-media-section {
+    justify-content: flex-end;
+}
+
+#menuToolbar {
+  background-color: #e9eaeb !important;
+  padding: 0;
+}
+
+.subNavOne {
+  background-color: #0e47cb;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  width: 100vw;
+  position: relative;
+}
+
+.text-group {
+  padding: 0.5rem;
+  /* color: black !important; */
+}
+
+#title, #subtitle {
+  font-size: .8em;
+  color: black;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.btnGroup {
+  color: white;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+span.iconText {
+  font-size: .6em;
+}
+
+#menu {
+  margin-left: 0;
+}
+
+.chartMenuMobile {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100vw;
+  background-color: #f3f6fc;
+  height: 4rem;
+  z-index: 9;
+}
+
+#chartBtns {
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+ul.dropdown-menu.dropdown-menu-end.show {
+  position: fixed;
+  left: -1px;
+  top: 13rem;
+  border: none;
+}
+
+button.dropdown-item {
+  width: 100vw;
+}
+
+button.dropdown-item {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e3e3e4;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+button.dropdown-item:last-child {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 0px solid #e3e3e4;
+  box-shadow: rgb(0 0 0 / 29%) 0px 4px 6px -1px, rgb(0 0 0 / 2%) 0px 2px 4px -1px;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+
+#chartOptionsMenu {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  z-index: 9;
+  background-color: #f3f6fc;
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+  width: 100vw;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.close-button-container {
+  display: none;
+}
+
+.dropdown-grid {
+  padding: 0 0.6rem;
+}
+
+.dropdown-grid > .row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dropdownBtnGroup button:not(.min-with--geo) {
+  width: 90vw;
+  height: 2rem;
+}
+
+i.fas.fa-caret-down {
+  height: 2rem; 
+}
+
+.dropdown-menu {
+  width: 89vw !important;
+  min-width: 90vw;
+}
+
+#btn-country-ok, #btn-country-cancel, #btn-country-reset {
+  min-width: 17vw;
+}
+
+
+
+/* marcio end here */
+
+#chart {
+  height: 65vh !important;
+}
+
+#auxChartTitle {
+  padding: 0.5rem;
+}
+
+#auxChartTitle {
+  background-color: #e9eaeb !important;
+}
+
+.auxChartbtn{
+  padding: 1rem;
+}
+
+.menu {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100vw;
+  background-color: #f3f6fc;
+  height: 4rem;
+  z-index: 9;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+
+#page {
+  min-height: 80vh;
+}
+
+/* bootstrap overritsssss */
+.btn-check:checked + .btn, .btn.active, .btn.show, .btn:first-child:active, :not(.btn-check) + .btn:active {
+  background-color: #0a58ca7d !important;
+  border-color: #0a58ca7d !important;
+}
+
+button:focus, .input:focus {
+  box-shadow: none !important;
+}
+
+
+#componentFooter {
+  display: flex;
+  flex-direction: column-reverse;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+#menuSwitch {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#floatingMenu {
+  display: flex;
+  position: relative;
+  padding-left: 0;
+}
+
+li > button {
+  width: 2rem;
+  height: 2rem; 
+  font-size: 12px !important;
+}
+
+span.agregates.fa-stack.fa-rotate-180 {
+  font-size: .8em !important;
+}
+
+#menuSwitch label {
+  font-size: 0.67rem;
+}
+
+#footer {
+  margin-top: 0.8rem;
+}
+
+
+
+
+
+
+
+} /* end of portrait mobile */
+
+
+
+
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 850px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+
+
+    #header-title-label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      margin-left: -18px;
+    }
+
+  #social-media {
+    display: none !important;
+  }
+
+  #lang-section {
+    display: flex;
+    justify-content: flex-end;
+    align-content: space-around;
+  }
+  select#lang-selection {
+    width: 2.5rem;
+    height: 3rem;
+    font-size: 0.6em;
+    background-color: transparent;
+    color: white;
+    border: none;
+    white-space: normal;
+    word-wrap: break-word;
+    text-align: center;
+    padding: 0;
+  }
+
+  img#eurostatLogo {
+    height: 0.85rem;
+    width: 7rem;
+    object-fit: contain;
+    margin-right: 0px;
+  }
+
+  .social-media-section {
+    justify-content: flex-end;
+}
+
+
+#menuToolbar {
+  background-color: #e9eaeb !important;
+  padding: 0;
+}
+
+.subNavOne {
+  background-color: #0e47cb;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  width: 100vw;
+  position: relative;
+}
+
+.text-group {
+  padding: 0.5rem;
+  /* color: black !important; */
+}
+
+#title, #subtitle {
+  font-size: .8em;
+  color: black;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.btnGroup {
+  color: white;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+span.iconText {
+  font-size: .6em;
+}
+
+#menu {
+  margin-left: 0;
+}
+
+.chartMenuMobile {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100vw;
+  background-color: #f3f6fc;
+  height: 4rem;
+  z-index: 9;
+}
+
+#chartBtns {
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+ul.dropdown-menu.dropdown-menu-end.show {
+  position: fixed;
+  left: -1px;
+  top: 13rem;
+  border: none;
+}
+
+button.dropdown-item {
+  width: 100vw;
+}
+
+button.dropdown-item {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e3e3e4;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+button.dropdown-item:last-child {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 0px solid #e3e3e4;
+  box-shadow: rgb(0 0 0 / 29%) 0px 4px 6px -1px, rgb(0 0 0 / 2%) 0px 2px 4px -1px;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+
+#chartOptionsMenu {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  z-index: 9;
+  background-color: #f3f6fc;
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;
+  width: 100vw;
+  height: auto;
+  padding: 0.5rem;
+}
+
+.close-button-container {
+  display: none;
+}
+
+.dropdown-grid {
+  padding: 0 0.6rem;
+}
+
+.dropdown-grid > .row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.dropdownBtnGroup button:not(.min-with--geo) {
+  width: 90vw;
+  height: 2rem;
+}
+
+i.fas.fa-caret-down {
+  height: 2rem; 
+}
+
+.dropdown-menu {
+  width: 89vw !important;
+  min-width: 90vw;
+}
+
+#btn-country-ok, #btn-country-cancel, #btn-country-reset {
+  min-width: 17vw;
+}
+
+
+} /* end of landscape mobile */
+
+
+
+@media only screen and (max-width: 400px) {
+
+
+
+#menuToolbar {
+  background-color: #e9eaeb !important;
+  padding: 0;
+}
+
+.subNavOne {
+  background-color: #0e47cb;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  width: 100vw;
+  position: relative;
+}
+
+.text-group {
+  padding: 0.5rem;
+  /* color: black !important; */
+}
+
+#title, #subtitle {
+  font-size: .8em;
+  color: black;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.btnGroup {
+  color: white;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+span.iconText {
+  font-size: .6em;
+}
+
+#menu {
+  margin-left: 0;
+}
+
+.chartMenuMobile {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100vw;
+  background-color: #f3f6fc;
+  height: 4rem;
+  z-index: 9;
+}
+
+#chartBtns {
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+ul.dropdown-menu.dropdown-menu-end.show {
+  position: fixed;
+  left: -1px;
+  top: 13rem;
+  border: none;
+}
+
+button.dropdown-item {
+  width: 100vw;
+}
+
+button.dropdown-item {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e3e3e4;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+button.dropdown-item:last-child {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 0px solid #e3e3e4;
+  box-shadow: rgb(0 0 0 / 29%) 0px 4px 6px -1px, rgb(0 0 0 / 2%) 0px 2px 4px -1px;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+
+
+
+
+
+} /* end of reflow 400 */
+
+
+@media only screen and (max-width: 200px) {
+
+  div#navbar-container > div > div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+}
+
+#menuToolbar {
+  background-color: #e9eaeb !important;
+  padding: 0;
+}
+
+.subNavOne {
+  background-color: #0e47cb;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  height: 3rem;
+  width: 98vw;
+  position: relative;
+}
+
+.text-group {
+  padding: 0.5rem;
+  /* color: black !important; */
+}
+
+#title, #subtitle {
+  font-size: .8em;
+  color: black;
+  line-height: 1.2em;
+  margin-bottom: 0;
+}
+
+.btnGroup {
+  color: white;
+  border: none;
+  background-color: transparent;
+  position: relative;
+}
+
+span.iconText {
+  font-size: .6em;
+}
+
+#menu {
+  margin-left: 0;
+}
+
+#chart {
+  width: 97vw;
+  height: 73vh;
+  padding-top: 1rem;
+  position: absolute;
+  top: 21rem;
+  left: 0;
+}
+
+.chartMenuMobile {
+  position: absolute;
+  top: 3rem;
+  left: 0;
+  width: 100vw;
+  background-color: #f3f6fc;
+  height: 4rem;
+  z-index: 9;
+}
+
+#chartBtns {
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+ul.dropdown-menu.dropdown-menu-end.show {
+  position: fixed;
+  left: -1px;
+  top: 13rem;
+  border: none;
+}
+
+button.dropdown-item {
+  width: 100vw;
+}
+
+button.dropdown-item {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e3e3e4;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+button.dropdown-item:last-child {
+  width: 100vw;
+  background-color: #f9f9f9;
+  border-bottom: 0px solid #e3e3e4;
+  box-shadow: rgb(0 0 0 / 29%) 0px 4px 6px -1px, rgb(0 0 0 / 2%) 0px 2px 4px -1px;
+  color: #2e2e9d;
+  font-size: 1.1em;
+}
+
+
+
+
+
+
+
+} /* end of reflow 400 */

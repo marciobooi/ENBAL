@@ -1,0 +1,63 @@
+:root {
+    --main-color: #0026f7;
+    --bs-border-radius: 0.2rem;
+    --width-100: 100vw;
+    --nav-color: #0E47CB;
+    --sub-nav-color: #F3F3F3;
+    --tool-1: #0A328E;
+    --tool-2: #3E6CD5;
+    --tool-3: #8AA7E8;
+    --btn-color: #0E47CB;
+    --hover-color: #3E6CD5;
+}
+
+/* Modern CSS Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+html {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+#page {
+  min-height: 85vh;
+}
+
+#chart {
+  width: 97vw;
+  height: 73vh;
+  padding-top: 1rem;
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate3d(25, -10.5, 6, 127deg);
+  transform: rotate3d(25.5, -10.5, 6, 127deg);
+}
+
+@media screen {
+  .highcharts-title {
+    display: none;
+  }
+}
+
+@media print {
+  .highcharts-title {
+    display: block;
+  }
+}
+
+.modal-body > p {
+  word-break: break-all;
+  font-size: .8em;
+}

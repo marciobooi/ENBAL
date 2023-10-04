@@ -1,0 +1,79 @@
+
+.navbar-top {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.5rem;
+    background: rgb(8, 43, 122);
+    background: linear-gradient(90deg, rgba(8, 43, 122, 1) 61%, rgba(14, 71, 203, 1) 88%);
+    color: white;
+}
+
+.nav-tabs .nav-link:focus,
+.nav-tabs .nav-link:hover {
+    color: white;
+    background-color: var(--nav-color);
+}
+
+#header-title-label {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+select#lang-selection {
+    width: 7.5rem;
+    height: 2rem;
+    font-size: 0.8em;
+}
+
+.langSelect {
+    color: var(--main-color);
+}
+
+img#eurostatLogo {
+    height: 1.5rem;
+}
+
+option:disabled {
+    color: var(--bs-gray-500);
+    background-color: var(--sub-nav-color);
+}
+
+select:focus option:focus {
+    outline: none;
+    background-color: #eaf2ff;
+}
+
+.globan-invalid-domain {
+    display: none !important;
+}
+
+.social-media-section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+img#eurostatLogo {
+    height: 1.75rem;
+}
+
+.social-media-icon {
+    background-color: transparent;
+    border: transparent;
+    padding-right:.8em;
+}
+
+.social-media-icon:hover {
+    transform: scale(1.2);
+}
+
+

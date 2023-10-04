@@ -1,0 +1,166 @@
+#chartOptionsMenu {
+  position: absolute;
+  top: 4rem;
+  left: 2.7rem;
+  z-index: 999999999;
+  background-color: #f3f6fc;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  width: 95vw;
+  height: 18vh;
+  padding: 0.5rem;
+}
+
+#chartOptionsMenu:focus {
+  border: 1px solid transparent;
+}
+#chartOptionsMenu:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}
+.dropdownBtnGroup > label:not(.min-with--geo) {
+  font-size: 0.6em;
+  margin-left: 0.6rem;
+  line-height: 0.5rem;
+  color: #656872;
+}
+
+.dropdownBtnGroup button:not(.min-with--geo) {
+  background-color: white;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 0px;
+  width: 19rem;
+  height: 1.8rem;
+  border: 1px solid gray;
+  /* box-shadow: rgba(41, 41, 41, 0.31) 1px 2px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset; */
+}
+
+button#selectCountry {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.dropdownBtnGroup .btn:focus-visible:not(.min-with--geo),
+.dropdownBtnGroup .btn.active:not(.min-with--geo),
+:not(.btn-check) + .btn:active:not(.min-with--geo),
+.dropdownBtnGroup .btn:hover:not(.min-with--geo),
+.dropdownBtnGroup .show:not(.min-with--geo) {
+  color: black !important;
+  background-color: white !important;
+  border: 1px solid gray !important;
+}
+
+i.fas.fa-caret-down {
+  display: flex;
+  background-color: var(--tool-2);
+  width: 2rem;
+  height: 1.8rem;
+  border-top-right-radius: 0.235rem;
+  border-bottom-right-radius: 0.235rem;
+  color: white;
+  font-size: 1.5em;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 25px;
+}
+
+#selectCountry > i {
+  position: absolute;
+  right: 0;
+}
+
+.dropdown-toggle {
+  padding-left: 0.5rem;
+  color: black;
+  font-size: 0.7em;
+  height: 2rem;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
+
+.dropdown-item {
+  font-size: 0.75em;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover, 
+.dropdown-item:focus-visible {
+  color: black;
+  background-color: var(--tool-3);
+  outline: -webkit-focus-ring-color auto 0px;
+}
+
+a.dropdown-item.selected {
+  color: black;
+  background-color: var(--tool-3);
+}
+
+.menuOpen {
+  background-color: #f3f6fc;
+}
+
+.toggleMenu {
+  display: none !important;
+}
+
+.close-chart-menu-btn {
+  display: flex;
+  border: none;
+  font-size: 31px;
+  color: #000;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background-color: transparent;
+  border-color: var(--bs-btn-active-border-color);
+  width: 2rem;
+  height: 2rem;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.fa-times:before {
+  content: "\f00d";
+  -webkit-text-stroke: 2.5px #f3f6fc;
+}
+
+.close-chart-menu-btn:focus {
+  outline: none;
+}
+
+.close-chart-menu-btn:hover, .btn:first-child:active {
+  color: #000;
+  background-color: transparent;
+  border-color: var(--bs-btn-hover-border-color);
+}
+
+.close-chart-menu-btn span {
+  display: inline-block;
+  width: 30px;
+}
+
+.close-chart-menu-btn:hover span {
+  background-color: #aaa;
+  color: #fff;
+}
+
+.close-chart-menu-btn:focus span {
+  background-color: #aaa;
+  color: #fff;
+}
+
+
+.traped_focus:focus {
+  box-shadow: var(--bs-btn-focus-box-shadow);
+}
+
+
+
