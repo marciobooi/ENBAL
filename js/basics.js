@@ -507,32 +507,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
-function loadToolTip(params) { 
-  
-  [...document.querySelectorAll('*')].forEach(node => {
-    if (node._tippy) {
-      node._tippy.destroy();
-    }
-  });
-    setTimeout(function () {  
-    tippy("[data-tippy-content]", {
-      arrow: true,
-      placement: "top", // top, right, bottom, left
-      delay: 5,
-      distance: 15,
-      maxWidth: 300,
-      allowHTML: true,
-      theme: "light-border",
-      ignoreAttributes: true,
-      dynamicTitle: true,
-      content(reference) {
-        const title = reference.getAttribute("data-tippy-content");
-        reference.removeAttribute("data-tippy-content");
-        return title;
-      },
-    });
-  }, 200);
-}
+
 
 
 function chartMenuLanguages() {
@@ -615,5 +590,35 @@ function chartMenuLanguages() {
 
 function printTable() {
   window.open('data:application/vnd.ms-excel,' + encodeURIComponent($('.highcharts-data-table').html()));
+}
+
+
+function agregateIcon() {
+  const iconHTML = `
+  <span class="agregates fa-stack fa-rotate-180" style=" position: absolute; top: 8px;">
+    <i class="fa fa-square fa-stack-1x" style="top: .0em; left: .0em; color: white;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .2em; left: .2em; color: #0a328e;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .2em; left: .2em; color: transparent;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .3em; left: .3em; color: white;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .5em; left: .5em; color: #0a328e;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .5em; left: .5em; color: transparent;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .6em; left: .6em; color: white;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .8em; left: .8em; color: #0a328e;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .8em; left: .8em; color: transparent;"></i>
+    <i class="fa fa-square fa-stack-1x" style="top: .9em; left: .9em; color: white;"></i>
+  </span>
+`;
+return iconHTML;
+}
+
+function nonagregateIcon() {
+  const iconHTML = `
+      <span class="nonAgregates fa-stack fa-rotate-180" style="position: absolute;top: 4px;">
+        <i class="fa fa-square fa-stack-1x" style="top: .0em;left: .0em;color: white;"></i>
+        <i class="fa fa-square fa-stack-1x" style="top: .2em;left: .2em;color: #0a328e;"></i>
+        <i class="fa fa-square fa-stack-1x" style="top: .2em;left: .2em;color: transparent;"></i>
+        <i class="fa fa-square fa-stack-1x" style="top: .3em;left: .3em;color: white;"></i>
+      </span>`;
+return iconHTML;
 }
 

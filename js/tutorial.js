@@ -1,102 +1,184 @@
-var buttonTimer
+let buttonTimer;
+let currentStep;
+let isOpen = false
 
-function tutorial() {
+
+function tutorial(buttonTimer) {
 
 	closeTutorial()
 
-	if(isMobile) {
-		elementName = document.querySelector(".nothing")
-	} else {
-		elementName = document.querySelectorAll(".icoContainer")[0]
-	}
+	const introProfile = introJs();
 
-	introJs().setOptions({
-		showProgress: true,
-		scrollToElement: true,
-		nextLabel: languageNameSpace.labels['next'], 
-		prevLabel: languageNameSpace.labels['back'], 
-		doneLabel: languageNameSpace.labels['close'], 
-		tooltipClass: 'customTooltip',
-		steps: [
+	itens = [
 		{
-			title: languageNameSpace.tutorial["START_TOUR_TITLE"],
-			intro: languageNameSpace.tutorial["START_TOUR_TEXT"],
+			element: document.querySelector("#find-more-menu-icon"),
+			title: languageNameSpace.tutorial["TUTO_1"],
+			intro: languageNameSpace.tutorial["TUTO_2"],
+			position: 'auto'
 		},
-		{
-		  element: document.querySelectorAll(".select-box")[0],
-		  title: languageNameSpace.tutorial["STEP1_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP1_TEXT"],
-		  position: 'bottom'
+		{			
+		  element: document.querySelector("rect.highcharts-point.highcharts-color-0:nth-child(2)"),
+		  title: languageNameSpace.tutorial["TUTO_3"],
+		  intro: languageNameSpace.tutorial["TUTO_4"],
+		  position: 'auto'
 		},
 		{
-		  element: document.querySelectorAll(".select-box")[1],
-		  title: languageNameSpace.tutorial["STEP2_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP2_TEXT"],
-		  position: 'bottom'
+		  element: document.querySelector("#menu"),
+		  title: languageNameSpace.tutorial["TUTO_5"],
+		  intro: languageNameSpace.tutorial["TUTO_6"],
+		  position: 'auto'
 		},
 		{
-		  element: document.querySelectorAll(".select-box")[2],
-		  title: languageNameSpace.tutorial["STEP3_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP3_TEXT"],
-		  position: 'bottom'
+		  element: document.querySelector("#tb-togle-table"),
+		  title: languageNameSpace.tutorial["TUTO_7"],
+		  intro: languageNameSpace.tutorial["TUTO_8"],
+		  position: 'auto'
+		},
+		{
+		  element: document.querySelector("#tb-togle-order"),
+		  title: languageNameSpace.tutorial["TUTO_9"],
+		  intro: languageNameSpace.tutorial["TUTO_10"],
+		  position: 'auto'
+		},
+		{
+		  element: document.querySelector("#toggleAgregates"),
+		  title: languageNameSpace.tutorial["TUTO_11"],
+		  intro: languageNameSpace.tutorial["TUTO_12"],
+		  position: 'auto'
 		},
 		{			
-		  element: document.querySelector("#ENTable_wrapper > div.dt-buttons"),
-		  title: languageNameSpace.tutorial["STEP4_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP4_TEXT"],
-		  position: 'bottom-middle-aligned',
+		  element: document.querySelector("#infoBtn"),
+		  title: languageNameSpace.tutorial["TUTO_13"],
+		  intro: languageNameSpace.tutorial["TUTO_14"],
+		  position: 'auto'
 		},
 		{			
-		  element: document.querySelectorAll("th")[2],
-		  title: languageNameSpace.tutorial["STEP5_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP5_TEXT"],
-		  position: 'bottom'
+		  element: document.querySelector("#downloadBtn"),
+		  title: languageNameSpace.tutorial["TUTO_15"],
+		  intro: languageNameSpace.tutorial["TUTO_16"],
+		  position: 'auto'
 		},
 		{			
-		  element: document.querySelectorAll(".expand > i.fal.fa-plus-circle")[0],
-		  title: languageNameSpace.tutorial["STEP6_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP6_TEXT"],
-		  position: 'bottom'
+		  element:document.querySelector("#embebedBtn"),
+		  title: languageNameSpace.tutorial["TUTO_17"],
+		  intro: languageNameSpace.tutorial["TUTO_18"],
+		  position: 'auto'
 		},
 		{			
-		  element: elementName,
-		  title: languageNameSpace.tutorial["STEP7_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP7_TEXT"],
-		  position: 'left'
-		},
-		// {			
-		//   element: document.querySelector("#page > div.container.mt-5.mb-5 > div.d-flex.justify-content-center > div > div > div > div.swiper-wrapper > div.swiper-slide.swiper-slide-active > div"),
-		//   title: languageNameSpace.tutorial["STEP8_TITLE"],
-		//   intro: languageNameSpace.tutorial["STEP8_TEXT"],
-		//   position: 'left'
-		// },
-		{			
-		  element: document.querySelector(".tutorial"),
-		  title: languageNameSpace.tutorial["STEP9_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP9_TEXT"],
-		  position: 'left'
+		  element: document.querySelector("#lang-selection"),
+		  title: languageNameSpace.tutorial["TUTO_19"],
+		  intro: languageNameSpace.tutorial["TUTO_20"],
+		  position: 'auto'
 		},
 		{			
 		  element: document.querySelector("#social-media"),
-		  title: languageNameSpace.tutorial["STEP10_TITLE"],
-		  intro: languageNameSpace.tutorial["STEP10_TEXT"],
-		  position: 'left'
+		  title: languageNameSpace.tutorial["TUTO_21"],
+		  intro: languageNameSpace.tutorial["TUTO_22"],
+		  position: 'auto'
 		},
-		{
-			element: document.querySelector('.card__image'),
-			title: languageNameSpace.tutorial["END_TOUR_TITLE"],			
-			intro: languageNameSpace.tutorial["END_TOUR_TEXT"],			
-		  }
 		]
-	  }).start();	  	  
+
+	introProfile.setOptions({
+		showProgress: false,
+		scrollToElement: false,
+		showBullets: false,
+		autoPosition:false,
+		tooltipClass: "customTooltip",
+		exitOnEsc: true,
+		nextLabel:  languageNameSpace.labels['tutNEXT'],
+		prevLabel: languageNameSpace.labels['tutBACK'],
+		doneLabel: languageNameSpace.labels['tutFINISH'],
+		steps: itens
+	  });  	 
+	  
+	  introProfile.onexit(function () { window.scrollTo(0, 0) });
+
+	  introProfile.start();
+  
+	  isOpen = true
+
+	  introProfile.onchange(function () {
+
+		currentStep = this._currentStep
+
+		if (currentStep === 0) {
+			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = languageNameSpace.labels['tutFINISH']
+			setTimeout(() => {
+				$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton.introjs-disabled").addClass( "close" )
+			}, 100);
+		} else {
+			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = languageNameSpace.labels['tutBACK']
+			$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").removeClass( "close" )
+
+			$(".introjs-tooltip.customTooltip.introjs-auto").css({
+				"left": "50% !important",
+				"top": "50%",
+				"margin-left": "auto",
+				"margin-top": "auto",
+				"transform": "translate(-50%,-50%)"
+			})
+	}
+
+			});
+
+	$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltip-header > a").attr({
+		"alt": "Close",
+		"id": "tutorialClose",
+		"tabindex": "0",
+		"href": "javascript:",
+		"class": "btn btn-primary min-with--nav"
+	});
+
+	document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = languageNameSpace.labels['tutFINISH']
+	$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").addClass( "close " )
+
 
 }
 
 function closeTutorial() {
 	buttonTimer = setTimeout("introJs().exit()", 4000);	
+	isOpen = false
 }
 
 btn = document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-nextbutton")
 $(document).on('click', btn, function() {
 	clearTimeout(buttonTimer)	
 });
+
+function closeProcess(params) {
+	event.preventDefault();
+	introJs().exit()
+	buttonTimer = setTimeout("introJs().exit()", 4000);
+	clearTimeout(buttonTimer);
+	document.querySelector("#tb-tutorial-btn");
+	// const button = document.getElementById('tb-tutorial-btn');
+	// button.focus();
+	isOpen = false
+}
+
+$(document).on("click keydown", "#tutorialClose", function(event) {
+	const isClickEvent = event.type === "click";
+	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
+	if (isClickEvent || isKeyEvent) {
+		closeProcess();
+	}
+  });
+
+
+$(document).on("click keydown", ".close", function(event) {
+	const isClickEvent = event.type === "click";
+	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
+	if (isClickEvent || isKeyEvent) {
+		closeProcess();
+	}
+});
+
+  document.addEventListener('keydown', function(event) {
+	if (event.key === 'Escape') {
+		if(isOpen){
+			closeProcess()
+		} 
+	}
+  });
+
+

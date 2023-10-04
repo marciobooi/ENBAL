@@ -163,7 +163,7 @@ function drawTable() {
             $("#links").append(linksContent);
           }
         
-          loadToolTip()  
+         
 
         },
 

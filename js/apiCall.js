@@ -60,7 +60,6 @@ function apiCall(balances) {
 
   return new Promise((resolve) => {
     for (i = 0; i < url.length; i++) {
-      console.log(url[i]);
       JSONstat(url[i], function () {
         fetches++;
         fetchUrl(this.Dataset(0));

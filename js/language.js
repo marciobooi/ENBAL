@@ -111,7 +111,7 @@ var languageNameSpace = {
     //set labels for the selected language
     $(document).ready(function () { 
 
-      loadToolTip()    
+   
 
       $("#menu-product-title").text(languageNameSpace.labels["MENU_FUEL"]);
       $("#menu-consumer-title").text(languageNameSpace.labels["MENU_CONSUMER"]);
