@@ -1,0 +1,47 @@
+body
+  > div.introjs-tooltipReferenceLayer
+  > div
+  > div.introjs-tooltipbuttons
+  > a.introjs-button.introjs-prevbutton.introjs-disabled {
+  display: none;
+}
+
+.introjs-tooltip {
+  min-width: 390px;
+  max-width: 500px;
+  border-radius: 1px;
+}
+.introjs-tooltipReferenceLayer * {
+  font-family: var(--font-family-main);
+}
+
+.introjs-skipbutton {
+  font-size: 30px;
+}
+.introjs-tooltip-title {
+  font-size: 1.3em;
+  padding: 7px 10px;
+}
+
+.introjs-helperLayer {
+  border: 0px solid red;
+  border-radius: 0;
+  box-shadow: rgba(33, 33, 33, 0.18) 0px 0px 0px 0px,
+    rgba(33, 33, 33, 0.42) 0px 0px 0px 5000px !important;
+  background-color: #ffffffb8;
+}
+
+.introjs-progressbar {
+  background-color: #32afaf;
+}
+.introjs-bullets ul li a.active {
+  background-color: #32afaf;
+}
+  @media (min-width: 481px) and (max-width: 840px) {
+
+    .introjs-tooltipReferenceLayer * {
+      font-size:10px;
+  }
+
+
+  }

@@ -1,0 +1,77 @@
+
+#infoModalContent {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 0px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.3rem;
+    outline: 0;
+  }
+
+.card {
+  border-radius: 0rem;
+}
+
+.card-body {
+    max-height: 500px;
+    overflow: auto;
+    max-width: 97%;
+}
+
+
+.card-img,
+.card-img-top {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  object-fit: cover;
+  max-height:300px;  
+}
+
+#infoCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border: 0px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding-top: .6em;
+    padding-bottom: .6em;
+}
+
+
+#infoCard > div > p {
+    font-size: .8em;   
+    color: #212121;
+}
+
+.card-footer {
+  padding: 1rem 1rem;
+  background-color: initial;
+  border-top: 0px solid rgba(0, 0, 0, 0.125);
+}
+
+a.Metadata,
+a.Dataset {
+    font-size: 1em;
+    color: grey;
+    border: none;
+    font-weight: 900;
+    border-radius: 0;
+    border: 1px solid grey;
+    margin: 2px;
+}
+
+
+a.Metadata:hover,
+a.Dataset:hover {
+  color: white;
+  background-color: grey;
+}

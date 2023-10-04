@@ -1,0 +1,1387 @@
+{  
+  "NRGSUP":{
+      "img":"img/d1.jpg",
+      "title":"Total energy supply",
+      "text":"<b>Definition: </b>This aggregate reflects on the recommendations in IRES for calculation of key aggregates of energy balances. This is an aggregate with the following arithmetic definition: <br><ul><li>+ Primary production</li><li>+ Recovered & Recycled products</li><li>+ Imports</li><li>– Export</li><li>+ Stock changes</li><li>– International maritime bunkers</li><li>– International aviation</li>      </ul><br>For total of all products, the Total energy supply is one of the most important aggregate of energy balance and represents the quantity of energy necessary to satisfy inland consumption (inland fuel deliveries) of the geographical entity under consideration.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },  
+    "IMP":{
+      "img":"img/d2.jpg",
+      "title":"Imports",
+      "text":"<b>Definition:</b> Imports represent all entries into the national territory excluding transit quantities. However, if electricity is transited through a country, the amount is reported as both an import and an export. Data reflect amounts having crossed the national territorial boundaries, whether customs clearance has taken place or not. .",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },  
+    "EXP":{
+      "img":"img/d5.jpg",
+      "title":"Exports",
+      "text":"<b>Definition:</b> Exports represent all exits from the national territory excluding transit quantities. However, if electricity is transited through a country, the amount is reported as both an import and an export. Data reflect amounts having crossed the national territorial boundaries, whether customs clearance has taken place or not. Quantities of crude oil and products exported under processing agreements (i.e. refining on account) are included. Petroleum products exported directly by the petrochemical industry should be included.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "GAE":{
+      "img":"img/d6.jpg",
+      "title":"Gross available energy",
+      "text":"<b>Definition:</b>This aggregate is calculated with the following arithmetic definition: <br><ul><li>+ Primary production</li><li>+ Recovered & Recycled products</li><li>+ Imports</li><li>– Export</li><li>+ Stock changes</li></ul><br>For total of all products, the Gross available energy is one of the most important aggregate of energybalance and represents the quantity of energy necessary to satisfy all energy demand of entitiesoperating under the authorities of the geographical entity under consideration.<br>Its interpretation for individual products is different. For secondary products, which are produced astransformation output and not as primary productions, the Gross available energy can be negative.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "PPRD":{
+      "img":"img/d3.jpg",
+      "title":"Primary production",
+      "text":"<b>Definition:</b> Primary production represents any kind of extraction of energy products from natural sources. It takes place when the natural sources are exploited, for example extraction of lignite in coal mines or extraction of crude oil. It also includes electricity and heat according to the choice of the primary energy form (electricity generation using hydro, wind and solar PV). <br>Transformation of energy from one form to another, such as electricity or heat generation in power plants using natural gas or coke oven coke production in coke ovens is included in the transformation output (middle block of the energy balance) and not on the primary production. Therefore primary production for all secondary fuels is zero.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+  
+  "RCV_RCY":{
+      "img":"img/d4.jpg",
+      "title":"Recovered and recycled products",
+      "text":"<b>Definition:</b> For coal this includes recovered slurries, middlings and other low-grade coal products, which cannot be classified according to type of coal. This includes coal recovered from waste piles and other waste receptacles. <br>For petroleum products, these are finished (petroleum) products which pass a second time through the marketing network, after having been once delivered to final consumers (for example used lubricants which are reprocessed).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },     
+    "INTAVI":{
+      "img":"img/d7.jpg",
+      "title":"International aviation",
+      "text":"<b>Definition:</b> Quantities of fuels delivered to aircrafts for international aviation. The domestic/international split is determined on the basis of departure and landing locations and not by the nationality of the airline. Excludes fuels used by airlines for their road vehicles (see Not elsewhere specified (Transport)) and military use of aviation fuels (see Not elsewhere specified (Other)).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "GIC":{
+      "img":"img/d7.jpg",
+      "title":"Gross inland consumption",
+      "text":"<b>Definition:</b> This aggregate is calculated to ensure continuity and transition from the old Eurostat energy balance into the new Eurostat energy balance. This is an aggregate with the following arithmetic definition:    <br> <ul> <li>+ Gross available energy</li> <li>– International maritime bunkers</li> </ul> <br>  Its interpretation for individual products is different. For secondary products, which are produced as transformation output and not as primary productions, the Gross inland consumption can be negative.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "INTMARB":{
+      "img":"img/d7.jpg",
+      "title":"International maritime bunkers",
+      "text":"<b>Definition:</b> Quantities of fuels delivered to ships of all flags that are engaged in international navigation. The international navigation may take place at sea, on inland lakes and waterways, and in coastal waters. Excluded are: <br> <ul> <li>consumption by ships engaged in domestic navigation. The domestic/international split should be determined on the basis of port of departure and port of arrival, and not by the flag or nationality of the ship,</li> <li>consumption by fishing vessels,</li> <li>consumption by military forces,</li> <li>aviation bunkers.</li> </ul> <br>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "STK_CHG":{
+      "img":"img/d7.jpg",
+      "title":"Change in stock",
+      "text":"The difference between the opening stock level and closing stock level for stocks held on national territory. Stock changes do not refer to reserves (proven or probable) of not yet extracted products, such as underground deposits of crude oil, natural gas and coal. <br>Positive value for stock changes means stock draw (fuel put in stocks in previous years was used during the reference year). Negative value for stock changes means stock build (fuel was put in stocks during the reference year and can be used in future). <br>For natural gas, variations of stocks represent also the quantities of gas introduced into and removed from the transportation systems. For natural gas it refers to recoverable natural gas stored in special storage facilities (depleted gas and/or oil field, aquifer, salt cavity, mixed caverns, or other) as well as liquefied natural gas storage. Cushion gas should be excluded. <br>For non-blended liquid biofuels, stock changes may include stock changes of liquid biofuels destined to be blended.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_E":{
+      "img":"img/d8.jpg",
+      "title":"Transformation input - energy use",
+      "text":"<b>Definition:</b> The transformation of energy is generally executed by energy industries. However, many entities that are not a part of energy industries are also involved in the transformation and production of energy products. This is to satisfy their own needs or to deliver (sell) these products to third parties. Consequently this transformation of energy products is recorded in the energy balances in the middle block (transformation input and transformation output). The most typical example is companies producing their own electricity and or heat (so called autoproducers). Another example is blast furnaces because its by-product, blast furnace gas and other types of recovered gases, are often captured and used as energy product. <br> Transformation input covers all inputs into the transformation plants destined to be converted into derived products. Transformation is only recorded when the energy products are physically or chemically modified to produce other energy products, electricity and/or heat. Quantities of fuels used for heating, operation of equipment and in general in support of the transformation are not included (see Energy sector). <br> The Transformation input and Transformation output includes real energy product transformations as well as virtual product transformations with pre-defined efficiencies. These virtual transformations cover the following aspects: <br> <ul> <li>blending of various products into each other (100% efficiency)</li> <li>methodological transformations of electricity produced from non-combustible renewables such as hydro and wind (100% efficiency)</li> <li>methodological transformations of electricity produced from nuclear heat, solar thermal and geothermal (efficiency depending on data availability – see chapter 4 )</li> <li>interproduct transfers, backflows and exchanges between petroleum refineries and petrochemical industries (100% conversion rati</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_BNG_E":{
+      "img":"img/d1.jpg",
+      "title":"Transformation input - for blended natural gas - energy use",
+      "text":"<b>Definition:</b> Quantities of gases blended with natural gas into the gas grid (gas network).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_CPP_E":{
+      "img":"img/d12.jpg",
+      "title":"Transformation input - charcoal production plants - energy use",
+      "text":"<b>Definition:</b> Quantities of solid biofuels converted to charcoal.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_GTL_E":{
+      "img":"img/d1.jpg",
+      "title":"Transformation input - Gas-to-liquids plants - energy use",
+      "text":"<b>Definition:</b> Quantities of gaseous fuels converted to liquid fuels.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "TI_LBB_E":{
+      "img":"img/d3.jpg",
+      "title":"Transformation input - liquid biofuels blended - energy use",
+      "text":"<b>Definition:</b> Quantities of liquid biofuels blended with their fossil counterparts.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_NSP_E":{
+      "img":"img/d13.jpg",
+      "title":"Transformation input - not elsewhere specified - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used for transformation activities not included elsewhere.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_BKBPB_E":{
+      "img":"img/d6.jpg",
+      "title":"Transformation input - brown coal briquettes and peat briquettes plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce brown coal briquettes (BKB) in BKB plants and quantities of fuels used in peat briquettes plants to produce peat briquettes (PB).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_CL_E":{
+      "img":"img/d2.jpg",
+      "title":"Transformation input - coal liquefaction plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuel used to produce synthetic oil",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_PF_E":{
+      "img":"img/d14.jpg",
+      "title":"Transformation input - patent fuel plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used in patent fuel plants to produce patent fuel.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_RPI_E":{
+      "img":"img/d15.jpg",
+      "title":"Transformation input - refineries and petrochemical industry - energy use",
+      "text":"<b>Definition:</b> In energy balance, this is an aggregate with the following arithmetic definition:  <br> <ul> <li>+ Refinery intake</li> <li>+ Backflows from petrochemical industry</li> <li>+ Products transferred</li> <li>+ Interproduct transfers</li> <li>+ Direct use</li> <li>+ Petrochemical industry intake</li></ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_RPI_PII_E":{
+      "img":"img/d5.jpg",
+      "title":"Transformation input - refineries and petrochemical industry - petrochemical industry intake - energy use",
+      "text":"<b>Definition:</b> Returns from petrochemical industry cover finished or semi-finished products, which are returned from final consumers to refineries for processing, blending or sale. They are usually by-products of petrochemical manufacturing processes. Transfers from one refinery to another within the country are excluded.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_RPI_DU_E":{
+      "img":"img/d6.jpg",
+      "title":"Transformation input - refineries and petrochemical industry - direct use - energy use",
+      "text":"<b>Definition:</b> Crude oil, Natural gas liquids, Additives/Oxygenates and Other hydrocarbons which are used directly without being processed in petroleum refineries are reported as Direct use. These products disappear from their availability for further use in for Refineries & Petrochemical industry and appear as available products for the rest of the economy under Primary product receipts. The sum of reported Direct use in tons should equal to Primary product receipts in tons",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_RPI_RI_E":{
+      "img":"img/d7.jpg",
+      "title":"Transformation input - refineries and petrochemical industry - refinery intake - energy use",
+      "text":"<b>Definition:</b> This is defined as the total observed amount of Crude oil, Natural gas liquids, Additives/Oxygenates and Other hydrocarbons that have entered the refinery process.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_RPI_PT_E":{
+      "img":"img/d8.jpg",
+      "title":"Transformation input - refineries and petrochemical industry - products transferred - energy use",
+      "text":"<b>Definition:</b> Products transferred are energy products, e.g. in the case of oil, products which are reclassified as refinery feedstock for further processing in the refinery, without delivery to final consumers. For example, Naphtha imported for upgrading would be first reported as imports of Naphtha and then as Products transferred. Transformation input represents the products that disappear from their availability for further use in the economy and appears in the Transformation output as Refinery feedstocks.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_RPI_IT_E":{
+      "img":"img/d9.jpg",
+      "title":"Transformation input - refineries and petrochemical industry - interproduct transfers - energy use",
+      "text":"<b>Definition:</b> Interproduct transfers result from reclassification of products either because their specification has changed or because they are blended with another product. For example, quantities of kerosene may be reclassified as gasoil after blending with the latter in order to meet its winter diesel specification. In the annual questionnaire this operation would produce negative “Interproduct transfers” for kerosene and positive for gasoil. The sum of reported Interproduct transfers in tons should equal to zero. As Transformation input the reported “Interproduct transfers” with negative sign are shown, but with positive sign. This represents the products that disappear from their availability for further use.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_RPI_BPI_E":{
+      "img":"img/d9.jpg",
+      "title":"Transformation input - refineries and petrochemical industry - backflows from petrochemical industry - energy use",
+      "text":"<b>Definition:</b> This flow represents the backflows from the petrochemical industry to refineries. These are finished or semi–finished products which are returned from petrochemical industry to refineries for processing, blending or sale. They are usually by–products of petrochemical manufacturing. For integrated petrochemical industries this flow can be estimated. Transfers from one refinery to another within the country should be excluded. Transformation input represents the products that disappear from their availability for further use in the economy and Transformation output represents Refinery feedstocks that appears for further use. In tons the sum of reported backflows of individual products has to be equal to the Refinery feedstocks.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_BF_E":{
+      "img":"img/d9.jpg",
+      "title":"Transformation input - blast furnaces - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels entering the blast furnace vessel, whether through the top along with the iron ore, or through the tuyeres in the bottom along with the heated blast air.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_CO_E":{
+      "img":"img/d10.jpg",
+      "title":"Transformation input - coke ovens - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used in coke ovens to produce coke oven coke and coke oven gas.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_E":{
+      "img":"img/d11.jpg",
+      "title":"Transformation input - electricity & heat generation - energy use",
+      "text":"<b>Definition:</b> In energy balance, this is an aggregate with the following arithmetic definition: <br><ul> <li>+ Main activity producer electricity only</li> <li>+ Main activity producer CHP</li> <li>+ Main activity producer heat only</li> <li>+ Autoproducer electricity only</li> <li>+ Autoproducer CHP</li> <li>+ Autoproducer heat only</li> <li>+ Electrically driven heat pumps</li> <li>+ Electric boilers</li> <li>+ Electricity for pumped storage</li> <li>+ Derived heat for electricity production</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_EDHP":{
+      "img":"img/d1.jpg",
+      "title":"Transformation input - electricity and heat generation - electrically driven heat pumps",
+      "text":"<b>Definition:</b> The electricity used in heat pumps corresponding to the Derived heat in Transformation output.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_EB":{
+      "img":"img/d2.jpg",
+      "title":"Transformation input - electricity and heat generation - electric boilers",
+      "text":"<b>Definition:</b> The electricity used in electric boilers corresponding to the Derived heat in Transformation output.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_APH_E":{
+      "img":"img/d3.jpg",
+      "title":"Transformation input - electricity and heat generation - autoproducer heat only - energy use",
+      "text":"<b>Definition:</b> The proportional part of fuels that corresponds to the quantity of heat sold in heat only units/plants by autoproducers. The proportional part of fuels used to produce heat that was  Flows (rows of the energy balance) 6 Energy balance guide 23 not sold (auto-consumed heat) is included in the specific sector of final energy consumption based on NACE classification. Heat not sold but delivered to other entities under nonfinancial agreements or entities with different ownership is reported on the same principle as heat sold.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_APCHP_E":{
+      "img":"img/d4.jpg",
+      "title":"Transformation input - electricity and heat generation - autoproducer combined heat and power - energy use",
+      "text":"<b>Definition:</b> misses info",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_MAPH_E":{
+      "img":"img/d5.jpg",
+      "title":"Transformation input - electricity and heat generation - main activity producer heat only - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce heat in heat only units/plants by main activity producers.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_MAPE_E":{
+      "img":"img/d6.jpg",
+      "title":"Transformation input - electricity and heat generation - main activity producer electricity only - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce electricity in electricity only units/plants by main activity producers",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_MAPCHP_E":{
+      "img":"img/d7.jpg",
+      "title":"Transformation input - electricity and heat generation - main activity producer combined heat and power - energy use",
+      "text":"<b>Definition:</b> misses info",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_APE_E":{
+      "img":"img/d8.jpg",
+      "title":"Transformation input - electricity and heat generation - autoproducer electricity only - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce electricity in electricity only units/plants by autoproducers.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_EPS":{
+      "img":"img/d9.jpg",
+      "title":"Transformation input - electricity and heat generation - electricity for pumped storage",
+      "text":"<b>Definition:</b> The electricity consumed by pumping the water uphill in hydro-electric pumped storage power plants and mixed plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_EHG_DHEP":{
+      "img":"img/d10.jpg",
+      "title":"Transformation input - electricity and heat generation - derived heat for electricity production",
+      "text":"<b>Definition:</b> Purchased derived heat consumed as input to electricity generation. It includes also heat from chemical processes (primary energy form of heat and not waste heat of energy processes) used for electricity generation. ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TI_GW_E":{
+      "img":"img/d12.jpg",
+      "title":"Transformation input - gas works - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce gas work gas in gas works and in coal gasification plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO":{
+      "img":"img/d4.jpg",
+      "title":"Transformation output",
+      "text":" b>Definition:</b> Transformation output is the result of the transformation process of energy products. This output covers production of derived products (secondary products, by-products and co-products). Transformation output refers always to gross production of derived products, i.e. the products used for the own consumption of the transformation plants are included in the transformation output and their use is reported in the Energy sector. <br> This part of the energy balance has the most elements of reorganisation of data between the reported format of annual questionnaires and the energy balance matrix. <br> For many products the transformation output is reported as production in the annual questionnaire. For primary products this is attributed to Primary production (see supply) and secondary products it is attributed to transformation output. <br> When reading the energy balance from the top to the bottom, it can be noted that several products already exported or used as transformation input are only now appearing as transformation output. Also it should be noted that in the full production chain, especially with respect to petrochemical industry and oil refineries, the products can pass several cycles of transformation. Note: Please see also notes for Transformation input. <br> In energy balance, this is an aggregate with the following arithmetic definition:  <br><ul> <li>+ Electricity & Heat generation</li> <li>+ Coke ovens</li> <li>+ Blast furnaces</li> <li>+ Gas works</li> <li>+ Refineries & Petrochemical industry</li> <li>+ Patent fuel plants</li> <li>+ BKB & PB plants</li> <li>+ Coal liquefaction plants</li> <li>+ Blended in Natural gas</li> <li>+ Liquid biofuels blended</li> <li>+ Charcoal production plants</li> <li>+ Gas-to-liquids plants</li> <li>+ Not elsewhere specified</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_BF":{
+      "img":"img/d5.jpg",
+      "title":"Transformation output - blast furnaces",
+      "text":"<b>Definition:</b> Quantities of fuels entering the blast furnace vessel, whether through the top along with the iron ore, or through the tuyeres in the bottom along with the heated blast air.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_CO":{
+      "img":"img/d6.jpg",
+      "title":"Transformation output - coke ovens",
+      "text":"<b>Definition:</b> TQuantities of fuels used in coke ovens to produce coke oven coke and coke oven gas.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG":{
+      "img":"img/d7.jpg",
+      "title":"Transformation output - electricity and heat generation",
+      "text":"<b>Definition:</b> misses info",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_MAPH":{
+      "img":"img/d1.jpg",
+      "title":"Transformation output - electricity and heat generation - main activity producer heat only",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce heat in heat only units/plants by main activity producers.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_MAPE":{
+      "img":"img/d2.jpg",
+      "title":"Transformation output - electricity and heat generation - main activity producer electricity only",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce electricity in electricity only units/plants by main activity producers.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_MAPCHP":{
+      "img":"img/d3.jpg",
+      "title":"Transformation output - electricity and heat generation - main activity producer combined heat and power",
+      "text":"<b>Definition:</b> misses info",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_APE":{
+      "img":"img/d4.jpg",
+      "title":"Transformation output - electricity and heat generation - autoproducer electricity only",
+      "text":"<b>Definition:</b> This category includes production of electricity in electricity only units/plants by main activity producers.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_PH":{
+      "img":"img/d5.jpg",
+      "title":"Transformation output - electricity and heat generation - pumped hydro",
+      "text":"<b>Definition:</b> It includes pure pumped storage plants generation and the pumped storage generation portion of mixed plants. In case the production of electricity from water previously pumped uphill is not known, it is calculated as 73% of the electricity used for pumping water uphill. ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_OTH":{
+      "img":"img/d6.jpg",
+      "title":"Transformation output - electricity and heat generation - other sources",
+      "text":"<b>Definition:</b> This category includes electricity and heat produced from other sources not specified above, For example: electricity from fuel cells or the recovered waste heat from industry sold to third parties. Electricity and derived heat produced from waste heat originating from energy driven processes are excluded from reporting in this category (production is reported under specific products). This category also includes the heat originating from processes without direct energy input, such as a chemical reaction (for example the treatment of zinc oxide ore with hydrochloric acid).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_EDHP":{
+      "img":"img/d7.jpg",
+      "title":"Transformation output - electricity and heat generation - electrically driven heat pumps",
+      "text":"<b>Definition:</b> This category includes the derived heat output from electrically driven heat pumps only where the heat is sold to third parties.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_EB":{
+      "img":"img/d8.jpg",
+      "title":"Transformation output - electricity and heat generation - electric boilers",
+      "text":"<b>Definition:</b> This category includes the heat from electric boilers where the output is sold to third parties.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_APH":{
+      "img":"img/d9.jpg",
+      "title":"Transformation output - electricity and heat generation - autoproducer heat only",
+      "text":"<b>Definition:</b> This category includes production of derived heat in heat only units/plants by autoproducers. Only derived heat sold in included; heat auto-consumed is excluded.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_EHG_APCHP":{
+      "img":"img/d10.jpg",
+      "title":"Transformation output - electricity and heat generation - autoproducer combined heat and power",
+      "text":"<b>Definition:</b> misses info",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_GW":{
+      "img":"img/d8.jpg",
+      "title":"Transformation output - gas works",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations at gas works and coal gasification plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_BNG":{
+      "img":"img/d13.jpg",
+      "title":"Transformation output - blended in natural gas",
+      "text":"<b>Definition:</b> Quantities of gases blended with natural gas into the gas grid (gas network)",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_CPP":{
+      "img":"img/d14.jpg",
+      "title":"Transformation output - charcoal production plants",
+      "text":"<b>Definition:</b> Quantities of charcoal produced.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_GTL":{
+      "img":"img/d1.jpg",
+      "title":"Transformation output - gas-to-liquids plants",
+      "text":"<b>Definition:</b> Quantities of liquid fuels produced from gaseous fuels input",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_LBB":{
+      "img":"img/d2.jpg",
+      "title":"Transformation output - liquid biofuels blended",
+      "text":"<b>Definition:</b> Quantities of liquid biofuels blended with their fossil counterparts.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_NSP":{
+      "img":"img/d9.jpg",
+      "title":"Transformation output - not elsewhere specified",
+      "text":"<b>Definition:</b> Quantities of fuels related to energy activities not included elsewhere.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_BKBPB":{
+      "img":"img/d12.jpg",
+      "title":"Transformation output - brown coal briquettes and peat briquettes plants",
+      "text":"<b>Definition:</b> Quantities of fuels used to produce brown coal briquettes (BKB) in BKB plants and quantities of fuels used in peat briquettes plants to produce peat briquettes (PB).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_CL":{
+      "img":"img/d9.jpg",
+      "title":"Transformation output - coal liquefaction plants",
+      "text":"<b>Definition:</b> Coal liquefaction plants cover quantities of liquid fuels produced in coal liquefaction plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_PF":{
+      "img":"img/d10.jpg",
+      "title":"Transformation output - patent fuel plants",
+      "text":"<b>Definition:</b> Quantities of fuels used in patent fuel plants to produce patent fuel.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_RPI":{
+      "img":"img/d11.jpg",
+      "title":"Transformation output - refineries and petrochemical industry",
+      "text":"<b>Definition:</b> Transformation output - refineries and petrochemical industry is an aggregate with the following arithmetic definition:  <ul><li>+ Refinery output </li> <li>+ Backflows </li> <li>+ Products transferred </li> <li>+ Interproduct transfers </li> <li>+ Primary product receipts </li> <li>+ Petrochemical industry returns.</li></ul> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_RPI_PPR":{
+      "img":"img/d12.jpg",
+      "title":"Transformation output - refineries and petrochemical industry - primary product receipts",
+      "text":"<b>Definition:</b> Crude oil, Natural Gas Liquids, Additives/Oxygenates and Other hydrocarbons which are used directly without being processed in petroleum refineries are reported as Direct use. These products disappear from their availability for further use in for Refineries & Petrochemical industry and appear as available products for the rest of the economy under Primary product receipts. The sum of reported Direct use in tons should equal to Primary product receipts in tons.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_RPI_PIR":{
+      "img":"img/d5.jpg",
+      "title":"Transformation output - refineries and petrochemical industry - petrochemical industry returns",
+      "text":"<b>Definition:</b> This represents products produced by the petrochemical industry that are available as Backflows from petrochemical industry for further processing in refineries. By definition, this line is equal to Transformation input - Backflows from petrochemical industry. It is necessary to include in the energy balance the production of these products to ensure balance between inputs and outputs of commodities. ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_RPI_RO":{
+      "img":"img/d6.jpg",
+      "title":"Transformation output - refineries and petrochemical industry - refinery output",
+      "text":"<b>Definition:</b> This is production of petroleum products at a refinery. This category excludes Refinery losses and includes Refinery fuel.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_RPI_PT":{
+      "img":"img/d7.jpg",
+      "title":"Transformation output - refineries and petrochemical industry - products transferred",
+      "text":"<b>Definition:</b> Products transferred are energy products, e.g. in the case of oil, products which are reclassified as refinery feedstock for further processing in the refinery, without delivery to final consumers. For example, Naphtha imported for upgrading would be first reported as imports of Naphtha and then as Products transferred. Transformation input represents the products that disappear from their availability for further use in the economy and appears in the Transformation output as Refinery feedstocks.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_RPI_IT":{
+      "img":"img/d8.jpg",
+      "title":"Transformation output - refineries and petrochemical industry - interproduct transfers",
+      "text":"<b>Definition:</b> Interproduct transfers result from reclassification of products either because their specification has changed or because they are blended with another product. For example, quantities of kerosene may be reclassified as gasoil after blending with the latter in order to meet its winter diesel specification. In the annual questionnaire this operation would produce negative “Interproduct transfers” for kerosene and positive for gasoil. The sum of reported Interproduct transfers in tons should equal to zero. As Transformation output the reported “Interproduct transfers” with positive sign are shown. This represents the products that appear for further use. ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "TO_RPI_BKFLOW":{
+      "img":"img/d9.jpg",
+      "title":"Transformation output - refineries and petrochemical industry - backflows",
+      "text":"<b>Definition:</b> This flow represents the backflows from the petrochemical industry to refineries. These are finished or semi–finished products which are returned from petrochemical industry to refineries for processing, blending or sale. They are usually by–products of petrochemical manufacturing. For integrated petrochemical industries this flow can be estimated. Transfers from one refinery to another within the country should be excluded. Transformation input represents the products that disappear from their availability for further use in the economy and Transformation output represents Refinery feedstocks that appears for further use. In tons the sum of reported backflows of individual products has to be equal to the Refinery feedstocks.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_E":{
+      "img":"img/d15.jpg",
+      "title":"Energy sector - energy use",
+      "text":"<b>Definition:</b> The consumption of the energy sector covers the consumption of own-produced energy and of energy purchased by energy producers and transformers in operating their installations. This means quantities consumed by the energy industry to support the extraction (mining, oil and gas production) or plant operations of transformation activities. This corresponds to NACE Rev. 2 Divisions 05, 06, 19 and 35, NACE Rev. 2 Group 09.1 and NACE Rev. 2 classes 07.21 and 08.92. <br>Excludes quantities of fuels transformed into another energy form (see Transformation input) or used in support of the operation of oil, gas and coal slurry pipelines (see Transport sector).<br> This is an aggregate with the following arithmetic definition: <ul> <li>+ Own use in electricity & heat generation</li> <li>+ Coal mines</li> <li>+ Oil & natural gas extraction plants</li> <li>+ Patent fuel plants</li> <li>+ Coke ovens</li> <li>+ BKB & PB plants</li> <li>+ Gas works</li> <li>+ Blast furnaces</li> <li>+ Petroleum refineries (oil refineries)</li> <li>+ Nuclear industry</li> <li>+ Coal liquefaction plants</li> <li>+ Liquefaction & regasification plants (LNG)</li> <li>+ Gasification plants for biogas</li> <li>+ Gas-to-liquids (GTL) plants</li> <li>+ Charcoal production plants</li> <li>+ Not elsewhere specified (energy)</li> </ul><br> Elements in this section are included in energy balances with exactly the same conceptual definition as in the reported data based on the definitions in Regulation (EC) No 1099/2008 on energy statistics and in the reporting instructions and, naturally, converted with calorific values from reported units to the energy units of the energy balance. Consequently only a brief summary of these elements is provided here.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_BIOG_E":{
+      "img":"img/d1.jpg",
+      "title":"Energy sector - gasification plants for biogas - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations in biogas gasification plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_CPP_E":{
+      "img":"img/d2.jpg",
+      "title":"Energy sector - charcoal production plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations in charcoal production plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_GTL_E":{
+      "img":"img/d3.jpg",
+      "title":"Energy sector - gas-to-liquids plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations in Gas-to-liquid conversion plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_NSP_E":{
+      "img":"img/d4.jpg",
+      "title":"Energy sector - not elsewhere specified - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels related to energy activities not included elsewhere.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_CL_E":{
+      "img":"img/d5.jpg",
+      "title":"Energy sector - coal liquefaction plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations at coal liquefaction plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_LNG_E":{
+      "img":"img/d10.jpg",
+      "title":"Energy sector - liquefaction and regasification plants (LNG) - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations in natural gas liquefaction and regasification plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_NI_E":{
+      "img":"img/d11.jpg",
+      "title":"Energy sector - nuclear industry - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations for the manufacture of chemical materials for atomic fission and fusion and related processes.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_PR_E":{
+      "img":"img/d12.jpg",
+      "title":"Energy sector - petroleum refineries (oil refineries) - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations at petroleum refineries (oil refineries).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_CM_E":{
+      "img":"img/d1.jpg",
+      "title":"Energy sector - coal mines - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy to support the extraction and preparation of coal within the coal mining industry. Coal burned in pithead power stations should be reported in the Transformation Sector.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_EHG_E":{
+      "img":"img/d2.jpg",
+      "title":"Energy sector - electricity and heat generation - energy use",
+      "text":"<b>Definition:</b> misses info",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_OIL_NG_E":{
+      "img":"img/d3.jpg",
+      "title":"Energy sector - oil and natural gas extraction plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed in the oil and natural gas extraction facilities. Excludes pipeline losses (see Distribution losses) and energy quantities used to operate pipelines (see Transport sector)",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_PF_E":{
+      "img":"img/d4.jpg",
+      "title":"Energy sector - patent fuel plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations at patent fuel plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_BF_E":{
+      "img":"img/d5.jpg",
+      "title":"Energy sector - blast furnaces - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations at blast furnaces.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_BKBPB_E":{
+      "img":"img/d6.jpg",
+      "title":"Energy sector - brown coal briquettes and peat briquettes plants - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used as energy for support operations in BKP/PB plants (briquetting plant).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_CO_E":{
+      "img":"img/d7.jpg",
+      "title":"Energy sector - coke ovens - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations in coke ovens (coking plants).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "NRG_GW_E":{
+      "img":"img/d8.jpg",
+      "title":"Energy sector - gas works - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed as energy for support operations at gas works and coal gasification plants.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "DL":{
+      "img":"img/d13.jpg",
+      "title":"Distribution losses",
+      "text":"<b>Definition:</b> This category includes quantities of fuel losses which occur due to transport and distribution, including pipeline losses. Specifically for electricity, transmission losses are included here.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "AFC":{
+      "img":"img/d14.jpg",
+      "title":"Available for final consumption",
+      "text":"<b>Definition:</b> This is an aggregate with the following arithmetic definition:<br> <ul> <li>+ Total energy supply</li> <li>– Transformation input</li> <li>+ Transformation output</li> <li>– Energy sector</li> <li>– Distribution losses</li> </ul>",    
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "STATDIFF":{
+      "img":"img/d15.jpg",
+      "title":"Statistical differences",
+      "text":"<b>Definition:</br> In Eurostat's energy balance, the item statistical differences represents the difference between the top and medium blocks on one side and the bottom block on the other side. Negative statistical differences indicate higher observed final consumption than available from the supply and transformation. Positive statistical differences indicate that the observed final consumption is lower than available from the supply and transformation.<br> This is an aggregate with the following arithmetic definition:<br><ul> <li>+ Energy available for final consumption</li> <li>– Final non-energy consumption</li> <li>– Final energy consumption</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_NE":{
+      "img":"img/d11.jpg",
+      "title":"Final consumption - non-energy use",
+      "text":"<b>Definition:</b> Elements in this section are included in energy balances with exactly the same conceptual definition as in the reported data based on the definitions in Regulation (EC) No 1099/2008 on energy statistics and in the reporting instructions and, naturally, converted with calorific values from reported units to the energy units of the energy balance. The level of details is fuel specific and therefore the level of details in the energy balance is a compromise between the level of detailed available and the relative importance of the non-energy consumption. By definition, the consumption of energy from renewable sources for non-energy purposes is excluded from the scope of energy statistics (for example use of wood for the building construction or use of wood furniture manufacturing or passive use of solar energy for heating buildings).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_E":{
+      "img":"img/d1.jpg",
+      "title":"Final consumption - energy use",
+      "text":"<b>Definition:</b> Elements in this section are included in energy balances with exactly the same conceptual definition as in the reported data based on the definitions in Regulation (EC) No 1099/2008 on energy statistics and in the reporting instructions and, naturally, converted with calorific values from reported units to the energy units of the energy balance. Consequently only a brief summary of these elements is provided here. <br>This is an aggregate with the following arithmetic definition: <br><ul> <li>+ Industry sector</li> <li>+ Transport sector</li> <li>+ Other sectors</li><br> In the energy balance, the final energy consumption is further disaggregated into Industry sector, Transport sector and Other sectors. Each of these sectors have several subsectors.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_IND_E":{
+      "img":"img/d2.jpg",
+      "title":"Final consumption - industry sector - energy use",
+      "text":"<b>Definition:</b> This refers to fuel quantities consumed by the industrial undertaking in support of its primary activities. For heat only or CHP units, only quantities of fuels consumed for the production of heat used by the entity itself (heat auto-consumed) are included. Quantities of fuels consumed for the production of heat sold and for the production of electricity are reported as Transformation input.<br> This is an aggregate with the following arithmetic definition:<br><ul> <li>+ Iron & steel</li> <li>+ Chemical & petrochemical</li> <li>+ Non-ferrous metals</li> <li>+ Non-metallic minerals</li> <li>+ Transport equipment</li> <li>+ Machinery</li> <li>+ Mining & quarrying</li> <li>+ Food, beverages & tobacco</li> <li>+ Paper, pulp & printing</li> <li>+ Wood & wood products</li> <li>+ Construction</li> <li>+ Textile & leather</li> <li>+ Not elsewhere specified (industry)</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_TL_E":{
+      "img":"img/d12.jpg",
+      "title":"Final consumption - industry sector - textile and leather - energy use",
+      "text":"<b>Definition:</b> Textile & leather: NACE Rev. 2 Divisions 13, 14 and 15",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_NSP_E":{
+      "img":"img/d6.jpg",
+      "title":"Final consumption - industry sector - not elsewhere specified - energy use",
+      "text":"<b>Definition:</b> Not elsewhere specified (industry): NACE Divisions 22, 31 and 32",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_CON_E":{
+      "img":"img/d6.jpg",
+      "title":"Final consumption - industry sector - construction - energy use",
+      "text":"<b>Definition:</b> Construction: NACE Rev. 2 Division 41, 42 and 43",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_WP_E":{
+      "img":"img/d3.jpg",
+      "title":"Final consumption - industry sector - wood and wood products - energy use",
+      "text":"<b>Definition:</br>  Wood & wood products: NACE Rev. 2 Division 16.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_PPP_E":{
+      "img":"img/d4.jpg",
+      "title":"Final consumption - industry sector - paper, pulp and printing - energy use",
+      "text":"<b>Definition:</b>  Paper, pulp & printing: NACE Rev. 2 Divisions 17 and 18",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },  
+    "FC_IND_TE_E":{
+      "img":"img/d6.jpg",
+      "title":"Final consumption - industry sector - transport equipment - energy use",
+      "text":"<b>Definition:</b>  Transport equipment: NACE Rev. 2 Divisions 29 and 30",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_MAC_E":{
+      "img":"img/d7.jpg",
+      "title":"Final consumption - industry sector - machinery - energy use",
+      "text":"<b>Definition:</b>  Mining & quarrying: NACE Rev. 2 Divisions 07 (excluding 07.21) and 08 (excluding 08.92); NACE Rev. 2 Group 09.9",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_IND_IS_E":{
+      "img":"img/d8.jpg",
+      "title":"Final consumption - industry sector - iron and steel - energy use",
+      "text":"<b>Definition:</b>  Iron & steel: NACE Rev. 2 Groups 24.1, 24.2 and 24.3; and NACE Rev. 2 Classes 24.51 and 24.52 (transformation input in blast furnaces is included in the transformation sector)",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },  
+    "FC_IND_FBT_E":{
+      "img":"img/d5.jpg",
+      "title":"Final consumption - industry sector - food, beverages and tobacco - energy use",
+      "text":"<b>Definition:</b>  Food, beverages & tobacco: NACE Rev. 2 Divisions 10, 11 and 12",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_NMM_E":{
+      "img":"img/d9.jpg",
+      "title":"Final consumption - industry sector - non-metallic minerals - energy use",
+      "text":"<b>Definition:</b>  Non-metallic minerals: NACE Rev. 2 Division 23",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },   
+    "FC_IND_NFM_E":{
+      "img":"img/d10.jpg",
+      "title":"Final consumption - industry sector - non-ferrous metals - energy use",
+      "text":"<b>Definition:</b> Non-ferrous metals: NACE Rev. 2 Group 24.4; and NACE Rev. 2 Classes 24.53 and 24.54",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_MQ_E":{
+      "img":"img/d11.jpg",
+      "title":"Final consumption - industry sector - mining and quarrying - energy use",
+      "text":"<b>Definition:</b> Mining & quarrying: NACE Rev. 2 Divisions 07 (excluding 07.21) and 08 (excluding 08.92); NACE Rev. 2 Group 09.9",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_IND_CPC_E":{
+      "img":"img/d12.jpg",
+      "title":"Final consumption - industry sector - chemical and petrochemical - energy use",
+      "text":"<b>Definition:</b> Chemical & petrochemical: NACE Rev. 2 Divisions 20 and 21",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_OTH_E":{
+      "img":"img/d4.jpg",
+      "title":"Final consumption - other sectors - energy use",
+      "text":"<b>Definition:</b> This is an aggregate with the following arithmetic definition:<br><ul> <li>+ Commercial & public services</li> <li>+ Households</li> <li>+ Agriculture & forestry</li> <li>+ Fishing</li> <li>+ Not elsewhere specified (other)</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_OTH_NSP_E":{
+      "img":"img/d14.jpg",
+      "title":"Final consumption - other sectors - not elsewhere specified - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used for activities not included elsewhere (such as NACE Rev. 2 Class 84.22). This category includes military fuel use for all mobile and stationary consumption (e.g. ships, aircraft, road and energy used in living quarters), regardless of whether the fuel delivered is for the military of that country or for the military of another country. ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_OTH_HH_E":{
+      "img":"img/d7.jpg",
+      "title":"Final consumption - other sectors - households - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed by all households including “households with employed persons”. NACE Rev. 2 Divisions 97 and 98.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_OTH_FISH_E":{
+      "img":"img/d5.jpg",
+      "title":"Final consumption - other sectors - fishing - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels delivered for inland, coastal and deep-sea fishing. Fishing should cover fuels delivered to ships of all flags that have refuelled in the country (include international fishing) and energy used in the fishing industry. NACE Rev. 2 Division 03.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "FC_OTH_CP_E":{
+      "img":"img/d8.jpg",
+      "title":"Final consumption - other sectors - commercial and public services - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed by business and offices in the public and private sectors. NACE Rev. 2 Divisions 33, 36, 37, 38, 39, 45, 46, 47, 52, 53, 55, 56, 58, 59, 60, 61, 62, 63, 64, 65, 66, 68, 69, 70, 71, 72, 73, 74, 75, 77, 78, 79, 80, 81, 82, 84 (excluding Class 84.22), 85, 86, 87, 88, 90, 91, 92, 93, 94, 95, 96 and 99. Fuels used for heating and lighting at railway, bus stations, shipping piers and airports should be reported in this category and also including fuels used for all non-transport activities of NACE Rev. 2 Division 49, 50 and 51.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_OTH_AF_E":{
+      "img":"img/d6.jpg",
+      "title":"Final consumption - other sectors - agriculture and forestry - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels consumed by users classified as agriculture, hunting and forestry; NACE Rev. 2 Divisions 01 and 02.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_TRA_E":{
+      "img":"img/d13.jpg",
+      "title":"Final consumption - transport sector - energy use",
+      "text":"<b>Definition:</br> This refers to energy used in all transport activities irrespective of the NACE category (economic sector) in which the activity occurs. Fuels used for heating and lighting at railway, bus stations, shipping piers and airports are reported in the 'Commercial and Public Services' and not in the Transport sector. <br>This is an aggregate with the following arithmetic definition:<br><ul> <li>+ Rail</li> <li>+ Road</li> <li>+ Domestic aviation</li> <li>+ Domestic navigation</li> <li>+ Pipeline transport</li> <li>+ Not elsewhere specified (transport)</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_TRA_PIPE_E":{
+      "img":"img/d3.jpg",
+      "title":"Final consumption - transport sector - pipeline transport - energy use",
+      "text":"<b>Definition:</br> Quantities of fuels used as energy in the support and operation of pipelines transporting gases, liquids, slurries and other commodities. Includes energy used for pump stations and maintenance of the pipeline. Excludes energy used for the pipeline distribution of natural or manufactured gas, hot water or steam from the distributor to final users (to be reported in the energy sector), energy used for the final distribution of water to household, industrial, commercial and other users (to be included in Commercial and Public Services) and losses occurring during this transport between distributor and final users (to be reported as distribution losses).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_TRA_NSP_E":{
+      "img":"img/d3.jpg",
+      "title":"Final consumption - transport sector - not elsewhere specified - energy use",
+      "text":"<b>Definition:</br> Quantities of fuels used for transport activities not included elsewhere. Includes fuels used by airlines for their road vehicles and fuels used in ports for ships’ unloaders, various types of cranes.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_TRA_ROAD_E":{
+      "img":"img/d2.jpg",
+      "title":"Final consumption - transport sector - road - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used in road vehicles. Includes fuel used by agricultural vehicles on highways and lubricants for use in road vehicles. Excludes energy used in stationary engines (see Other sector), for non-highway use in tractors (see Agriculture), military use in road vehicles (see Other sector – Not elsewhere specified), bitumen used in road surfacing and energy used in engines at construction sites (see Industry sub-sector Construction). ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_TRA_RAIL_E":{
+      "img":"img/d3.jpg",
+      "title":"Final consumption - transport sector - rail - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels used by rail traffic, including industrial railways and rail transport as part of urban or suburban transport systems (for example trains, trams, metro).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_TRA_DNAVI_E":{
+      "img":"img/d14.jpg",
+      "title":"Final consumption - transport sector - domestic navigation - energy use",
+      "text":"<b>Definition:</br> Quantities of fuels delivered to vessels of all flags not engaged in international navigation (see International marine bunkers). The domestic/international split should be determined on the basis of port of departure and port of arrival and not by the flag or nationality of the ship.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "FC_TRA_DAVI_E":{
+      "img":"img/d1.jpg",
+      "title":"Final consumption - transport sector - domestic aviation - energy use",
+      "text":"<b>Definition:</b> Quantities of fuels delivered to aircraft for domestic aviation. Includes fuel used for purposes other than flying, e.g. bench testing of engines. The domestic/international split is determined on the basis of departure and landing locations and not by the nationality of the airline. This includes journeys of considerable length between two airports in a country with overseas territories. Excludes fuels used by airlines for their road vehicles (see Not elsewhere specified (Transport)) and military use of aviation fuels (see Not elsewhere specified (Other)). ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "GEP":{
+      "img":"img/d8.jpg",
+      "title":"Gross electricity production",
+      "text":"<b>Definition:</b> The blocks of energy balance matrix do not allow seeing electricity and heat generation from each specific fuel. Therefore the matrix is complemented by the rows that allow showing electricity and heat production from each fuel.<br> Note: The total electricity and heat production by fuel can be lower than total transformation output due to category 'Other sources'. This category cannot be attributed to any specific fuel.<br> Gross electricity production <ul> <li>+ Main activity producer electricity only</li> <li>+ Main activity producer CHP</li> <li>+ Autoproducer electricity only</li> <li>+ Autoproducer CHP</li> </ul> Gross heat production <ul> <li>+ Main activity producer CHP</li> <li>+ Main activity producer heat only</li> <li>+ Autoproducer CHP</li> <li>+ Autoproducer heat only</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },    
+  "GHP":{
+      "img":"img/d9.jpg",
+      "title":"Gross heat production",
+      "text":"<b>Definition:</b> The blocks of energy balance matrix do not allow seeing electricity and heat generation from each specific fuel. Therefore the matrix is complemented by the rows that allow showing electricity and heat production from each fuel.<br> Note: The total electricity and heat production by fuel can be lower than total transformation output due to category 'Other sources'. This category cannot be attributed to any specific fuel.<br> Gross electricity production <ul> <li>+ Main activity producer electricity only</li> <li>+ Main activity producer CHP</li> <li>+ Autoproducer electricity only</li> <li>+ Autoproducer CHP</li> </ul> Gross heat production <ul> <li>+ Main activity producer CHP</li> <li>+ Main activity producer heat only</li> <li>+ Autoproducer CHP</li> <li>+ Autoproducer heat only</li> </ul>",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    "TOTAL":{
+      "img":"img/d1.jpg",
+      "title":"TOTAL",
+      "text":"<b>Definition:</b> The code 'Total' covers all energy products. The total can be expressed only in energy units (e.g. ktoe, Mtoe, TJ, GWh).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "C0000X0350-0370":{
+      "img":"img/d2.jpg",
+      "title":"Solid fosil fuels",
+      "text":"<b>Definition:</b> Solid fossil fuels is a product aggregate equal to the sum of Hard coal, Brown coal and Coal products.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "C0350-0370":{
+      "img":"img/d3.jpg",
+      "title":"Manufactured gases",
+      "text":"<b>Definition:</b> Manufactured gases is a product aggregate equal to the sum of gas works gas, coke oven gas, blast furnace gas and other recovered gases.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "E7000":{
+      "img":"img/d4.jpg",
+      "title":"Electricity",
+      "text":"<b>Definition:</b> Electricity refers to the transfer of energy through the physical phenomenon involving electric charges and their effects when at rest and in motion. All electricity that is used, produced and consumed is to be reported, including off-grid and self-consumed.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "S2000":{
+      "img":"img/d5.jpg",
+      "title":"Oil shale and oil sands",
+      "text":"<b>Definition:</b> Oil shale and oil sands are sedimentary rock that contains organic matter in the form of kerogen. Kerogen is a waxy hydrocarbon-rich material regarded as a precursor of petroleum. Oil shale may be burned directly or processed by heating to extract shale oil. Shale oil and other products derived from liquefaction should be reported as other hydrocarbons within petroleum products.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "G3000":{
+      "img":"img/d6.jpg",
+      "title":"Natural gas",
+      "text":"<b>Definition:</b> Natural gas comprises gases occurring in underground deposits, whether liquefied or gaseous, consisting mainly of methane, independent from the extraction method (conventional and non-conventional). It includes both ‘non-associated’ gas originating from fields producing hydrocarbons only in gaseous form, and ‘associated’ gas produced in association with crude oil, as well as methane recovered from coal mines (colliery gas) or from coal seams (coal seam gas). Natural gas does not include biogas or manufactured gases. Transfers of these products to the natural gas network are to be reported separately from natural gas. Natural gas includes liquefied natural gas (LNG) and compressed natural gas (CNG).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "H8000":{
+      "img":"img/d7.jpg",
+      "title":"Heat",
+      "text":"<b>Definition:</b> Heat refers to the energy obtained from the translational, rotational and vibrational motion of the constituents of matter as well as changes in its physical state. All heat produced, except for heat produced by autoproducers for their own use and not sold, is to be reported; all other forms of heat are reported as use of products from which the heat was produced.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "N900H":{
+      "img":"img/d8.jpg",
+      "title":"Nuclear heat",
+      "text":"<b>Definition:</b> The total amount of heat generated by nuclear reactors for the production of electricity or for other useful applications of heat. The heat produced in a reactor as a result of nuclear fission is regarded as primary production of nuclear heat, or in other words nuclear energy. It is the actual heat produced or calculated on the basis of reported gross electricity generation and the thermal efficiency of the nuclear plant. The gross electricity generation is measured at the outlet of the main transformers, i.e. the consumption of electricity in the plant auxiliaries and in transformers is included.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "O4000XBIO":{
+      "img":"img/d9.jpg",
+      "title":"Oil and petroleum products",
+      "text":"<b>Definition:</b> 'Oil and petroleum products (excluding biofuel portion)' is a product aggregate equal to the sum of 'Crude oil, NGL, refinery feedstocks, additives and oxygenates and other hydrocarbons (excluding biofuel portion)' and 'Oil products (excluding biofuel portion)'.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "P1000":{
+      "img":"img/d10.jpg",
+      "title":"Peat and peat products",
+      "text":"<b>Definition:</b> Peat and peat products is a product aggregate equal to the sum of Peat and Peat products.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "RA000":{
+      "img":"img/d11.jpg",
+      "title":"Renewables and biofuels",
+      "text":"<b>Definition:</b> Renewables and biofuels is a product aggregate equal to the sum of landfill gas, sewage sludge gas, other biogases from anaerobic digestion and biogases from thermal processes.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }, 
+    "W6100_6220":{
+      "img":"img/d12.jpg",
+      "title":"Non-renewable waste",
+      "text":"<b>Definition:</b> Non-renewable waste is a product aggregate equal to the sum of Non-renewable municipal waste and Industrial waste (non-renewable).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+
+    "C0110":{
+      "img":"img/d1.jpg",
+      "title":"Anthracite",
+      "text":"<b>Definition:</b> High rank coal used for industrial and household applications. It generally has less than 10 % volatile matter and a high carbon content (about 90 % fixed carbon). Its gross calorific value is greater than 24 000 kJ/kg on an ash-free but moist basis.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0121":{
+      "img":"img/d1.jpg",
+      "title":"Coking coal",
+      "text":"<b>Definition:</b> Bituminous coal with a quality that allows the production of a coke (coke oven coke) suitable to support a blast furnace charge. Its gross calorific value is greater than 24 000 kJ/kg on an ash-free but moist basis.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0129":{
+      "img":"img/d1.jpg",
+      "title":"Other bituminous coal",
+      "text":"<b>Definition:</b> Coal used for steam raising purposes and includes all bituminous coal that is not included under coking coal nor anthracite. It is characterised by higher volatile matter than anthracite (more than 10 %) and lower carbon content (less than 90 % fixed carbon). Its gross calorific value is greater than 24 000 kJ/kg on an ash-free but moist basis.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0210":{
+      "img":"img/d1.jpg",
+      "title":"Sub-bituminous coal",
+      "text":"<b>Definition:</b> Refers to non-agglomerating coal with a gross calorific value between 20 000 kJ/kg and 24 000 kJ/kg containing more than 31 % volatile matter on a dry mineral matter free basis.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0220":{
+      "img":"img/d1.jpg",
+      "title":"Lignite",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0311":{
+      "img":"img/d1.jpg",
+      "title":"Coke oven coke",
+      "text":"<b>Definition:</b> The solid product obtained from the carbonisation of coal, principally coking coal, at high temperature; it is low in moisture and volatile matter. Coke oven coke is used mainly in the iron and steel industry, acting as an energy source and chemical agent. Coke breeze and foundry coke are to be reported in this category. Semi-coke (a solid product obtained from the carbonisation of coal at a low temperature) should be included in this category. Semi-coke is used as a heating fuel or by the transformation plant itself. This heading also includes coke, coke breeze and semi-coke made from lignite.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0312":{
+      "img":"img/d1.jpg",
+      "title":"Gas coke",
+      "text":"<b>Definition:</b> By-product of hard coal used for production of town gas in gas works. Gas coke is used for heating purposes.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0320":{
+      "img":"img/d1.jpg",
+      "title":"Patent fuels",
+      "text":"<b>Definition:</b> A composition fuel manufactured from hard coal fines with the addition of a binding agent. The amount of patent fuel produced may, therefore, be slightly higher than the actual amount of coal consumed in the transformation process.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0330":{
+      "img":"img/d1.jpg",
+      "title":"Brown coal briquettes",
+      "text":"<b>Definition:</b> BKB is a composition fuel manufactured from lignite or sub-bituminous coal, produced by briquetting under high pressure without the addition of a binding agent, including dried lignite fines and dust.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0340":{
+      "img":"img/d1.jpg",
+      "title":"Coal tar",
+      "text":"<b>Definition:</b> A result of the destructive distillation of bituminous coal. Coal tar is the liquid by-product of the distillation of coal to make coke in the coke oven process or is produced from brown coal (‘low-temperature tar’).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+
+
+
+    "C0360":{
+      "img":"img/d1.jpg",
+      "title":"Gas works gas",
+      "text":"<b>Definition:</b> Covers all types of gases produced in public utility or private plants whose main purpose is the manufacture, transport and distribution of gas. It includes gas produced by carbonisation (including gas produced by coke ovens and transferred to gas works gas), by total gasification with or without enrichment with oil products (LPG, residual fuel oil, etc.), and by reforming and simple mixing of gases and/or air, including blending with natural gas which will be distributed and consumed through the natural gas grid. The amount of gas resulting from transfers of other coal gases to gas works gas should be reported as the production of the gas works gas.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0350":{
+      "img":"img/d1.jpg",
+      "title":"Coke oven gas",
+      "text":"<b>Definition:</b> Coke oven gas is a gas obtained as a by-product of the manufacture of coke oven coke for the production of iron and steel (a by-product of solid fuel carbonisation and gasification operations which are not connected with gas works).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0371":{
+      "img":"img/d1.jpg",
+      "title":"Blast furnace gas",
+      "text":"<b>Definition:</b> Blast furnace gas is produced during the combustion of coke in blast furnaces in the iron and steel industry. It is recovered and used as a fuel partly within the plant and partly in other steel industry processes or in power stations equipped to burn it.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "C0379":{
+      "img":"img/d1.jpg",
+      "title":"Other recovered gases",
+      "text":"<b>Definition:</b> By-product of the production of steel in an oxygen furnace, recovered on leaving the furnace. The gases are also known as converter gas, LD gas or BOS gas. The quantity of recuperated fuel should be reported on a gross calorific value basis. Also covers non-specified manufactured gases not mentioned above, such as combustible gases of solid carbonaceous origin recovered from manufacturing and chemical processes not defined elsewhere.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+
+
+    "P1100":{
+      "img":"img/d1.jpg",
+      "title":"Peat ",
+      "text":"<b>Definition:</b> Peat is a combustible soft, porous or compressed, sedimentary deposit of plant origin with high water content (up to 90 % in the raw state), easily cut, of light to dark brown colour. Peat includes sod peat and milled peat. Peat used for non-energy purposes is not included.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "P1200":{
+      "img":"img/d1.jpg",
+      "title":"Peat products",
+      "text":"<b>Definition:</b> Products such as peat briquettes derived directly or indirectly from sod peat and milled peat. ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "W6100":{
+      "img":"img/d1.jpg",
+      "title":"Industrial waste (non-renewable)",
+      "text":"<b>Definition:</b> Report waste of industrial non-renewable origin combusted directly at specific installations for meaningful energy purposes. The quantity of fuel used should be reported on a net calorific value basis. Waste incinerated without any energy recovery is excluded. The renewable portion of industrial waste should be reported in the biofuels category that best describes it.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "W6220":{
+      "img":"img/d1.jpg",
+      "title":"Non-renewable municipal waste",
+      "text":"<b>Definition:</b> The portion of municipal waste which is of non-biological origin.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+
+    "O4100_TOT":{
+      "img":"img/d1.jpg",
+      "title":"Crude oil",
+      "text":"<b>Definition:</b> Crude oil is a mineral oil of natural origin comprising a mixture of hydrocarbons and associated impurities, such as sulphur. It exists in the liquid state under normal surface temperature and pressure and its physical characteristics (density, viscosity, etc.) are highly variable. This category includes field or lease condensate recovered from associated and non-associated gas where it is commingled with the commercial crude oil stream. Report quantities independent from the extraction method (conventional and non-conventional). Crude oil excludes NGL.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4200":{
+      "img":"img/d1.jpg",
+      "title":"Natural gas liquids",
+      "text":"<b>Definition:</b> NGL are liquid or liquefied hydrocarbons recovered from natural gas in separation facilities or gas processing plants. NGL include ethane, propane, butane (normal and iso-), (iso) pentane and pentanes plus (sometimes referred to as natural gasoline or plant condensate).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4300":{
+      "img":"img/d1.jpg",
+      "title":"Refinery feedstocks",
+      "text":"<b>Definition:</b> A refinery feedstock is a processed oil destined for further processing (e.g. straight run fuel oil or vacuum gas oil) excluding blending. With further processing, it will be transformed into one or more components and/or finished products. This definition also covers returns from the petrochemical industry to the refining industry (e.g. pyrolysis gasoline, C4 fractions, gasoil and fuel oil fractions).",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4400X4410":{
+      "img":"img/d1.jpg",
+      "title":"Additives and oxygenates (excluding biofuel portion)",
+      "text":"<b>Definition:</b> Additives are non-hydrocarbon compounds added to or blended with a petroleum products to modify their properties (octane, cetane, cold properties, etc.). Additives include oxygenates (such as alcohols (methanol, ethanol), ethers (methyl tertiary butyl ether(MTBE), ethyl tertiary butyl ether (ETBE), tertiary amyl methyl ether (TAME), etc.), esters (such as rapeseed oil or dimethylester, etc.), chemical compounds (such as tetramethyl lead (TML), tetraethyl lead (TEL) and detergents).Quantities of additives/oxygenates (alcohols, ethers, esters and other chemical compounds) reported in this category should relate to the quantities blended with fuels or for fuel use. This category excludes biofuels that are blended with liquid fossil fuels.<br>Note: quantities of additives/oxygenates (alcohols, ethers, esters and other chemical compounds) reported in this category relate to the quantities destined for blending with fuels or for fuel use.",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4500":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4610":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4630":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4652XR5210B":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4661XR5230B":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4640":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4671XR5220B":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4680":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4695":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4620":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4651":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4653":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4669":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4691":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4692":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4694":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4693":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "O4699":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "RA100":{
+      "img":"img/d1.jpg",
+      "title":"Hydro",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "RA500":{
+      "img":"img/d1.jpg",
+      "title":"Tide, wave, ocean",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "RA300":{
+      "img":"img/d1.jpg",
+      "title":"wind",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "RA420":{
+      "img":"img/d1.jpg",
+      "title":"Solar photovoltaic",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "RA410":{
+      "img":"img/d1.jpg",
+      "title":"Solar thermal",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "RA200":{
+      "img":"img/d1.jpg",
+      "title":"Geothermal",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5110-5150_W6000RI":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "RA600":{
+      "img":"img/d1.jpg",
+      "title":"Ambient heat (heat pumps)",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5160":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5300":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5210P":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5210B":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5220P":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5220B":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5230P":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5230B":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "R5290":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    },
+    "W6210":{
+      "img":"img/d1.jpg",
+      "title":"",
+      "text":"<b>Definition:</b> ",
+      "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
+      "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
+    }   
+}
+

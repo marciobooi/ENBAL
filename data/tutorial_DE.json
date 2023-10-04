@@ -1,0 +1,30 @@
+{
+
+    "START_TOUR_TITLE": "Einführung",
+    "START_TOUR_TEXT": "Willkommen beim Tutorial des Energiebilanz-Visualisierungstools von Eurostat. Diese Führung zeigt Ihnen die wichtigsten Interaktionsmöglichkeiten mit dem Tool. Für eine ausführlichere Dokumentation klicken Sie <a target='_blank' href = 'https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_balance_-_new_methodology'>hier</a>.",
+    "STEP1_TITLE": "Kraftstoffmenü",
+    "STEP1_TEXT": "Verwenden Sie diese Option, um den Kraftstoff zu ändern",
+    "STEP2_TITLE": "Ländermenü",
+    "STEP2_TEXT": "Verwenden Sie diese Option, um das Land zu ändern",
+    "STEP3_TITLE": "Jahresmenü",
+    "STEP3_TEXT": "Verwenden Sie diese Option, um die Jahre zu ändern",
+    "STEP4_TITLE": "Menü exportieren",
+    "STEP4_TEXT": "In dieser Option können Sie die Tabelle in verschiedenen Formaten herunterladen, Definitionen suchen oder mehr über die Methodik",
+    "STEP5_TITLE": "Spalten neu anordnen",
+    "STEP5_TEXT": "Ziehen Sie die Spalten einfach per Drag & Drop, um ihre Position zu ändern",
+    "STEP6_TITLE": "Flows erweitern",
+    "STEP6_TEXT": "Verwenden Sie diese Option, um die Flüsse der Energiebilanztabelle zu erweitern",
+    "STEP7_TITLE": "Visualisierungsmenü",
+    "STEP7_TEXT": "Mit dieser Option visualisieren Sie die Daten der Energiebilanztabelle mit Torten-, Balken- oder Liniendiagrammen",
+    "STEP8_TITLE": "Neueste Nachrichten in der Energiestatistik von Eurostat",
+    "STEP8_TEXT": "Sie können die wichtigsten Nachrichten zur Energiestatistik von Eurostat sehen",
+    "STEP9_TITLE": "Anleitung",
+    "STEP9_TEXT": "Drücken Sie diese Schaltfläche, um auf das Tutorial zuzugreifen",
+    "STEP10_TITLE": "Soziale Medien",
+    "STEP10_TEXT": "Das Teilen mit anderen auf Twitter, Facebook, E-Mail und LinkedIn hilft uns, unser Tool zu verbessern. Vielen Dank!",
+    "STEP11_TITLE": "",
+    "STEP11_TEXT": "",
+    "END_TOUR_TITLE": "Das war's für unsere Tour.",
+    "END_TOUR_TEXT": "Alle Bilder, die die Definitionen in diesem Tool veranschaulichen, stammen von Unsplash oder pixabay.<br>Wenn Sie dieses Visualisierungstool nützlich finden, teilen Sie es bitte über unsere Social-Media-Buttons mit anderen. Vielen Dank!" 
+
+}

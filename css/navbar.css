@@ -1,0 +1,176 @@
+/* Code refer to the nav bar and header*/
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0rem;
+  padding-bottom: 0rem;
+  background-color: rgba(52, 58, 64, 0.94);
+  overflow: hidden;
+}
+
+  
+  .h6,
+  h6 {
+    font-size: 1rem;
+    color: white;
+  }
+
+  #links > div.modalHeader > h5 {
+    margin: 0rem !important;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  
+  #eurostatLogo {
+    height: 50px;
+    opacity: 1;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+  }
+  
+  #eurostatLogo:hover {
+    opacity: 1;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+  }
+  
+  .select-style:before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    margin-top: -1.5px;
+    right: 14px;
+    width: 0;
+    height: 0;
+    border: 5px solid transparent;
+    border-top-color: white;
+    margin-right: 4px;
+  }
+  .select-style select {
+    color: white;
+    display: inline-block;
+    position: relative;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 5px 22px 5px 7px;
+    border: 1px solid;
+    border-color: darkgray;
+    background: rgba(255, 255, 255, 0.39);
+  }
+  .select-style select:focus {
+    color: darkgray;
+    outline: transparent;
+  }
+  .select-style select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #000;
+  }
+  
+  /* div#social-media {
+    width: 100px;
+  } */
+
+  img.social-media-icon {
+    width: 30px;
+}
+  
+  .social-media-icon:hover {
+    transition: all 0.2s ease-in-out;
+    transform: scale(1.1);
+  }
+  #page .social-media-icon {
+    cursor: pointer;
+    border-radius: 50%;
+  }
+
+  div#modalLinks > .modal-dialog {
+    display: flex;
+    justify-content: flex-end;
+    top: 27px;
+    max-width: initial;
+}
+
+button.btn-close2 {
+  border: none;
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.modal-content.modal-sm {
+  border-radius: 0;
+  max-width: 220px;
+}
+
+.modalHeader {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.underline {
+  --line: black;
+  --color: gray;
+  text-decoration: none;
+  color: var(--color);
+  position: relative;
+}
+.underline span {
+  background-image: linear-gradient(0deg, var(--line) 0%, var(--line) 100%);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+  background-size: var(--background-size, 100%) 1px;
+  transition: background-size 0.2s linear var(--background-delay, 0.15s);
+  font-size: 13px;
+  line-height: 20px;
+  transform: translateZ(0);
+}
+.underline svg {
+  vertical-align: top;
+  display: inline;
+  line-height: 1;
+  width: 24px;
+  height: 30px;
+  position: relative;
+  left: -14px;
+  top: -2.4px;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1px;
+  stroke: var(--line);
+  stroke-dasharray: 7.95 30;
+  stroke-dashoffset: var(--stroke-dashoffset, 46);
+  transition: stroke-dashoffset var(--stroke-duration, 0.15s) var(--stroke-easing, linear) var(--stroke-delay, 0s);
+}
+.underline:hover {
+  --background-size: 0%;
+  --background-delay: 0s;
+  --stroke-dashoffset: 26;
+  --stroke-duration: .3s;
+  --stroke-easing: cubic-bezier(.3, 1.5, .5, 1);
+  --stroke-delay: .195s;
+}
+
+a.underline {
+  text-decoration: none;
+}
+
+a.underline:hover {
+  color: black;
+font-weight: bold;
+}
+
+#modalLinks > div > div > div {
+  padding: 5px;
+  padding-left: 10px;
+}
+  
+  /* End of code refer to the nav bar and header*/
