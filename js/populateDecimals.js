@@ -1,23 +1,22 @@
-function populateUnit() {
+function populateDecimals() {
 
-  
+ 
 
-
-    const unitDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(5) > div > ul");
-    unitDropDown.empty()
+    const decimalsDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(4) > div > ul");
+    decimalsDropDown.empty()
     let content = '';
   
-    units.forEach(unit => {     
-        const isActive = unit == REF.unit ? 'active' : '';
+    energyDecimals.forEach(decimals => {     
+        const isActive = decimals == REF.decimals ? 'active' : '';
       content += `
-        <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-unit="${unit}" data-bs-toggle="button" aria-pressed="true">
-          <span>${languageNameSpace.labels[unit]}</span>
+        <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-decimals="${decimals}" data-bs-toggle="button" aria-pressed="true">
+          <span>${decimals}</span>
           <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'}"></i>
         </a>`;
     });
   
     const dropdownMenu = $("<div>")
-      .attr("id", "dropdown-unit-list")
+      .attr("id", "dropdown-decimals-list")
       .attr("role", "menu")
       .css("height", "auto")
       .css("maxHeight", "48vh")
@@ -36,23 +35,23 @@ function populateUnit() {
         checkIcon.removeClass('invisible');
 
         const selectedText = target.find('span').text();
-        $('#selectUnit').text(selectedText).append('<i class="fas fa-caret-down"></i>');
+        $('#selectDecimals').text(selectedText).append('<i class="fas fa-caret-down"></i>');
 
-        REF.unit = target.attr('data-unit')
-
+        REF.decimals = target.attr('data-decimals')       
+       
         enprices()
 
       });
   
-    unitDropDown.prepend(dropdownMenu);
+    decimalsDropDown.prepend(dropdownMenu);
 
-    $('#selectUnit').hover(
+    $('#selectDecimals').hover(
         function() {
           $(this).data('prevText', $(this).text());
-          $(this).html(`${languageNameSpace.labels['MENU_UNIT']} <i class="fas fa-caret-down"></i>`);
+          $(this).html(`${languageNameSpace.labels['MENU_BAND']} <i class="fas fa-caret-down"></i>`);
         },
         function() {
-          const dropdownConsumerList = $('#dropdown-unit-list');
+          const dropdownConsumerList = $('#dropdown-decimals-list');
           const prevText = dropdownConsumerList.find('.dropdown-item.active span').text();
           $(this).html(`${prevText} <i class="fas fa-caret-down"></i>`);
         }

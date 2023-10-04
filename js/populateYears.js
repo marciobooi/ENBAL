@@ -1,20 +1,13 @@
 function populateYearsData() {
 
-  const conditions = {
-    "4100_HOUSEHOLD_1": "nrg_pc_202_c",
-    "4100_HOUSEHOLD_0": "nrg_pc_202",
-    "4100_N_HOUSEHOLD_1": "nrg_pc_203_c",
-    "4100_N_HOUSEHOLD_0": "nrg_pc_203",
-    "6000_HOUSEHOLD_1": "nrg_pc_204_c",
-    "6000_HOUSEHOLD_0": "nrg_pc_204",
-    "6000_N_HOUSEHOLD_1": "nrg_pc_205_c",
-    "6000_N_HOUSEHOLD_0": "nrg_pc_205"
-  };
 
 
-  const dataset = conditions[`${REF.product}_${REF.consumer}_${REF.component}`];
 
-  const url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/"+dataset+"?format=JSON&geo=EU27_2020&nrg_cons=TOT_KWH&currency=EUR";  
+
+
+  const url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/"+REF.dataset+"?format=JSON&geo=EU27_2020&unit=KTOE&siec=TOTAL&nrg_bal=PEC2020-2030&lang=en"
+
+  log(url)
 
 
   const yearsArray = JSONstat(url).Dataset(0).Dimension("time").id;
@@ -22,7 +15,7 @@ function populateYearsData() {
   REF.time = yearsArray[yearsArray.length - 1]
 
 
-  const yearsDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(4) > div > ul");
+  const yearsDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(3) > div > ul");
   yearsDropDown.empty()
   let content = ''; 
 

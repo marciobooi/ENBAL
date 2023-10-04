@@ -6,7 +6,7 @@
     log(defGeos)
   
     defGeos.forEach(geo => {
-      const isActive = REF.geos.includes('all') ? (geo === 'all' ? 'active' : '') : (REF.geos.includes(geo) ? 'active' : '');    
+      const isActive = REF.geo.includes('EU27_2020') ? (geo === 'EU27_2020' ? 'active' : '') : (REF.geo.includes(geo) ? 'active' : '');    
       content += `
         <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-geo="${geo}" data-bs-toggle="button" aria-pressed="true">
           <span><img class="flag me-2" src="img/country_flags/${geo}.webp" alt="">${languageNameSpace.labels[geo]}</span>
@@ -83,10 +83,10 @@
 
     let prevText = '';
 
-    if (REF.geos.includes('all') || REF.geos == ""){
+    if (REF.geo.includes('all') || REF.geo == ""){
       prevText = languageNameSpace.labels['all']
-    } else if (Array.isArray(REF.geos)) {
-      prevText = REF.geos.map((geo) => languageNameSpace.labels[geo]).join(', ');
+    } else if (Array.isArray(REF.geo)) {
+      prevText = REF.geo.map((geo) => languageNameSpace.labels[geo]).join(', ');
     } 
 
     $('#selectCountry').html(`${prevText} <i class="fas fa-caret-down"></i>`);
@@ -101,7 +101,7 @@
                 const dataGeo = $(this).attr('data-geo');
                 activeDataGeos.push(dataGeo);
                 originalSelection.push(dataGeo);
-                if (REF.geos.includes(dataGeo)) {
+                if (REF.geo.includes(dataGeo)) {
                   $(this).addClass('active');
                   $(this).find('.fas.fa-check').removeClass('invisible');
               } 
@@ -112,10 +112,10 @@
 
             $(item).each(function() {
               const dataGeo = $(this).attr('data-geo');
-              if (REF.geos.includes(dataGeo)) {
+              if (REF.geo.includes(dataGeo)) {
                   $(this).addClass('active');
                   $(this).find('.fas.fa-check').removeClass('invisible');
-              } else if(REF.geos.includes('all')) {
+              } else if(REF.geo.includes('all')) {
 
                 $(item).removeClass('active');
                 $(item).find('.fas.fa-check').addClass('invisible');
@@ -148,7 +148,7 @@
       $(`.dropdown-item[data-geo="all"] i`).removeClass('invisible');
   
       activeDataGeos = ['all'];
-      REF.geos = activeDataGeos;
+      REF.geo = activeDataGeos;
   
       event.stopPropagation();
     }
@@ -170,9 +170,9 @@
           return $(this).attr('data-geo');
         }).get();  
       if (geosItem.length === 1 && geosItem[0] === 'all') {
-        REF.geos = "";
+        REF.geo = "";
       } else {
-        REF.geos = geosItem;
+        REF.geo = geosItem;
       } 
   
       enprices();
@@ -189,10 +189,10 @@
           // Retrieve and display the previously stored text
           let prevText = '';
   
-          if (REF.geos.includes('all')){
+          if (REF.geo.includes('all')){
             prevText = languageNameSpace.labels['all']
-          } else if (Array.isArray(REF.geos)) {
-            prevText = REF.geos.map((geo) => languageNameSpace.labels[geo]).join(', ');
+          } else if (Array.isArray(REF.geo)) {
+            prevText = REF.geo.map((geo) => languageNameSpace.labels[geo]).join(', ');
         } 
           $(this).html(`${prevText} <i class="fas fa-caret-down"></i>`);
       }

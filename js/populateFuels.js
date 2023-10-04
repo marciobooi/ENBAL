@@ -3,7 +3,7 @@ function populateFuel() {
     fuelDropDown.empty()
     let content = '';
   
-    Object.keys(energyProducts).forEach(fuel => {     
+    REF.fuelList.forEach(fuel => {     
         const isActive = fuel == REF.product ? 'active' : '';
       content += `
         <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-fuel="${fuel}" data-bs-toggle="button" aria-pressed="true">

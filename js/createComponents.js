@@ -39,7 +39,7 @@ function buildComponents() {
     instance.addToDOM(target);
   });
 
-  // populateDropdownData();
+  populateDropdownData();
 }
 
 function removeComponents() {
@@ -53,8 +53,8 @@ function removeComponents() {
 function populateDropdownData() {
   populateCountries();
   populateFuel();
-  populateConsumer();
+  // populateConsumer();
   populateYearsData();
-  populateConsumption();
+  populateDecimals();
   populateUnit();
 }

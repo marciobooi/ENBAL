@@ -231,13 +231,13 @@ class SubNavbar {
           area: languageNameSpace.labels["MENU_FUEL"],
           data: ``
         },
-        {
-          label: languageNameSpace.labels["CONSUMER"],
-          id: "selectConsumer",
-          defaultText: languageNameSpace.labels["HOUSEHOLD"],
-          area: languageNameSpace.labels["MENU_CONSUMER"],
-          data: ``
-        },
+        // {
+        //   label: languageNameSpace.labels["CONSUMER"],
+        //   id: "selectConsumer",
+        //   defaultText: languageNameSpace.labels["HOUSEHOLD"],
+        //   area: languageNameSpace.labels["MENU_CONSUMER"],
+        //   data: ``
+        // },
         {
           label: languageNameSpace.labels["REFERENCE"],
           id: "selectYear",
@@ -246,8 +246,8 @@ class SubNavbar {
           data: ``
         },
         {
-          label: languageNameSpace.labels["CONSUME"],
-          id: "selectConsuption",
+          label: languageNameSpace.labels["DEC"],
+          id: "selectDecimals",
           defaultText: languageNameSpace.labels["4141900"],
           area: languageNameSpace.labels["MENU_BAND"],
           data: ``
