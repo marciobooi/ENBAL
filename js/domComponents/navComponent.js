@@ -33,7 +33,8 @@ class Navbar {
           </button>
         </div>
           <a id="home" href="https://ec.europa.eu/eurostat/web/main/home">
-            <img id="eurostatLogo" src="img/estat_RGB_neg.png" alt="Eurostat - Home">
+            <!-- <img id="eurostatLogo" src="img/estat_RGB_neg.png" alt="Eurostat - Home"> -->
+            <img id="eurostatLogo" src="img/logo/eurostat_logo.png" alt="Eurostat - Home">
           </a>
         </div>
       </div>`;
