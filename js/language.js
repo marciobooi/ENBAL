@@ -206,7 +206,7 @@ var languageNameSpace = {
     languageNameSpace.initLanguage(REF.language);   
     REF.full = 1  
     // getYearCountry();
-    populateComboBoxes();  
+    // populateComboBoxes();  
     tableData();
   },
 };

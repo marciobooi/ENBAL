@@ -2,7 +2,7 @@ var countries = [];
 
 function drawEntable() {
   languageNameSpace.initLanguage(REF.language);
-  dataNameSpace.getRefURL()
+  // dataNameSpace.getRefURL()
 
   // $("#mainTitle").text(languageNameSpace.labels["MAINTITLE"]);
 
@@ -15,13 +15,13 @@ function drawEntable() {
 
   getYear();
 
-  populateComboBoxes();
+  // populateComboBoxes();
 
   tableData();
 
-  clickEvents();
+  // clickEvents();
 
-  dataNameSpace.setRefURL()
+  // dataNameSpace.setRefURL()
 }
 
 
