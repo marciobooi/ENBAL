@@ -39,7 +39,10 @@ function populateDecimals() {
 
         REF.decimals = target.attr('data-decimals')       
        
-        enprices()
+
+
+        REF.full = 1;
+        tableData();
 
       });
   
