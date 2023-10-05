@@ -543,7 +543,10 @@
  "TOOLS": "Tools",
  "DB": "Access to dataset",
  "%": "in percentages",
- "TOGGLEAGREGATES": "Toggle aggregates"
+ "TOGGLEAGREGATES": "Toggle aggregates",
+ "SHARE_T": "Share on Twitter",
+ "SHARE_F": "Share on facebook",
+ "SHARE_L": "Share on linkedin"
 
   
 }

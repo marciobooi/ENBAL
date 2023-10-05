@@ -7,7 +7,7 @@ class Navbar {
       <div class="container-fluid">
         <div class="col-5 col-xs-6">
           <div id="header-title">
-            <h1 id="header-title-label"></h1>
+            <h1 id="header-title-label">${languageNameSpace.labels["pub2"]}</h1>
           </div>
         </div>
         <div class="col-3 col-xs-3" id="lang-section">
@@ -21,20 +21,19 @@ class Navbar {
         <div id="social-media" class="me-4 d-flex">
           <button type="button" class="btn btn-primary social-media-icon" onclick="socialNameSpace.twitter();">
             <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
-            <span class="visually-hidden">Share on Twitter</span>
+            <span class="visually-hidden">${languageNameSpace.labels["SHARE_T"]}</span>
           </button>
           <button type="button" class="btn btn-primary social-media-icon" onclick="socialNameSpace.facebook();">
             <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
-            <span class="visually-hidden">Share on facebook</span>
+            <span class="visually-hidden">${languageNameSpace.labels["SHARE_F"]}</span>
           </button>
           <button type="button" class="btn btn-primary social-media-icon" onclick="socialNameSpace.linkedIn();">
             <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
-            <span class="visually-hidden">Share on linkedin</span>
+            <span class="visually-hidden">${languageNameSpace.labels["SHARE_F"]}</span>
           </button>
         </div>
           <a id="home" href="https://ec.europa.eu/eurostat/web/main/home">
-            <!-- <img id="eurostatLogo" src="img/estat_RGB_neg.png" alt="Eurostat - Home"> -->
-            <img id="eurostatLogo" src="img/logo/eurostat_logo.png" alt="Eurostat - Home">
+            <img id="eurostatLogo" src="img/logo/estat_RGB_neg.png" alt="Eurostat - Home">
           </a>
         </div>
       </div>`;
