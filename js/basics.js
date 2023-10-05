@@ -332,7 +332,7 @@ function geturl(params) {
 }
 
 function download_DIVPdf() {
-  var doc = new jsPDF("L", "pt");
+  var doc = new window.jspdf.jsPDF("L", "pt");
   doc.text("" +languageNameSpace.labels[REF.geo] +"\n" +languageNameSpace.labels[REF.fuel] +" - " +REF.year +"",
     doc.internal.pageSize.width / 2,
     50,
