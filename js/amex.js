@@ -679,3 +679,8 @@ $("#amexModal").on("shown.bs.modal", function () {
     init();
   })();
 });
+
+function showAmexModal(params) {
+  var myModal = new bootstrap.Modal(document.getElementById("amexModal"));
+myModal.show();
+}

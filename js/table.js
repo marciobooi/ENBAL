@@ -65,11 +65,13 @@ function drawTable() {
 
         buttons: [
           {
+            className: 'exportpdf d-none',
             text: '<i class="fas fa-file-pdf"></i>',
             // titleAttr: "PDF",       
             dontBreakRows: true,   
           },
           {
+            className: 'exportxcel d-none',
             extend: "excelHtml5",
             text: '<i class="fas fa-file-excel"></i>',
             // titleAttr: "Excel",
@@ -89,6 +91,7 @@ function drawTable() {
          
           },
           {
+            className: 'exportcsv d-none',
             extend: "csvHtml5",
             bom: true,
             text: '<i class="fas fa-file-csv"></i>',
@@ -99,14 +102,6 @@ function drawTable() {
               csv = csvRows.join('\n');  
               return languageNameSpace.labels["pub2"] +"\n"+ languageNameSpace.labels[REF.geo] +" - "+ languageNameSpace.labels[REF.fuel] +"\n"+  csv +"\n\n" + languageNameSpace.labels["eurostat"]
            }
-          },
-          {                  
-            text: '<i class="fas fa-file-search"></i>',
-            // titleAttr: "search",
-          },
-          {   
-            text: '<i class="fas fa-book"></i>',
-            // titleAttr: "book",
           },
         ],
 

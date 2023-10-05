@@ -157,11 +157,7 @@ function changeUrl(title, url) {
 }
 
 function openDataset() {
-  window.open(
-    "https://appsso.eurostat.ec.europa.eu/nui/show.do?dataset=" +
-      dataNameSpace.dataset +
-      "&lang=en"
-  );
+  window.open("https://ec.europa.eu/eurostat/databrowser/view/" + REF.dataset + "/default/table?lang="+ REF.language);
 }
 
 function showSpinner() {
@@ -628,3 +624,11 @@ function nonagregateIcon() {
 return iconHTML;
 }
 
+
+
+function openBalDefinitions(params) {
+  window.open("https://ec.europa.eu/eurostat/documents/38154/4956218/ENERGY-BALANCE-GUIDE.pdf/", "_blank");
+}
+function openMeta(params) {
+  window.open("https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm", "_blank");
+}

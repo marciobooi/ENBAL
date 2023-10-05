@@ -27,8 +27,8 @@ class SubNavbar {
                     <i class="fas fa-info"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					
-                    <button class="dropdown-item" role="menuitem" onclick="tutorial()" aria-label="${languageNameSpace.labels['TUTORIAL']}" value="Tutorial">${languageNameSpace.labels['TUTORIAL']}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="openMeta()" aria-label="${languageNameSpace.labels['meta']}" value="Metadata" >${languageNameSpace.labels['meta']}</button>
+                    <button class="dropdown-item" role="menuitem" onclick="openDataset()" aria-label="${languageNameSpace.labels['DATASET']}" value="dataset">${languageNameSpace.labels['DATASET']}</button>
+                    <button class="dropdown-item" role="menuitem" onclick="openMeta()" aria-label="${languageNameSpace.labels['META']}" value="Metadata" >${languageNameSpace.labels['META']}</button>
                     <button class="dropdown-item" role="menuitem" onclick="mailContact()" aria-label="${languageNameSpace.labels['FEED']}" value="Feedback">${languageNameSpace.labels['FEED']}</button>          		
                   </ul>
                 </li>
@@ -37,11 +37,12 @@ class SubNavbar {
                     <i class="fas fa-download"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Download chart">     					
-                    <button class="dropdown-item" role="menuitem" onclick="exportPngChart()" aria-label="${languageNameSpace.labels['downloadPNG']}">${languageNameSpace.labels["downloadPNG"]}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="exportJpegChart()" aria-label="${languageNameSpace.labels['downloadJPEG']}">${languageNameSpace.labels["downloadJPEG"]}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="exportXlsChart()" aria-label="${languageNameSpace.labels['downloadXLS']}">${languageNameSpace.labels["downloadXLS"]}</button>        		
+                    <button class="dropdown-item" role="menuitem" onclick="download_DIVPdf()" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLEPDF']}">${languageNameSpace.labels["POPDOWNLOADTABLEPDF"]}</button>
+                    <button class="dropdown-item" role="menuitem" onclick="table.button( '.exportxcel' ).trigger();" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']}">${languageNameSpace.labels["POPDOWNLOADTABLEEXCEL"]}</button>
+                    <button class="dropdown-item" role="menuitem" onclick="table.button( '.exportcsv' ).trigger();" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLECSV']}">${languageNameSpace.labels["POPDOWNLOADTABLECSV"]}</button>        		
                   </ul>
                 </li>     
+
                 <!-- <li class="nav-item button px-1" id="shareChart" role="none">
                   <button id="shareBtn" title="share chart" type="button" class="btn btn-primary min-with--nav" aria-label="share chart" onclick="">
                     <i class="fas fa-share-alt"></i>
@@ -52,7 +53,21 @@ class SubNavbar {
                     <i class="fas fa-code"></i>
                   </button>
                 </li>
-
+                <li class="nav-item button px-1" id="AMEX" role="none">
+                  <button id="AMEXBTN" title="${languageNameSpace.labels['AMEX']}" type="button"  onclick="showAmexModal()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['AMEX']}">
+                  <i class="fas fa-search"></i>
+                  </button>
+                </li>
+                <li class="nav-item button px-1" id="definitions" role="none">
+                  <button id="BALGUIDEBTN" title="${languageNameSpace.labels['BALGUIDE']}" type="button"  onclick="openBalDefinitions()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['BALGUIDE']}">
+                  <i class="fas fa-book"></i>
+                  </button>
+                </li>
+                <li class="nav-item button px-1" id="tutorial" role="none">
+                  <button id="TUTORIALBTN" title="${languageNameSpace.labels['POPTUT']}" type="button"  onclick="tutorial()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['POPTUT']}">
+                  <i class="fas fa-book-open"></i>
+                  </button>
+                </li>
               </ul>
             </div>
             </div>
