@@ -12,7 +12,7 @@ function populateYearsData() {
 
   const yearsArray = JSONstat(url).Dataset(0).Dimension("time").id;
  
-  REF.time = yearsArray[yearsArray.length - 1]
+  REF.year = yearsArray[yearsArray.length - 1]
 
 
   const yearsDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(3) > div > ul");
@@ -20,7 +20,7 @@ function populateYearsData() {
   let content = ''; 
 
   yearsArray.forEach(year => {
-    const isActive = year == REF.time ? 'active' : '';
+    const isActive = year == REF.year ? 'active' : '';
     content += `
       <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-year="${year}" data-bs-toggle="button" aria-pressed="true">
         <span>${year}</span>
@@ -49,14 +49,16 @@ function populateYearsData() {
     const selectedText = target.find('span').text();
     $('#selectYear').text(selectedText).append('<i class="fas fa-caret-down"></i>');
 
-    REF.time = target.attr('data-year');
+    REF.year = target.attr('data-year');
 
-    enprices();
+
+    REF.full = 1;
+    tableData();
   });
 
   yearsDropDown.prepend(dropdownMenu);
 
-  $('#selectYear').text(REF.time).append('<i class="fas fa-caret-down"></i>');
+  $('#selectYear').text(REF.year).append('<i class="fas fa-caret-down"></i>');
 
   $('#selectYear').off('mouseenter mouseleave');
 

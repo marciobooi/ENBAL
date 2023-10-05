@@ -1,7 +1,7 @@
 
 $( document ).ready(function() {
 
-  dataNameSpace.getRefURL();
+  // dataNameSpace.getRefURL();
 
   languageNameSpace.initLanguage(REF.language);
 
