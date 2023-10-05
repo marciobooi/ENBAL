@@ -1,14 +1,6 @@
 function populateYearsData() {
 
-
-
-
-
-
   const url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/"+REF.dataset+"?format=JSON&geo=EU27_2020&unit=KTOE&siec=TOTAL&nrg_bal=PEC2020-2030&lang=en"
-
-  log(url)
-
 
   const yearsArray = JSONstat(url).Dataset(0).Dimension("time").id;
  

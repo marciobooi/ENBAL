@@ -40,7 +40,9 @@ function populateUnit() {
 
         REF.unit = target.attr('data-unit')
 
-        enprices()
+
+        REF.full = 1;
+        tableData();
 
       });
   
