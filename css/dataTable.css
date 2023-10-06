@@ -1,5 +1,100 @@
-thead > tr {
+/* /* thead > tr {
     font-size: clamp(.5rem, -0.875rem + 8.333vw, 0.8rem);
     background-color: var(--tool-1);
+    color: white;
+} */
+
+.dataTables_scrollHead {
+    font-size: clamp(.4rem, -0.875rem + 8.333vw, 0.8rem);
+    /* background-color: var(--tool-1); */
+    /* color: white; */
+}
+
+.dataTables_scrollBody>table {
+    font-size: clamp(.5rem, -0.875rem + 8.333vw, 0.8rem);
+}
+
+.tableInfoIcon {
+    color: var(--tool-1);
+    font-size: 1rem;
+}
+
+th.sorting_disabled > .tableHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    align-content: flex-end;
+    justify-content: space-between;
+    height: 4rem;
+    text-align: end;
+}
+
+.icoContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    align-content: end;
+}
+
+.dataTables_scrollBody>table {
+    border-top: none;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    width: 96.7vw !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+tbody > tr {
+    border-bottom: 1px solid #f6eeee;
+    height: 3rem;
+}
+td:not(:first-child) {
+  text-align: right;
+}
+th {
+  text-align: right;
+}
+tbody, td, tfoot, th, thead, tr {
+    padding: 0.3rem;
+}
+
+.expand {
+    /* padding-left: 0.5em; */
+    font-size: 0.8em;
+    color: var(--tool-1);
+    border: 1px solid var(--tool-1);
+    border-radius: 50%;
+    position: relative;
+    /* width: 1rem; */
+    /* height: 1rem; */
+    padding: 0.5rem;
+    margin: 0.1rem;
+}
+
+.expand > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.chartIcon {
+    position: relative;
+    padding-left: 0.5em;
+    font-size: 0.8em;
+    background-color: var(--tool-1);
+    border: 1px solid var(--tool-1);
+    border-radius: 50%;
+    position: relative;
+    padding: 0.65rem;
+    margin: 0.1rem;
+}
+
+.chartIcon > i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     color: white;
 }

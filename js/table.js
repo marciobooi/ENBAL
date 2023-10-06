@@ -43,7 +43,7 @@ function drawTable() {
             data: null,
             width: "80px",
             defaultContent:
-              '<div class="icoContainer"><div class="chartIcon barChart"><i class="fad fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fad fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fad fa-chart-line"></i></div><div class="chartIcon info"><i class="fad fa-info-circle"></i></div></div>',
+              '<div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info-circle"></i></div></div>',
           },
         ],
         ordering: false,
@@ -117,7 +117,7 @@ function drawTable() {
           $(".pieChart").attr("data-tippy-content", languageNameSpace.labels["POPPIECHART"]);
           $(".lineChart").attr("data-tippy-content", languageNameSpace.labels["POPLINECHART"]);
           $(".info").attr("data-tippy-content", languageNameSpace.labels["POPINFO"]);
-          $(".tableInfoIcon > i.fad.fa-info-circle").attr("data-tippy-content", languageNameSpace.labels["POPINFOPRODUCTS"]);
+          $(".tableInfoIcon > i.fas.fa-info-circle").attr("data-tippy-content", languageNameSpace.labels["POPINFOPRODUCTS"]);
           // $(".dt-button[title='book']").attr("data-tippy-content", languageNameSpace.labels["BALGUIDE"]);
           // $(".dt-button[title='search']").attr("data-tippy-content", languageNameSpace.labels["AMEX"]);   
           
@@ -171,7 +171,7 @@ function drawTable() {
     //   if (index == 0) {
     //     $("tr.unitRow").append("<th></th>");
     //   } else {
-    //     $("tr.unitRow").append('<th><div class="tableInfoIcon"><i class="fad fa-info-circle"></i></div></th>');
+    //     $("tr.unitRow").append('<th><div class="tableInfoIcon"><i class="fas fa-info-circle"></i></div></th>');
     //   }
     // }
 
@@ -192,7 +192,7 @@ function drawTable() {
         if (row.child.isShown()) {
           row.child.hide();
           tr.find("div.expand > i").attr("class", "");
-          tr.find("div.expand > i").addClass("fal fa-plus-circle");
+          tr.find("div.expand > i").addClass("fas fa-plus");
           const removeElements = (elms) => elms.forEach((el) => el.remove());
           removeElements(document.querySelectorAll(".secondLayerTR"));
         } else {
@@ -200,7 +200,7 @@ function drawTable() {
           format(row.data()).then(function(result) {
             row.child(result).show(); 
             tr.find("div.expand > i").attr("class", "");
-            tr.find("div.expand > i").addClass("fal fa-minus-circle");              
+            tr.find("div.expand > i").addClass("fas fa-minus");              
             hideSpinner();
             newRowData = [];
           });
@@ -221,7 +221,7 @@ function drawTable() {
       format().then(function () {
         if ($(selector).hasClass("fa-minus-circle")) {
           $(selector).attr("class", "");
-          $(selector).addClass("fal fa-plus-circle");
+          $(selector).addClass("fas fa-plus");
           const removeElements = (elms) => elms.forEach((el) => el.remove());
           removeElements(document.querySelectorAll(".secondLayerTR"));
         } else {         
@@ -319,12 +319,12 @@ async function format() {
         '" class="show secondLayer" style="background-color: aliceblue;">' +
         '<td ><span class="expandTd">' +
         element[1] +
-        '<div class="expand"><i class="fal fa-plus-circle"></i></div></span></td>';
+        '<div class="expand"><i class="fas fa-plus"></i></div></span></td>';
       for (let i = 2; i < element.length; i++) {
         data += "<td>" + element[i] + "</td>";
       }
       data +=
-        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fad fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fad fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fad fa-chart-line"></i></div><div class="chartIcon info"><i class="fad fa-info-circle"></i></div></div></td></tr>';
+        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info-circle"></i></div></div></td></tr>';
       newdata.push($(data));
     } else {
       data =
@@ -338,7 +338,7 @@ async function format() {
         data += "<td>" + element[i] + "</td>";
       }
       data +=
-        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fad fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fad fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fad fa-chart-line"></i></div><div class="chartIcon info"><i class="fad fa-info-circle"></i></div></div></td></tr>';
+        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info-circle"></i></div></div></td></tr>';
       newdata.push($(data));
     }
   }

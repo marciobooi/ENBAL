@@ -240,7 +240,7 @@ function fetchUrl(d) {
       data.push([
         '<span class="expandTd">' +
           languageNameSpace.labels[nrg[item]] +
-          '<div class="expand"><i class="fal fa-plus-circle"></i></div></span>',
+          '<div class="expand"><i class="fas fa-plus"></i></div></span>',
         ...fetcheddata,
       ]);
     } else {

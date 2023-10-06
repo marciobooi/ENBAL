@@ -231,52 +231,7 @@ li.highcharts-menu-item:hover {
     transform: scaleY(0);
   }
 }
-table.dataTable thead th,
-table.dataTable.no-footer {
-  border-bottom: 0 solid #111;
-}
-#ENTable {
-  color: #535a60;
-  margin-left: auto;
-  margin-right: auto;
-}
-table.dataTable.display tbody tr.odd {
-  background-color: initial;
-}
-td {
-  font-size: 0.8em;
-}
-th {
-  font-size: 0.8em;
-}
-.icoContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-.chartIcon {
-  font-size: 1.1em;
-  color: #6c757d;
-  padding: 2px;
-}
-.chartIcon:hover {
-  color: #33afaf;
-}
-td:not(:first-child) {
-  text-align: right;
-}
-th {
-  text-align: right;
-}
-.tableHeader {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 6em;
-}
-.tableInfoIcon:hover {
-  color: #33afaf;
-}
+
 .modal-xl {
   max-width: 1400px;
   max-height: 80vh;
@@ -979,9 +934,7 @@ h2.pub2 {
   top: 195px;
   font-weight: bolder;
 }
-.dataTables_wrapper {
-  margin-top: 9em;
-}
+
 .social-media-icon:hover {
   transition: all 0.2s ease-in-out;
   transform: scale(1.1);
@@ -1244,21 +1197,7 @@ i.fad.fa-chart-pie,
 i.fad.fa-info-circle {
   cursor: pointer;
 }
-.dataTables_scrollBody {
-  border-bottom: 0 solid #fff !important;
-}
-.dataTables_wrapper .dataTables_scroll {
-  box-shadow: rgb(0 0 0 / 19%) 0 10px 20px, rgb(0 0 0 / 23%) 0 6px 6px;
-}
-.dataTables_scrollHeadInner {
-  width: 100% !important;
-}
-.dataTables_scrollHeadInner table {
-  width: 100% !important;
-}
-table#ENTable {
-  width: 100% !important;
-}
+
 .modal {
   position: fixed;
   top: 0;

@@ -53,7 +53,7 @@ function apiCall(balances) {
   }
   tableHeader = columnSiecs.map((a, _b) => {
     obj = {
-      title: '<div class="tableHeader" id=' + a + ">" + languageNameSpace.labels[a] + '<div class="tableInfoIcon data-tippy-content="left"><i class="fad fa-info-circle"></i></div></div>',
+      title: '<div class="tableHeader" id=' + a + ">" + languageNameSpace.labels[a] + '<div class="tableInfoIcon data-tippy-content="left"><i class="fas fa-info-circle"></i></div></div>',
     };
     column.push(obj);
   });
