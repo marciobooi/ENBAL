@@ -41,19 +41,15 @@ function chartRender() {
 }
 
 function infoModal(info) {
-  // console.log(excelInfoData);
 
   let obj = excelInfoData[0].find((o) => o.CODE === info);
-  // console.log(obj)
-  // console.log(obj.PICTURE)
-  // console.log(info)
 
   let infoMeta = "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm";
   let dataBrowser = "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang="+REF.language.toLowerCase();
 
   $("#info").append(
     '<div id="infoCard" class="card">' 
-    + '<img src="./img/' + obj.PICTURE +'.jpg" class="card-img-top" alt="' +obj.PICTURE +'.jpg">' 
+    + '<img src="./img/fuels/' + obj.PICTURE +'.jpg" class="card-img-top" alt="' +obj.PICTURE +'.jpg">' 
     + '<div class="card-body">' 
     + '<h5 class="card-title"><b>' + languageNameSpace.labels[info] + "</b></h5>" 
     + '<p class="card-text text-left text-wrap">' + obj[REF.language] + "</p>" 

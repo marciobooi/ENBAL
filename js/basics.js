@@ -632,3 +632,14 @@ function openBalDefinitions(params) {
 function openMeta(params) {
   window.open("https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm", "_blank");
 }
+
+
+$(document).on("click", ".info", function () {
+  info = $(this).parents("tr")[0].id;
+  infoModal(info);
+});
+
+  $(document).on("click", ".tableInfoIcon", function () {
+    productInfo = $(this).parents(".tableHeader")[0].id;
+    infoModal(productInfo);
+  });
