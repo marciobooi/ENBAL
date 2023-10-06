@@ -51,7 +51,7 @@ function populateDecimals() {
     $('#selectDecimals').hover(
         function() {
           $(this).data('prevText', $(this).text());
-          $(this).html(`${languageNameSpace.labels['MENU_BAND']} <i class="fas fa-caret-down"></i>`);
+          $(this).html(`${languageNameSpace.labels['MENU_DEC']} <i class="fas fa-caret-down"></i>`);
         },
         function() {
           const dropdownConsumerList = $('#dropdown-decimals-list');

@@ -535,7 +535,7 @@
  "MAINMENU": "Menu",
  "COUNTRY": "Country",
  "FUEL": "Fuel",
- "CONSUMER": "Consumer",
+ "DECIMALS": "Decimals",
  "REFERENCE": "Reference period",
  "all": "Select all countries",
  "KWH_GE15000" : "band DE: Consumption for 15 000 kWh or over",
@@ -546,7 +546,16 @@
  "TOGGLEAGREGATES": "Toggle aggregates",
  "SHARE_T": "Share on Twitter",
  "SHARE_F": "Share on facebook",
- "SHARE_L": "Share on linkedin"
+ "SHARE_L": "Share on linkedin",
+ "MENU_COUNTRY": "Select countries",
+ "MENU_FUEL": "Select fuel",
+ "MENU_CONSUMER": "Select consumer",
+ "MENU_DEC": "Select decimals",
+ "MENU_UNIT": "Select unit",
+ "MENU_COUNTRY_SORTING": "Select countries order",
+ "MENU_SAVE_DIAGRAM": "Save this diagram",
+ "MENU_MORE": "Find out more",
+ "MENU_YEARS": "Select year"
 
   
 }

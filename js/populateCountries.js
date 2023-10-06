@@ -1,57 +1,56 @@
 function populateCountries() {
-
   const countryDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(1) > div > ul");
-  countryDropDown.empty()
+  countryDropDown.empty();
   let content = '';
 
   defGeos.forEach(geo => {
-    const isActive = geo == REF.geo ? 'active' : '';  
+    const isActive = geo === REF.geo ? 'active' : '';
     content += `
       <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-geo="${geo}" data-bs-toggle="button" aria-pressed="true">
         <span><img class="flag me-2" src="img/country_flags/${geo}.webp" alt="">${languageNameSpace.labels[geo]}</span>
         <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'}"></i>
       </a>`;
   });
+
   const dropdownMenu = $("<div>")
     .attr("id", "dropdown-geo-list")
     .attr("role", "menu")
-    .css("height", "auto")
-    .css("maxHeight", "48vh")
-    .css("overflowX", "hidden")
+    .css({
+      height: "auto",
+      maxHeight: "48vh",
+      overflowX: "hidden"
+    })
     .html(content);
 
+  dropdownMenu.on('click', '.dropdown-item', function() {
+    const target = $(this);
+    const checkIcon = target.find('.fas.fa-check');
 
-    dropdownMenu.on('click', '.dropdown-item', function() {
-      const target = $(this);
-      const checkIcon = target.find('.fas.fa-check');
-    
-      dropdownMenu.find('.dropdown-item').removeClass('active');
-      dropdownMenu.find('.fas.fa-check').addClass('invisible');
-    
-      target.addClass('active');
-      checkIcon.removeClass('invisible');
+    dropdownMenu.find('.dropdown-item').removeClass('active');
+    dropdownMenu.find('.fas.fa-check').addClass('invisible');
 
-      const selectedText = target.find('span').text();
-      $('#selectCountry').text(selectedText).append('<i class="fas fa-caret-down"></i>');
+    target.addClass('active');
+    checkIcon.removeClass('invisible');
 
-      REF.geo = target.attr('data-geo')       
+    const selectedText = target.find('span').text();
+    $('#selectCountry').text(selectedText).append('<i class="fas fa-caret-down"></i>');
 
-      REF.full = 1;
-      tableData()
+    REF.geo = target.attr('data-geo');
+    REF.full = 1;
+    tableData();
+  });
 
-    });
-
-    countryDropDown.prepend(dropdownMenu);
+  countryDropDown.prepend(dropdownMenu);
 
   $('#selectCountry').hover(
-      function() {
-        $(this).data('prevText', $(this).text());
-        $(this).html(`${languageNameSpace.labels['MENU_COUNTRY']} <i class="fas fa-caret-down"></i>`);
-      },
-      function() {
-        const dropdownGeoList = $('#dropdown-geo-list');
-        const prevText = dropdownGeoList.find('.dropdown-item.active span').text();
-        $(this).html(`${prevText} <i class="fas fa-caret-down"></i>`);
-      }
-    );
+    function() {
+      $(this).data('prevText', $(this).text());
+      $(this).html(`${languageNameSpace.labels['MENU_COUNTRY']} <i class="fas fa-caret-down"></i>`);
+    },
+    function() {
+      const dropdownGeoList = $('#dropdown-geo-list');
+      const prevText = dropdownGeoList.find('.dropdown-item.active span').text();
+      $(this).html(`${prevText} <i class="fas fa-caret-down"></i>`);
+    }
+  );
 }

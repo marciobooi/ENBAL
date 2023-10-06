@@ -1,0 +1,5 @@
+thead > tr {
+    font-size: clamp(.5rem, -0.875rem + 8.333vw, 0.8rem);
+    background-color: var(--tool-1);
+    color: white;
+}

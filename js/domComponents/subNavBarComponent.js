@@ -29,7 +29,7 @@ class SubNavbar {
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					
                     <button class="dropdown-item" role="menuitem" onclick="openDataset()" aria-label="${languageNameSpace.labels['DATASET']}" value="dataset">${languageNameSpace.labels['DATASET']}</button>
                     <button class="dropdown-item" role="menuitem" onclick="openMeta()" aria-label="${languageNameSpace.labels['META']}" value="Metadata" >${languageNameSpace.labels['META']}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="mailContact()" aria-label="${languageNameSpace.labels['FEED']}" value="Feedback">${languageNameSpace.labels['FEED']}</button>          		
+                    <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.email()" aria-label="${languageNameSpace.labels['FEED']}" value="Feedback">${languageNameSpace.labels['FEED']}</button>          		
                   </ul>
                 </li>
                 <li class="nav-item dropdown px-1" id="downloadChart" role="none">
@@ -231,7 +231,7 @@ class SubNavbar {
         {
           label: languageNameSpace.labels["COUNTRY"],
           id: "selectCountry",
-          defaultText: languageNameSpace.labels["BOX_SELECTION_ALL_COUNTRY"],
+          defaultText: languageNameSpace.labels[REF.geo],
           area: languageNameSpace.labels["MENU_COUNTRY"],
           data: `<div class="d-flex justify-content-evenly py-2">
                   <button class="btn btn-outline-secondary btn-sm px-2 min-with--geo" type="button" id="btn-country-reset">Reset</button>
@@ -242,7 +242,7 @@ class SubNavbar {
         {
           label: languageNameSpace.labels["FUEL"],
           id: "selectFuel",
-          defaultText: languageNameSpace.labels["6000"],
+          defaultText: languageNameSpace.labels[REF.fuel],
           area: languageNameSpace.labels["MENU_FUEL"],
           data: ``
         },
@@ -261,16 +261,16 @@ class SubNavbar {
           data: ``
         },
         {
-          label: languageNameSpace.labels["DEC"],
+          label: languageNameSpace.labels["DECIMALS"],
           id: "selectDecimals",
-          defaultText: languageNameSpace.labels["4141900"],
-          area: languageNameSpace.labels["MENU_BAND"],
+          defaultText: REF.decimals,
+          area: languageNameSpace.labels["MENU_DEC"],
           data: ``
         },
         {
           label: languageNameSpace.labels["UNIT"],
           id: "selectUnit",
-          defaultText: `${languageNameSpace.labels["EUR"]}/${languageNameSpace.labels["KWH"]}`,
+          defaultText: languageNameSpace.labels[REF.unit],
           area: languageNameSpace.labels["MENU_UNIT"],
           data: ``
         }
