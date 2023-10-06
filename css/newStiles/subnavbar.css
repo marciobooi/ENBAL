@@ -13,9 +13,9 @@
 }
 
 #title, #subtitle {
-    font-size: .8em;
+    font-size: 1em;
     color: var(--main-color);
-    line-height: 10px;
+    line-height: 15px;
 }
 
 ul.dropdown-menu {

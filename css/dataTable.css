@@ -6,8 +6,7 @@
 
 .dataTables_scrollHead {
     font-size: clamp(.4rem, -0.875rem + 8.333vw, 0.8rem);
-    /* background-color: var(--tool-1); */
-    /* color: white; */
+    height: clamp(5rem, 100vw, 7rem);
 }
 
 .dataTables_scrollBody>table {
@@ -23,9 +22,9 @@ th.sorting_disabled > .tableHeader {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    align-content: flex-end;
+    align-content: space-around;
     justify-content: space-between;
-    height: 4rem;
+    height: clamp(4rem, 100vw, 5.2rem);
     text-align: end;
 }
 

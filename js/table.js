@@ -43,7 +43,7 @@ function drawTable() {
             data: null,
             width: "80px",
             defaultContent:
-              '<div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info-circle"></i></div></div>',
+              '<div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info"></i></div></div>',
           },
         ],
         ordering: false,
@@ -171,7 +171,7 @@ function drawTable() {
     //   if (index == 0) {
     //     $("tr.unitRow").append("<th></th>");
     //   } else {
-    //     $("tr.unitRow").append('<th><div class="tableInfoIcon"><i class="fas fa-info-circle"></i></div></th>');
+    //     $("tr.unitRow").append('<th><div class="tableInfoIcon"><i class="fasfa-info"></i></div></th>');
     //   }
     // }
 
@@ -324,7 +324,7 @@ async function format() {
         data += "<td>" + element[i] + "</td>";
       }
       data +=
-        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info-circle"></i></div></div></td></tr>';
+        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info"></i></div></div></td></tr>';
       newdata.push($(data));
     } else {
       data =
@@ -338,7 +338,7 @@ async function format() {
         data += "<td>" + element[i] + "</td>";
       }
       data +=
-        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info-circle"></i></div></div></td></tr>';
+        '<td><div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info"></i></div></div></td></tr>';
       newdata.push($(data));
     }
   }
@@ -375,8 +375,8 @@ function tableData() {
 
   apiCall(balances);
 
-  navBarTitle = languageNameSpace.labels["dataset"] + "<br>" + languageNameSpace.labels[REF.geo] + " - " + REF.year + " - " + languageNameSpace.labels[REF.fuel];
-  $("#mainTitle").html(navBarTitle);
+  $("#title").html(languageNameSpace.labels["dataset"]);
+  $("#subtitle").html(languageNameSpace.labels[REF.geo] + " - " + REF.year + " - " + languageNameSpace.labels[REF.fuel]);
 }
 
 
