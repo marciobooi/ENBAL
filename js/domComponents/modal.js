@@ -15,6 +15,9 @@ class Modal {
         }
       
         create() {
+
+log(this.obj)
+
           this.modal.innerHTML = `
             <div  style="display: block; padding-right: 17px;" >
             <div class="modal-dialog modal-dialog-centered">
@@ -27,11 +30,11 @@ class Modal {
                           <h5 class="card-title"><b>${languageNameSpace.labels[this.info]}</b></h5>
                           <p class="card-text text-left text-wrap">${this.obj[REF.language]}</p>
                           <div class="d-flex justify-content-end pt-2">
-                            <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="modalBtn btn Metadata" aria-label="Open metadata">${languageNameSpace.labels["POPMETA"]}</button>
-                            <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="modalBtn btn ms-2 Dataset" aria-label="Open database">${languageNameSpace.labels["POPDB"]}</button>
+                            <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="btn btn-primary min-with--nav Metadata" aria-label="Open metadata">${languageNameSpace.labels["POPMETA"]}</button>
+                            <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="btn btn-primary min-with--nav Dataset" aria-label="Open database">${languageNameSpace.labels["POPDB"]}</button>
                           </div>
                           <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                          <button type="button" class="btn btn-primary min-with--nav" data-bs-dismiss="modal">Close</button>
                           </div>
                         </div>
                       </div>
@@ -49,39 +52,45 @@ class Modal {
   
       // Add an event listener to handle keyboard interactions
       this.modal.addEventListener('keydown', this.handleKeyDown.bind(this));
+
+      function openLink(url) {
+        window.location.href = url;
+      };
     }
   
     open() {
-        const bootstrapModal = new bootstrap.Modal(this.modal);
-        bootstrapModal.show();
+      const bootstrapModal = new bootstrap.Modal(this.modal);
+      bootstrapModal.show();
       this.modal.style.display = 'block';
       this.modal.setAttribute('aria-hidden', 'false');
-  
+    
       // Trap keyboard focus within the modal
-      this.modalContent.addEventListener('keydown', (event) => {
-        if (event.key === 'Tab' && !event.shiftKey) {
-          // Tab key pressed (forward) - focus the first focusable element
-          const firstFocusableElement = this.modal.querySelector('button, select, [tabindex="0"]');
-          if (firstFocusableElement) {
+      this.modal.addEventListener('keydown', (event) => {
+        if (event.key === 'Tab') {
+          const focusableElements = this.modal.querySelectorAll('button, select, [tabindex="0"]');
+          const focusedElement = document.activeElement;
+          const firstFocusableElement = focusableElements[0];
+          const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    
+          if (event.shiftKey && focusedElement === firstFocusableElement) {
+            // Shift + Tab key pressed (backward) - focus the last focusable element
+            event.preventDefault();
+            lastFocusableElement.focus();
+          } else if (!event.shiftKey && focusedElement === lastFocusableElement) {
+            // Tab key pressed (forward) - focus the first focusable element
             event.preventDefault();
             firstFocusableElement.focus();
           }
-        } else if (event.key === 'Tab' && event.shiftKey) {
-          // Shift + Tab key pressed (backward) - focus the last focusable element
-          const focusableElements = this.modal.querySelectorAll('button, select, [tabindex="0"]');
-          if (focusableElements.length > 0) {
-            event.preventDefault();
-            focusableElements[focusableElements.length - 1].focus();
-          }
         }
       });
-  
+    
       // Set focus to the first focusable element inside the modal
       const firstFocusableElement = this.modal.querySelector('button, select, [tabindex="0"]');
       if (firstFocusableElement) {
         firstFocusableElement.focus();
       }
     }
+    
   
     close() {
       this.modal.style.display = 'none';

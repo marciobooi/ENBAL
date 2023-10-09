@@ -2,7 +2,11 @@
     background-color: var(--tool-1);
 }
 
-
+.btn-primary {
+    background-color: var(--tool-1) !important;
+    border-color: var(--tool-1) !important;
+    border-radius: 0.4rem !important;
+}
 
 #menu {
     position: relative;
@@ -106,5 +110,43 @@ dl, ol, ul {
 span.agregates.fa-stack.fa-rotate-180 {
     font-size: .9rem;
 }
+
+#infoCard button {
+    margin: 0.2rem;
+    padding: 0.5rem 1rem; /* Add padding for better button sizing */
+    background-color: transparent;
+    color: #fff; /* Set the text color */
+    border: 1px solid #2196f3; /* Add a border */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transitions */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  /* Hover and focus styles */
+  #infoCard button:hover,
+  #infoCard button:focus {
+    background-color: #2196f3 !important;
+    border-color: #2196f3 !important;
+    color: #fff; /* Change text color on hover/focus for better contrast */
+    outline: none; /* Remove the default focus outline */
+  }
+  
+  /* Optional: Add a transition for box-shadow if desired */
+  #infoCard button {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box-shadow */
+  }
+  
+  /* Optional: Style the buttons as a group */
+  #infoCard .button-group {
+    display: flex;
+    gap: 0.2rem;
+  }
+  
+  /* Optional: Style the buttons individually if needed */
+  #infoCard .button-group button {
+    flex: 1; /* Make buttons in the group evenly spaced */
+  }
+  
+  /* Optional: Adjust the styling for smaller screens */
 
 

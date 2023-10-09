@@ -43,15 +43,15 @@
 //     window.open("https://ec.europa.eu/eurostat/documents/38154/4956218/ENERGY-BALANCE-GUIDE.pdf/", "_blank");
 //   });
 
-  $(document).on("click", ".info", function () {
-    info = $(this).parents("tr")[0].id;
-    infoModal(info);
-  });
+  // $(document).on("click", ".info", function () {
+  //   info = $(this).parents("tr")[0].id;
+  //   infoModal(info);
+  // });
 
-//   $(document).on("click", ".tableInfoIcon", function () {
-//     productInfo = $(this).parents(".tableHeader")[0].id;
-//     infoModal(productInfo);
-//   });
+  // $(document).on("click", ".tableInfoIcon", function () {
+  //   productInfo = $(this).parents(".tableHeader")[0].id;
+  //   infoModal(productInfo);
+  // });
 
 //   document.getElementById("countries").addEventListener("change", function (e) {
 //     $("img.select-box__input-flag.country-flag").css("display", "none");

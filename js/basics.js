@@ -634,20 +634,31 @@ function openMeta(params) {
 }
 
 
+// Function to open a modal based on the provided info
+function openModal(info) {
+  const obj = excelInfoData[0].find((o) => o.CODE === info);
+  if (obj) {
+    const modal = new Modal(info, obj);
+    modal.open();
+    modal.addToDOM('#definitionsModal');
+  }
+}
+
+// Click event handler for elements with the class "info"
 $(document).on("click", ".info", function () {
-  let info = $(this).parents("tr")[0].id;
-  let obj = excelInfoData[0].find((o) => o.CODE === info);
-  const modal = new Modal(info, obj);
-
-  modal.open();  
-
-  modal.addToDOM('#definitionsModal'); // Replace '#modalContainer' with the ID or selector of the container where you want to append the modal
+  const info = $(this).closest("tr").attr("id");
+  openModal(info);
 });
 
-  $(document).on("click", ".tableInfoIcon", function () {
-    productInfo = $(this).parents(".tableHeader")[0].id;
-    infoModal(productInfo);
-  });
+// Click event handler for elements with the class "tableInfoIcon"
+$(document).on("click", ".tableInfoIcon", function () {
+  const productInfo = $(this).closest(".tableHeader").attr("id");
+  openModal(productInfo);
+});
+
+function openLink(url) {
+  window.location.href = url;
+}
 
 
   $(document).on("click", ".barChart", function () {
