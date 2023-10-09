@@ -120,7 +120,7 @@
 
 
     <script type="text/javascript" src="js/jquery/jquery-3.7.0.js"></script>
-    <script type="text/javascript" src="externajJS/bootstrap.min.js"></script>
+    <!-- <script type="text/javascript" src="externajJS/bootstrap.min.js"></script> -->
 
 
     <script type="text/javascript" src="js/basics.js"></script>
@@ -149,15 +149,6 @@
 
     <script type="text/javascript" src="js/tutorial.js"></script>
     <script type="text/javascript" src="js/social.js"></script>
-
-
-
-
-
-
-
-
-
   
     <script defer src="https://europa.eu/webtools/load.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/external/chart/highcharts.js"></script>
@@ -176,6 +167,7 @@
     <script defer type="text/javascript" src="js/domComponents/floatingControls.js"></script>
     <script defer type="text/javascript" src="js/domComponents/chartObject.js"></script>
     <script defer type="text/javascript" src="js/domComponents/btns.js"></script>
+    <script defer type="text/javascript" src="js/domComponents/modal.js"></script>
     <script src="js/createComponents.js"></script>
     <script src="js/populateCountries.js"></script>
     <script src="js/populateFuels.js"></script>
@@ -185,51 +177,26 @@
     <script src="js/populateUnit.js"></script>
     <script src="js/keyboardNavigationLogic.js"></script>
 
-
-
-
- 
-
-
-
     <script type="text/javascript" src="js/bootstrap/bootstrap@5.3.0.js"></script>
     <script type="text/javascript" src="js/external/intro7.0.1.js"></script>
 
-
-
-
-
-
-  
-
     <!-- need to be added the correct params -->
     <script type="application/json"> { "utility" : "analytics", "siteID" : "59", "instance" : "ec.europa.eu" } </script>
-
-
-
-
-
-
-
-
 
     <title>EnTable</title>
   </head>
 
   <body>
 
-
     <div id="hiddenFormDiv"></div>
 
     <noscript>
-      <p class="no-script"> Your browser does not support Javascript or Javascript is disabled. <br /> Please enable Javascript to use the enprices tool. </p>
-  </noscript>
-
+      <p class="no-script"> Your browser does not support Javascript or Javascript is disabled. <br /> Please enable Javascript to use the enprices tool.</p>
+    </noscript>
 
   <header>
     <div id="navbar-container"></div>      
 </header>
-
 
 <main>
   <div id="page">
@@ -253,235 +220,12 @@
 
 
     <div id="page">
-      <!-- <nav class="navbar navbar-light">
-        <div id="navContainer" class="w-100">
-          <div class="row">
-            <div class="col">
-              <a class="navbar-brand" href="#">
-                <img
-                  id="eurostatLogo"
-                  src="img/eurostat_logo_260.png"
-                  alt="Eurostat logo"
-                  onclick="window.open('https://ec.europa.eu/eurostat/web/energy/overview', '_blank');"
-                />
-                <h1 id="mainTitle" data-toggle="tooltip"></h1>
-              </a>
-            </div>
-            <div class="col">
-              <div class="navOptions">
-                <div id="social-media">
-                  <span class="Twitter" onclick="socialNameSpace.twitter();"
-                    ><img
-                      class="social-media-icon"
-                      src="img/social-media/twitter_icon.png"
-                      alt="Twitter"
-                  /></span>
-                  <span class="Facebook" onclick="socialNameSpace.facebook();"
-                    ><img
-                      class="social-media-icon"
-                      src="img/social-media/facebook_icon.png"
-                      alt="Facebook"
-                  /></span>
-                  <span class="LinkedIn" onclick="socialNameSpace.linkedIn()"
-                    ><img
-                      class="social-media-icon"
-                      src="img/social-media/linkedin_icon.png"
-                      alt="Linkedin"
-                  /></span>
-                  <span class="Email" onclick="socialNameSpace.email()"
-                    ><img
-                      class="social-media-icon"
-                      src="img/social-media/mail.png"
-                      alt="Email"
-                  /></span>
-                  <span class="Links" data-bs-toggle="modal" data-bs-target="#modalLinks" >
-                    <img class="social-media-icon" src="img/euro.png" alt="Email"/>
-                </span>
-                </div>
-                <div id="lang-section" class="select-style mr-2">
-                  <label
-                    for="lang-selection"
-                    style="color: white; position: absolute; left: 5467px"
-                    >Select language</label
-                  >
-                  <select
-                    id="lang-selection"
-                    onchange="languageNameSpace.setLanguage(this.value)"
-                  >
-                    <option value="EN">English (EN)</option>
-                    <option value="DE">Deutsch (DE)</option>
-                    <option value="FR">Francais (FR)</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav> -->
-
-      <!-- <div class="container-fluid selectMenu">
-        <div class="d-flex justify-content-around">
-          <div class="select-box">
-            <p class="selectTitle IND"></p>
-            <div id="indicator" class="select-box__current" tabindex="0"></div>
-            <ul id="indicatorList" class="select-box__list"></ul>
-          </div>
-
-          <div class="select-box">
-            <p class="selectTitle CTR"></p>
-            <div id="countries" class="select-box__current" tabindex="0"></div>
-            <ul id="countrieslist" class="select-box__list"></ul>
-          </div>
-
-          <div class="select-box">
-            <p class="selectTitle YEAR"></p>
-            <div id="years" class="select-box__current" tabindex="0"></div>
-            <ul id="yearsList" class="select-box__list"></ul>
-          </div>
-
-          <div class="select-box">
-            <p class="selectTitle UNIT"></p>
-            <div id="unitInd" class="select-box__current" tabindex="0"></div>
-            <ul id="unitIndList" class="select-box__list"></ul>
-          </div>
-
-          <div class="select-box">
-            <p class="selectTitle DEC"></p>
-            <div id="decimals" class="select-box__current" tabindex="0"></div>
-            <ul id="decimalsList" class="select-box__list"></ul>
-          </div>
-
-          <button
-            class="btn tutorial"
-            aria-label="tutorial"
-            onclick="tutorial()"
-            data-tippy-content=""
-          >
-            <i class="fal fa-book-open"></i>
-          </button>
-        </div>
-      </div> -->
-
-      <!-- <h2 class="pub2" class="pub2"></h2> -->
-
-
-
-      <!-- <div class="container mt-5  mb-5">
-
-      <div class="d-flex justify-content-start mb-2" style="position: relative;">
-        <h2 class="pub"></h2>
-      </div>
-
-      <div class="d-flex justify-content-center ">
-        <div class="interface-container">
-
-
-
-          <div class="mt-4 mb-4 ">
-
-
-
-            <div class="swiper-container">
-
-            </div>
-
-          </div>
-
-
-        </div>
-      </div>
-
-    </div> -->
+      <div id="definitionsModal"></div>
     </div>
 
-    <div
-      class="modal fade"
-      id="energyModal"
-      tabindex="-1"
-      aria-labelledby="energyModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body">
-            <div id="options">
-              <button
-                id="barChartPercentages"
-                style="display: none"
-                onClick="barChartPercentages(1)"
-                class="btn percentages"
-                data-toggle="tooltip"
-                data-placement="top"
-                title=""
-              >
-                <i class="far fa-percentage"></i>
-              </button>
+ 
 
-              <button
-                id="barChartOptionagregates"
-                style="display: none"
-                onClick="barChartagregates(1)"
-                class="btn agregates"
-                data-toggle="tooltip"
-                data-placement="top"
-                title=""
-              >
-                <i class="far fa-plus"></i>
-              </button>
 
-              <select
-                id="selectOrder"
-                class="form-select"
-                aria-label="Select order of the chart"
-              ></select>
-              <button
-                id="barChartOption"
-                onClick="barChartOption(1)"
-                class="btn btn-outline-primary details"
-                data-toggle="tooltip"
-                data-placement="top"
-                title=""
-              >
-                <i class="far fa-retweet"></i>
-              </button>
-              <button
-                id="share"
-                onClick="geturl()"
-                class="btn btn-outline-primary share"
-                data-toggle="tooltip"
-                data-placement="top"
-                title=""
-              >
-                <i class="fad fa-code"></i>
-              </button>
-              <button
-                type="button"
-                class="btn-close text-left"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div id="chart"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="definitionsModal"
-      tabindex="-1"
-      aria-labelledby="energyModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div id="infoModalContent" class="modal-content">
-          <div class="modal-body">
-            <div id="info"></div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div
       class="modal fade"
@@ -687,21 +431,7 @@
       </div>
     </div>
 
-    <div
-      class="modal fade"
-      id="modalLinks"
-      tabindex="-1"
-      aria-labelledby="modalLinks"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content modal-sm">
-          <div class="modal-body">
-            <div id="links"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+
 
     <button onclick="topFunction()" id="toTop" title="Go to top">
       <i class="fad fa-angle-up"></i>

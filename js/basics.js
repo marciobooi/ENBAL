@@ -635,11 +635,52 @@ function openMeta(params) {
 
 
 $(document).on("click", ".info", function () {
-  info = $(this).parents("tr")[0].id;
-  infoModal(info);
+  let info = $(this).parents("tr")[0].id;
+  let obj = excelInfoData[0].find((o) => o.CODE === info);
+  const modal = new Modal(info, obj);
+
+  modal.open();  
+
+  modal.addToDOM('#definitionsModal'); // Replace '#modalContainer' with the ID or selector of the container where you want to append the modal
 });
 
   $(document).on("click", ".tableInfoIcon", function () {
     productInfo = $(this).parents(".tableHeader")[0].id;
     infoModal(productInfo);
+  });
+
+
+  $(document).on("click", ".barChart", function () {
+    chartBalText = [];
+    REF.chart = "barCart";
+    chartBal = $(this).parents("tr")[0].id;
+    REF.chartBal = chartBal;
+    chartBalText.push($(this).parents("tr").find("td:first").text());
+    showSpinner();
+    setTimeout(function () {
+      renderBarChart(chartBal, chartBalText);
+    }, 100);
+  });
+
+  $(document).on("click", ".pieChart", function () {
+    chartBalText = [];
+    REF.chart = "pieChart";
+    chartBal = $(this).parents("tr")[0].id;
+    REF.chartBal = chartBal;
+    chartBalText.push($(this).parents("tr").find("td:first").text());
+    showSpinner();
+    setTimeout(function () {
+      renderPieChart(chartBal, chartBalText);
+    }, 100);
+  });
+  $(document).on("click", ".lineChart", function () {
+    chartBalText = [];
+    REF.chart = "lineChart";
+    chartBal = $(this).parents("tr")[0].id;
+    REF.chartBal = chartBal;
+    chartBalText.push($(this).parents("tr").find("td:first").text());
+    showSpinner();
+    setTimeout(function () {
+      renderLineChart(chartBal, chartBalText);
+    }, 100);
   });
