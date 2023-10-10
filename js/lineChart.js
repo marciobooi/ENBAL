@@ -40,17 +40,7 @@ function renderLineChart(chartBal) {
         data: data,
       };
       lineChartData.push(barobj);
-    }
-
-  
-    lineTitle = languageNameSpace.labels[REF.fuel] +"<br>"+ languageNameSpace.labels[REF.chartBal] ;
-
-    lineSubTitle = languageNameSpace.labels[REF.geo] + " - " + REF.year;
-
-
-
-
-
+    }  
 
    
     const tooltipFormatter = function () { return tooltipTable(this.points);}; 
@@ -59,7 +49,7 @@ function renderLineChart(chartBal) {
       const chartOptions = {
         containerId: "chart",
         type: "spline",
-        title: lineTitle,
+        title: getTitle(),
         subtitle: null,
         xAxis: { categories: years },
         yAxisFormat: "{value:.2f}",

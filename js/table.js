@@ -375,8 +375,7 @@ function tableData() {
 
   apiCall(balances);
 
-  $("#title").html(languageNameSpace.labels["dataset"]);
-  $("#subtitle").html(languageNameSpace.labels[REF.geo] + " - " + REF.year + " - " + languageNameSpace.labels[REF.fuel]);
+  getTitle()
 }
 
 
