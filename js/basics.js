@@ -660,39 +660,31 @@ function openLink(url) {
   window.location.href = url;
 }
 
-
-  $(document).on("click", ".barChart", function () {
+  $(document).on("click", ".barChart, .pieChart, .lineChart", function () {
     chartBalText = [];
-    REF.chart = "barChart";
+    const chartType = $(this)[0].classList[1]; // Assuming you use data attributes for chart type
+    REF.chart = chartType;
     chartBal = $(this).parents("tr")[0].id;
     REF.chartBal = chartBal;
     chartBalText.push($(this).parents("tr").find("td:first").text());
+  
     $('#enbal').addClass('d-none');
     $('#chartContainer').removeClass('d-none');
-    $('#menuSwitch').removeClass('d-none');
-    createBarChart(chartBal, chartBalText);
-
-  });
-
-  $(document).on("click", ".pieChart", function () {
-    chartBalText = [];
-    REF.chart = "pieChart";
-    chartBal = $(this).parents("tr")[0].id;
-    REF.chartBal = chartBal;
-    chartBalText.push($(this).parents("tr").find("td:first").text());
-    $('#enbal').addClass('d-none');
-    $('#chartContainer').removeClass('d-none');
-      renderPieChart(chartBal, chartBalText);
-
-  });
-  $(document).on("click", ".lineChart", function () {
-    chartBalText = [];
-    REF.chart = "lineChart";
-    chartBal = $(this).parents("tr")[0].id;
-    REF.chartBal = chartBal;
-    chartBalText.push($(this).parents("tr").find("td:first").text());
-    $('#enbal').addClass('d-none');
-    $('#chartContainer').removeClass('d-none');
-    renderLineChart(chartBal, chartBalText);
-
+    
+    switch (chartType) {
+      case "barChart":
+        $('#menuSwitch').removeClass('d-none');
+        createBarChart(chartBal, chartBalText);
+        break;
+      case "pieChart":
+        $('#menuSwitch').addClass('d-none');
+        renderPieChart(chartBal, chartBalText);
+        break;
+      case "lineChart":
+        $('#menuSwitch').addClass('d-none');
+        renderLineChart(chartBal, chartBalText);
+        break;
+      default:
+        break;
+    }
   });
