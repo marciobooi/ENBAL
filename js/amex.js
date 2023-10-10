@@ -196,7 +196,7 @@ function ipFetch(nrgAmex) {
 }
 
 function dataReceived(objAmex) {
-  chartMenuLanguages();
+  // chartMenuLanguages();
   lineChartTitle = languageNameSpace.labels["EU27_2020"] +" - " +languageNameSpace.labels[variable] +" - " +languageNameSpace.labels[objAmex.CODE];
   barChartTitle = languageNameSpace.labels[variable] +" - " +languageNameSpace.labels[objAmex.CODE] +" - 2019";
 

@@ -512,83 +512,83 @@ function topFunction() {
 
 
 
-function chartMenuLanguages() {
-  switch (REF.language) {
-    case ("FR"):
-      Highcharts.setOptions({
-        lang: {
-          months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-          weekdays: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
-          shortMonths: ["Jan", "Fev", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"],
-          decimalPoint: ",",
-          printChart: "Imprimer",
-          downloadPNG: "Télécharger en image PNG",
-          downloadJPEG: "Télécharger en image JPEG",
-          downloadPDF: "Télécharger en document PDF",
-          downloadSVG: "Télécharger en document Vectoriel",
-          loading: "Chargement en cours…",
-          contextButtonTitle: "Exporter le graphique",
-          resetZoom: "Réinitialiser le zoom",
-          resetZoomTitle: "Réinitialiser le zoom au niveau 1:1",
-          thousandsSep: " ",
-		  downloadCSV: "Télécharger CSV",
-		  downloadXLS: "Télécharger le fichier Excel",
-		  viewData: "Afficher le tableau",
-          noData: "Pas d'information à afficher"
-        }
-      });
-      break;
-    case ("DE"):
-      Highcharts.setOptions({
-        lang: {
-          months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
-          weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
-          shortMonths: ["Jan", "Feb", "Mar", "Apr", "Mai", "Juni", "Jul", "August", "Sept", "Okt", "Nov", "Déc"],
-          decimalPoint: ",",
-          printChart: "Drucken",
-          downloadPNG: "Als PNG-Bild herunterladen",
-          downloadJPEG: "Als JPEG-Bild herunterladen",
-          downloadPDF: "Als PDF-Dokument herunterladen",
-          downloadSVG: "Als Vektordokument herunterladen",
-          loading: "Laden ...",
-          contextButtonTitle: "Exportieren des Diagramms",
-          resetZoom: "Zoom zurücksetzen",
-          resetZoomTitle: "Zoom auf Stufe 1: 1 zurücksetzen",
-          thousandsSep: " ",
-		  downloadCSV: "CSV-Datei herunterladen",
-		  downloadXLS: "Excel-Datei herunterladen",
-		  viewData: "Tabelle anzeigen",
-          noData: "Keine Informationen zum Anzeigen"
-        }
-      });
-      break;
-    default:
-      Highcharts.setOptions({
-        lang: {
-          months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-          weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          shortMonths: ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "August", "Sept", "Oct", "Nov", "Dec"],
-          decimalPoint: ",",
-          printChart: "Print",
-          downloadPNG: "Download as PNG image",
-          downloadJPEG: "Download as JPEG image",
-          downloadPDF: "Download as PDF document",
-          downloadSVG: "Download as Vector Document",
-          loading: "Loading ...",
-          contextButtonTitle: "Export the graph",
-          resetZoom: "Reset zoom",
-          resetZoomTitle: "Reset zoom to level 1: 1",
-          thousandsSep: " ",
-		  downloadCSV: "Download CSV",
-		  downloadXLS: "Download Excel file",
-		  viewData: "View table",
-          noData: "No information to display"
-        }
-      });
-      break;
-  }
+// function chartMenuLanguages() {
+//   switch (REF.language) {
+//     case ("FR"):
+//       Highcharts.setOptions({
+//         lang: {
+//           months: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+//           weekdays: ["Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi"],
+//           shortMonths: ["Jan", "Fev", "Mar", "Avr", "Mai", "Juin", "Juil", "Août", "Sept", "Oct", "Nov", "Déc"],
+//           decimalPoint: ",",
+//           printChart: "Imprimer",
+//           downloadPNG: "Télécharger en image PNG",
+//           downloadJPEG: "Télécharger en image JPEG",
+//           downloadPDF: "Télécharger en document PDF",
+//           downloadSVG: "Télécharger en document Vectoriel",
+//           loading: "Chargement en cours…",
+//           contextButtonTitle: "Exporter le graphique",
+//           resetZoom: "Réinitialiser le zoom",
+//           resetZoomTitle: "Réinitialiser le zoom au niveau 1:1",
+//           thousandsSep: " ",
+// 		  downloadCSV: "Télécharger CSV",
+// 		  downloadXLS: "Télécharger le fichier Excel",
+// 		  viewData: "Afficher le tableau",
+//           noData: "Pas d'information à afficher"
+//         }
+//       });
+//       break;
+//     case ("DE"):
+//       Highcharts.setOptions({
+//         lang: {
+//           months: ['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'],
+//           weekdays: ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'],
+//           shortMonths: ["Jan", "Feb", "Mar", "Apr", "Mai", "Juni", "Jul", "August", "Sept", "Okt", "Nov", "Déc"],
+//           decimalPoint: ",",
+//           printChart: "Drucken",
+//           downloadPNG: "Als PNG-Bild herunterladen",
+//           downloadJPEG: "Als JPEG-Bild herunterladen",
+//           downloadPDF: "Als PDF-Dokument herunterladen",
+//           downloadSVG: "Als Vektordokument herunterladen",
+//           loading: "Laden ...",
+//           contextButtonTitle: "Exportieren des Diagramms",
+//           resetZoom: "Zoom zurücksetzen",
+//           resetZoomTitle: "Zoom auf Stufe 1: 1 zurücksetzen",
+//           thousandsSep: " ",
+// 		  downloadCSV: "CSV-Datei herunterladen",
+// 		  downloadXLS: "Excel-Datei herunterladen",
+// 		  viewData: "Tabelle anzeigen",
+//           noData: "Keine Informationen zum Anzeigen"
+//         }
+//       });
+//       break;
+//     default:
+//       Highcharts.setOptions({
+//         lang: {
+//           months: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
+//           weekdays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+//           shortMonths: ["Jan", "Feb", "Mar", "Apr", "May", "June", "Jul", "August", "Sept", "Oct", "Nov", "Dec"],
+//           decimalPoint: ",",
+//           printChart: "Print",
+//           downloadPNG: "Download as PNG image",
+//           downloadJPEG: "Download as JPEG image",
+//           downloadPDF: "Download as PDF document",
+//           downloadSVG: "Download as Vector Document",
+//           loading: "Loading ...",
+//           contextButtonTitle: "Export the graph",
+//           resetZoom: "Reset zoom",
+//           resetZoomTitle: "Reset zoom to level 1: 1",
+//           thousandsSep: " ",
+// 		  downloadCSV: "Download CSV",
+// 		  downloadXLS: "Download Excel file",
+// 		  viewData: "View table",
+//           noData: "No information to display"
+//         }
+//       });
+//       break;
+//   }
 
-}
+// }
 
 function printTable() {
   window.open('data:application/vnd.ms-excel,' + encodeURIComponent($('.highcharts-data-table').html()));
@@ -660,31 +660,86 @@ function openLink(url) {
   window.location.href = url;
 }
 
-  $(document).on("click", ".barChart, .pieChart, .lineChart", function () {
-    chartBalText = [];
-    const chartType = $(this)[0].classList[1]; // Assuming you use data attributes for chart type
-    REF.chart = chartType;
-    chartBal = $(this).parents("tr")[0].id;
-    REF.chartBal = chartBal;
-    chartBalText.push($(this).parents("tr").find("td:first").text());
+
+
+let chartType;
+let chartBal;
+let chartBalText;
+
+
+
+function handleChartAction() {
+  addAuxiliarBarGraphOptions();
+  $('#enbal').addClass('d-none');
+  $('#chartContainer').removeClass('d-none');
+  switch (chartType) {
+    case "barChart":
+      $('#menuSwitch').removeClass('d-none');
+      createBarChart(chartBal, chartBalText);
+      break;
+    case "pieChart":
+      $('#menuSwitch').addClass('d-none');
+      renderPieChart(chartType, chartBal, chartBalText);
+      break;
+    case "lineChart":
+      $('#menuSwitch').addClass('d-none');
+      renderLineChart(chartType, chartBal, chartBalText);
+      break;
+  }
+}
+
+$(document).on("click", ".barChart, .pieChart, .lineChart", function () {
+  chartBalText = [];
+  chartType = $(this)[0].classList[1];
+  REF.chart = chartType;
+  chartBal = $(this).parents("tr")[0].id;
+  REF.chartBal = chartBal;
+  chartBalText.push($(this).parents("tr").find("td:first").text());
   
-    $('#enbal').addClass('d-none');
-    $('#chartContainer').removeClass('d-none');
-    
-    switch (chartType) {
-      case "barChart":
-        $('#menuSwitch').removeClass('d-none');
-        createBarChart(chartBal, chartBalText);
-        break;
-      case "pieChart":
-        $('#menuSwitch').addClass('d-none');
-        renderPieChart(chartBal, chartBalText);
-        break;
-      case "lineChart":
-        $('#menuSwitch').addClass('d-none');
-        renderLineChart(chartBal, chartBalText);
-        break;
-      default:
-        break;
+  handleChartAction();
+});
+
+
+
+let auxiliarBarGraphOptions;
+
+  function addAuxiliarBarGraphOptions() {
+    if (!auxiliarBarGraphOptions) {
+      auxiliarBarGraphOptions = new ChartControls();
+      auxiliarBarGraphOptions.addToDOM("#subnavbar-container");
+    } 
+  }
+
+  function removeAuxiliarBarGraphOptions() {
+    REF.percentage = 0  
+    // getTitle()   
+
+    $('#chartContainer').addClass('d-none');
+    $('#enbal').removeClass('d-none');
+  
+    const auxiliarBarGraphOptions = new ChartControls();
+    auxiliarBarGraphOptions.removeFromDOM("#subnavbar-container");  
+
+    $('#menuSwitch').addClass('d-none');
+    $(".containerNav").css('visibility', 'initial')
+  }
+  
+
+  function exportHandling(id) {
+    const chartToPrint = $("#chart");
+  
+    const exportFunctions = {
+      'printBtn': () => $(chartToPrint).highcharts().print(),
+      'downloadBtn': () => $(chartToPrint).highcharts().exportChart(),
+      'excelBtn': () => $(chartToPrint).highcharts().downloadXLS(),
+    };
+  
+    const selectedFunction = exportFunctions[id];
+  
+    if (selectedFunction) {
+      selectedFunction();
+    } else {
+      console.log('Invalid operation');
     }
-  });
+
+  }

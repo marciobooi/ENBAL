@@ -273,28 +273,7 @@ function changeLegendPisition() {
   return ordSeries;
 };
 
-function exportHandling(id) {
-  const chartToPrint = `#${codesDataset[REF.chartId].container}`;
 
-  const exportFunctions = {
-    'printBtn': () => $(chartToPrint).highcharts().print(),
-    'downloadBtn': () => $(chartToPrint).highcharts().exportChart(),
-    'excelBtn': () => $(chartToPrint).highcharts().downloadXLS(),
-  };
-
-  const selectedFunction = exportFunctions[id];
-
-  if (selectedFunction) {
-    selectedFunction();
-  } else {
-    console.log('Invalid operation');
-  }
-
-// function exportJpegChart() { $(chartToPrint).highcharts().exportChart({type: 'image/jpeg'})};
-// function exportPdfChart() { $(chartToPrint).highcharts().exportChart({type: 'application/pdf'})};
-// function exportSvgChart() { $(chartToPrint).highcharts().exportChart({type: 'image/svg+xml'})};
-// function exportCsvChart() { $(chartToPrint).highcharts().downloadCSV()};
-}
 
 
 function showHideTimeLine() {

@@ -104,30 +104,37 @@ class ChartControls {
 		// Set click handlers for each button
 		barChart.setClickHandler(function() {
 		  disableChatOptionsBtn(this.value);
-		  auxiliarBarGraph();
+		  chartType = "barChart"
+		  REF.chart = chartType;
+		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		pieChart.setClickHandler(function() {
 		  disableChatOptionsBtn(this.value);
-		  createPieChart();
+		  chartType = "pieChart"
+		  REF.chart = chartType;
+		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		lineChart.setClickHandler(function() {
 		  disableChatOptionsBtn(this.value);
-		  createLineChart();
+		  chartType = "lineChart"
+		  REF.chart = chartType;
+		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		createprintChart.setClickHandler(function() {
-		  printChart();
+			exportHandling(this.id);
 		});
 		downloadChart.setClickHandler(function() {
-		  exportPngChart();
+			exportHandling(this.id);
 		});
 		downloadExcel.setClickHandler(function() {
-		  exportXlsChart();
+			exportHandling(this.id);
 		});
 		embebedeChart.setClickHandler(function() {
-			exportIframe();
+			exportHandling(this.id);
 		});
 		closeChart.setClickHandler(function() {
 		  removeAuxiliarBarGraphOptions();
+		  auxiliarBarGraphOptions = undefined
 		});
 
 	  	  // Create the button elements
@@ -169,7 +176,7 @@ class ChartControls {
 		}
 	  }
 	  $("#menuToolbar").toggle();
-	  showMenuSwitch();
+	
 	}
   }
   

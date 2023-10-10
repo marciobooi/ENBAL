@@ -11,7 +11,7 @@ function drawEntable() {
     countries.push([defGeos[i], languageNameSpace.labels[defGeos[i]]]);
   }
 
-  chartMenuLanguages();
+  // chartMenuLanguages();
 
   getYear();
 
