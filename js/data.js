@@ -21,7 +21,7 @@ var dataNameSpace = {
     "siecs": "",
     "dataset": "nrg_bal_c",
     "decimals": "0",
-    "agregates": "1",
+    "agregates": "0",
     "fuelList": [ "fuelElectricity", "fuelCombustible", "fuelNonCombustible", "fuelOtherPetroleum", "fuelMainPetroleum", "fuelOil", "fuelOtherFossil", "fuelFossil", "fuelCoal", "fuelMainFuel"]
   },
 
