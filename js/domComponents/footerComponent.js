@@ -22,17 +22,18 @@ class Footer {
     buildLinksFooter() {
       const footerCredits = document.querySelector('#footerCredits');
       footerCredits.innerHTML = '';
-  
+
+ 
       const linksContent = ` <li>
-      <a href="https://ec.europa.eu/info/cookies_${REF.language.toLowerCase()}" target="_blank" rel="noreferrer noopener" id="footer-cookies" class="footer-decoration"></a>
+      <a href="https://ec.europa.eu/info/cookies_${REF.language.toLowerCase()}" target="_blank" rel="noreferrer noopener" id="footer-cookies" class="footer-decoration">${languageNameSpace.labels["COOKIES"]}</a>
     </li>
     <hr>
     <li>
-      <a href="https://ec.europa.eu/info/privacy-policy_${REF.language.toLowerCase()}" target="_blank" rel="noreferrer noopener" id="footer-privacy" class="footer-decoration"></a>
+      <a href="https://ec.europa.eu/info/privacy-policy_${REF.language.toLowerCase()}" target="_blank" rel="noreferrer noopener" id="footer-privacy" class="footer-decoration">${languageNameSpace.labels["PRIVACY"]}</a>
     </li>
     <hr>
     <li>
-      <a href="https://ec.europa.eu/info/legal-notice_${REF.language.toLowerCase()}" target="_blank" rel="noreferrer noopener" id="footer-legal" class="footer-decoration"></a>
+      <a href="https://ec.europa.eu/info/legal-notice_${REF.language.toLowerCase()}" target="_blank" rel="noreferrer noopener" id="footer-legal" class="footer-decoration">${languageNameSpace.labels["LEGAL"]}</a>
     </li>`;
   
       footerCredits.innerHTML = linksContent;

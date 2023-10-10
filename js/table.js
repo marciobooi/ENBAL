@@ -261,17 +261,15 @@ function drawTable() {
       })
     }
 
-
-
-    const tableHeight = $('#' + this.options.id).height();
-    const scrollBodyHeight = $('#' + this.options.id).closest('.dataTables_scrollBody').height();
+    const tableHeight = $('#ENTable').height();
+    const scrollBodyHeight = $('#ENTable').closest('.dataTables_scrollBody').height();
     
     if (tableHeight > scrollBodyHeight) {
-        $('#' + this.options.id).closest('.dataTables_scrollBody').css({
+        $('#ENTable').closest('.dataTables_scrollBody').css({
             width: "calc(100% + 15px)",
         })
     } else {
-        $('#' + this.options.id).closest('.dataTables_scrollBody').css({
+        $('#ENTable' ).closest('.dataTables_scrollBody').css({
             width: "100%",
         })
     }
@@ -281,13 +279,6 @@ function drawTable() {
 
 
     document.querySelector(".fa-file-pdf").addEventListener("click", download_DIVPdf);
-
-    if (isMobile && firstTime === 1) {   
-        $('#gestureHelp > img').css('display', 'initial');
-        setTimeout(function () {
-          $('#gestureHelp > img').css('display', 'none');
-        }, 7000); 
-    }
     
     
   }

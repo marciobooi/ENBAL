@@ -2,11 +2,7 @@
     background-color: var(--tool-1);
 }
 
-.btn-primary {
-    background-color: var(--tool-1) !important;
-    border-color: var(--tool-1) !important;
-    border-radius: 0.4rem !important;
-}
+
 
 #menu {
     position: relative;
@@ -114,12 +110,15 @@ span.agregates.fa-stack.fa-rotate-180 {
 #infoCard button {
     margin: 0.2rem;
     padding: 0.5rem 1rem; /* Add padding for better button sizing */
-    background-color: transparent;
     color: #fff; /* Set the text color */
     border: 1px solid #2196f3; /* Add a border */
     border-radius: 4px; /* Rounded corners */
     transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transitions */
     cursor: pointer; /* Change cursor to pointer on hover */
+    background-color: var(--tool-1) !important;
+    border-color: var(--tool-1) !important;
+    border-radius: 0.4rem !important;
+    
   }
   
   /* Hover and focus styles */
