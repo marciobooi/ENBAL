@@ -555,7 +555,8 @@
  "MENU_COUNTRY_SORTING": "Select countries order",
  "MENU_SAVE_DIAGRAM": "Save this diagram",
  "MENU_MORE": "Find out more",
- "MENU_YEARS": "Select year"
+ "MENU_YEARS": "Select year",
+ "details": "Show details"
 
   
 }

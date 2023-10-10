@@ -10,7 +10,7 @@ var dataNameSpace = {
     "year": "",
     "fuel": "fuelMainFuel",
     "siec": "TOTAL",
-    "details": 1,
+    "details": 0,
     "chartOptions": 0,
     "stacking": "normal",
     "chartBal": "",

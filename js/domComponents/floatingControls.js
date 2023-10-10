@@ -7,7 +7,7 @@ class FloatingChartControls {
     this.chartControls.innerHTML = `
       <div>
         <div class="form-check form-switch form-check-reverse">
-          <input class="form-check-input focus-ring" type="checkbox" value="${REF.detail == 1 ? 1 : 0}" role="switch" id="switchDetails" ${REF.detail == 1 ? 'checked' : ''}>
+          <input class="form-check-input focus-ring" type="checkbox" value="${REF.details == 1 ? 1 : 0}" role="switch" id="switchDetails" ${REF.details == 1 ? 'checked' : ''}>
           <label class="form-check-label" for="switchDetails">${languageNameSpace.labels['details']}</label>
         </div>
         <div class="form-check form-switch form-check-reverse">
@@ -18,7 +18,7 @@ class FloatingChartControls {
       
       <div>   
         <ul id="floatingMenu">   
-        <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.detail == 1 ? "" : "none"}"></li>
+        <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.details == 1 ? "" : "none"}"></li>
         <li class="nav-item px-1" id="Agregates" role="none"></li>			  
           <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
             <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     					
@@ -51,7 +51,7 @@ class FloatingChartControls {
           switchElement.value = switchElement.value === '1' ? '0' : '1';
 
           if (switchElement.id === 'switchDetails') {
-            REF.detail = switchElement.value === '1' ? 1 : 0;
+            REF.details = switchElement.value === '1' ? 1 : 0;
             REF.chartInDetails= switchElement.value === '1' ? 1 : 0;
           } else if (switchElement.id === 'switchComponents') {
             REF.component = switchElement.value === '1' ? 1 : 0;
@@ -67,15 +67,15 @@ class FloatingChartControls {
         // Toggle the switch value between 1 and 0 when clicked
         switchElement.value = switchElement.value === '1' ? '0' : '1';    
         if (switchElement.id === 'switchDetails') {
-          REF.detail = switchElement.value === '1' ? 1 : 0;
+          REF.details = switchElement.value === '1' ? 1 : 0;
           REF.chartInDetails= switchElement.value === '1' ? 1 : 0;
         } else if (switchElement.id === 'switchComponents') {
           REF.component = switchElement.value === '1' ? 1 : 0;
         }     
 
         const percentageButton = this.chartControls.querySelector('#togglePercentage');
-        percentageButton.style.display = REF.detail == 1 ? '' : 'none';
-        REF.percentage = 0
+        percentageButton.style.display = REF.details == 1 ? '' : 'none';
+        REF.stacking = "normal"
         populateDropdownData()
         createBarChart()
 
@@ -123,25 +123,14 @@ class FloatingChartControls {
   }
 
   toggleChartPercentage() {
-    REF.percentage = REF.percentage == 0 ? 1 : 0;
+    REF.stacking = REF.stacking == "normal" ? "percent" : "normal";
     createBarChart()
   }
 
   toggleChartAgregates() {
-    const query = ['EU27_2020', 'EA'];
 
-    const toggleAgregates = this.chartControls.querySelector('#toggleAgregates');
-   
-  
-  
-    const hasQuery = query.every(item => REF.geos.includes(item));
-    if (hasQuery) {
-      REF.geos = REF.geos.filter(item => !query.includes(item));
-      toggleAgregates.innerHTML = nonagregateIcon();
-    } else {
-      REF.geos = REF.geos.concat(query);
-      toggleAgregates.innerHTML = agregateIcon();
-    }
+    REF.agregates = REF.agregates == 0 ? 1 : 0;
+      
     createBarChart();
   }
 
