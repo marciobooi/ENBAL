@@ -691,8 +691,8 @@ function openLink(url) {
     chartBal = $(this).parents("tr")[0].id;
     REF.chartBal = chartBal;
     chartBalText.push($(this).parents("tr").find("td:first").text());
-    showSpinner();
-    setTimeout(function () {
-      renderLineChart(chartBal, chartBalText);
-    }, 100);
+    $('#enbal').addClass('d-none');
+    $('#chartContainer').removeClass('d-none');
+    renderLineChart(chartBal, chartBalText);
+
   });

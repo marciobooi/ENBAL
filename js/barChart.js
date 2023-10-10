@@ -535,19 +535,17 @@ function chartApiCall(query) {
 
   switch (REF.chart) {
     case "lineChart":
-      url += "&unit=" + REF.unit; 
-      url += "&geo=" + REF.geo;  
-      if(REF.indicator.length > 0) {
-        for (let i = 0; i < REF.indicator.length; i++) url += indicator_type + REF.indicator[i];  
-      }
-      if(REF.indicator2.length > 0) {
-        for (let i = 0; i < REF.indicator2.length; i++) url += indicator2_type + REF.indicator2[i];  
-      }
 
-      if(REF.chartId === "chart_17" || REF.chartId === "chart-18") {
-        REF.chartId === "chart_17" ? url += "&operator=PRR_AUTO" : url += "&operator=PRR_MAIN"
-        url += "&plants=ELC"
+    url += "&nrg_bal=" + REF.chartBal;
+    url += "&unit=" + REF.unit;
+    url += "&geo=" + REF.geo;
+    for (var i = 0; i < REF.siecs.length; i++) {    
+      if (REF.siecs[i] == "0000X0350-0370" || REF.siecs[i] == "TOTAL" ||REF.siecs[i] == "C0350-0370") {       
+      } else {
+        url += "&siec=" + REF.siecs[i];
       }
+    }
+
       break;
 
       case "barChart":
