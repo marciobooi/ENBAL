@@ -1,7 +1,7 @@
 class FloatingChartControls {
   constructor() {
     this.chartControls = document.createElement('div');
-    this.chartControls.className = 'menuSwitch';
+    this.chartControls.className = 'menuSwitch d-none';
     this.chartControls.id = 'menuSwitch';
 
     this.chartControls.innerHTML = `
@@ -130,7 +130,7 @@ class FloatingChartControls {
   toggleChartAgregates() {
 
     REF.agregates = REF.agregates == 0 ? 1 : 0;
-      
+
     createBarChart();
   }
 

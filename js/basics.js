@@ -667,8 +667,10 @@ function openLink(url) {
     chartBal = $(this).parents("tr")[0].id;
     REF.chartBal = chartBal;
     chartBalText.push($(this).parents("tr").find("td:first").text());
-      // renderBarChart(chartBal, chartBalText);
-      createBarChart(chartBal, chartBalText);
+    $('#enbal').addClass('d-none');
+    $('#chartContainer').removeClass('d-none');
+    $('#menuSwitch').removeClass('d-none');
+    createBarChart(chartBal, chartBalText);
 
   });
 
