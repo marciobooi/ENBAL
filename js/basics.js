@@ -680,10 +680,10 @@ function openLink(url) {
     chartBal = $(this).parents("tr")[0].id;
     REF.chartBal = chartBal;
     chartBalText.push($(this).parents("tr").find("td:first").text());
-    showSpinner();
-    setTimeout(function () {
+    $('#enbal').addClass('d-none');
+    $('#chartContainer').removeClass('d-none');
       renderPieChart(chartBal, chartBalText);
-    }, 100);
+
   });
   $(document).on("click", ".lineChart", function () {
     chartBalText = [];
