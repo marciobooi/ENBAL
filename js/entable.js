@@ -25,21 +25,6 @@ function drawEntable() {
 }
 
 
-
-function chartRender() {
-  switch (REF.chart) {
-    case "barCart":
-      renderBarChart();
-      break;
-    case "pieChart":
-      renderPieChart(chartBal);
-      break;
-    case "lineChart":
-      renderLineChart(chartBal);
-      break;
-  }
-}
-
 function infoModal(info) {
 
   let obj = excelInfoData[0].find((o) => o.CODE === info);

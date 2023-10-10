@@ -182,5 +182,3 @@ $(window).on('resize', function () {
 }
 
 
-// new functions
-
