@@ -686,6 +686,7 @@ function handleChartAction() {
       renderLineChart(chartType, chartBal, chartBalText);
       break;
   }
+  disableChatOptionsBtn(chartType)
 }
 
 $(document).on("click", ".barChart, .pieChart, .lineChart", function () {

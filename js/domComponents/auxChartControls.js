@@ -180,11 +180,10 @@ class ChartControls {
 	}
   }
   
-  function disableChatOptionsBtn(chart) {
-	REF.chartId = chart;  
+  function disableChatOptionsBtn(chartid) {
 	const charts = ["barChart", "pieChart", "lineChart"];  
 	charts.forEach(chart => {
-	  if (REF.chartId == chart) {
+	  if (chartid == chart) {
 		$("#" + chart).attr("disabled", "disabled");
 	  } else {
 		$("#" + chart).removeAttr("disabled");
