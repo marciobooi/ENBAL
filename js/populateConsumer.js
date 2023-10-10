@@ -37,7 +37,7 @@
 //         REF.consumer = target.attr('data-consumer')
 
 //         populateConsumption()
-//         enprices()
+//         createBarChart()
 
 //       });
   

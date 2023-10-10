@@ -16,16 +16,16 @@ class FloatingChartControls {
         </div>
       </div>
       
-      <div>  
+      <div>   
         <ul id="floatingMenu">   
         <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.detail == 1 ? "" : "none"}"></li>
         <li class="nav-item px-1" id="Agregates" role="none"></li>			  
           <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
             <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     					
-              <li><a href="#" class="dropdown-item ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['SORT_PROTOCOL']}</a></li>
-              <li><a href="#" class="dropdown-item ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['SORT_DESC']}</a></li>
-              <li><a href="#" class="dropdown-item ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['SORT_ASC']}</a></li>
-              <li><a href="#" class="dropdown-item ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['SORT_ALPHABETICAL']}</a></li>                		
+              <li><a href="#" class="dropdown-item ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['PROTO']}</a></li>
+              <li><a href="#" class="dropdown-item ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['DESC']}</a></li>
+              <li><a href="#" class="dropdown-item ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['ASC']}</a></li>
+              <li><a href="#" class="dropdown-item ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['ALPHA']}</a></li>                		
             </ul>
           </li>
 
@@ -57,7 +57,7 @@ class FloatingChartControls {
             REF.component = switchElement.value === '1' ? 1 : 0;
           }
 
-          enprices()
+          createBarChart()
           
         }
       });
@@ -77,7 +77,7 @@ class FloatingChartControls {
         percentageButton.style.display = REF.detail == 1 ? '' : 'none';
         REF.percentage = 0
         populateDropdownData()
-        enprices()
+        createBarChart()
 
       });
     });
@@ -116,7 +116,7 @@ class FloatingChartControls {
         REF.order = selectedValue; // Update REF.order with the selected value
 
         this.setSelectedOrder();
-        enprices()
+        createBarChart()
 
       });
     });
@@ -124,7 +124,7 @@ class FloatingChartControls {
 
   toggleChartPercentage() {
     REF.percentage = REF.percentage == 0 ? 1 : 0;
-    enprices()
+    createBarChart()
   }
 
   toggleChartAgregates() {
@@ -142,7 +142,7 @@ class FloatingChartControls {
       REF.geos = REF.geos.concat(query);
       toggleAgregates.innerHTML = agregateIcon();
     }
-    enprices();
+    createBarChart();
   }
 
   toggleIcons() {

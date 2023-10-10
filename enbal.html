@@ -168,6 +168,7 @@
     <script defer type="text/javascript" src="js/domComponents/chartObject.js"></script>
     <script defer type="text/javascript" src="js/domComponents/btns.js"></script>
     <script defer type="text/javascript" src="js/domComponents/modal.js"></script>
+    <script defer type="text/javascript" src="js/domComponents/timeline.js"></script>
     <script src="js/createComponents.js"></script>
     <script src="js/populateCountries.js"></script>
     <script src="js/populateFuels.js"></script>
@@ -191,7 +192,7 @@
     <div id="hiddenFormDiv"></div>
 
     <noscript>
-      <p class="no-script"> Your browser does not support Javascript or Javascript is disabled. <br /> Please enable Javascript to use the enprices tool.</p>
+      <p class="no-script"> Your browser does not support Javascript or Javascript is disabled. <br /> Please enable Javascript to use the ENBAL tool.</p>
     </noscript>
 
   <header>
@@ -211,6 +212,11 @@
           <section id="enbal" class="container-fluid">
             <div class="container-fluid" id="tableArea">
               <table id="ENTable" class="display container-fluid"></table>
+            </div>
+          </section> 
+          <section id="chartContainer" class="container-fluid">
+            <div class="container-fluid" id="chartArea">
+              <div id="chart"></div>
             </div>
           </section> 
   </div>     

@@ -177,6 +177,13 @@ energyDecimals = [
 	"0.000",
 ]
 
+colors = [
+	"#1F497D", "#faa519", "#32AFAF", "#F06423",
+	"#C84B96", "#5FB441", "#286EB4", "#802F09",
+	"#D73C41", "#5E620F", "#00A5E6", "#0F243E",
+	"#B9C31E", "#1A5757"
+];
+
 
 codesEntable = {
 	"geo": Object.keys(energyCountries),

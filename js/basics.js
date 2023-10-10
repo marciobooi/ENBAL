@@ -663,14 +663,13 @@ function openLink(url) {
 
   $(document).on("click", ".barChart", function () {
     chartBalText = [];
-    REF.chart = "barCart";
+    REF.chart = "barChart";
     chartBal = $(this).parents("tr")[0].id;
     REF.chartBal = chartBal;
     chartBalText.push($(this).parents("tr").find("td:first").text());
-    showSpinner();
-    setTimeout(function () {
-      renderBarChart(chartBal, chartBalText);
-    }, 100);
+      // renderBarChart(chartBal, chartBalText);
+      createBarChart(chartBal, chartBalText);
+
   });
 
   $(document).on("click", ".pieChart", function () {

@@ -10,7 +10,7 @@ var dataNameSpace = {
     "year": "",
     "fuel": "fuelMainFuel",
     "siec": "TOTAL",
-    "details": 0,
+    "details": 1,
     "chartOptions": 0,
     "stacking": "normal",
     "chartBal": "",
@@ -21,7 +21,7 @@ var dataNameSpace = {
     "siecs": "",
     "dataset": "nrg_bal_c",
     "decimals": "0",
-    "agregates": "0",
+    "agregates": "1",
     "fuelList": [ "fuelElectricity", "fuelCombustible", "fuelNonCombustible", "fuelOtherPetroleum", "fuelMainPetroleum", "fuelOil", "fuelOtherFossil", "fuelFossil", "fuelCoal", "fuelMainFuel"]
   },
 
