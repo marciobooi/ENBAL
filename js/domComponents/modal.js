@@ -10,26 +10,29 @@ class Modal {
           this.modal.setAttribute('aria-hidden', 'true');
           this.modal.setAttribute('role', 'dialog');
           this.modal.setAttribute('aria-modal', 'true');
+          this.modal.setAttribute('data-bs-backdrop', 'static');
+          this.modal.setAttribute('aria-modal', 'true');
       
           this.create();
         }
       
         create() {
 
-log(this.obj)
-
           this.modal.innerHTML = `
-            <div  style="display: block; padding-right: 17px;" >
+            <div  style="display: block" >
             <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
+                <div class="modal-content rounded-1">
                   <div class="modal-body">
                     <div id="info" role="document">
                       <div id="infoCard" class="card">
                         <img src="./img/fuels/${this.obj.PICTURE}.jpg" class="card-img-top" alt="${this.obj.PICTURE}.jpg">
+                        <div id="dialog-picture-credit" style="font-size: .7rem">
+					                <p class="text-end my-3">©Shutterstock</p>
+                        </div>
                         <div class="card-body">
                           <h5 class="card-title"><b>${languageNameSpace.labels[this.info]}</b></h5>
                           <p class="card-text text-left text-wrap">${this.obj[REF.language]}</p>
-                          <div class="d-flex justify-content-end pt-2">
+                          <div class="d-flex justify-content-end p-2">
                             <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="btn btn-primary min-with--nav Metadata" aria-label="Open metadata">${languageNameSpace.labels["POPMETA"]}</button>
                             <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="btn btn-primary min-with--nav Dataset" aria-label="Open database">${languageNameSpace.labels["POPDB"]}</button>
                           </div>

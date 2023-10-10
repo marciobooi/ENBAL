@@ -60,4 +60,13 @@ body {
 .modal-body > p {
   word-break: break-all;
   font-size: .8em;
+  padding: 0;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+#dialog-picture-credit {
+  padding-right: 1rem;
 }
