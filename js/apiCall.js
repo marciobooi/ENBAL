@@ -82,10 +82,25 @@ function createDataTable(dataTable) {
     dom: "Bfrtip",
     createdRow: function (row, dataTable, dataIndex) {
       $(row).attr("id", dataTable[0]);
+  
+      // Check if any element in dataTable[0] is in the expandables array
       if (expandables.some(item => dataTable[0].includes(item))) {
-        $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas fa-plus-circle"></i>`);
-      }      
-    },
+          // If it contains elements from 'expandables', modify the content of the first <td>
+          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-plus-circle"></i>`);
+  
+          // Add a click event handler to toggle the icon when the first <td> is clicked
+          $(row).find("td:first-child").on('click', function() {
+              // Find the i element with the toggle-icon class in the first cell
+              const icon = $(this).find('.toggle-icon');
+  
+              // Toggle the "fa-plus-circle" and "fa-minus-circle" classes
+              icon.toggleClass('fa-plus-circle fa-minus-circle');
+          });
+  
+          // Add CSS to change the cursor to a pointer on hover
+          $(row).find("td:first-child").css('cursor', 'pointer');
+      }
+  },
     scrollX:"true",
     columns: tableHeader(dataTable),
     columnDefs: [      
