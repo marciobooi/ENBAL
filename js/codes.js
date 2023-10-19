@@ -195,3 +195,5 @@ codesEntable = {
 defGeos = ["EU27_2020","EA19","BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR","HR","IT","CY","LV","LT","LU","HU","MT","NL","AT","PL","PT","RO","SI","SK","FI","SE","IS","NO","ME","MK","AL","RS","TR","BA","XK","MD","UA","GE"]
 
 balances = ["NRGSUP","TI_E","TO","NRG_E","DL","AFC","STATDIFF","FC_NE","FC_E","GEP","GHP",];
+expandables = ["NRGSUP","TI_E","TO","NRG_E","FC_E"];
+

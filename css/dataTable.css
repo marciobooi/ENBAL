@@ -97,3 +97,17 @@ tbody, td, tfoot, th, thead, tr {
     transform: translate(-50%, -50%);
     color: white;
 }
+
+td:first-child {
+    display: flex;
+    align-items: center;
+    padding: 1px;
+}
+
+i.fas.fa-plus-circle {
+    color: var(--tool-1);
+}
+
+i.fas.fa-minus-circle {
+    color: red;
+}

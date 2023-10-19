@@ -1,7 +1,7 @@
 
 
 function newapicall() {
-  
+
   REF.chart = ""
 
     d = chartApiCall();       
@@ -82,6 +82,9 @@ function createDataTable(dataTable) {
     dom: "Bfrtip",
     createdRow: function (row, dataTable, dataIndex) {
       $(row).attr("id", dataTable[0]);
+      if (expandables.some(item => dataTable[0].includes(item))) {
+        $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas fa-plus-circle"></i>`);
+      }      
     },
     scrollX:"true",
     columns: tableHeader(dataTable),
