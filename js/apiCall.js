@@ -1,3 +1,188 @@
+
+
+function newapicall() {
+
+  let url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/" + REF.dataset + "?";
+      url += "format=JSON";
+      url += "&time=" + REF.year;
+      url += "&geo=" + REF.geo;
+      url += "&unit=" + REF.unit;
+      for (var i = 0; i < balances.length; i++) url += "&nrg_bal=" + balances[i];
+      for (var i = 0; i < mainFuelFamilies.length; i++) url += "&siec=" + mainFuelFamilies[i];
+  
+      d = JSONstat(url).Dataset(0);
+
+      const numRows = balances.length;
+      const numColumns = mainFuelFamilies.length;
+
+      const dataTable = [];
+
+      firstCol = `${languageNameSpace.labels["tableYear"]}: ${REF.year} <br> ${languageNameSpace.labels["tableUnit"]}: ${REF.unit}`
+
+      // Add the column headers as the first row
+      dataTable.push([firstCol].concat(mainFuelFamilies)); 
+
+      for (let i = 0; i < numRows; i++) {
+        const row = [balances[i]];
+        for (let j = 0; j < numColumns; j++) {
+          const cellValue = d.value[i * numColumns + j];
+          row.push(cellValue);
+        }   
+        dataTable.push(row);
+      }
+
+     
+      createDataTable(dataTable);
+
+}
+
+function tableHeader(dataTable) {
+  return dataTable[0].map((colTitle, index) => {
+    if (index !== 0) {
+      return {
+        title: `<div class="tableHeader" id=${colTitle}> ${languageNameSpace.labels[colTitle]} <div class="tableInfoIcon"><i class="fas fa-info-circle"></i></div></div>`,
+      };
+    } else {
+      return { title: colTitle }; // For the first column, keep the original title
+    }
+  }).filter(header => header !== undefined);
+}
+
+
+
+function dataTableHandler(dataTable) {
+
+  function formatNumber(number) {
+    if (typeof number === 'number') {
+      return number.toFixed(REF.decimals).replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+    }
+    return number; // Return as is if it's not a number
+  }
+  
+  // Iterate through the dataTable and format the numbers
+  for (let i = 1; i < dataTable.length; i++) {
+      for (let j = 1; j < dataTable[i].length; j++) {
+        if (dataTable[i][j] === null) {
+          dataTable[i][j] = 0;
+      } else {
+          dataTable[i][j] = formatNumber(dataTable[i][j]);
+      }
+      }
+  }
+}
+
+  function destroyTable() {
+    if ($.fn.DataTable.isDataTable('#dataTableContainer')) {
+      $('#dataTableContainer').DataTable().destroy();
+    }  
+  }
+
+
+function createDataTable(dataTable) {
+
+  destroyTable()
+
+  dataTableHandler(dataTable);
+
+  table = $("#dataTableContainer").DataTable({
+    dom: "Bfrtip",
+    createdRow: function (row, dataTable, dataIndex) {
+      $(row).attr("id", dataTable[0]);
+    },
+    scrollX:"true",
+    columns: tableHeader(dataTable),
+    columnDefs: [      
+      {
+        targets: 0,
+        orderable: false,
+      },
+      {
+        targets: [dataTable[0].length],
+        orderable: false,
+        data: null,
+        width: "80px",
+        defaultContent:
+          '<div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info"></i></div></div>',
+      },
+    ],
+    ordering: false,
+    data: dataTable.slice(1),
+    searching: false,
+    paging: false,
+    info: false,
+    responsive: true,
+    language: {
+      decimal: ",",
+      thousands: " ",
+    },
+    colReorder: true,
+    colReorder: {
+      // order: order,
+    },
+
+  
+
+    buttons: [
+      {
+        className: 'exportpdf d-none',
+        text: '<i class="fas fa-file-pdf"></i>',
+        // titleAttr: "PDF",       
+        dontBreakRows: true,   
+      },
+      {
+        className: 'exportxcel d-none',
+        extend: "excelHtml5",
+        text: '<i class="fas fa-file-excel"></i>',
+        // titleAttr: "Excel",
+        title: languageNameSpace.labels["pub2"],
+        messageTop: languageNameSpace.labels[REF.geo] + " - " +languageNameSpace.labels[REF.fuel],
+        messageBottom: "\r\n" + languageNameSpace.labels["eurostat"],
+        customize:function (xlsx) { 
+          var sheet = xlsx.xl.worksheets['sheet1.xml'];
+          $('c[r=A3] t', sheet).text( languageNameSpace.labels["tableYear"] + ": " + REF.year + " / " + languageNameSpace.labels["tableUnit"] + ": " + REF.unit );
+          
+          var COLUMNS = ['B','C','D','E','F', 'G','H','I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];            
+          for ( i=0; i < COLUMNS.length; i++ ) {
+              $('row c[r^='+COLUMNS[i]+']', sheet).attr( 's', '52' );
+              $('row c[r^='+COLUMNS[i]+"3"+']', sheet).attr( 's', '2' );
+          }
+      }
+     
+      },
+      {
+        className: 'exportcsv d-none',
+        extend: "csvHtml5",
+        bom: true,
+        text: '<i class="fas fa-file-csv"></i>',
+        // titleAttr: "CSV",
+        customize: function (csv) {
+          var csvRows = csv.split('\n');
+          csvRows[0] = csvRows[0].replace('"Year: 2019Unit: KTOE"', languageNameSpace.labels["tableYear"] + ": " + REF.year + " / " + languageNameSpace.labels["tableUnit"] + ": " + REF.unit)
+          csv = csvRows.join('\n');  
+          return languageNameSpace.labels["pub2"] +"\n"+ languageNameSpace.labels[REF.geo] +" - "+ languageNameSpace.labels[REF.fuel] +"\n"+  csv +"\n\n" + languageNameSpace.labels["eurostat"]
+       }
+      },
+    ],
+
+
+  })
+
+
+  
+table.draw();
+
+ 
+}
+
+
+
+
+
+
+
+
+
+
 function apiCall(balances) {
   column = [];
   data = [];

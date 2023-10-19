@@ -206,6 +206,29 @@ function numberdecimals(deckey) {
   return decimals[deckey] || decimals.default;
 }
 
+
+
+
+
+
+function countDecimalPlaces(number) {
+  // Convert the number to a string to perform string operations
+  const numStr = number.toString();
+
+  // Use a regular expression to match the decimal part
+  const decimalMatch = numStr.match(/\.(\d+)/);
+
+  if (decimalMatch) {
+    // Return the length of the decimal part
+    return decimalMatch[1].length;
+  } else {
+    // If there are no decimal places, return 0
+    return 0;
+  }
+}
+
+
+
 function fetchUrl(d) {
   nrg = d.Dimension("nrg_bal").id;
   key = REF.fuel;
@@ -1121,7 +1144,9 @@ function chartApiCall(query) {
       }
     }  
     break
- 
+default:
+  
+  break 
   }
 
   if (cache[url] && cache[url].length > 0) {  

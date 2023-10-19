@@ -37,12 +37,11 @@ function populateDecimals() {
         const selectedText = target.find('span').text();
         $('#selectDecimals').text(selectedText).append('<i class="fas fa-caret-down"></i>');
 
-        REF.decimals = target.attr('data-decimals')       
-       
-
+        REF.decimals = countDecimalPlaces(target.attr('data-decimals'))
 
         REF.full = 1;
-        tableData();
+        newapicall()
+
 
       });
   
