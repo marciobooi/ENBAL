@@ -1144,9 +1144,13 @@ function chartApiCall(query) {
       }
     }  
     break
-default:
-  
-  break 
+  default:
+      url += "&time=" + REF.year;
+      url += "&geo=" + REF.geo;
+      url += "&unit=" + REF.unit;
+      for (var i = 0; i < balances.length; i++) url += "&nrg_bal=" + balances[i];
+      for (var i = 0; i < mainFuelFamilies.length; i++) url += "&siec=" + mainFuelFamilies[i];
+    break 
   }
 
   if (cache[url] && cache[url].length > 0) {  

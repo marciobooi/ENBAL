@@ -1,16 +1,10 @@
 
 
 function newapicall() {
-
-  let url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/" + REF.dataset + "?";
-      url += "format=JSON";
-      url += "&time=" + REF.year;
-      url += "&geo=" + REF.geo;
-      url += "&unit=" + REF.unit;
-      for (var i = 0; i < balances.length; i++) url += "&nrg_bal=" + balances[i];
-      for (var i = 0; i < mainFuelFamilies.length; i++) url += "&siec=" + mainFuelFamilies[i];
   
-      d = JSONstat(url).Dataset(0);
+  REF.chart = ""
+
+    d = chartApiCall();       
 
       const numRows = balances.length;
       const numColumns = mainFuelFamilies.length;
