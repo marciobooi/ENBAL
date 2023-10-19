@@ -40,7 +40,7 @@ function populateDecimals() {
         REF.decimals = countDecimalPlaces(target.attr('data-decimals'))
 
         REF.full = 1;
-        newapicall()
+        newApiCall()
 
 
       });

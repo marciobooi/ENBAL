@@ -97,22 +97,7 @@ function handleData(d, series ) {
 
 function createBarChart() {
 
-  function siec(key) {
-    const siec = {
-      fuelMainFuel: mainFuelFamilies,
-      fuelCoal: coal,
-      fuelFossil: fossilBasedGasses,
-      fuelOtherFossil: otherFossilFuelsAndWastes,
-      fuelOil: primaryOil,
-      fuelMainPetroleum: mainPetroleumProducts,
-      fuelOtherPetroleum: otherPetroleumProducts,
-      fuelNonCombustible: nonCombustibleRenewables,
-      fuelCombustible: combustibleRenewables,
-      fuelElectricity: electricityAndHeat,
-      default: [],
-    };
-    return siec[key] || siec.default;
-  }
+
 
 
   REF.siecs = siec(REF.fuel);

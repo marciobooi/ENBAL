@@ -7,7 +7,7 @@ var firstTime = 0
 var excelInfoData = []
 
 function drawTable() {
-  newapicall()
+  newApiCall()
 }
 
 // function drawTable() {
@@ -367,7 +367,7 @@ function tableData() {
   siecs = siec(REF.fuel) 
 
 
-  newapicall();
+  newApiCall();
 
   getTitle()
 }
