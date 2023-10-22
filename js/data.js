@@ -19,7 +19,6 @@ var dataNameSpace = {
     "chartBalText":[],
     "order":"DESC",
     "siecs": "",
-    "segments": "",
     "dataset": "nrg_bal_c",
     "decimals": "0",
     "agregates": "0",
