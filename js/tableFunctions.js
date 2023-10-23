@@ -1,6 +1,7 @@
     // Define a variable to store the default data
     let defaultData = [];
     let expandStatus = [];
+    let rowIndex = []
 
 function tableHeader(dataTable) {
     return dataTable[0].map((colTitle, index) => {

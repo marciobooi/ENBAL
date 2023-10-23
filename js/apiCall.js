@@ -1,4 +1,5 @@
 var cache = {};
+let dataTable = [];
 
 function apiCall() {
 
@@ -11,7 +12,7 @@ function apiCall() {
       const numRows = balances.length;
       const numColumns = REF.siecs.length;
 
-      const dataTable = [];
+      
 
       firstCol = `${languageNameSpace.labels["tableYear"]}: ${REF.year} <br> ${languageNameSpace.labels["tableUnit"]}: ${REF.unit}`
 
@@ -43,65 +44,62 @@ function addExtraBal(id, clickedRowIndex) {
   const table = $("#dataTableContainer").DataTable();
   
   if ($('#' + id + ' > td:first-child > i').hasClass('fa-minus-circle')) {
-    expandStatus = expandStatus.filter(item => item !== id);
-    // The rows are already expanded, so remove them
-    removeRowChildren(`${id}Child`);
-  
-    // Restore the default data
-    table.clear();
-    table.rows.add(defaultData);
 
-    // Remove the extra rows by filtering out the specific class
-    table.rows(`.${id}Child`).remove();    
+    const pair = rowIndex.find(pair => pair[0] === id);
+
+    if (pair) {
+      const numRowsToRemove = pair[1];
+
+      const index = dataTable.findIndex(row => row[0] === id);
+
+      if (index !== -1) {
+        if (index + numRowsToRemove < dataTable.length) {
+          dataTable.splice(index + 1, numRowsToRemove);
+        } else {
+          console.log(`Not enough rows to remove after the row with id ${id}.`);
+        }
+      } else {
+        console.log(`Row with id ${id} not found in the dataTable.`);
+      }
+    } else {
+      console.log(`No rows to remove specified for id ${id}.`);
+    }
+
+    expandStatus = expandStatus.filter(item => item !== id);
+    rowIndex = rowIndex.filter(item => item !== id);
+
 
   } else {
     expandStatus.push(id)
-    // The rows are not expanded, proceed to add them
+
     balances = extraBalances(id);
     d = chartApiCall();
 
     const numRows = balances.length;
     const numColumns = REF.siecs.length;
-    const dataTable = [];
+    
+    const index = dataTable.findIndex(idx => idx[0] == id);
 
     for (let i = 0; i < numRows; i++) {
       const row = [balances[i]];
       for (let j = 0; j < numColumns; j++) {
         const cellValue = d.value[i * numColumns + j];
         row.push(cellValue);
-      }
-      dataTable.push(row);
+      }    
+
+      dataTable.splice(index + 1, 0, row);
     }
 
-    // Insert the new data at the specified row index
-    const data = table.data().toArray();
+    rowIndex.push([id, numRows])
 
-    if (clickedRowIndex === 0) clickedRowIndex = clickedRowIndex + 1;
 
-    data.splice(clickedRowIndex, 0, ...dataTable);
-
-    // Clear the existing DataTable
-    table.clear();
-
-    // Add the updated data
-    table.rows.add(data);
-
-    // Add the class to the newly added rows
-    table.rows().every(function (rowIdx, tableLoop, rowLoop) {
-      if (rowIdx >= clickedRowIndex && rowIdx < clickedRowIndex + numRows) {
-        $(table.row(rowIdx).node()).addClass(`${id}Child`);
-      }
-    });
 
     
-
-  
-      // $('#' + id + ' > td:first-child > i').removeClass('fa-plus-circle').addClass('fa-minus-circle');
-  
   }
-  
-  // Redraw the table
-  table.draw();
+
+  console.log(dataTable);
+  createDataTable(dataTable);
+
 }
 
 

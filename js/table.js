@@ -25,10 +25,8 @@ function createDataTable(dataTable) {
       if (expandables.some(item => dataTable[0].includes(item))) {
 
         if (expandStatus.includes(dataTable[0])) {
-          log(true, dataTable[0], expandStatus )
           $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-minus-circle"></i>`);  
         } else {
-          log(false, dataTable[0], expandStatus)
           $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-plus-circle"></i>`);         
         }       
           // Add a click event handler to toggle the icon when the first <td> is clicked
