@@ -70,3 +70,10 @@ body {
 #dialog-picture-credit {
   padding-right: 1rem;
 }
+
+.highlighted-row {
+  background-color: #0a328e26;
+}
+.secondRow {
+  padding-left: .2px;
+}

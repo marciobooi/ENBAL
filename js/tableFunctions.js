@@ -70,3 +70,27 @@ function removeRowChildren(className, id) {
     delete tableContainer[id];
   
   }
+
+
+
+  function addStyleNewRows() {
+    rowIndex.forEach(entry => {
+        if (entry) {
+            const table = $("#dataTableContainer").DataTable();
+            const index = entry[2];
+            const numRowsToAddClass = entry[1];
+
+            for (let i = 0; i < numRowsToAddClass; i++) {
+                table.row(index + i).nodes().to$().addClass('highlighted-row');
+                table.row(index + i).nodes().to$().find('td:first').css('margin-left', '.9rem'); // Adjust padding as needed
+            }
+        }
+    });
+}
+
+
+
+
+
+
+

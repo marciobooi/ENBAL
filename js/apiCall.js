@@ -41,7 +41,6 @@ function apiCall() {
 
 
 function addExtraBal(id, clickedRowIndex) {
-  const table = $("#dataTableContainer").DataTable();
   
   if ($('#' + id + ' > td:first-child > i').hasClass('fa-minus-circle')) {
 
@@ -67,7 +66,7 @@ function addExtraBal(id, clickedRowIndex) {
 
     expandStatus = expandStatus.filter(item => item !== id);
     rowIndex = rowIndex.filter(item => item !== id);
-
+    createDataTable(dataTable);
 
   } else {
     expandStatus.push(id)
@@ -90,15 +89,15 @@ function addExtraBal(id, clickedRowIndex) {
       dataTable.splice(index + 1, 0, row);
     }
 
-    rowIndex.push([id, numRows])
+    rowIndex.push([id, numRows, index])
 
-
+    createDataTable(dataTable);
+    addStyleNewRows(id)
 
     
   }
 
-  console.log(dataTable);
-  createDataTable(dataTable);
+
 
 }
 
