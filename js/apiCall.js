@@ -1,6 +1,8 @@
 var cache = {};
 let dataTable = [];
 
+log(cache)
+
 function apiCall() {
 
   REF.chart = ""
@@ -10,9 +12,7 @@ function apiCall() {
     d = chartApiCall();       
 
       const numRows = balances.length;
-      const numColumns = REF.siecs.length;
-
-      
+      const numColumns = REF.siecs.length;     
 
       firstCol = `${languageNameSpace.labels["tableYear"]}: ${REF.year} <br> ${languageNameSpace.labels["tableUnit"]}: ${REF.unit}`
 
@@ -180,12 +180,13 @@ function chartApiCall(query) {
 
   if (cache[url] && cache[url].length > 0) {  
     d = JSONstat(cache[url][cache[url].length - 1]).Dataset(0);
+    log('load from cache')
     return d;
   } else {
    
 
     const request = new XMLHttpRequest();
-    request.open("GET", url, false); // Setting the third parameter to 'false' makes it synchronous
+    request.open("GET", url, false); 
     request.send();
   
     if (request.status === 500 || request.status === 503) {

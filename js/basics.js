@@ -109,33 +109,33 @@ function getUrlVars() {
 }
 
 //dialog box position object
-var dialogBoxPosition = function (x, y) {
-  this.x = x;
-  this.y = y;
-};
+// var dialogBoxPosition = function (x, y) {
+//   this.x = x;
+//   this.y = y;
+// };
 
 //calculate the dialog box position to display it all the time inside the diagram wether for the extrem right and bottom nodes
-function calculateDialogBoxPosition(x, y, width, height) {
-  var rightSpace = $(window).width() - x;
-  var bottomSpace = imgHeight - y;
-  var newX, newY;
+// function calculateDialogBoxPosition(x, y, width, height) {
+//   var rightSpace = $(window).width() - x;
+//   var bottomSpace = imgHeight - y;
+//   var newX, newY;
 
-  if (rightSpace < width) {
-    newX = x - width;
-    if (bottomSpace < height) {
-      newY = y - height;
-    } else {
-      newY = y - 20;
-    }
-  } else if (bottomSpace < height) {
-    newX = x;
-    newY = y - height;
-  } else {
-    newX = x;
-    newY = y;
-  }
-  return new dialogBoxPosition(newX, newY);
-}
+//   if (rightSpace < width) {
+//     newX = x - width;
+//     if (bottomSpace < height) {
+//       newY = y - height;
+//     } else {
+//       newY = y - 20;
+//     }
+//   } else if (bottomSpace < height) {
+//     newX = x;
+//     newY = y - height;
+//   } else {
+//     newX = x;
+//     newY = y;
+//   }
+//   return new dialogBoxPosition(newX, newY);
+// }
 
 function closeDialogBox(box) {
   box.close();
@@ -176,136 +176,136 @@ function hideSpinner() {
   $(".secondLayerTR").css("background-color", "#f2fff0");
 }
 
-function fuel(key) {
-  const fuel = {
-    // fuelMainFuel:[10,0,1,2,9,3,4,5,6,7,8,11,],
-    // fuelMainFuel: [10, 0, 1, 7, 9, 6, 3, 8, 11, 5, 2, 4],
-    fuelMainFuel: [0,1,2,3,4,6,5,7,8,9,10,11],
-    fuelElectricity: [0, 2, 1],
-    fuelCombustible: [0, 1, 9, 2, 3, 4, 5, 7, 6, 8, 10],
-    fuelNonCombustible: [0, 5, 2, 4, 3, 1, 6],
-    fuelOtherPetroleum: [0, 1, 2, 3, 4, 5, 7, 6, 8],
-    fuelMainPetroleum: [0, 1, 3, 4, 2, 5, 6, 7],
-    fuelOil: [0, 1, 2, 3, 4],
-    fuelOtherFossil: [0, 1, 2, 3, 4],
-    fuelFossil: [4, 1, 0, 2, 3],
-    fuelCoal: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    default: [],
-  };
-  return fuel[key] || fuel.default;
-}
+// function fuel(key) {
+//   const fuel = {
+//     // fuelMainFuel:[10,0,1,2,9,3,4,5,6,7,8,11,],
+//     // fuelMainFuel: [10, 0, 1, 7, 9, 6, 3, 8, 11, 5, 2, 4],
+//     fuelMainFuel: [0,1,2,3,4,6,5,7,8,9,10,11],
+//     fuelElectricity: [0, 2, 1],
+//     fuelCombustible: [0, 1, 9, 2, 3, 4, 5, 7, 6, 8, 10],
+//     fuelNonCombustible: [0, 5, 2, 4, 3, 1, 6],
+//     fuelOtherPetroleum: [0, 1, 2, 3, 4, 5, 7, 6, 8],
+//     fuelMainPetroleum: [0, 1, 3, 4, 2, 5, 6, 7],
+//     fuelOil: [0, 1, 2, 3, 4],
+//     fuelOtherFossil: [0, 1, 2, 3, 4],
+//     fuelFossil: [4, 1, 0, 2, 3],
+//     fuelCoal: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+//     default: [],
+//   };
+//   return fuel[key] || fuel.default;
+// }
 
-function numberdecimals(deckey) {
-  const decimals = {
-    '0': 0,
-    '0.0': 1,
-    '0.00': 2,
-    '0.000': 3,
-    default: 0,
-  };
-  return decimals[deckey] || decimals.default;
-}
-
-
+// function numberdecimals(deckey) {
+//   const decimals = {
+//     '0': 0,
+//     '0.0': 1,
+//     '0.00': 2,
+//     '0.000': 3,
+//     default: 0,
+//   };
+//   return decimals[deckey] || decimals.default;
+// }
 
 
 
 
-function countDecimalPlaces(number) {
-  // Convert the number to a string to perform string operations
-  const numStr = number.toString();
-
-  // Use a regular expression to match the decimal part
-  const decimalMatch = numStr.match(/\.(\d+)/);
-
-  if (decimalMatch) {
-    // Return the length of the decimal part
-    return decimalMatch[1].length;
-  } else {
-    // If there are no decimal places, return 0
-    return 0;
-  }
-}
 
 
+// function countDecimalPlaces(number) {
+//   // Convert the number to a string to perform string operations
+//   const numStr = number.toString();
 
-function fetchUrl(d) {
-  nrg = d.Dimension("nrg_bal").id;
-  key = REF.fuel;
-  deckey = REF.decimals;
-  factor = numberdecimals(deckey);
+//   // Use a regular expression to match the decimal part
+//   const decimalMatch = numStr.match(/\.(\d+)/);
 
-  for (var item in nrg) {
-    fetcheddata = [];
-    for (j = 0; j < siecs.length; j++) {
-      if (typeof d.value[0] !== "undefined" && d.value[0]) {
-        fetcheddata.push(
-          Number(d.value[0])
-            .toFixed(factor)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, " ").toString().replace("." , ",")
-        );
-      } else {
-        fetcheddata.push((0).toFixed(factor).toString().replace("." , ","));
-      }
-      d.value.shift();
-    }
+//   if (decimalMatch) {
+//     // Return the length of the decimal part
+//     return decimalMatch[1].length;
+//   } else {
+//     // If there are no decimal places, return 0
+//     return 0;
+//   }
+// }
 
-    newdata = fuel(key);
-    fetcheddata = newdata.map((object, i) => fetcheddata[object]);
-    if (
-      nrg[item] == "NRGSUP" ||
-      nrg[item] == "TI_E" ||
-      nrg[item] == "TO" ||
-      nrg[item] == "NRG_E" ||
-      nrg[item] == "FC_E"
-    ) {
-      data.push([
-        '<span class="expandTd">' +
-          languageNameSpace.labels[nrg[item]] +
-          '<div class="expand"><i class="fas fa-plus"></i></div></span>',
-        ...fetcheddata,
-      ]);
-    } else {
-      data.push([languageNameSpace.labels[nrg[item]], ...fetcheddata]);
-    }
-  }
-}
 
-function insertRowData(d) {
-  nrg = d.Dimension("nrg_bal").id;
-  key = REF.fuel;
-  deckey = REF.decimals;
-  factor = numberdecimals(deckey);
-  for (var item1 in nrg) {
-    data = [];
-    for (j = 0; j < siecs.length; j++) {
-      if (
-        typeof d.value[0] !== "null" &&
-        typeof d.value[0] !== "undefined" &&
-        d.value[0]
-      ) {
-        data.push(
-          Number(d.value[0])
-            .toFixed(factor)
-            .toString()
-            .replace(/\B(?=(\d{3})+(?!\d))/g, " ").toString().replace("." , ",")
-        );
-      } else {
-        // console.log( d.value[0])
-        data.push((0).toFixed(factor).toString().replace("." , ","));
-      }
-      d.value.shift();
-    }
-    newdata = fuel(key);
-    data = newdata.map((object, i) => data[object]);
-    newRowData.push([
-      nrg[item1],
-      languageNameSpace.labels[nrg[item1]],
-      ...data,
-    ]);
-  }
-}
+
+// function fetchUrl(d) {
+//   nrg = d.Dimension("nrg_bal").id;
+//   key = REF.fuel;
+//   deckey = REF.decimals;
+//   factor = numberdecimals(deckey);
+
+//   for (var item in nrg) {
+//     fetcheddata = [];
+//     for (j = 0; j < siecs.length; j++) {
+//       if (typeof d.value[0] !== "undefined" && d.value[0]) {
+//         fetcheddata.push(
+//           Number(d.value[0])
+//             .toFixed(factor)
+//             .toString()
+//             .replace(/\B(?=(\d{3})+(?!\d))/g, " ").toString().replace("." , ",")
+//         );
+//       } else {
+//         fetcheddata.push((0).toFixed(factor).toString().replace("." , ","));
+//       }
+//       d.value.shift();
+//     }
+
+//     newdata = fuel(key);
+//     fetcheddata = newdata.map((object, i) => fetcheddata[object]);
+//     if (
+//       nrg[item] == "NRGSUP" ||
+//       nrg[item] == "TI_E" ||
+//       nrg[item] == "TO" ||
+//       nrg[item] == "NRG_E" ||
+//       nrg[item] == "FC_E"
+//     ) {
+//       data.push([
+//         '<span class="expandTd">' +
+//           languageNameSpace.labels[nrg[item]] +
+//           '<div class="expand"><i class="fas fa-plus"></i></div></span>',
+//         ...fetcheddata,
+//       ]);
+//     } else {
+//       data.push([languageNameSpace.labels[nrg[item]], ...fetcheddata]);
+//     }
+//   }
+// }
+
+// function insertRowData(d) {
+//   nrg = d.Dimension("nrg_bal").id;
+//   key = REF.fuel;
+//   deckey = REF.decimals;
+//   factor = numberdecimals(deckey);
+//   for (var item1 in nrg) {
+//     data = [];
+//     for (j = 0; j < siecs.length; j++) {
+//       if (
+//         typeof d.value[0] !== "null" &&
+//         typeof d.value[0] !== "undefined" &&
+//         d.value[0]
+//       ) {
+//         data.push(
+//           Number(d.value[0])
+//             .toFixed(factor)
+//             .toString()
+//             .replace(/\B(?=(\d{3})+(?!\d))/g, " ").toString().replace("." , ",")
+//         );
+//       } else {
+//         // console.log( d.value[0])
+//         data.push((0).toFixed(factor).toString().replace("." , ","));
+//       }
+//       d.value.shift();
+//     }
+//     newdata = fuel(key);
+//     data = newdata.map((object, i) => data[object]);
+//     newRowData.push([
+//       nrg[item1],
+//       languageNameSpace.labels[nrg[item1]],
+//       ...data,
+//     ]);
+//   }
+// }
 
 function siec(key) {
   const siec = {
@@ -931,100 +931,6 @@ function sortArrayByProtocolOrder(arr) {
 }
 
 
-
-function chartNormalTooltip(points) {
-  const value = Highcharts.numberFormat(points[0].y, 4);
-  const unit = `${languageNameSpace.labels["S_" + REF.currency]}/${languageNameSpace.labels["S_" + REF.unit]}`;
-  const na = languageNameSpace.labels['FLAG_NA'];
-  const title = REF.chartId==="mainChart" ?  points[0].key : points[0].x
-  return this.y == 0 ? `<b>${title}<br>Total: <b>${na}</b>` : `<b>${title}<br>Total: <b>${value}</b> ${unit}`;
-}
-
-function tooltipTable(points) {
-  if(REF.percentage == 1 ){
-    let html = "";
-    html += `<table id="tooltipTable" class="table">                
-                <thead>
-                  <tr>
-                    <th scope="cols">${points[0].x}</th>                    
-                    <th scope="cols"></th>                    
-                  </tr>
-                </thead>`
-      points.forEach(element => {
-          const value = element.point.percentage.toFixed(0); // Limit decimals to three places
-          const category = element.point.series.name; 
-          const color = element.point.color;              
-          html += `<tr>
-                      <td><svg width="10" height="10" style="vertical-align: baseline;"><circle cx="5" cy="5" r="3" fill="${color}" /></svg> ${category}</td>
-                      <td>${value} %</td>
-                  </tr>` 
-      });
-    html += `</table>`;
-    return `<div>${html}</div>`;
-  } else {
-  let html = "";
-  let totalAdded = false; // Flag to track if total row has been added
-  let totalColor = "#7cb5ec"
-  
-  // Sort the points so that "Total" item is at the last place
-  const sortedPoints = points.slice().sort(function (a, b) {
-    if (a.series.name == languageNameSpace.labels['TOTAL']) return 1;
-    if (b.series.name == languageNameSpace.labels['TOTAL']) return -1;
-    return 0;
-  });
-  html += `<table id="tooltipTable" class="table">                
-                <thead>
-                  <tr>
-                    <th scope="cols">${sortedPoints[0].key}</th>                    
-                    <th scope="cols"></th>                    
-                  </tr>
-                </thead>`;
-  sortedPoints.forEach(function (point) {
-    const color = point.series.color;
-    const value = point.y.toFixed(dec); // Limit decimals to three places
-    const category = point.series.name;    
-    
-    html += `<tr>
-                <td><svg width="10" height="10" style="vertical-align: baseline;"><circle cx="5" cy="5" r="3" fill="${color}" /></svg> ${category}</td>
-                      <td>${value}</td>
-                  </tr>` 
-    
-    
-    
-
-
-    // Check if point is "Total" and set the flag if found
-    if (category == languageNameSpace.labels['TOTAL']) {
-      totalAdded = true;
-    }
-  });
-
-  // Add a row for the total if not already added
-  if (!totalAdded) {
-    // Calculate the total sum of all values
-    const totalSum = sortedPoints.reduce(function (sum, point) {
-      return sum + point.y;
-    }, 0);
-
-    // Format the total sum with three decimal places
-    const totalValue = totalSum.toFixed(dec);
-
-    // Add a row for the total
-    html += `<tr>
-                      <td><svg width="10" height="10" style="vertical-align: baseline;"><circle cx="5" cy="5" r="3" fill="${totalColor}" /></svg> ${languageNameSpace.labels['TOTAL']}</td>
-                      <td>${totalValue}</td>
-  </tr>`
-    
-    
-    
-   
-  }
-
-  html += `</table>`;
-
-  return `<div>${html}</div>`;
-  }
-}
 
 function getTitle() {
   const geo = languageNameSpace.labels[REF.geo];
