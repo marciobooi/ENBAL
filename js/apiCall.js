@@ -84,6 +84,7 @@ function addExtraBal(id, clickedRowIndex) {
     
     const index = dataTable.findIndex(idx => idx[0] == id);
 
+
     for (let i = 0; i < numRows; i++) {
       const row = [balances[i]].concat(
         Array.from({ length: numColumns }, (_, j) => {
@@ -102,6 +103,10 @@ function addExtraBal(id, clickedRowIndex) {
     });
 
     rowIndex.push([id, numRows, index])
+
+    log(rowIndex)
+
+
 
     createDataTable(dataTable);
     addStyleNewRows()

@@ -77,9 +77,22 @@ function removeRowChildren(className, id) {
     rowIndex.forEach(entry => {
         if (entry) {
             const table = $("#dataTableContainer").DataTable();
-            const index = entry[2];
-            const numRowsToAddClass = entry[1];
+            const index = entry[2];             
 
+            const typeToRowsMap = {
+                "TI_RPI_E": 8,
+                "TI_EHG_E": 12,
+                "TO_EHG": 12,
+                "TO_RPI": 8,
+                "FC_OTH_E": 2,
+                "FC_TRA_E": 1,
+                "FC_IND_E": 0, // No change
+            };
+    
+            const extraRows = typeToRowsMap[entry[0]] || 0;
+
+            let numRowsToAddClass = entry[1] + extraRows
+ 
             for (let i = 0; i < numRowsToAddClass; i++) {
                 table.row(index + i).nodes().to$().addClass('highlighted-row');
                 table.row(index + i).nodes().to$().find('td:first').css('margin-left', '.9rem'); // Adjust padding as needed
@@ -87,6 +100,9 @@ function removeRowChildren(className, id) {
         }
     });
 }
+
+
+
 
 
 
