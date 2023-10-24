@@ -1,8 +1,6 @@
 var cache = {};
 let dataTable = [];
 
-log(cache)
-
 function apiCall() {
 
   REF.chart = ""
@@ -45,11 +43,10 @@ function addExtraBal(id, clickedRowIndex) {
   if ($('#' + id + ' > td:first-child > i').hasClass('fa-minus-circle')) {
 
     const pair = rowIndex.find(pair => pair[0] === id);
+    const index = dataTable.findIndex(row => row[0] === id);
 
     if (pair) {
-      const numRowsToRemove = pair[1];
-
-      const index = dataTable.findIndex(row => row[0] === id);
+      const numRowsToRemove = pair[1];      
 
       if (index !== -1) {
         if (index + numRowsToRemove < dataTable.length) {
@@ -65,8 +62,15 @@ function addExtraBal(id, clickedRowIndex) {
     }
 
     expandStatus = expandStatus.filter(item => item !== id);
-    rowIndex = rowIndex.filter(item => item !== id);
+    rowIndex.forEach(idx => {
+      if(index < idx[2]) {
+        idx[2] = idx[2] - pair[1];
+      }
+    });
+    rowIndex = rowIndex.filter(item => item[0] !== id);
+
     createDataTable(dataTable);
+    addStyleNewRows()
 
   } else {
     expandStatus.push(id)
@@ -89,12 +93,18 @@ function addExtraBal(id, clickedRowIndex) {
       );
     
       dataTable.splice(index + 1, 0, row);
-    }
+    }   
+
+    rowIndex.forEach(idx => {
+      if(idx[2] > index) {
+        idx[2] = idx[2] + numRows;
+      }      
+    });
 
     rowIndex.push([id, numRows, index])
 
     createDataTable(dataTable);
-    addStyleNewRows(id)
+    addStyleNewRows()
 
     
   }
@@ -119,9 +129,7 @@ function chartApiCall(id) {
 
   const balInNRGBALC = ["TI_EHG_E","TI_RPI_E","TO_EHG","FC_IND_E","FC_TRA_E","TO_RPI","FC_OTH_E"]
 
-  log(id)
-
-  if (balInNRGBALC.includes(id)) {
+   if (balInNRGBALC.includes(id)) {
     REF.dataset = "nrg_bal_c";
 } else {
     REF.dataset = "nrg_bal_s";

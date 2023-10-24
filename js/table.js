@@ -20,26 +20,26 @@ function createDataTable(dataTable) {
     dom: "Bfrtip",
     createdRow: function (row, dataTable, dataIndex) {
       $(row).attr("id", dataTable[0]);
-  
-      // Check if any element in dataTable[0] is in the expandables array
-      if (expandables.some(item => dataTable[0].includes(item))) {
+
+      if (expandables.includes(dataTable[0])) {
 
         if (expandStatus.includes(dataTable[0])) {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-minus-circle"></i>`);  
+          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-minus-circle"></i>`);
         } else {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-plus-circle"></i>`);         
-        }       
-          // Add a click event handler to toggle the icon when the first <td> is clicked
-          $(row).find("td:first-child").on('click', function() {  
-              // Call the addExtraBal function with dataTable[0] as an argument
-              const clickedRowIndex = $("#dataTableContainer").DataTable().row($(this).closest("tr")).index();
-              addExtraBal(dataTable[0], clickedRowIndex);
-          });
-  
-          // Add CSS to change the cursor to a pointer on hover
-          $(row).find("td:first-child").css('cursor', 'pointer');
+          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-plus-circle"></i>`);
+        }
+      
+        // Add a click event handler to toggle the icon when the first <td> is clicked
+        $(row).find("td:first-child").on('click', function() {
+          // Call the addExtraBal function with dataTable[0] as an argument
+          const clickedRowIndex = $("#dataTableContainer").DataTable().row($(this).closest("tr")).index();
+          addExtraBal(dataTable[0], clickedRowIndex);
+        });
+      
+        // Add CSS to change the cursor to a pointer on hover
+        $(row).find("td:first-child").css('cursor', 'pointer');
       } else {
-        $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}`);  
+        $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}`);
       }
   },
     scrollX:"true",
