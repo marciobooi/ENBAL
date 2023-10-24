@@ -72,20 +72,22 @@ function addExtraBal(id, clickedRowIndex) {
     expandStatus.push(id)
 
     balances = extraBalances(id);
-    d = chartApiCall();
+    d = chartApiCall(id);
+    balances.reverse();
 
     const numRows = balances.length;
-    const numColumns = REF.siecs.length;
+    const numColumns = REF.siecs.length;  
     
     const index = dataTable.findIndex(idx => idx[0] == id);
 
     for (let i = 0; i < numRows; i++) {
-      const row = [balances[i]];
-      for (let j = 0; j < numColumns; j++) {
-        const cellValue = d.value[i * numColumns + j];
-        row.push(cellValue);
-      }    
-
+      const row = [balances[i]].concat(
+        Array.from({ length: numColumns }, (_, j) => {
+          const cellValue = d.value[(numRows - 1 - i) * numColumns + j];
+          return cellValue;
+        })
+      );
+    
       dataTable.splice(index + 1, 0, row);
     }
 
@@ -112,13 +114,22 @@ function addToCache(query, d) {
   cache[query].push(d);
 }
 
-function chartApiCall(query) {
+function chartApiCall(id) {
+
+
+  const balInNRGBALC = ["TI_EHG_E","TI_RPI_E","TO_EHG","FC_IND_E","FC_TRA_E","TO_RPI","FC_OTH_E"]
+
+  log(id)
+
+  if (balInNRGBALC.includes(id)) {
+    REF.dataset = "nrg_bal_c";
+} else {
+    REF.dataset = "nrg_bal_s";
+}
 
   let url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/" + REF.dataset + "?";
   url += "format=JSON";
   url += "&lang=" + REF.language;
-
-
 
   switch (REF.chart) {
     case "lineChart":
@@ -132,9 +143,7 @@ function chartApiCall(query) {
         url += "&siec=" + REF.siecs[i];
       }
     }
-
       break;
-
       case "barChart":
         url += "&nrg_bal=" + REF.chartBal;
         url += "&unit=" + REF.unit;
@@ -156,8 +165,6 @@ function chartApiCall(query) {
           url += defGeos.map((geo) => "&geo=" + geo).join("");
         }
         break;
-
-
   case "pieChart":
     url += "&nrg_bal=" + REF.chartBal;
     url += "&unit=" + REF.unit;

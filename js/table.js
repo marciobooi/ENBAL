@@ -448,12 +448,6 @@ function tableData() {
     REF.fuel = "fuelMainFuel";
   }
 
-  if (REF.fuel == "fuelMainFuel") {
-    REF.dataset = "nrg_bal_s";
-  } else {
-    REF.dataset = "nrg_bal_c";
-  }
-
 
   siecs = siec(REF.fuel) 
 

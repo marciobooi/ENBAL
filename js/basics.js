@@ -997,6 +997,7 @@ function extraBalances(id) {
     FC_TRA_E: ["FC_TRA_RAIL_E", "FC_TRA_ROAD_E", "FC_TRA_DAVI_E", "FC_TRA_DNAVI_E", "FC_TRA_PIPE_E", "FC_TRA_NSP_E"],
     FC_OTH_E: ["FC_OTH_CP_E", "FC_OTH_HH_E", "FC_OTH_AF_E", "FC_OTH_FISH_E", "FC_OTH_NSP_E"],
     default: [],
+
   };
 
   return extraBalances[id] || extraBalances.default;
