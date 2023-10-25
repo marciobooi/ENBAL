@@ -102,6 +102,102 @@ function removeRowChildren(className, id) {
 }
 
 
+function removeRows(id) {
+    const pair = rowIndex.find(pair => pair[0] === id);
+    const index = dataTable.findIndex(row => row[0] === id);
+  
+    if (pair) {
+  
+  
+        if (["FC_E", "TO", "TI_E"].includes(id)) {
+  
+  
+        const balancesId = {
+          "FC_E": ["FC_OTH_E", "FC_TRA_E", "FC_IND_E"],
+          "TO": ["TO_EHG", "TO_RPI"],
+          "TI_E": ["TI_EHG_E", "TI_RPI_E"]
+        };
+  
+        const childIDs = balancesId[id];
+  
+        // Remove the related IDs from rowIndex and update the index references
+        childIDs.forEach(childID => {
+          const childRows = rowIndex.find(childRows => childRows[0] === childID);
+          const childIndex = dataTable.findIndex(row => row[0] === childID);
+  
+          if (childRows) {
+            const numRowsToRemove = childRows[1];
+  
+            if (childIndex + numRowsToRemove < dataTable.length) {
+              dataTable.splice(childIndex + 1, numRowsToRemove);
+            }
+          }
+          expandStatus = expandStatus.filter(item => item !== childID);
+          rowIndex.forEach(idx => {
+            if (childIndex < idx[2]) {
+              idx[2] = idx[2] - pair[1];
+            }
+          });
+          rowIndex = rowIndex.filter(item => item[0] !== childID);
+  
+  
+        });
+      }
+      const numRowsToRemove = pair[1];
+      if (index !== -1) {
+        if (index + numRowsToRemove < dataTable.length) {
+          dataTable.splice(index + 1, numRowsToRemove);
+        }
+      }
+    }
+  
+    expandStatus = expandStatus.filter(item => item !== id);
+    rowIndex.forEach(idx => {
+      if (index < idx[2]) {
+        idx[2] = idx[2] - pair[1];
+      }
+    });
+    rowIndex = rowIndex.filter(item => item[0] !== id);
+  
+    createDataTable(dataTable);
+    addStyleNewRows();
+  }
+  
+
+  function addNewRows(id) {
+    expandStatus.push(id);
+  
+    balances = extraBalances(id);
+    d = chartApiCall(id);
+    balances.reverse();
+  
+    const numRows = balances.length;
+    const numColumns = REF.siecs.length;
+  
+    const index = dataTable.findIndex(idx => idx[0] == id);
+  
+  
+    for (let i = 0; i < numRows; i++) {
+      const row = [balances[i]].concat(
+        Array.from({ length: numColumns }, (_, j) => {
+          const cellValue = d.value[(numRows - 1 - i) * numColumns + j];
+          return cellValue;
+        })
+      );
+  
+      dataTable.splice(index + 1, 0, row);
+    }
+  
+    rowIndex.forEach(idx => {
+      if (idx[2] > index) {
+        idx[2] = idx[2] + numRows;
+      }
+    });
+  
+    rowIndex.push([id, numRows, index]);
+    createDataTable(dataTable);
+    addStyleNewRows();
+  }
 
 
 

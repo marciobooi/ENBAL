@@ -42,74 +42,10 @@ function addExtraBal(id, clickedRowIndex) {
   
   if ($('#' + id + ' > td:first-child > i').hasClass('fa-minus-circle')) {
 
-    const pair = rowIndex.find(pair => pair[0] === id);
-    const index = dataTable.findIndex(row => row[0] === id);
-
-    if (pair) {
-      const numRowsToRemove = pair[1];      
-
-      if (index !== -1) {
-        if (index + numRowsToRemove < dataTable.length) {
-          dataTable.splice(index + 1, numRowsToRemove);
-        } else {
-          console.log(`Not enough rows to remove after the row with id ${id}.`);
-        }
-      } else {
-        console.log(`Row with id ${id} not found in the dataTable.`);
-      }
-    } else {
-      console.log(`No rows to remove specified for id ${id}.`);
-    }
-
-    expandStatus = expandStatus.filter(item => item !== id);
-    rowIndex.forEach(idx => {
-      if(index < idx[2]) {
-        idx[2] = idx[2] - pair[1];
-      }
-    });
-    rowIndex = rowIndex.filter(item => item[0] !== id);
-
-    createDataTable(dataTable);
-    addStyleNewRows()
+    removeRows(id);
 
   } else {
-    expandStatus.push(id)
-
-    balances = extraBalances(id);
-    d = chartApiCall(id);
-    balances.reverse();
-
-    const numRows = balances.length;
-    const numColumns = REF.siecs.length;  
-    
-    const index = dataTable.findIndex(idx => idx[0] == id);
-
-
-    for (let i = 0; i < numRows; i++) {
-      const row = [balances[i]].concat(
-        Array.from({ length: numColumns }, (_, j) => {
-          const cellValue = d.value[(numRows - 1 - i) * numColumns + j];
-          return cellValue;
-        })
-      );
-    
-      dataTable.splice(index + 1, 0, row);
-    }   
-
-    rowIndex.forEach(idx => {
-      if(idx[2] > index) {
-        idx[2] = idx[2] + numRows;
-      }      
-    });
-
-    rowIndex.push([id, numRows, index])
-
-    log(rowIndex)
-
-
-
-    createDataTable(dataTable);
-    addStyleNewRows()
+    addNewRows(id);
 
     
   }
@@ -117,6 +53,9 @@ function addExtraBal(id, clickedRowIndex) {
 
 
 }
+
+
+
 
 
 
