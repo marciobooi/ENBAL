@@ -434,9 +434,9 @@ table.draw();
 
 function tableData() {
   if (REF.full == 1) {
-    var table = $("#ENTable").DataTable();
-    table.destroy();
-    $("#ENTable").empty();
+    defaultData.length = 0
+    dataTable.length = 0
+    destroyTable()
   }
   if (REF.geo == undefined) {
     REF.geo = "EU27_2020";

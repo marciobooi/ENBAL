@@ -41,11 +41,7 @@ function tableHeader(dataTable) {
       if ($.fn.DataTable.isDataTable('#dataTableContainer')) {
         $('#dataTableContainer').DataTable().destroy();
       }  
-    }
-
-    
-
-
+    } 
 
 
 // Function to set up the default data
@@ -53,25 +49,6 @@ function setupDefaultData() {
   // Assuming you have an initial defaultData array
   defaultData = $("#dataTableContainer").DataTable().data().toArray();
 }
-
-function removeRowChildren(className, id) {
-    // Get a reference to the DataTable container
-    const tableContainer = document.getElementById("dataTableContainer");
-  
-    // Get all elements with the specified class name
-    const elements = tableContainer.getElementsByClassName(className);
-  
-    // Iterate through the elements and remove them
-    for (let i = elements.length - 1; i >= 0; i--) {
-      const element = elements[i];
-      element.remove();
-    }
-    // If you want to remove the property associated with the ID, you can do:
-    delete tableContainer[id];
-  
-  }
-
-
 
   function addStyleNewRows() {
     rowIndex.forEach(entry => {
