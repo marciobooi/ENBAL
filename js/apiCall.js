@@ -48,14 +48,7 @@ function addToCache(query, d) {
 
 function chartApiCall(id) {
 
-
-  const balInNRGBALC = ["TI_EHG_E","TI_RPI_E","TO_EHG","FC_IND_E","FC_TRA_E","TO_RPI","FC_OTH_E"]
-
-   if (balInNRGBALC.includes(id)) {
-    REF.dataset = "nrg_bal_c";
-} else {
-    REF.dataset = "nrg_bal_s";
-}
+REF.dataset = "nrg_bal_c";
 
   let url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/" + REF.dataset + "?";
   url += "format=JSON";

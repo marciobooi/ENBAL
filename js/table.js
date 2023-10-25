@@ -437,19 +437,10 @@ function tableData() {
   if (REF.full == 1) {
     defaultData.length = 0
     dataTable.length = 0
-    let rowIndex = 0
+    rowIndex = 0
     destroyTable()
-  }
-  if (REF.geo == undefined) {
-    REF.geo = "EU27_2020";
-  }
-  if (REF.year == undefined) {
-    REF.year = "2020";
-  }
-  if (REF.fuel == undefined) {
-    REF.fuel = "fuelMainFuel";
-  }
- 
+    expandStatus = 0
+  } 
   apiCall();
 
   getTitle()

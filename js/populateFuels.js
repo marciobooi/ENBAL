@@ -34,6 +34,8 @@ function populateFuel() {
         REF.fuel = target.attr('data-fuel')  
         
         REF.full = 1;
+
+        log(REF.fuel)
         tableData();
 
       });
