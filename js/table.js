@@ -6,15 +6,16 @@
 // var firstTime = 0
 var excelInfoData = []
 
-function drawTable() {
-  apiCall()
-}
+// function drawTable() {
+//   apiCall()
+// }
 
 function createDataTable(dataTable) {
 
   destroyTable()
 
   dataTableHandler(dataTable);
+  const column = tableHeader(dataTable)
 
   table = $("#dataTableContainer").DataTable({
     dom: "Bfrtip",
@@ -43,12 +44,12 @@ function createDataTable(dataTable) {
       }
   },
     scrollX:"true",
-    columns: tableHeader(dataTable),
+    columns: column,
     columnDefs: [      
-      {
-        targets: 0,
-        orderable: false,
-      },
+      // {
+      //   targets: 0,
+      //   orderable: false,
+      // },
       {
         targets: [dataTable[0].length],
         orderable: false,
@@ -436,6 +437,7 @@ function tableData() {
   if (REF.full == 1) {
     defaultData.length = 0
     dataTable.length = 0
+    let rowIndex = 0
     destroyTable()
   }
   if (REF.geo == undefined) {
@@ -447,11 +449,7 @@ function tableData() {
   if (REF.fuel == undefined) {
     REF.fuel = "fuelMainFuel";
   }
-
-
-  siecs = siec(REF.fuel) 
-
-
+ 
   apiCall();
 
   getTitle()

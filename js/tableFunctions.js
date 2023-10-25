@@ -5,6 +5,7 @@
 
 function tableHeader(dataTable) {
     return dataTable[0].map((colTitle, index) => {
+      log(colTitle, index)
       if (index !== 0) {
         return {
           title: `<div class="tableHeader" id=${colTitle}> ${languageNameSpace.labels[colTitle]} <div class="tableInfoIcon"><i class="fas fa-info-circle"></i></div></div>`,
@@ -39,8 +40,11 @@ function tableHeader(dataTable) {
   
     function destroyTable() {
       if ($.fn.DataTable.isDataTable('#dataTableContainer')) {
-        $('#dataTableContainer').DataTable().destroy();
-      }  
+        $('#dataTableContainer').DataTable().clear();
+        $('#dataTableContainer').DataTable().destroy()
+        $("#dataTableContainer > tbody").empty();
+        $("#dataTableContainer > thead").empty();
+      }     
     } 
 
 

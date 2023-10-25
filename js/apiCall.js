@@ -7,15 +7,15 @@ function apiCall() {
 
   REF.siecs = siec(REF.fuel);
 
-    d = chartApiCall();       
-
+    d = chartApiCall();      
+    
       const numRows = balances.length;
-      const numColumns = REF.siecs.length;     
-
+      const numColumns = REF.siecs.length;    
+ 
       firstCol = `${languageNameSpace.labels["tableYear"]}: ${REF.year} <br> ${languageNameSpace.labels["tableUnit"]}: ${REF.unit}`
 
       // Add the column headers as the first row
-      dataTable.push([firstCol].concat(REF.siecs)); 
+      dataTable.push([firstCol].concat(REF.siecs));       
 
       for (let i = 0; i < numRows; i++) {
         const row = [balances[i]];
@@ -26,39 +26,17 @@ function apiCall() {
         dataTable.push(row);
       }
 
-     
       createDataTable(dataTable);
       setupDefaultData();
 
 }
-
-
-
-
-
-
-
-function addExtraBal(id, clickedRowIndex) {
-  
+function addExtraBal(id, clickedRowIndex) {  
   if ($('#' + id + ' > td:first-child > i').hasClass('fa-minus-circle')) {
-
     removeRows(id);
-
   } else {
-    addNewRows(id);
-
-    
+    addNewRows(id);    
   }
-
-
-
 }
-
-
-
-
-
-
 
 function addToCache(query, d) {
   if (!cache[query]) {
