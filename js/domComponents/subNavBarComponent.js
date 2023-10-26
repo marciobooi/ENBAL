@@ -11,7 +11,7 @@ class SubNavbar {
       const notMobileContent = `<div class="container-fluid">
             <div class="col-1">              
               <button id="menu" class="btnGroup" type="button" aria-label="${languageNameSpace.labels["MAINMENU"]}" title="${languageNameSpace.labels["MAINMENU"]}" aria-haspopup="true">
-                <i class="fas fa-bars"></i>             
+                <i class="fas fa-bars" aria-hidden="true"></i>             
               </button>
             </div>
             <div class="col-8">
@@ -24,7 +24,7 @@ class SubNavbar {
             <ul id="chartBtns" role="menubar" aria-label="Options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
               <li class="nav-item dropdown px-1" id="infoBtnChart" role="none">
                   <button class="btn btn-primary min-with--nav" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="Info" aria-haspopup="true" aria-expanded="true" id="infoBtn">
-                    <i class="fas fa-info"></i>
+                    <i class="fas fa-info" aria-hidden="true"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					
                     <button class="dropdown-item" role="menuitem" onclick="openDataset()" aria-label="${languageNameSpace.labels['DATASET']}" value="dataset">${languageNameSpace.labels['DATASET']}</button>
@@ -34,7 +34,7 @@ class SubNavbar {
                 </li>
                 <li class="nav-item dropdown px-1" id="downloadChart" role="none">
                   <button class="btn btn-primary min-with--nav" type="button" aria-label="download chart image" data-bs-toggle="dropdown" role="menuitem" title="Download chart image" aria-haspopup="true" aria-expanded="true" id="downloadBtn">
-                    <i class="fas fa-download"></i>
+                    <i class="fas fa-download" aria-hidden="true"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Download chart">     					
                     <button class="dropdown-item" role="menuitem" onclick="download_DIVPdf()" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLEPDF']}">${languageNameSpace.labels["POPDOWNLOADTABLEPDF"]}</button>
@@ -45,27 +45,27 @@ class SubNavbar {
 
                 <!-- <li class="nav-item button px-1" id="shareChart" role="none">
                   <button id="shareBtn" title="share chart" type="button" class="btn btn-primary min-with--nav" aria-label="share chart" onclick="">
-                    <i class="fas fa-share-alt"></i>
+                    <i class="fas fa-share-alt" aria-hidden="true"></i>
                   </button>
                 </li> -->
                 <li class="nav-item button px-1" id="embebedChart" role="none">
                   <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary min-with--nav" aria-label="Embebed chart iframe" onclick="exportIframe()">
-                    <i class="fas fa-code"></i>
+                    <i class="fas fa-code" aria-hidden="true"></i>
                   </button>
                 </li>
                 <li class="nav-item button px-1" id="AMEX" role="none">
                   <button id="AMEXBTN" title="${languageNameSpace.labels['AMEX']}" type="button"  onclick="showAmexModal()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['AMEX']}">
-                  <i class="fas fa-search"></i>
+                  <i class="fas fa-search" aria-hidden="true"></i>
                   </button>
                 </li>
                 <li class="nav-item button px-1" id="definitions" role="none">
                   <button id="BALGUIDEBTN" title="${languageNameSpace.labels['BALGUIDE']}" type="button"  onclick="openBalDefinitions()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['BALGUIDE']}">
-                  <i class="fas fa-book"></i>
+                  <i class="fas fa-book" aria-hidden="true"></i>
                   </button>
                 </li>
                 <li class="nav-item button px-1" id="tutorial" role="none">
                   <button id="TUTORIALBTN" title="${languageNameSpace.labels['POPTUT']}" type="button"  onclick="tutorial()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['POPTUT']}">
-                  <i class="fas fa-book-open"></i>
+                  <i class="fas fa-book-open" aria-hidden="true"></i>
                   </button>
                 </li>
               </ul>
@@ -76,7 +76,7 @@ class SubNavbar {
             <div id="chartOptionsMenu" class="toggleMenu">
               <div class="close-button-container">
                 <button id="closeChartMenuBtn" class="btn btn-primary close-chart-menu-btn" aria-label="Close chart menu">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
               </div>
               <div class="dropdown-grid">
@@ -90,13 +90,13 @@ class SubNavbar {
         <div class="col-12 subNavOne">
           <div class="">              
               <button id="tools" class="btnGroup" type="button" aria-label="${languageNameSpace.labels["TOOLS"]}" title="${languageNameSpace.labels["TOOLS"]}" aria-haspopup="true">
-                <i class="fas fa-ellipsis-h"></i>      
+                <i class="fas fa-ellipsis-h" aria-hidden="true"></i>      
                 <span class="iconText">${languageNameSpace.labels["TOOLS"]}</span>    
               </button>
           </div>
           <div class="">              
               <button id="menu" class="btnGroup" type="button" aria-label="${languageNameSpace.labels["MAINMENU"]}" title="${languageNameSpace.labels["MAINMENU"]}" aria-haspopup="true">
-                <i class="fas fa-bars"></i>                    
+                <i class="fas fa-bars" aria-hidden="true"></i>                    
                 <span class="iconText">${languageNameSpace.labels["MAINMENU"]}</span>           
               </button>
           </div>
@@ -105,7 +105,7 @@ class SubNavbar {
           <ul id="chartBtns" role="menubar" aria-label="Options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
               <li class="nav-item dropdown px-1" id="infoBtnChart" role="none">
                 <button class="btn btn-primary min-with--nav" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="Info" aria-haspopup="true" aria-expanded="true" id="infoBtn">
-                  <i class="fas fa-info"></i>
+                  <i class="fas fa-info" aria-hidden="true"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					
                   <button class="dropdown-item" role="menuitem" onclick="tutorial()" aria-label="${languageNameSpace.labels['TUTORIAL']}" value="Tutorial">${languageNameSpace.labels['TUTORIAL']}</button>
@@ -115,7 +115,7 @@ class SubNavbar {
               </li>
               <li class="nav-item dropdown px-1" id="downloadChart" role="none">
                 <button class="btn btn-primary min-with--nav" type="button" aria-label="download chart image" data-bs-toggle="dropdown" role="menuitem" title="Download chart image" aria-haspopup="true" aria-expanded="true" id="downloadBtn">
-                  <i class="fas fa-download"></i>
+                  <i class="fas fa-download" aria-hidden="true"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Download chart">     					
                   <button class="dropdown-item" role="menuitem" onclick="exportPngChart()" aria-label="${languageNameSpace.labels['downloadPNG']}">${languageNameSpace.labels["downloadPNG"]}</button>
@@ -125,12 +125,12 @@ class SubNavbar {
               </li>     
               <li class="nav-item button px-1" id="shareChart" role="none">
                 <button id="shareBtn" title="share chart" type="button" class="btn btn-primary min-with--nav" aria-label="share chart" onclick="">
-                  <i class="fas fa-share-alt"></i>
+                  <i class="fas fa-share-alt" aria-hidden="true"></i>
                 </button>
               </li>
               <li class="nav-item button px-1" id="embebedChart" role="none">
                 <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary min-with--nav" aria-label="Embebed chart iframe" onclick="exportIframe()">
-                  <i class="fas fa-code"></i>
+                  <i class="fas fa-code" aria-hidden="true"></i>
                 </button>
               </li>
           </ul>
@@ -139,7 +139,7 @@ class SubNavbar {
             <div id="chartOptionsMenu" class="toggleMenu">
               <div class="close-button-container">
                 <button id="closeChartMenuBtn" class="btn btn-primary close-chart-menu-btn" aria-label="Close chart menu">
-                <i class="fas fa-times"></i>
+                <i class="fas fa-times" aria-hidden="true"></i>
                 </button>
               </div>
               <div class="dropdown-grid">
@@ -298,7 +298,7 @@ class SubNavbar {
         button.setAttribute('data-bs-toggle', 'dropdown');
         button.setAttribute('aria-expanded', 'false');
         button.setAttribute('aria-labelledby', data.area);
-        button.innerHTML = `${data.defaultText}<i class="fas fa-caret-down"></i>`;
+        button.innerHTML = `${data.defaultText}<i class="fas fa-caret-down" aria-hidden="true"></i>`;
     
         button.addEventListener('click', event => {
           this.handleDropdownItemClick(event, data);
@@ -333,7 +333,7 @@ class SubNavbar {
     
       // Update the dropdown button's text and value
       const dropdownButton = selectedItem.closest('.dropdownBtnGroup').querySelector('.dropdown-toggle');
-      dropdownButton.innerHTML = `${selectedText}<i class="fas fa-caret-down"></i>`;
+      dropdownButton.innerHTML = `${selectedText}<i class="fas fa-caret-down" aria-hidden="true"></i>`;
       dropdownButton.setAttribute('value', selectedValue);
     
       // this.addHoverEvent();
@@ -378,7 +378,7 @@ class SubNavbar {
           if (dropdownGroup) {
             const dropdownToggle = dropdownGroup.querySelector('.dropdown-toggle');
             if (dropdownToggle) {
-              dropdownToggle.innerHTML = `${selectedText}<i class="fas fa-caret-down"></i>`;
+              dropdownToggle.innerHTML = `${selectedText}<i class="fas fa-caret-down" aria-hidden="true"></i>`;
               dropdownToggle.setAttribute('value', selectedValue);
               // this.addHoverEvent();
               this.highlightSelectedValue();

@@ -35,7 +35,7 @@ class ChartControls {
 		<div id="chartOptions">
 		  <div class="col-12 subNavOne auxChartbtn">
 			<button id="tools" class="btnGroup pe-2" type="button" aria-label="${languageNameSpace.labels["TOOLS"]}" title="${languageNameSpace.labels["TOOLS"]}" aria-haspopup="true">
-			  <i class="fas fa-ellipsis-h"></i>
+			  <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
 			  <span class="iconText">${languageNameSpace.labels["TOOLS"]}</span>
 			</button>
 			<div class="menu d-none">
@@ -92,14 +92,14 @@ class ChartControls {
 		const closeChart = new Button("btnCloseModalChart", ["btn", "btn-primary", "min-with--nav"], "Close", "false");
 	
 		// Set inner HTML content for each button
-		barChart.setInnerHtml('<i class="fas fa-chart-bar"></i>');
-		pieChart.setInnerHtml('<i class="fas fa-chart-pie"></i>');
-		lineChart.setInnerHtml('<i class="fas fa-chart-line"></i>');
-		createprintChart.setInnerHtml('<i class="fas fa-print"></i>');
-		downloadChart.setInnerHtml('<i class="fas fa-download"></i>');
-		downloadExcel.setInnerHtml('<i class="fas fa-file-excel"></i>');
-		embebedeChart.setInnerHtml('<i class="fas fa-code"></i>');
-		closeChart.setInnerHtml('<i class="fas fa-times"></i>');
+		barChart.setInnerHtml('<i class="fas fa-chart-bar" aria-hidden="true"></i>');
+		pieChart.setInnerHtml('<i class="fas fa-chart-pie" aria-hidden="true"></i>');
+		lineChart.setInnerHtml('<i class="fas fa-chart-line" aria-hidden="true"></i>');
+		createprintChart.setInnerHtml('<i class="fas fa-print" aria-hidden="true"></i>');
+		downloadChart.setInnerHtml('<i class="fas fa-download" aria-hidden="true"></i>');
+		downloadExcel.setInnerHtml('<i class="fas fa-file-excel" aria-hidden="true"></i>');
+		embebedeChart.setInnerHtml('<i class="fas fa-code" aria-hidden="true"></i>');
+		closeChart.setInnerHtml('<i class="fas fa-times" aria-hidden="true"></i>');
 	
 		// Set click handlers for each button
 		barChart.setClickHandler(function() {

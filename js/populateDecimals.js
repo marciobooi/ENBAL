@@ -11,7 +11,7 @@ function populateDecimals() {
       content += `
         <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-decimals="${decimals}" data-bs-toggle="button" aria-pressed="true">
           <span>${decimals}</span>
-          <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'}"></i>
+          <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'} aria-hidden="true""></i>
         </a>`;
     });
   
@@ -35,7 +35,7 @@ function populateDecimals() {
         checkIcon.removeClass('invisible');
 
         const selectedText = target.find('span').text();
-        $('#selectDecimals').text(selectedText).append('<i class="fas fa-caret-down"></i>');
+        $('#selectDecimals').text(selectedText).append('<i class="fas fa-caret-down" aria-hidden="true"></i>');
 
         REF.decimals = countDecimalPlaces(target.attr('data-decimals'))
 
@@ -50,12 +50,12 @@ function populateDecimals() {
     $('#selectDecimals').hover(
         function() {
           $(this).data('prevText', $(this).text());
-          $(this).html(`${languageNameSpace.labels['MENU_DEC']} <i class="fas fa-caret-down"></i>`);
+          $(this).html(`${languageNameSpace.labels['MENU_DEC']} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
         },
         function() {
           const dropdownConsumerList = $('#dropdown-decimals-list');
           const prevText = dropdownConsumerList.find('.dropdown-item.active span').text();
-          $(this).html(`${prevText} <i class="fas fa-caret-down"></i>`);
+          $(this).html(`${prevText} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
         }
       );
 

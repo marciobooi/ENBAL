@@ -16,7 +16,7 @@ function populateYearsData() {
     content += `
       <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-year="${year}" data-bs-toggle="button" aria-pressed="true">
         <span>${year}</span>
-        <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'}"></i>
+        <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'}" aria-hidden="true"></i>
       </a>`;
   });
 
@@ -50,19 +50,19 @@ function populateYearsData() {
 
   yearsDropDown.prepend(dropdownMenu);
 
-  $('#selectYear').text(REF.year).append('<i class="fas fa-caret-down"></i>');
+  $('#selectYear').text(REF.year).append('<i class="fas fa-caret-down" aria-hidden="true"></i>');
 
   $('#selectYear').off('mouseenter mouseleave');
 
   $('#selectYear').hover(
     function() {
       $(this).data('prevText', $(this).text());
-      $(this).html(`${languageNameSpace.labels['MENU_YEARS']} <i class="fas fa-caret-down"></i>`);
+      $(this).html(`${languageNameSpace.labels['MENU_YEARS']} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
     },
     function() {
       const dropdownConsumerList = $('#dropdown-years-list');
       const prevText = dropdownConsumerList.find('.dropdown-item.active span').text();
-      $(this).html(`${prevText} <i class="fas fa-caret-down"></i>`);
+      $(this).html(`${prevText} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
     }
   );
 }
