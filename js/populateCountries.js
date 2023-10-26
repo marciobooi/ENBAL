@@ -7,7 +7,7 @@ function populateCountries() {
     const isActive = geo === REF.geo ? 'active' : '';
     content += `
       <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-geo="${geo}" data-bs-toggle="button" aria-pressed="true">
-        <span><img class="flag me-2" src="img/country_flags/${geo}.webp" alt="">${languageNameSpace.labels[geo]}</span>
+        <span><img class="flag me-2" src="img/country_flags/${geo.toLowerCase()}.webp" alt="">${languageNameSpace.labels[geo]}</span>
         <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'}"></i>
       </a>`;
   });
