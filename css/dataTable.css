@@ -15,7 +15,15 @@
 
 .tableInfoIcon {
     color: var(--tool-1);
-    font-size: 1rem;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+}
+.tableRowIcon {
+    color: var(--tool-1);
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
 }
 
 th.sorting_disabled > .tableHeader {

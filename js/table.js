@@ -25,9 +25,9 @@ function createDataTable(dataTable) {
       if (expandables.includes(dataTable[0])) {
 
         if (expandStatus.includes(dataTable[0])) {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-minus-circle"></i>`);
+          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<button class="tableRowIcon" aria-label="${languageNameSpace.labels["POPEXP"]}"><i class="fas toggle-icon fa-minus-circle" aria-hidden="true"></i></button>`);
         } else {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<i class="fas toggle-icon fa-plus-circle"></i>`);
+          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<button class="tableRowIcon" aria-label="${languageNameSpace.labels["POPCOLAPSE"]}"><i class="fas toggle-icon fa-plus-circle" aria-hidden="true"></i></button>`);
         }
       
         // Add a click event handler to toggle the icon when the first <td> is clicked
@@ -55,8 +55,21 @@ function createDataTable(dataTable) {
         orderable: false,
         data: null,
         width: "80px",
-        defaultContent:
-          '<div class="icoContainer"><div class="chartIcon barChart"><i class="fas fa-chart-bar"></i></div><div class="chartIcon pieChart"><i class="fas fa-chart-pie"></i></div><div class="chartIcon lineChart"><i class="fas fa-chart-line"></i></div><div class="chartIcon info"><i class="fas fa-info"></i></div></div>',
+        defaultContent: 
+          `<div class="icoContainer">
+            <button class="chartIcon barChart" aria-label="${languageNameSpace.labels["POPBARCHART"]}">
+              <i class="fas fa-chart-bar" aria-hidden="true"></i>
+            </button>
+            <button class="chartIcon pieChart" aria-label="${languageNameSpace.labels["POPPIECHART"]}">
+              <i class="fas fa-chart-pie" aria-hidden="true"></i>
+            </button>
+            <button class="chartIcon lineChart" aria-label="${languageNameSpace.labels["POPLINECHART"]}">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+            </button>
+            <button class="chartIcon info" aria-label="${languageNameSpace.labels["POPINFO"]}">
+              <i class="fas fa-info" aria-hidden="true"></i>
+              </button>
+            </div>`,
       },
     ],
     ordering: false,
@@ -435,11 +448,14 @@ table.draw();
 
 function tableData() {
   if (REF.full == 1) {
-    defaultData.length = 0
-    dataTable.length = 0
-    rowIndex = 0
+    defaultData = [];
+    dataTable = []
+    rowIndex = []
+    expandStatus = [];
     destroyTable()
-    expandStatus = 0
+    
+    
+    
   } 
   apiCall();
 

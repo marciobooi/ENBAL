@@ -163,17 +163,10 @@ function openDataset() {
 function showSpinner() {
   // console.log('spinner start')
   $("#loaderSpinner").css("display", "block");
-  $(".show").css("background-color", "#e0e0e0");
-  $("#ENTable").css("background-color", "#e0e0e0");
-  $("table.dataTable tbody tr").css("background-color", "#e0e0e0");
 }
 function hideSpinner() {
   // console.log('spinner end')
   $("#loaderSpinner").css("display", "none");
-  $("#ENTable").css("background-color", "initial");
-  $("table.dataTable tbody tr").css("background-color", "initial");
-  $(".show").css("background-color", "aliceblue");
-  $(".secondLayerTR").css("background-color", "#f2fff0");
 }
 
 // function fuel(key) {

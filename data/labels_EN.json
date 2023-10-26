@@ -556,7 +556,8 @@
  "MENU_SAVE_DIAGRAM": "Save this diagram",
  "MENU_MORE": "Find out more",
  "MENU_YEARS": "Select year",
- "details": "Show details"
+ "details": "Show details",
+ "POPCOLAPSE": "Colapse flow"
 
 
   

@@ -7,7 +7,11 @@ function tableHeader(dataTable) {
     return dataTable[0].map((colTitle, index) => {
       if (index !== 0) {
         return {
-          title: `<div class="tableHeader" id=${colTitle}> ${languageNameSpace.labels[colTitle]} <div class="tableInfoIcon"><i class="fas fa-info-circle"></i></div></div>`,
+          title: `<div class="tableHeader" id=${colTitle}> ${languageNameSpace.labels[colTitle]} 
+            <button class="tableInfoIcon" aria-label="${languageNameSpace.labels["POPINFOPRODUCTS"]}">
+              <i class="fas fa-info-circle" aria-hidden="true"></i>
+            </button>
+          </div>`,
         };
       } else {
         return { title: colTitle }; // For the first column, keep the original title

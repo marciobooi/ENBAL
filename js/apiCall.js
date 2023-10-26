@@ -31,7 +31,7 @@ function apiCall() {
 
 }
 function addExtraBal(id, clickedRowIndex) {  
-  if ($('#' + id + ' > td:first-child > i').hasClass('fa-minus-circle')) {
+  if ($('#' + id + ' > td:first-child > button> i').hasClass('fa-minus-circle')) {
     removeRows(id);
   } else {
     addNewRows(id);    
