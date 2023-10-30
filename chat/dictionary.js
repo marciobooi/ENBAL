@@ -126,6 +126,11 @@ const stopwords = [
     "shall",
     "will",
     "just",
+    "can",
+    "you",
+    "help",
+    'me',
+    'about' 
     // '"'
 ];
 
