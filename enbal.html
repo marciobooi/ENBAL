@@ -312,138 +312,36 @@
       </div>
     </div>
 
-    <div class="modal fade" id="amexModal" aria-hidden="true">
-      <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+  
 
-            <div class="container">
-              <div id="globe" class="">
-                <canvas width="700" height="600" class=""></canvas>
-              </div>
-
-              <div class="row d-flex justify-content-center align-items-center">
-                <div class="col-md-6">
-                  <div class="wrapper">
-                    <!-- <h2 class="amexTitle" contenteditable data-heading="Search">Search</h2>
-                  <h2 class="amexTitle" contenteditable data-heading="Definitions">Definitions</h2> -->
-                    <h1 class="upper amexTitle">Search</h1>
-                    <h1 class="lower amexTitle">Definitions</h1>
-                  </div>
-
-                  <div class="form">
-                    <i class="fal fa-search"></i>
-                    <input
-                      type="text"
-                      class="form-control form-input"
-                      placeholder="Search anything..."
-                      id="search-input"
-                    />
-                    <span class="left-pan"
-                      ><i class="fa fa-microphone"></i
-                    ></span>
-                  </div>
+    <div class="modal" id="amexModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Search</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              </div>
-            </div>
-            <div id="resultsAmex" class="container"></div>
-            <div id="infoAmex" class="container-fluid">
-              <div id="firstSection" class="col-4 d-none"></div>
-              <div id="secondSection" class="col-8 d-none">
-                <div id="fuelInfo">
-                  <div class="accordion" id="accordionExample">
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingOne">
-                        <button
-                          class="accordion-button"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseOne"
-                          aria-expanded="true"
-                          aria-controls="collapseOne"
-                        >
-                          Indicator One
+                <div class="modal-body">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="searchIcon">
+                        <button class="btn btn-primary" id="searchIcon" type="button">
+                            <i class="fas fa-search"></i>
                         </button>
-                      </h2>
-                      <div
-                        id="collapseOne"
-                        class="accordion-collapse collapse show"
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div class="accordion-body">
-                          <div id="accord1">
-                            <!-- <spam>Share of global power mix</spam>
-                      <spam>2018</spam>
-                      <spam>38.5 %</spam>     -->
-                          </div>
-                        </div>
-                      </div>
                     </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingTwo">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseTwo"
-                          aria-expanded="false"
-                          aria-controls="collapseTwo"
-                        >
-                          Indicator Two
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseTwo"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingTwo"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div id="chart1Amex" class="accordion-body"></div>
-                      </div>
-                    </div>
-                    <div class="accordion-item">
-                      <h2 class="accordion-header" id="headingThree">
-                        <button
-                          class="accordion-button collapsed"
-                          type="button"
-                          data-bs-toggle="collapse"
-                          data-bs-target="#collapseThree"
-                          aria-expanded="false"
-                          aria-controls="collapseThree"
-                        >
-                          Indicator Tree
-                        </button>
-                      </h2>
-                      <div
-                        id="collapseThree"
-                        class="accordion-collapse collapse"
-                        aria-labelledby="headingThree"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div id="chart2Amex" class="accordion-body"></div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
-              </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Search</button>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+    
 
+    <button onclick="topFunction()" id="toTop" aria-label="Go to top">
+      <i class="fad fa-angle-up" aria-hidden="true"></i>
+      </button>
 
-
-    <button onclick="topFunction()" id="toTop" title="Go to top">
-      <i class="fad fa-angle-up"></i>
-    </button>
 
     <!-- <script src="https://unpkg.com/@popperjs/core@2"></script> -->
     <!-- <script src="https://unpkg.com/tippy.js@6"></script> -->

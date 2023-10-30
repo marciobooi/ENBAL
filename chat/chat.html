@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Example</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuzzyset.js/0.0.3/fuzzyset.min.js"></script>
+    <script src="https://unpkg.com/compromise"></script>
+
+</head>
+<body class="show-chatbot">
+    <div class="chatbot">
+        <header>
+          <h2>Chatbot</h2>
+          <span class="close-btn material-symbols-outlined">close</span>
+        </header>
+        <ul id="chatbox" class="chatbox">          
+        </ul>
+        <div class="chat-input">
+          <input id="userInput" placeholder="Enter a message..." spellcheck="false" required onkeydown="sendMessage(event)"></input>
+          <!-- <span  class="material-symbols-rounded" onclick="sendMessage(event)">send</span> -->
+          <!-- <input type="text" id="userInput" placeholder="Type your message..." onkeydown="sendMessage(event)">  -->
+        </div>
+      </div>
+
+
+
+      <!-- <li class="chat incoming">
+        <div class="suggestionContainer">
+          <div>
+            <span class="material-symbols-outlined"></span>
+            <p class="message-text">I found the following subjects:</p>
+          </div>
+          <div class="suggestion-container">
+            <button class="suggestion">renewable energy</button>
+            <button class="suggestion">nuclear renewable</button>
+          </div>
+        </div>
+      </li> -->
+
+
+    <!-- <div id="chatbox">
+  
+    </div>
+    <input type="text" id="userInput" placeholder="Type your message..." onkeydown="sendMessage(event)"> -->
+
+
+    <script src="dictionary.js"></script>
+    <script src="bla.js"></script>
+  
+</body>
+</html>

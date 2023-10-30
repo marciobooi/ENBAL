@@ -131,6 +131,8 @@ var languageNameSpace = {
       $(".UNIT").text(languageNameSpace.labels["UNIT"]);
       $(".DEC").text(languageNameSpace.labels["DEC"]);
 
+      document.getElementById('toTop').setAttribute('aria-label', languageNameSpace.labels["TOP"]);
+
       
 
 
