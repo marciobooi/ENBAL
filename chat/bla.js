@@ -126,11 +126,6 @@ function handleSuggestionClick(suggestion) {
 
 function addSuggestion(suggestions) {
 
-
-
-
-
-
     const chatItem = document.createElement('li');
     chatItem.className = 'chat incoming';
 
@@ -208,93 +203,120 @@ function sendMessage(event) {
         const userMessage = userInput.value;
         conversationHistory.push(userMessage); // Add user's message to history
         addMessage(userMessage, "user");
-        userInput.value = "";   
-
+        userInput.value = "";
 
         const keywords = userMessage.split(" ").filter(Boolean);
 
-      
+        // Filter the keywords to remove stopwords
+        const filteredKeywords = keywords.filter(word => !stopwords.includes(word.toLowerCase()));
 
-        if (keywords.length === 0) {
+        if (filteredKeywords.length === 0) {
             handleHelpCommand(); // If the user doesn't provide keywords, offer help
-        } else if (keywords[0].toLowerCase() === "help") {
+        } else if (filteredKeywords[0].toLowerCase() === "help") {
             handleHelpCommand(); // If the user specifically asks for help
-        } else if (keywords[0].toLowerCase() === "history") {
+        } else if (filteredKeywords[0].toLowerCase() === "history") {
             handleConversationHistory(); // Show conversation history
-        } else if (keywords[0].toLowerCase() === "personalize") {
-            const name = keywords.slice(1).join(" "); // Extract the user's name
+        } else if (filteredKeywords[0].toLowerCase() === "personalize") {
+            const name = filteredKeywords.slice(1).join(" "); // Extract the user's name
             handlePersonalization(name); // Personalize the chat
-        } else if (keywords[0].toLowerCase() === "language") {
-            const language = keywords[1]; // Extract the language
+        } else if (filteredKeywords[0].toLowerCase() === "language") {
+            const language = filteredKeywords[1]; // Extract the language
             handleLanguageSupport(language); // Inform about language support
-        } else if (keywords[0].toLowerCase() === "custom") {
+        } else if (filteredKeywords[0].toLowerCase() === "custom") {
             // Allow users to define custom responses, e.g., "custom keyword response"
-            const customKeyword = keywords[1];
-            const customResponse = keywords.slice(2).join(" ");
+            const customKeyword = filteredKeywords[1];
+            const customResponse = filteredKeywords.slice(2).join(" ");
             handleCustomResponse(customKeyword, customResponse);
         } else if (greetings.includes(userMessage.toLowerCase())) {
-            handleGreeting(userMessage)
+            handleGreeting(userMessage);
         } else {
-            // Join the keywords into a single string for matching
-            const searchTerm = keywords.join(" ").trim().toLowerCase();         
-            
-            console.log("searchTerm:", searchTerm);
+            // Check for exact matches in the responses dictionary
+            const filteredSearchTerm = filteredKeywords.join(" ");
+            const exactMatch = responses[filteredSearchTerm];
 
-            let primaryTerm;
-
-// Loop through each entry in the synonym object
-for (const [term, synonyms] of Object.entries(synonym)) {
-    if (synonyms.includes(searchTerm)) {
-        primaryTerm = term;
-        break; // Exit the loop when a match is found
-    }
-}
-
-console.log("primaryTerm:", primaryTerm);
-            
-            if (primaryTerm) {
-                // If a synonym match is found, use the primary term as the search term
-                addMessage(responses[primaryTerm].join('\n'), "bot");
-        } else {
-
-
-            // Check for an exact match in the responses dictionary
-            const exactMatch = responses[searchTerm];        
-
-            
             if (exactMatch) {
                 addMessage(exactMatch.join('\n'), "bot");
             } else {
-                // Apply stopwords
-                const filteredKeywords = keywords
-                    .map(word => word.toLowerCase())
-                    .filter(word => !stopwords.includes(word));                
+                // Check for synonyms
+                let primaryTerm;              
 
-                // Check for an exact match again
-                const filteredSearchTerm = filteredKeywords.join(" ");
-                const filteredExactMatch = responses[filteredSearchTerm];
-                if (filteredExactMatch) {
-                    addMessage(filteredExactMatch.join('\n'), "bot");
-                } else {
-                    const suggestions = Object.keys(responses).filter(keyword => {
-                        const suggestionKeywords = keyword.split(" ");
-                        return keywords.some(userKeyword => suggestionKeywords.includes(userKeyword));
-                    });
-                    
-                    if (suggestions.length > 0) {
-                    addSuggestion(suggestions);
-                } else {
-                    addMessage("I'm sorry, I don't understand that. Please try rephrasing your question.", 'bot');
+                for (const [term, synonyms] of Object.entries(synonym)) {                   
+                    if (synonyms.includes(filteredSearchTerm)) {
+                        primaryTerm = term;
+                        break;
+                    }
                 }
+
+                if (primaryTerm) {
+                    addMessage(responses[primaryTerm].join('\n'), "bot");
+                } else {
+
+               
+
+
+          
+                    const combinations = generateCombinations(keywords);
+                    let suggestions = [];
+                    let foundMatch = false;
+                    
+                    for (const combination of combinations) {
+                        if (responses.hasOwnProperty(combination)) {
+                            suggestions.push(responses[combination]);
+                            console.log(combination);
+                            foundMatch = true;
+                        }
+                    }
+
+
+          
+
+             
+
+
+
+
+
+
+
+                    // const suggestions = Object.keys(responses).filter(keyword => {
+                    //     const suggestionKeywords = keyword.split(" ");
+                    //     return keywords.some(userKeyword => suggestionKeywords.includes(userKeyword));
+                    // });
+
+                    if (suggestions.length > 0) {
+                        addSuggestion(suggestions);
+                    } else {
+                        addMessage("I'm sorry, I don't understand that. Please try rephrasing your question.", 'bot');
+                    }
                 }
             }
         }
     }
 }
-}
 
 
 
+function generateCombinations(words) {
+    const results = [];
+  
+    function backtrack(start, currentCombination) {
+      if (currentCombination.length > 0) {
+        results.push(currentCombination.join(" "));
+      }
+  
+      for (let i = start; i < words.length; i++) {
+        currentCombination.push(words[i]);
+        backtrack(i + 1, currentCombination);
+        currentCombination.pop();
+      }
+    }
+  
+    backtrack(0, []);
+  
+    return results;
+  }
+  
+  
 
 
 

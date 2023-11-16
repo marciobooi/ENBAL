@@ -1186,7 +1186,7 @@ ul {
 }
 th:first-child {
   text-align: left;
-  font-weight: 400 !important;
+  font-weight: bold !important;
 }
 .select-box:nth-child(5) {
   width: 30%;

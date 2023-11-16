@@ -130,7 +130,11 @@ const stopwords = [
     "you",
     "help",
     'me',
-    'about' 
+    'about',
+    "can",
+    "need",
+    "what",
+    ","
     // '"'
 ];
 

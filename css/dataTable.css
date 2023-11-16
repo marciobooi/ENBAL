@@ -51,7 +51,8 @@ th.sorting_disabled > .tableHeader {
     margin: 0 !important;
     padding: 0 !important;
 }
-tbody > tr {
+
+#dataTableContainer > tbody > tr {
     border-bottom: 1px solid #f6eeee;
     height: 3rem;
 }
@@ -106,12 +107,11 @@ tbody, td, tfoot, th, thead, tr {
     color: white;
 }
 
-td:first-child {
+#dataTableContainer > tbody > tr > td:first-child {
     display: flex;
     align-items: center;
     padding: 1px;
 }
-
 i.fas.fa-plus-circle {
     color: var(--tool-1);
 }

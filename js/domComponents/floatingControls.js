@@ -10,10 +10,7 @@ class FloatingChartControls {
           <input class="form-check-input focus-ring" type="checkbox" value="${REF.details == 1 ? 1 : 0}" role="switch" id="switchDetails" ${REF.details == 1 ? 'checked' : ''}>
           <label class="form-check-label" for="switchDetails">${languageNameSpace.labels['details']}</label>
         </div>
-        <div class="form-check form-switch form-check-reverse">
-          <input class="form-check-input focus-ring" type="checkbox" value="${REF.component == 1 ? 1 : 0}" role="switch" id="switchComponents" ${REF.component == 1 ? 'checked' : ''}>
-          <label class="form-check-label" for="switchComponents">${languageNameSpace.labels['componentsShow']}</label>
-        </div>
+
       </div>
       
       <div>   
