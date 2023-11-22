@@ -132,7 +132,7 @@ function tutorial(buttonTimer) {
 	document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = languageNameSpace.labels['tutFINISH']
 	$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").addClass( "close " )
 
-
+	traptutorialfocus()
 }
 
 function closeTutorial() {
@@ -181,4 +181,41 @@ $(document).on("click keydown", ".close", function(event) {
 	}
   });
 
+  function traptutorialfocus() {	
 
+	const focusableElements = '.introjs-tooltip.customTooltip.introjs-floating a[role="button"][tabindex="0"]:not([tabindex="-1"])';
+	const element = document.querySelector('.introjs-tooltip.customTooltip.introjs-floating');
+
+	log(element)
+
+	if (element) {
+	  const focusableContent = element.querySelectorAll(focusableElements);
+	  const firstFocusableElement = focusableContent[0];
+	  const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+	  document.addEventListener('keydown', function (e) {
+		const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+		if (!isTabPressed) {
+		  return;
+		}
+
+		if (e.shiftKey) {
+		  if (document.activeElement === firstFocusableElement) {
+			lastFocusableElement.focus();
+			e.preventDefault();
+		  }
+		} else {
+		  if (document.activeElement === lastFocusableElement) {
+			firstFocusableElement.focus();
+			e.preventDefault();
+		  }
+		}
+	  });
+
+	  // Set initial focus on the first focusable element
+	  if (focusableContent.length > 0) {
+		firstFocusableElement.focus();
+	  }
+	}
+  };
