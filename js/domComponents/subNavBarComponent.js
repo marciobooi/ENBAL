@@ -9,11 +9,12 @@ class SubNavbar {
   
 
       const notMobileContent = `<div class="container-fluid">
-            <div class="col-1">              
-              <button id="menu" class="btnGroup" type="button" aria-label="${languageNameSpace.labels["MAINMENU"]}" title="${languageNameSpace.labels["MAINMENU"]}" aria-haspopup="true">
-                <i class="fas fa-bars" aria-hidden="true"></i>             
-              </button>
-            </div>
+        <div class="col-1">              
+        <button id="menu" class="btnGroup" type="button" aria-label="${languageNameSpace.labels["MAINMENU"]}" title="${languageNameSpace.labels["MAINMENU"]}" aria-haspopup="true">
+        <i class="fas fa-bars"></i>
+        <span>Menu</span>             
+      </button>
+        </div>
             <div class="col-8">
               <div class="text-group">
                 <h2 id="title" class="title"></h2>

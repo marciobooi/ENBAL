@@ -1,8 +1,7 @@
-.btn-secondary {
+
+  .btn-secondary {
     background-color: var(--tool-1);
 }
-
-
 
 #menu {
     position: relative;
@@ -11,6 +10,8 @@
     width: 3rem;
     cursor: pointer;
     border: none;
+    color: var(--tool-1);
+    background-color: transparent;
 }
 
 .btnGroup {
@@ -36,12 +37,12 @@ span.iconText {
 li > button {
     background-color: var(--tool-1) !important;
     border-color: var(--tool-1) !important;
-    width: 2.875rem;
+    width: 2.5rem;
     height: 2.5rem;
     display: flex !important;
     justify-content: center;
     align-items: center;
-    border-radius: 0.4rem !important;
+    font-size: 1.2em !important;
 }
 
 #menuSwitch {
@@ -79,18 +80,19 @@ ul.dropdown-menu.dropdown-menu-end.show {
 }
 
 
-.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+/* .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
     text-decoration: none;
     color: #262626;
     background-color: lightgray;
-}
+} */
 
 
-#menu:hover {
+/* #menu:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-}
+} */
 .min-with--nav:hover {
     box-shadow: 0 0 0 0.15rem rgba(49, 132, 253, 0.3);
+    background-color: #082b7a !important;
 }
 
 .form-switch.form-check-reverse {
@@ -106,6 +108,33 @@ dl, ol, ul {
 span.agregates.fa-stack.fa-rotate-180 {
     font-size: .9rem;
 }
+
+.round-btn {
+    border-radius: 50%;
+}
+
+
+#btnCloseModalChart {
+    background-color: red !important;
+    border-color:red!important;
+}
+
+#btnCloseModalChart:hover {
+    box-shadow: 0 0 0 0.15rem rgba(255, 0, 0, 0.3);
+    background-color: rgb(146, 2, 2) !important;
+}
+
+#btnCloseModalChart:focus {
+    box-shadow: 0 0 0 0.15rem rgba(255, 0, 0, 0.3);
+}
+
+.text-truncate {
+    overflow: hidden !important;
+    white-space: nowrap !important;
+    text-overflow: ellipsis !important;
+}
+
+
 
 #infoCard button {
     margin: 0.2rem;
@@ -145,7 +174,3 @@ span.agregates.fa-stack.fa-rotate-180 {
   #infoCard .button-group button {
     flex: 1; /* Make buttons in the group evenly spaced */
   }
-  
-  /* Optional: Adjust the styling for smaller screens */
-
-
