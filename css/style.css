@@ -943,12 +943,6 @@ h2.pub2 {
   cursor: pointer;
   border-radius: 50%;
 }
-#eurostatLogo {
-  opacity: 0.7;
-}
-#eurostatLogo:hover {
-  opacity: 1;
-}
 .navOptions {
   display: flex;
   justify-content: flex-end;

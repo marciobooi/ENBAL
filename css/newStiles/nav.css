@@ -53,7 +53,7 @@ select:focus option:focus {
     display: none !important;
 }
 
-.social-media-section {
+.logo {
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -66,14 +66,5 @@ img#eurostatLogo {
     height: 1.75rem;
 }
 
-.social-media-icon {
-    background-color: transparent;
-    border: transparent;
-    padding-right:.8em;
-}
-
-.social-media-icon:hover {
-    transform: scale(1.2);
-}
 
 
