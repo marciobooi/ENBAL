@@ -128,3 +128,12 @@ tbody, td, tfoot, th, thead, tr {
     align-items: center;
     padding: 1px;
 }
+
+
+.tableInfoIcon > i {
+    font-size: 24px;
+}
+
+.tableRowIcon i {
+    font-size: 24px;
+}
