@@ -127,10 +127,15 @@ tbody, td, tfoot, th, thead, tr {
     display: flex;
     align-items: center;
     padding: 1px;
+    justify-content: space-between;
+    align-content: center;
 }
-
 
 .tableInfoIcon > i {
     font-size: 1.7em;
+}
+
+#dataTableContainer > tbody > tr > td:first-child div {
+    padding: 12px;
 }
 

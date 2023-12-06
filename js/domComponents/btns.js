@@ -38,6 +38,7 @@ class Button {
         this.buttonElement.setAttribute("value", this.value);
         this.buttonElement.setAttribute("aria-label", this.ariaLabel);
         this.buttonElement.innerHTML = this.innerHtml;
+        this.buttonElement.title = this.ariaLabel;
         // Apply other accessibility parameters as needed
         if (this.clickHandler) {
           this.buttonElement.addEventListener("click", this.clickHandler);
