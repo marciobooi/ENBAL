@@ -8,7 +8,7 @@ function tableHeader(dataTable) {
       if (index !== 0) {
         return {
           title: `<div class="tableHeader" id=${colTitle}> ${languageNameSpace.labels[colTitle]} 
-            <button class="tableInfoIcon" aria-label="${languageNameSpace.labels["POPINFOPRODUCTS"]}">
+            <button class="tableInfoIcon" title="${languageNameSpace.labels["POPINFOPRODUCTS"]}">
               <i class="fas fa-info-circle" aria-hidden="true"></i>
             </button>
           </div>`,
