@@ -1150,4 +1150,12 @@ function enableScreenREader(params) {
 
   }
 
-  
+    //  function to check focus on building fase
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Tab') {
+      var focusedElement = document.activeElement;
+      console.log('Focused element:', focusedElement);
+      focusedElement.style.outline = '2px solid red';
+      // log(focusedElement)
+    }
+  });

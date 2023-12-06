@@ -19,6 +19,7 @@ function createDataTable(dataTable) {
 
   table = $("#dataTableContainer").DataTable({
     dom: "Bfrtip",
+    responsive: true,
     createdRow: function (row, dataTable, dataIndex) {
       $(row).attr("id", dataTable[0]);
 

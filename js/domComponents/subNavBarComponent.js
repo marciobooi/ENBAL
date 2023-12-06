@@ -55,12 +55,7 @@ class SubNavbar {
                   <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="Embebed chart iframe" onclick="exportIframe()">
                     <i class="fas fa-code" aria-hidden="true"></i>
                   </button>
-                </li>
-                <li class="nav-item button px-1" id="AMEX" role="none">
-                  <button id="AMEXBTN" title="${languageNameSpace.labels['AMEX']}" type="button"  onclick="showAmexModal()" class="btn btn-primary  min-with--nav round-btn" aria-label="${languageNameSpace.labels['AMEX']}">
-                  <i class="fas fa-search" aria-hidden="true"></i>
-                  </button>
-                </li>  
+                </li>             
                 <li class="nav-item dropdown px-1" id="social-media-dropdown" role="none">
                 <button class="btn btn-primary min-with--nav round-btn" type="button" aria-label="Share in social media" data-bs-toggle="dropdown" role="menuitem" title="Share chart" aria-haspopup="true" aria-expanded="true" id="shareChart1">
                   <i class="fas fa-share-alt" aria-hidden="true"></i>

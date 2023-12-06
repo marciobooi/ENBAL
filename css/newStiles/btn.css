@@ -179,3 +179,22 @@ span.agregates.fa-stack.fa-rotate-180 {
   .chartIcon:hover {
     transform: translate(0, -10%);
 }
+
+#infoCard .btn-secondary {
+    border-radius: 0.4rem !important;
+    background-color: #fff !important;
+    border: 2px solid #0e47cb;
+    color: #0e47cb;
+    padding: calc(0.75rem - 2px) calc(1rem - 2px);
+}
+
+
+#infoCard .btn-secondary:active, #infoCard .btn-secondary:hover {
+    border-color: #0e47cb;
+    color: #0e47cb;
+}
+
+#infoCard .btn-secondary:active, #infoCard .btn-secondary:hover {
+    box-shadow: 0 2px 4px rgb(9 49 142 / 8%), 0 0 10px rgb(9 49 142 / 4%), 0 4px 5px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%);
+    text-decoration: none;
+}
