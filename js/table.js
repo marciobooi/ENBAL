@@ -25,9 +25,9 @@ function createDataTable(dataTable) {
       if (expandables.includes(dataTable[0])) {
 
         if (expandStatus.includes(dataTable[0])) {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<button class="tableRowIcon" title="${languageNameSpace.labels["POPCOLAPSE"]}"><i class="fas toggle-icon fa-minus-circle" aria-hidden="true"></i></button>`);
+          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<button class="tableRowIcon" title="${languageNameSpace.labels["POPCOLAPSE"]}"><i class="fas toggle-icon fa-minus" aria-hidden="true"></i></button>`);
         } else {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<button class="tableRowIcon" title="${languageNameSpace.labels["POPEXP"]}"><i class="fas toggle-icon fa-plus-circle" aria-hidden="true"></i></button>`);
+          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<button class="tableRowIcon" title="${languageNameSpace.labels["POPEXP"]}"><i class="fas toggle-icon fa-plus" aria-hidden="true"></i></button>`);
         }
       
         // Add a click event handler to toggle the icon when the first <td> is clicked

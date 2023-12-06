@@ -21,10 +21,26 @@
 }
 .tableRowIcon {
     color: var(--tool-1);
-    background-color: transparent;
+    background-color: white;
     border-radius: 50%;
-    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    border: 1px solid var(--tool-1);
+
 }
+
+.tableRowIcon:hover {
+    background-color: var(--tool-1);
+    color: white;
+}
+
+.tableRowIcon i {
+    font-size: 7px;
+    display: block;
+    margin: auto;
+    padding: 4px;
+}
+
 
 th.sorting_disabled > .tableHeader {
     display: flex;
@@ -111,11 +127,4 @@ tbody, td, tfoot, th, thead, tr {
     display: flex;
     align-items: center;
     padding: 1px;
-}
-i.fas.fa-plus-circle {
-    color: var(--tool-1);
-}
-
-i.fas.fa-minus-circle {
-    color: red;
 }
