@@ -14,7 +14,7 @@ var dataNameSpace = {
     "chartOptions": 0,
     "stacking": "normal",
     "chartBal": "",
-    "chart": [],
+    "chart": "",
     "full": 0,
     "chartBalText":[],
     "order":"DESC",

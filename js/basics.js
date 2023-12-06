@@ -684,26 +684,8 @@ let chartBalText;
 
 
 
-function handleChartAction() {
-  addAuxiliarBarGraphOptions();
-  $('#enbal').addClass('d-none');
-  $('#chartContainer').removeClass('d-none');
-  switch (chartType) {
-    case "barChart":
-      $('#menuSwitch').removeClass('d-none');
-      createBarChart(chartBal, chartBalText);
-      break;
-    case "pieChart":
-      $('#menuSwitch').addClass('d-none');
-      renderPieChart(chartType, chartBal, chartBalText);
-      break;
-    case "lineChart":
-      $('#menuSwitch').addClass('d-none');
-      renderLineChart(chartType, chartBal, chartBalText);
-      break;
-  }
-  disableChatOptionsBtn(chartType)
-}
+
+
 
 $(document).on("click", ".barChart, .pieChart, .lineChart", function () {
   chartBalText = [];
@@ -716,6 +698,30 @@ $(document).on("click", ".barChart, .pieChart, .lineChart", function () {
   handleChartAction();
 });
 
+
+function handleChartAction() {
+  addAuxiliarBarGraphOptions();
+  $('#enbal').addClass('d-none');
+  $('#chartContainer').removeClass('d-none');
+  disableChatOptionsBtn()
+  log(chartType)
+  switch (REF.chart) {
+    case "barChart":
+      showMenuSwitch()
+      createBarChart(chartBal, chartBalText);
+      break;
+    case "pieChart":
+      
+      renderPieChart(chartType, chartBal, chartBalText);
+      hideMenuSwitch()
+      break;
+    case "lineChart":
+      hideMenuSwitch()
+      renderLineChart(chartType, chartBal, chartBalText);
+      break;
+  }
+  // disableChatOptionsBtn(chartType)
+}
 
 
 let auxiliarBarGraphOptions;
@@ -737,9 +743,28 @@ let auxiliarBarGraphOptions;
   
     const auxiliarBarGraphOptions = new ChartControls();
     auxiliarBarGraphOptions.removeFromDOM("#subnavbar-container");  
-
-    $('#menuSwitch').addClass('d-none');
     $(".containerNav").css('visibility', 'initial')
+    hideMenuSwitch()
+ 
+  }
+
+  function showMenuSwitch() {
+
+    $("#menuSwitch > fieldset:nth-child(1)").css('display', "block") 
+    $('#ChartOrder').css('display', "initial") 
+    $("li#toggleTable").css('display', "initial") 
+    $("li#Agregates").css('display', "initial") 
+    $("li#ChartOrder").css('display', "initial") 
+    $("li#togglePercentage").css('display', "initial") 
+    $(".form-check.form-switch.form-check-reverse").css('display', "block") 
+  }
+  
+  function hideMenuSwitch() { 
+    $("li#toggleTable").css('display', REF.chart === "" ?"none":"initial") 
+    $("li#Agregates").css('display', "none") 
+    $("li#ChartOrder").css('display', "none") 
+    $("li#togglePercentage").css('display', "none") 
+    $(".form-check.form-switch.form-check-reverse").css('display', "none") 
   }
   
 

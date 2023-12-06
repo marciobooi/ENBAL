@@ -1,7 +1,7 @@
 class FloatingChartControls {
   constructor() {
     this.chartControls = document.createElement('div');
-    this.chartControls.className = 'menuSwitch d-none';
+    this.chartControls.className = 'menuSwitch';
     this.chartControls.id = 'menuSwitch';
 
     this.chartControls.innerHTML = `
@@ -15,18 +15,18 @@ class FloatingChartControls {
       
       <div>   
         <ul id="floatingMenu">   
-        <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.details == 1 ? "" : "none"}"></li>
-        <li class="nav-item px-1" id="Agregates" role="none"></li>			  
-          <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
-            <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     					
-              <li><a href="#" class="dropdown-item ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['PROTO']}</a></li>
-              <li><a href="#" class="dropdown-item ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['DESC']}</a></li>
-              <li><a href="#" class="dropdown-item ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['ASC']}</a></li>
-              <li><a href="#" class="dropdown-item ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['ALPHA']}</a></li>                		
-            </ul>
-          </li>
+          <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.details == 1 ? "" : "none"}"></li>
+          <li class="nav-item px-1" id="Agregates" role="none"></li>			  
+            <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
+              <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     					
+                <li><a href="#" class="dropdown-item ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['PROTO']}</a></li>
+                <li><a href="#" class="dropdown-item ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['DESC']}</a></li>
+                <li><a href="#" class="dropdown-item ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['ASC']}</a></li>
+                <li><a href="#" class="dropdown-item ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['ALPHA']}</a></li>                		
+              </ul>
+            </li>
 
-          <li class="nav-item px-1" id="toggleTable" role="none"></li>
+            <li class="nav-item px-1" id="toggleTable" role="none"></li>
         </ul>
       </div>`;
 
@@ -134,7 +134,7 @@ class FloatingChartControls {
   toggleIcons() {
     const tableIcon = this.chartControls.querySelector('#table-icon');
     const chartIcon = this.chartControls.querySelector('#chart-icon');
-    const toggleButton = this.chartControls.querySelector('#c');
+    const toggleButton = this.chartControls.querySelector('#tb-togle-table');
   
   
     tableIcon.style.display = tableIcon.style.display === 'none' ? '' : 'none';
@@ -201,6 +201,8 @@ class FloatingChartControls {
     dropdownOrderBtn.setAttribute("aria-expanded", "false");
     dropdownOrderBtn.setAttribute("data", "dropdown");
     dropdownOrderBtn.setAttribute("data", "dropdown");
+
+    hideMenuSwitch()
 
   }
 }
