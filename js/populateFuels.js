@@ -30,7 +30,7 @@ function populateFuel() {
         target.addClass('active');
         checkIcon.removeClass('invisible');
         const selectedText = target.find('span').text();
-        $('#selectFuel').text(selectedText).append('<i class="fas fa-caret-down" aria-hidden="true"></i>');
+        $('#selectFuel').text(selectedText).append('<i class="fas fa-angle-down" aria-hidden="true"></i>');
         REF.fuel = target.attr('data-fuel')  
         
         REF.full = 1;
@@ -45,12 +45,12 @@ function populateFuel() {
     $('#selectFuel').hover(
         function() {
           $(this).data('prevText', $(this).text());
-          $(this).html(`${languageNameSpace.labels['MENU_FUEL']} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
+          $(this).html(`${languageNameSpace.labels['MENU_FUEL']} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
         },
         function() {
           const dropdownFuelList = $('#dropdown-fuel-list');
           const prevText = dropdownFuelList.find('.dropdown-item.active span').text();
-          $(this).html(`${prevText} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
+          $(this).html(`${prevText} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
         }
       );
 

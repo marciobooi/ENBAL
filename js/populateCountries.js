@@ -33,7 +33,7 @@ function populateCountries() {
     checkIcon.removeClass('invisible');
 
     const selectedText = target.find('span').text();
-    $('#selectCountry').text(selectedText).append('<i class="fas fa-caret-down" aria-hidden="true"></i>');
+    $('#selectCountry').text(selectedText).append('<i class="fas fa-angle-down" aria-hidden="true"></i>');
 
     REF.geo = target.attr('data-geo');
     REF.full = 1;
@@ -45,12 +45,12 @@ function populateCountries() {
   $('#selectCountry').hover(
     function() {
       $(this).data('prevText', $(this).text());
-      $(this).html(`${languageNameSpace.labels['MENU_COUNTRY']} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
+      $(this).html(`${languageNameSpace.labels['MENU_COUNTRY']} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
     },
     function() {
       const dropdownGeoList = $('#dropdown-geo-list');
       const prevText = dropdownGeoList.find('.dropdown-item.active span').text();
-      $(this).html(`${prevText} <i class="fas fa-caret-down" aria-hidden="true"></i>`);
+      $(this).html(`${prevText} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
     }
   );
 }

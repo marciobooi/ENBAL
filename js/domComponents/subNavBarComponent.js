@@ -24,7 +24,7 @@ class SubNavbar {
             <div class="col-3">
             <ul id="chartBtns" role="menubar" aria-label="Options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
               <li class="nav-item dropdown px-1" id="infoBtnChart" role="none">
-                  <button class="btn btn-primary min-with--nav" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="Info" aria-haspopup="true" aria-expanded="true" id="infoBtn">
+                  <button class="btn btn-primary  min-with--nav round-btn" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="Info" aria-haspopup="true" aria-expanded="true" id="infoBtn">
                     <i class="fas fa-info" aria-hidden="true"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					
@@ -34,7 +34,7 @@ class SubNavbar {
                   </ul>
                 </li>
                 <li class="nav-item dropdown px-1" id="downloadChart" role="none">
-                  <button class="btn btn-primary min-with--nav" type="button" aria-label="download chart image" data-bs-toggle="dropdown" role="menuitem" title="Download chart image" aria-haspopup="true" aria-expanded="true" id="downloadBtn">
+                  <button class="btn btn-primary  min-with--nav round-btn" type="button" aria-label="download chart image" data-bs-toggle="dropdown" role="menuitem" title="Download chart image" aria-haspopup="true" aria-expanded="true" id="downloadBtn">
                     <i class="fas fa-download" aria-hidden="true"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Download chart">     					
@@ -45,22 +45,22 @@ class SubNavbar {
                 </li>     
 
                 <!-- <li class="nav-item button px-1" id="shareChart" role="none">
-                  <button id="shareBtn" title="share chart" type="button" class="btn btn-primary min-with--nav" aria-label="share chart" onclick="">
+                  <button id="shareBtn" title="share chart" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="share chart" onclick="">
                     <i class="fas fa-share-alt" aria-hidden="true"></i>
                   </button>
                 </li> -->
                 <li class="nav-item button px-1" id="embebedChart" role="none">
-                  <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary min-with--nav" aria-label="Embebed chart iframe" onclick="exportIframe()">
+                  <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="Embebed chart iframe" onclick="exportIframe()">
                     <i class="fas fa-code" aria-hidden="true"></i>
                   </button>
                 </li>
                 <li class="nav-item button px-1" id="AMEX" role="none">
-                  <button id="AMEXBTN" title="${languageNameSpace.labels['AMEX']}" type="button"  onclick="showAmexModal()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['AMEX']}">
+                  <button id="AMEXBTN" title="${languageNameSpace.labels['AMEX']}" type="button"  onclick="showAmexModal()" class="btn btn-primary  min-with--nav round-btn" aria-label="${languageNameSpace.labels['AMEX']}">
                   <i class="fas fa-search" aria-hidden="true"></i>
                   </button>
                 </li>
                 <li class="nav-item button px-1" id="definitions" role="none">
-                  <button id="BALGUIDEBTN" title="${languageNameSpace.labels['BALGUIDE']}" type="button"  onclick="openBalDefinitions()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['BALGUIDE']}">
+                  <button id="BALGUIDEBTN" title="${languageNameSpace.labels['BALGUIDE']}" type="button"  onclick="openBalDefinitions()" class="btn btn-primary  min-with--nav round-btn" aria-label="${languageNameSpace.labels['BALGUIDE']}">
                   <i class="fas fa-book" aria-hidden="true"></i>
                   </button>
                 </li>
@@ -75,7 +75,7 @@ class SubNavbar {
                 </ul>
               </li>  
                 <li class="nav-item button px-1" id="tutorial" role="none">
-                  <button id="TUTORIALBTN" title="${languageNameSpace.labels['POPTUT']}" type="button"  onclick="tutorial()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['POPTUT']}">
+                  <button id="TUTORIALBTN" title="${languageNameSpace.labels['POPTUT']}" type="button"  onclick="tutorial()" class="btn btn-primary  min-with--nav round-btn" aria-label="${languageNameSpace.labels['POPTUT']}">
                   <i class="fas fa-book-open" aria-hidden="true"></i>
                   </button>
                 </li>
@@ -115,7 +115,7 @@ class SubNavbar {
         <div class="chartMenuMobile d-none">
           <ul id="chartBtns" role="menubar" aria-label="Options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
               <li class="nav-item dropdown px-1" id="infoBtnChart" role="none">
-                <button class="btn btn-primary min-with--nav" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="Info" aria-haspopup="true" aria-expanded="true" id="infoBtn">
+                <button class="btn btn-primary  min-with--nav round-btn" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="Info" aria-haspopup="true" aria-expanded="true" id="infoBtn">
                   <i class="fas fa-info" aria-hidden="true"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					
@@ -125,7 +125,7 @@ class SubNavbar {
                 </ul>
               </li>
               <li class="nav-item dropdown px-1" id="downloadChart" role="none">
-                <button class="btn btn-primary min-with--nav" type="button" aria-label="download chart image" data-bs-toggle="dropdown" role="menuitem" title="Download chart image" aria-haspopup="true" aria-expanded="true" id="downloadBtn">
+                <button class="btn btn-primary  min-with--nav round-btn" type="button" aria-label="download chart image" data-bs-toggle="dropdown" role="menuitem" title="Download chart image" aria-haspopup="true" aria-expanded="true" id="downloadBtn">
                   <i class="fas fa-download" aria-hidden="true"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Download chart">     					
@@ -135,7 +135,7 @@ class SubNavbar {
                 </ul>
               </li>     
               <li class="nav-item button px-1" id="shareChart" role="none">
-                <button id="shareBtn" title="share chart" type="button" class="btn btn-primary min-with--nav" aria-label="share chart" onclick="">
+                <button id="shareBtn" title="share chart" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="share chart" onclick="">
                   <i class="fas fa-share-alt" aria-hidden="true"></i>
                 </button>
               </li>
@@ -150,7 +150,7 @@ class SubNavbar {
               </ul>
             </li>  
               <li class="nav-item button px-1" id="embebedChart" role="none">
-                <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary min-with--nav" aria-label="Embebed chart iframe" onclick="exportIframe()">
+                <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="Embebed chart iframe" onclick="exportIframe()">
                   <i class="fas fa-code" aria-hidden="true"></i>
                 </button>
               </li>
@@ -302,7 +302,7 @@ class SubNavbar {
     
       dropdownBtnGroupData.forEach(data => {
         const col = document.createElement('div');
-        col.classList.add('col-4');
+        col.classList.add('col-12', 'col-sm-4');
     
         const dropdownBtnGroup = document.createElement('div');
         dropdownBtnGroup.classList.add('dropdownBtnGroup');
@@ -319,7 +319,7 @@ class SubNavbar {
         button.setAttribute('data-bs-toggle', 'dropdown');
         button.setAttribute('aria-expanded', 'false');
         button.setAttribute('aria-labelledby', data.area);
-        button.innerHTML = `${data.defaultText}<i class="fas fa-caret-down" aria-hidden="true"></i>`;
+        button.innerHTML = `${data.defaultText}<i class="fas fa-angle-down" aria-hidden="true"></i>`;
     
         button.addEventListener('click', event => {
           this.handleDropdownItemClick(event, data);
@@ -354,7 +354,7 @@ class SubNavbar {
     
       // Update the dropdown button's text and value
       const dropdownButton = selectedItem.closest('.dropdownBtnGroup').querySelector('.dropdown-toggle');
-      dropdownButton.innerHTML = `${selectedText}<i class="fas fa-caret-down" aria-hidden="true"></i>`;
+      dropdownButton.innerHTML = `${selectedText}<i class="fas fa-angle-down" aria-hidden="true"></i>`;
       dropdownButton.setAttribute('value', selectedValue);
     
       // this.addHoverEvent();
@@ -399,7 +399,7 @@ class SubNavbar {
           if (dropdownGroup) {
             const dropdownToggle = dropdownGroup.querySelector('.dropdown-toggle');
             if (dropdownToggle) {
-              dropdownToggle.innerHTML = `${selectedText}<i class="fas fa-caret-down" aria-hidden="true"></i>`;
+              dropdownToggle.innerHTML = `${selectedText}<i class="fas fa-angle-down" aria-hidden="true"></i>`;
               dropdownToggle.setAttribute('value', selectedValue);
               // this.addHoverEvent();
               this.highlightSelectedValue();
