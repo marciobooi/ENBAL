@@ -26,6 +26,7 @@ class Chart {
           plotBorderWidth: null,
           plotShadow: false,
           style: {
+            fontFamily: 'arial,sans-serif',
             animation: true,
             duration: 1000,
           },

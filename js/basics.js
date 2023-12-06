@@ -1115,4 +1115,14 @@ function enableScreenREader(params) {
 	const container = document.querySelector(".highcharts-root")
 
 	container.removeAttribute('aria-hidden');
+
+  var fontAwesomeIcons = document.querySelectorAll('i.fas');
+  
+  fontAwesomeIcons.forEach(function(icon) {
+    icon.setAttribute('aria-hidden', 'true');
+});
+
+
   }
+
+  
