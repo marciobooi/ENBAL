@@ -63,6 +63,16 @@ class SubNavbar {
                   <i class="fas fa-book" aria-hidden="true"></i>
                   </button>
                 </li>
+                <li class="nav-item dropdown px-1" id="social-media-dropdown" role="none">
+                <button class="btn btn-primary min-with--nav round-btn" type="button" aria-label="Share in social media" data-bs-toggle="dropdown" role="menuitem" title="Share chart" aria-haspopup="true" aria-expanded="true" id="shareChart1">
+                  <i class="fas fa-share-alt" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Share chart">     					
+                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.twitter()" aria-label="${languageNameSpace.labels['SHARE_T']}">${languageNameSpace.labels["SHARE_T"]}</button>
+                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.facebook()" aria-label="${languageNameSpace.labels['SHARE_F']}">${languageNameSpace.labels["SHARE_F"]}</button>
+                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.linkedin()" aria-label="${languageNameSpace.labels['SHARE_L']}">${languageNameSpace.labels["SHARE_L"]}</button>        
+                </ul>
+              </li>  
                 <li class="nav-item button px-1" id="tutorial" role="none">
                   <button id="TUTORIALBTN" title="${languageNameSpace.labels['POPTUT']}" type="button"  onclick="tutorial()" class="btn btn-primary min-with--nav" aria-label="${languageNameSpace.labels['POPTUT']}">
                   <i class="fas fa-book-open" aria-hidden="true"></i>
@@ -128,6 +138,16 @@ class SubNavbar {
                   <i class="fas fa-share-alt" aria-hidden="true"></i>
                 </button>
               </li>
+              <li class="nav-item dropdown px-1" id="social-media-dropdown" role="none">
+              <button class="btn btn-primary min-with--nav round-btn" type="button" aria-label="Share in social media" data-bs-toggle="dropdown" role="menuitem" title="Share chart" aria-haspopup="true" aria-expanded="true" id="shareChart1">
+                <i class="fas fa-share-alt" aria-hidden="true"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Share chart">     					
+                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.twitter()" aria-label="${languageNameSpace.labels['SHARE_T']}">${languageNameSpace.labels["SHARE_T"]}</button>
+                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.facebook()" aria-label="${languageNameSpace.labels['SHARE_F']}">${languageNameSpace.labels["SHARE_F"]}</button>
+                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.linkedin()" aria-label="${languageNameSpace.labels['SHARE_L']}">${languageNameSpace.labels["SHARE_L"]}</button>        		
+              </ul>
+            </li>  
               <li class="nav-item button px-1" id="embebedChart" role="none">
                 <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary min-with--nav" aria-label="Embebed chart iframe" onclick="exportIframe()">
                   <i class="fas fa-code" aria-hidden="true"></i>
