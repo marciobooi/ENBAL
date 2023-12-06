@@ -91,7 +91,7 @@ class SubNavbar {
                 </button>
               </div>
               <div class="dropdown-grid">
-                <div class="row"></div>
+              <div class="row w-75"></div>
               </div>
             </div>
           </div>`;

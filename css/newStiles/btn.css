@@ -174,3 +174,8 @@ span.agregates.fa-stack.fa-rotate-180 {
   #infoCard .button-group button {
     flex: 1; /* Make buttons in the group evenly spaced */
   }
+
+
+  .chartIcon:hover {
+    transform: translate(0, -10%);
+}
