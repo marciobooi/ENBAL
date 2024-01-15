@@ -65,7 +65,7 @@ function setupDefaultData() {
 
             const typeToRowsMap = {
                 "TI_RPI_E": 8,
-                "TI_EHG_E": 12,
+                "TI_EHG_E": 13,
                 "TO_EHG": 12,
                 "TO_RPI": 8,
                 "FC_OTH_E": 2,
@@ -90,11 +90,9 @@ function removeRows(id) {
     const pair = rowIndex.find(pair => pair[0] === id);
     const index = dataTable.findIndex(row => row[0] === id);
   
-    if (pair) {
+    if (pair) {  
   
-  
-        if (["FC_E", "TO", "TI_E"].includes(id)) {
-  
+        if (["FC_E", "TO", "TI_E"].includes(id)) {  
   
         const balancesId = {
           "FC_E": ["FC_OTH_E", "FC_TRA_E", "FC_IND_E"],
@@ -154,23 +152,31 @@ function removeRows(id) {
     balances = extraBalances(id);
     d = chartApiCall(id);
     balances.reverse();
-  
+ 
     const numRows = balances.length;
     const numColumns = REF.siecs.length;
   
     const index = dataTable.findIndex(idx => idx[0] == id);
   
-  
     for (let i = 0; i < numRows; i++) {
       const row = [balances[i]].concat(
         Array.from({ length: numColumns }, (_, j) => {
           const cellValue = d.value[(numRows - 1 - i) * numColumns + j];
-          return cellValue;
+          
+          // Check if the condition is met for "TI_EHG_CB" and all values are null or undefined
+          if (balances[i] === "TI_EHG_CB" && (cellValue === null || cellValue === undefined)) {
+            return 0; // Set cellValue to 0
+          } else {
+            return cellValue === null ? cellValue = 0 : cellValue;
+          }
         })
       );
-  
+    
       dataTable.splice(index + 1, 0, row);
     }
+
+
+
   
     rowIndex.forEach(idx => {
       if (idx[2] > index) {

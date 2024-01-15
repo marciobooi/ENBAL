@@ -194,6 +194,6 @@ codesEntable = {
 
 defGeos = ["EU27_2020","EA19","BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR","HR","IT","CY","LV","LT","LU","HU","MT","NL","AT","PL","PT","RO","SI","SK","FI","SE","IS","NO","ME","MK","AL","RS","TR","BA","XK","MD","UA","GE"]
 
-balances = ["NRGSUP","TI_E","TO","NRG_E","DL","AFC","STATDIFF","FC_NE","FC_E","GEP","GHP",];
+balances = ["NRGSUP","TI_E","TO","NRG_E","TRANSL_DL","AFC","STATDIFF","FC_NE","FC_E","GEP","GHP",];
 expandables = ["NRGSUP","TI_E","TO","NRG_E","FC_E","TI_EHG_E","TI_RPI_E","TO_EHG","FC_IND_E","FC_TRA_E","TO_RPI","FC_OTH_E"];
 
