@@ -282,6 +282,7 @@
 	"TI_EHG_EB":	"Transformation input - electricity and heat generation - electric boilers",
 	"TI_EHG_EPS":	"Transformation input - electricity and heat generation - electricity for pumped storage",
 	"TI_EHG_DHEP":	"Transformation input - electricity and heat generation - derived heat for electricity production",
+	"TI_EHG_CB":	"Transformation input - electricity and heat generation - charge bateries",
 	"TI_CO_E":	"Transformation input - coke ovens - energy use",
 	"TI_BF_E":	"Transformation input - blast furnaces - energy use",
 	"TI_GW_E":	"Transformation input - gas works - energy use",

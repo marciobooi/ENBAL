@@ -408,6 +408,7 @@
   "TI_EHG_EB": "Transformationseingang - Strom- und Wärmeerzeugung - Elektrokessel",
   "TI_EHG_EPS": "Transformationseingang - Strom- und Wärmeerzeugung - Strom für Pumpspeicher",
   "TI_EHG_DHEP": "Transformationseingang - Strom- und Wärmeerzeugung - Wärme für die Stromerzeugung",
+  "TI_EHG_CB": "Transformationseingang - Strom- und Wärmeerzeugung - Batterieladung",
   "TI_CO_E": "Transformationseingang - Koksöfen - Energieverbrauch",
   "TI_BF_E": "Transformationseingang - Hochöfen - Energieverbrauch",
   "TI_GW_E": "Transformationseingang - Gaswerke - Energieverbrauch",

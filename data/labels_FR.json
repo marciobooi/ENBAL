@@ -406,6 +406,7 @@
   "TI_EHG_APH_E": "Apports de transformation - production d'électricité et de chaleur - chaleur des autoproducteurs uniquement - consommation d'énergie",
   "TI_EHG_EDHP": "Apport de transformation - production d'électricité et de chaleur - pompes à chaleur électriques",
   "TI_EHG_EB": "Entrée de transformation - production d'électricité et de chaleur - chaudières électriques",
+  "TI_EHG_CB":	"Transformation input - electricity and heat generation - charge bateries",
   "TI_EHG_EPS": "Apport de transformation - production d'électricité et de chaleur - électricité pour le stockage par pompage",
   "TI_EHG_DHEP": "Apports de transformation - production d'électricité et de chaleur - chaleur dérivée pour la production d'électricité",
   "TI_CO_E": "Entrée de transformation - fours à coke - consommation d'énergie",
