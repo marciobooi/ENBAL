@@ -609,7 +609,7 @@
       "meta": "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm",
       "dataBrowser": "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en"
     },
-    "DL":{
+    "TRANSL_DL":{
       "img":"img/d13.jpg",
       "title":"Distribution losses",
       "text":"<b>Definition:</b> This category includes quantities of fuel losses which occur due to transport and distribution, including pipeline losses. Specifically for electricity, transmission losses are included here.",

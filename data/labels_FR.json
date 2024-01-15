@@ -473,7 +473,7 @@
   "NRG_GTL_E": "Secteur de l'énergie - usines de transformation de gaz en liquides - utilisation d'énergie",
   "NRG_CPP_E": "Secteur de l'énergie - usines de production de charbon de bois - utilisation de l'énergie",
   "NRG_NSP_E": "Secteur de l'énergie - non spécifié ailleurs - utilisation d'énergie",
-  "DL": "Pertes de distribution",
+  "TRANSL_DL": "Pertes de distribution",
   "AFC": "Disponible pour la consommation finale",
   "FC_NE": "Consommation finale - utilisation non énergétique",
   "TI_NRG_FC_IND_NE": "Intrants de transformation, secteur de l'énergie et consommation finale dans le secteur industriel - utilisation non énergétique",
