@@ -31,12 +31,9 @@ function apiCall() {
 
 }
 function addExtraBal(id, clickedRowIndex) {  
-  log('here inside function')
   if ($('#' + id + ' > td:first-child > div > button> i').hasClass('fa-minus')) {
-    log('here has minus')
     removeRows(id);
   } else {
-    log('here else')
     addNewRows(id);    
   }
 }

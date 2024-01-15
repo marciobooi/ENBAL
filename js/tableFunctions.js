@@ -161,7 +161,7 @@ function removeRows(id) {
     for (let i = 0; i < numRows; i++) {
       const row = [balances[i]].concat(
         Array.from({ length: numColumns }, (_, j) => {
-          const cellValue = d.value[(numRows - 1 - i) * numColumns + j];
+          let cellValue = d.value[(numRows - 1 - i) * numColumns + j];
           
           // Check if the condition is met for "TI_EHG_CB" and all values are null or undefined
           if (balances[i] === "TI_EHG_CB" && (cellValue === null || cellValue === undefined)) {
