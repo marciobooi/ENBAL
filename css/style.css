@@ -883,13 +883,13 @@ a.print {
   font-size: 15px;
   color: #3f79ab !important;
 } */
-body
+/* body
   > div.introjs-tooltipReferenceLayer
   > div
   > div.introjs-tooltipbuttons
   > a.introjs-button.introjs-prevbutton.introjs-disabled {
   display: none;
-}
+} */
 .introjs-tooltip {
   min-width: 390px;
   max-width: 500px;

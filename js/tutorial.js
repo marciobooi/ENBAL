@@ -11,69 +11,56 @@ function tutorial(buttonTimer) {
 
 	itens = [
 		{
-			element: document.querySelector("#find-more-menu-icon"),
-			title: languageNameSpace.tutorial["TUTO_1"],
-			intro: languageNameSpace.tutorial["TUTO_2"],
+			title: languageNameSpace.tutorial["START_TOUR_TITLE"],
+			intro: languageNameSpace.tutorial["START_TOUR_TEXT"],
 			position: 'auto'
 		},
-		{			
-		  element: document.querySelector("rect.highcharts-point.highcharts-color-0:nth-child(2)"),
+		{
+		  element: document.querySelector("#menu"),
+		  title: languageNameSpace.tutorial["TUTO_1"],
+		  intro: languageNameSpace.tutorial["TUTO_2"],
+		  position: 'auto'
+		},
+		{
+		  element: document.querySelector("#infoBtn"),
 		  title: languageNameSpace.tutorial["TUTO_3"],
 		  intro: languageNameSpace.tutorial["TUTO_4"],
 		  position: 'auto'
 		},
 		{
-		  element: document.querySelector("#menu"),
+		  element: document.querySelector("#downloadBtn"),
 		  title: languageNameSpace.tutorial["TUTO_5"],
 		  intro: languageNameSpace.tutorial["TUTO_6"],
 		  position: 'auto'
 		},
 		{
-		  element: document.querySelector("#tb-togle-table"),
+		  element: document.querySelector("#embebedBtn"),
 		  title: languageNameSpace.tutorial["TUTO_7"],
 		  intro: languageNameSpace.tutorial["TUTO_8"],
 		  position: 'auto'
 		},
 		{
-		  element: document.querySelector("#tb-togle-order"),
+		  element: document.querySelector("td:nth-child(1) > div > button"),
 		  title: languageNameSpace.tutorial["TUTO_9"],
 		  intro: languageNameSpace.tutorial["TUTO_10"],
 		  position: 'auto'
 		},
 		{
-		  element: document.querySelector("#toggleAgregates"),
+		  element: document.querySelectorAll(".icoContainer")[0],
 		  title: languageNameSpace.tutorial["TUTO_11"],
 		  intro: languageNameSpace.tutorial["TUTO_12"],
 		  position: 'auto'
 		},
+	
 		{			
-		  element: document.querySelector("#infoBtn"),
-		  title: languageNameSpace.tutorial["TUTO_13"],
-		  intro: languageNameSpace.tutorial["TUTO_14"],
-		  position: 'auto'
-		},
-		{			
-		  element: document.querySelector("#downloadBtn"),
-		  title: languageNameSpace.tutorial["TUTO_15"],
-		  intro: languageNameSpace.tutorial["TUTO_16"],
-		  position: 'auto'
-		},
-		{			
-		  element:document.querySelector("#embebedBtn"),
-		  title: languageNameSpace.tutorial["TUTO_17"],
-		  intro: languageNameSpace.tutorial["TUTO_18"],
-		  position: 'auto'
-		},
-		{			
-		  element: document.querySelector("#lang-selection"),
-		  title: languageNameSpace.tutorial["TUTO_19"],
-		  intro: languageNameSpace.tutorial["TUTO_20"],
-		  position: 'auto'
-		},
-		{			
-		  element: document.querySelector("#social-media"),
+		  element: document.querySelector("#shareChart1"),
 		  title: languageNameSpace.tutorial["TUTO_21"],
 		  intro: languageNameSpace.tutorial["TUTO_22"],
+		  position: 'auto'
+		},
+		{			
+		  title: languageNameSpace.tutorial["END_TOUR_TITLE"],
+		  intro: languageNameSpace.tutorial["END_TOUR_TEXT"],
 		  position: 'auto'
 		},
 		]

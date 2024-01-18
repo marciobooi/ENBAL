@@ -573,7 +573,10 @@
  "DWNIMAGE": "Download chart image",
  "DWNCHART": "Download chart data",
  "EMBED": "Embebed chart iframe",
- "CLS": "Close"
+ "CLS": "Close",
+ "tutBACK": "Back",
+ "tutNEXT": "Next",
+ "tutFINISH": "Close"
 
 
   
