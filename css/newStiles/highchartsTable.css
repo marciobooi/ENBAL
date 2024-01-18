@@ -33,6 +33,7 @@
     line-height: inherit !important;
     border-collapse: inherit !important;
     margin-bottom: 0 !important;
+    background-color: #fff;
 }
 
 tbody, td, tfoot, th, thead, tr {
@@ -45,6 +46,45 @@ tbody, td, tfoot, th, thead, tr {
     border-bottom: 0;
   }
 
-.table > :not(caption) > * > * {
-    padding: 0.2rem 0.2rem;
+  #tooltipTable > :not(caption) > * > * {
+    padding: 8px !important;
+    color: initial;
 }
+
+
+
+#tooltipTable > :not(caption) > * > * {
+    padding: 8px !important;
+}
+
+.tooltipTable{
+    border:1px solid #515560;
+    background-color: #fff;
+    color:#fff
+}
+
+.tooltipTableHead, #tooltipTable > thead > tr > th {
+    background-color: #515560;
+    font-size: 14px;
+    padding: 2px 5px;
+    text-align: left;
+    color: white;
+
+}
+
+
+tr.tooltipTableTr {
+    font-size: 16px;
+    color: white;
+}
+
+#tooltipTable > thead > tr > th {
+    text-align: center;
+    color: white !important;
+}
+
+#tooltipTable > tbody > tr > td {
+    text-align: end;
+}
+
+

@@ -28,6 +28,7 @@ $( document ).ready(function() {
 })
 
 function buildComponents() {
+
   const components = [
     { instance: new SubNavbar(), target: '#subnavbar-container' },
     { instance: new Footer(), target: '#componentFooter' },
@@ -53,7 +54,6 @@ function removeComponents() {
 function populateDropdownData() {
   populateCountries();
   populateFuel();
-  // populateConsumer();
   populateYearsData();
   populateDecimals();
   populateUnit();

@@ -125,16 +125,65 @@ var languageNameSpace = {
       $(".pub2").text(languageNameSpace.labels["pub2"]);
       $("#sharemodaltitle").text(languageNameSpace.labels["sharemodaltitle"]);
 
+      $("#header-title-label").text(languageNameSpace.labels["pub2"]);   
+
+      $('label[for="selectCountry"]').text(languageNameSpace.labels["COUNTRY"]);
+      $('label[for="selectFuel"]').text(languageNameSpace.labels["FUEL"]);
+      $('label[for="selectYear"]').text(languageNameSpace.labels["REFERENCE"]);
+      $('label[for="selectDecimals"]').text(languageNameSpace.labels["DECIMALS"]);
+      $('label[for="selectUnit"]').text(languageNameSpace.labels["UNIT"]);
+
+
+      $('tbody tr').each(function () {
+        let trId = $(this).attr('id');    
+          $(this).find('td:first').contents().filter(function() {
+            return this.nodeType === 3; 
+          }).first().replaceWith(languageNameSpace.labels[trId]);
+      });
+
+      $('thead th').each(function () {
+        let thId = $(this).find('.tableHeader').attr('id');
+        const btn = `<button class="tableInfoIcon" title="Open product info"><i class="fas fa-info-circle" aria-hidden="true"></i></button>`
+          $(this).find('.tableHeader').html(languageNameSpace.labels[thId] + btn);        
+      });
+   
+      $('thead th:nth-child(1)').html(`${languageNameSpace.labels["YEAR"]}: ${REF.year} <br> ${languageNameSpace.labels["UNIT"]}: ${REF.unit}`)        
+
+      $('.chartIcon.barChart').attr('title', languageNameSpace.labels["POPBARCHART"]);
+      $('.chartIcon.pieChart').attr('title', languageNameSpace.labels["POPPIECHART"]);
+      $('.chartIcon.lineChart').attr('title', languageNameSpace.labels["POPLINECHART"]);
+      $('.chartIcon.info').attr('title', languageNameSpace.labels["POPINFO"]);
+      $('.tableInfoIcon').attr('title', languageNameSpace.labels["POPINFOPRODUCTS"]);
+
+      $('#infoBtn').attr('title', languageNameSpace.labels["INFO"]);
+      $('#downloadBtn').attr('title', languageNameSpace.labels["DWL"]);
+      $('#embebedBtn').attr('title', languageNameSpace.labels["EMB"]);
+      $('#shareChart1').attr('title', languageNameSpace.labels["SHA"]);
+
+
+      $('button.tableRowIcon i.fas.fa-plus').each(function() {
+        $(this).closest('button.tableRowIcon').attr('title', languageNameSpace.labels["POPEXP"])
+      });
+
+      $('#barChart').attr('title', languageNameSpace.labels["TGLBAR"]);
+      $('#pieChart').attr('title', languageNameSpace.labels["TGLPIE"]);
+      $('#lineChart').attr('title', languageNameSpace.labels["TGLLINE"]);
+      $('#toggleTableBtn').attr('title', languageNameSpace.labels["TGLTABLE"]);
+      $('#printBtn').attr('title', languageNameSpace.labels["PRINT"]);
+      $('#downloadBtn').attr('title', languageNameSpace.labels["DWNIMAGE"]);
+      $('#excelBtn').attr('title', languageNameSpace.labels["DWNCHART"]);
+      $('#embebedBtn').attr('title', languageNameSpace.labels["EMBED"]);
+      $('#btnCloseModalChart').attr('title', languageNameSpace.labels["CLS"]);
+
+
+
       $(".IND").text(languageNameSpace.labels["IND"]);
       $(".CTR").text(languageNameSpace.labels["CTR"]);
       $(".YEAR").text(languageNameSpace.labels["YEAR"]);
       $(".UNIT").text(languageNameSpace.labels["UNIT"]);
       $(".DEC").text(languageNameSpace.labels["DEC"]);
 
-      document.getElementById('toTop').setAttribute('aria-label', languageNameSpace.labels["TOP"]);
-
-      
-
+      document.getElementById('toTop').setAttribute('aria-label', languageNameSpace.labels["TOP"]);    
 
 
       $("#headingOne > button").text(languageNameSpace.labels["headingOne"]);
@@ -207,8 +256,18 @@ var languageNameSpace = {
     REF.language = val;
     languageNameSpace.initLanguage(REF.language);   
     REF.full = 1  
-    // getYearCountry();
-    // populateComboBoxes();  
-    tableData();
+    // tableData();
+    populateCountries();
+    populateFuel();
+    populateUnit();
+    if (REF.language === "FR") {
+      $("th:nth-child(10)").css('width', '11rem');
+    } else {
+      $("th:nth-child(10)").css('width', 'initial');
+    }
+    log(REF.chart)
+    if(REF.chart !== "") {
+      handleChartAction()
+    }    
   },
 };

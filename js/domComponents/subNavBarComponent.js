@@ -24,7 +24,7 @@ class SubNavbar {
             <div class="col-3">
             <ul id="chartBtns" role="menubar" aria-label="Options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
               <li class="nav-item dropdown px-1" id="infoBtnChart" role="none">
-                  <button class="btn btn-primary  min-with--nav round-btn" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="Info" aria-haspopup="true" aria-expanded="true" id="infoBtn">
+                  <button class="btn btn-primary  min-with--nav round-btn" type="button" aria-label="InfoBtn" data-bs-toggle="dropdown" role="menuitem" title="${languageNameSpace.labels['INFO']}" aria-haspopup="true" aria-expanded="true" id="infoBtn">
                     <i class="fas fa-info" aria-hidden="true"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					

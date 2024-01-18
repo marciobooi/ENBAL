@@ -703,15 +703,14 @@ function handleChartAction() {
   addAuxiliarBarGraphOptions();
   $('#enbal').addClass('d-none');
   $('#chartContainer').removeClass('d-none');
+  log(REF.chart)
   disableChatOptionsBtn()
-  log(chartType)
   switch (REF.chart) {
     case "barChart":
       showMenuSwitch()
       createBarChart(chartBal, chartBalText);
       break;
-    case "pieChart":
-      
+    case "pieChart":      
       renderPieChart(chartType, chartBal, chartBalText);
       hideMenuSwitch()
       break;
@@ -719,8 +718,9 @@ function handleChartAction() {
       hideMenuSwitch()
       renderLineChart(chartType, chartBal, chartBalText);
       break;
+    default:
+        return
   }
-  // disableChatOptionsBtn(chartType)
 }
 
 
@@ -991,7 +991,7 @@ function getTitle() {
 
 
 function credits() {
-  const chartCredits = `<span style="font-size: .75rem;">${languageNameSpace.labels["EXPORT_FOOTER_TITLE"]} - </span>
+  const chartCredits = `<span style="font-size: .75rem;">${languageNameSpace.labels["eurostat"]} - </span>
   <a style="color:blue; text-decoration: underline; font-size: .75rem;"
   href="https://ec.europa.eu/eurostat/databrowser/view/${REF.dataset}/default/table?lang=${REF.language}">${languageNameSpace.labels['DB']}</a>,
   <span style="font-size: .875rem;">                           
@@ -1159,3 +1159,21 @@ function enableScreenREader(params) {
       // log(focusedElement)
     }
   });
+
+
+  function openVizTable() {
+    $('#chart').hide();
+  
+    setTimeout(function() {
+      const chart = $("#chart").highcharts();
+      if (chart) {
+        chart.viewData();
+        $("table").removeAttr("summary");
+      }
+    }, 100);
+  }
+  
+  function closeTable() {
+    $(".highcharts-data-table").hide();
+    $("#chart").show();
+  }

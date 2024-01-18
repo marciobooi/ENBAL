@@ -8,7 +8,7 @@ class ChartControls {
 	  select.setAttribute("aria-label", "Select flow");
   
 	  const notMobileContent = `
-		<div class="container-fluid">
+		
 		  <nav aria-label="Chart controls" id="chartControls" class="navbar navbar-expand-sm navbar-light bg-light navChartControls">
 			<div class="container-fluid">
 			  <div id="auxChartTitle">
@@ -19,7 +19,9 @@ class ChartControls {
 				<ul id="chartBtns" role="menubar" aria-label="options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
 				  <li class="nav-item button px-1" id="toggleBarChart" role="none"></li>
 				  <li class="nav-item button px-1" id="togglePieChart" role="none"></li>
-				  <li class="nav-item button px-1" id="toggleLineChart" role="none" style="margin-right: 2rem;"></li>
+				  <li class="nav-item button px-1" id="toggleLineChart" role="none"></li>
+				  <li class="nav-item button px-1" id="toggleAuxTable" role="none" style="margin-right: 2rem;"></li>
+
 				  <li class="nav-item button px-1" id="printChart" role="none"></li>
 				  <li class="nav-item dropdown px-1" id="downloadChart" role="none"></li>
 				  <li class="nav-item button px-1" id="downloadExcel" role="none"></li>
@@ -29,7 +31,7 @@ class ChartControls {
 			  </div>
 			</div>
 		  </nav>
-		</div>`;
+		`;
   
 	  const mobileContent = `
 		<div id="chartOptions">
@@ -85,6 +87,8 @@ class ChartControls {
 		const barChart = new Button("barChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle bar Chart", "barChart", "true");
 		const pieChart = new Button("pieChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle pie Chart", "pieChart", "false");
 		const lineChart = new Button("lineChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle line Chart", "lineChart", "false");
+		const table = new Button("toggleTableBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle table", "table", "false");
+
 		const createprintChart = new Button("printBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Print chart", "false");
 		const downloadChart = new Button("downloadBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Download chart image", "false");
 		const downloadExcel = new Button("excelBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Download chart data", "false");
@@ -95,6 +99,7 @@ class ChartControls {
 		barChart.setInnerHtml('<i class="fas fa-chart-bar" aria-hidden="true"></i>');
 		pieChart.setInnerHtml('<i class="fas fa-chart-pie" aria-hidden="true"></i>');
 		lineChart.setInnerHtml('<i class="fas fa-chart-line" aria-hidden="true"></i>');
+		table.setInnerHtml('<i class="fas fa-table"></i>');
 		createprintChart.setInnerHtml('<i class="fas fa-print" aria-hidden="true"></i>');
 		downloadChart.setInnerHtml('<i class="fas fa-download" aria-hidden="true"></i>');
 		downloadExcel.setInnerHtml('<i class="fas fa-file-excel" aria-hidden="true"></i>');
@@ -120,6 +125,42 @@ class ChartControls {
 		  REF.chart = chartType;
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
+		table.setClickHandler(function() {
+
+			const tableBtn = document.querySelector("#toggleTableBtn");
+			const tableIcon = document.querySelector("#toggleTableBtn > i");
+			
+			if (tableIcon.classList.contains("fa-table")) {
+				tableIcon.classList.remove("fa-table");
+				tableIcon.classList.add("fa-chart-bar");
+			
+				tableBtn.setAttribute('aria-label', 'Toggle chart');
+				tableBtn.setAttribute('title', 'Toggle chart');
+
+				const charts = ["barChart", "pieChart", "lineChart"];  
+				charts.forEach(chart => {$("#" + chart).attr("disabled", "disabled")})
+
+				$('#menuSwitch').css('display','none')
+			
+				openVizTable();
+
+				tableBtn.focus();
+			} else {
+				tableIcon.classList.remove("fa-chart-bar");
+				tableIcon.classList.add("fa-table");
+			
+				tableBtn.setAttribute('aria-label', 'Toggle table');
+				tableBtn.setAttribute('title', 'Toggle table');
+
+				$('#menuSwitch').css('display','flex')
+			
+				closeTable();
+
+				disableChatOptionsBtn(REF.chartId)
+
+				tableBtn.focus();
+			}			
+		});
 		createprintChart.setClickHandler(function() {
 			exportHandling(this.id);
 		});
@@ -141,6 +182,7 @@ class ChartControls {
 			const barChartElement = barChart.createButton();
 			const pieChartElement = pieChart.createButton();
 			const lineChartElement = lineChart.createButton();
+			const tableChartElement = table.createButton();
 			const printChartElement = createprintChart.createButton();
 			const downloadChartElement = downloadChart.createButton();
 			const downloadExcelElement = downloadExcel.createButton();
@@ -152,6 +194,7 @@ class ChartControls {
 			document.getElementById("toggleBarChart").appendChild(barChartElement);
 			document.getElementById("togglePieChart").appendChild(pieChartElement);
 			document.getElementById("toggleLineChart").appendChild(lineChartElement);
+			document.getElementById("toggleAuxTable").appendChild(tableChartElement);
 			document.getElementById("printChart").appendChild(printChartElement);
 			document.getElementById("downloadChart").appendChild(downloadChartElement);
 			document.getElementById("downloadExcel").appendChild(downloadExcelElement);

@@ -349,6 +349,7 @@
 	"NRG_CPP_E":	"Energy sector - charcoal production plants - energy use",
 	"NRG_NSP_E":	"Energy sector - not elsewhere specified - energy use",
 	"TRANSL_DL":	"Distribution losses",
+	"DL":	"Distribution losses",
 	"AFC":	"Available for final consumption",
 	"FC_NE":	"Final consumption - non-energy use",
 	"TI_NRG_FC_IND_NE":	"Transformation input, energy sector and final consumption in industry sector - non-energy use",
@@ -532,7 +533,7 @@
  "COOKIECOMPLETEonlyTechnical": "Accept only essential cookies",
  "COOKIECOMPLETE": "Your cookie preferences have been saved. To change your preferences at any time, see our\u00a0<a href=\"//ec.europa.eu/info/cookies_en\" target=\"_blank\">cookies policy<\/a> or visit the link in the page footer.",
 
- "header-title-label": "Energy prices",
+ "header-title-label": "Energy balances",
  "MAINMENU": "Menu",
  "COUNTRY": "Country",
  "FUEL": "Fuel",
@@ -542,7 +543,7 @@
  "KWH_GE15000" : "band DE: Consumption for 15 000 kWh or over",
  "FEED": "Feedback",
  "TOOLS": "Tools",
- "DB": "Access to dataset",
+ "DB": "access to dataset",
  "%": "in percentages",
  "TOGGLEAGREGATES": "Toggle aggregates",
  "SHARE_T": "Share on Twitter",
@@ -559,7 +560,20 @@
  "MENU_YEARS": "Select year",
  "details": "Show details",
  "POPCOLAPSE": "Colapse flow",
- "TOP" : "Go to top"
+ "TOP" : "Go to top",
+ "INFO": "Toggle info",
+ "DWL": "Download chart image",
+ "EMB": "Embebed chart iframe",
+ "SHA": "Share in social media",
+ "TGLBAR": "Toggle bar Chart",
+ "TGLPIE": "Toggle pie Chart",
+ "TGLLINE": "Toggle line Chart",
+ "TGLTABLE": "Toggle table",
+ "PRINT": "Print chart",
+ "DWNIMAGE": "Download chart image",
+ "DWNCHART": "Download chart data",
+ "EMBED": "Embebed chart iframe",
+ "CLS": "Close"
 
 
   

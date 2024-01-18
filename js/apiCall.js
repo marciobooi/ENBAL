@@ -110,7 +110,7 @@ REF.dataset = "nrg_bal_c";
 
   if (cache[url] && cache[url].length > 0) {  
     d = JSONstat(cache[url][cache[url].length - 1]).Dataset(0);
-    log('load from cache')
+    // log('load from cache')
     return d;
   } else {
    

@@ -55,9 +55,14 @@ li > button {
     /* margin-bottom: 0 !important; */
 }
 
+
+
 #menuSwitch label {
     font-size: 0.8rem;
-    font-weight: bold;
+}
+
+#menuSwitch input[type="checkbox"]:checked + label {    font-weight: bold;
+   
 }
 
 #floatingMenu {
@@ -90,9 +95,28 @@ ul.dropdown-menu.dropdown-menu-end.show {
 /* #menu:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 } */
-.min-with--nav:hover {
-    box-shadow: 0 0 0 0.15rem rgba(49, 132, 253, 0.3);
-    background-color: #082b7a !important;
+.min-with--nav:hover:not(.dropdown-toggle) {
+    box-shadow: 0 0 0 0.15rem #cca3004d;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
+}
+button:focus:not(:focus-visible):not(.dropdown-toggle), button:active:not(.dropdown-toggle) {
+    box-shadow: 0 0 0 0.15rem #cca3004d;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
+}
+
+.btn:disabled {
+    box-shadow: 0 0 0 0.15rem #cca3006e;
+    background-color: #cca3008f!important;
+    border-color: #cca3008f!important;
+}
+
+.btn:focus-visible { 
+    outline: 0;   
+    box-shadow: 0 0 0 0.15rem #cca3004d;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
 }
 
 .form-switch.form-check-reverse {
@@ -115,19 +139,33 @@ span.agregates.fa-stack.fa-rotate-180 {
 
 
 #btnCloseModalChart {
-    background-color: red !important;
-    border-color:red!important;
+    background-color: #ff000000 !important;
+    border-color: #E7EDFA!important;
+    color: #082B7A;
+    border: 3px solid #E7EDFA!important;
+    font-size: 1.7rem !important;
+    /* position: absolute; */
+    /* right: 4px; */
+    /* top: 10px; */
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    width: 2.7rem;
+    height: 2.7rem;
 }
 
 #btnCloseModalChart:hover {
-    box-shadow: 0 0 0 0.15rem rgba(255, 0, 0, 0.3);
-    background-color: rgb(146, 2, 2) !important;
+    box-shadow: 0 0 0 0.15rem #cca3004d;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
+    color: white !important;
 }
 
 #btnCloseModalChart:focus {
-    box-shadow: 0 0 0 0.15rem rgba(255, 0, 0, 0.3);
+    box-shadow: 0 0 0 0.15rem #cca3004d;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
 }
-
 .text-truncate {
     overflow: hidden !important;
     white-space: nowrap !important;
@@ -137,26 +175,31 @@ span.agregates.fa-stack.fa-rotate-180 {
 
 
 #infoCard button {
-    margin: 0.2rem;
-    padding: 0.5rem 1rem; /* Add padding for better button sizing */
-    color: #fff; /* Set the text color */
-    border: 1px solid #2196f3; /* Add a border */
-    border-radius: 4px; /* Rounded corners */
-    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Smooth transitions */
-    cursor: pointer; /* Change cursor to pointer on hover */
-    background-color: var(--tool-1) !important;
-    border-color: var(--tool-1) !important;
-    border-radius: 0.4rem !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border-radius: 4px;
+    border-width: 0;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-block;
+    font: normal normal 400 1rem/1.25rem arial,sans-serif;
+    font-weight: 400;
+    margin: 0;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    background-color: #0e47cb;
+    color: #fff;
     
   }
   
   /* Hover and focus styles */
   #infoCard button:hover,
   #infoCard button:focus {
-    background-color: #2196f3 !important;
-    border-color: #2196f3 !important;
-    color: #fff; /* Change text color on hover/focus for better contrast */
-    outline: none; /* Remove the default focus outline */
+    box-shadow: 0 2px 4px rgb(9 49 142 / 8%), 0 0 10px rgb(9 49 142 / 4%), 0 4px 5px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%);
+    background-color: #3e6cd5 !important;
+    text-decoration: none;
   }
   
   /* Optional: Add a transition for box-shadow if desired */
@@ -176,16 +219,27 @@ span.agregates.fa-stack.fa-rotate-180 {
   }
 
 
-  .chartIcon:hover {
+ .chartIcon:hover {
     transform: translate(0, -10%);
+    background-color: #CCA300;
+    border: 1px solid #cca300b3;
+}
+
+.tableInfoIcon:hover {
+    transform: translate(0, -10%);
+    color: #CCA300;
+
 }
 
 #infoCard .btn-secondary {
-    border-radius: 0.4rem !important;
-    background-color: #fff !important;
+    background-color: #fff;
     border: 2px solid #0e47cb;
     color: #0e47cb;
     padding: calc(0.75rem - 2px) calc(1rem - 2px);
+}
+
+button.btn.btn-secondary.min-with--nav.Metadata {
+    margin-right: 15px !important;
 }
 
 
@@ -195,6 +249,9 @@ span.agregates.fa-stack.fa-rotate-180 {
 }
 
 #infoCard .btn-secondary:active, #infoCard .btn-secondary:hover {
-    box-shadow: 0 2px 4px rgb(9 49 142 / 8%), 0 0 10px rgb(9 49 142 / 4%), 0 4px 5px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%);
+    border-color: #0e47cb !important;
+    color: #0e47cb !important;    
     text-decoration: none;
+    background-color: white !important;
+    box-shadow: 0 2px 4px rgb(9 49 142 / 8%), 0 0 10px rgb(9 49 142 / 4%), 0 4px 5px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%) !important
 }

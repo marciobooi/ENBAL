@@ -161,12 +161,12 @@ class FloatingChartControls {
 
 		const percentageButton = new Button("tb-togle-percentage", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle percentage", "", "true");
 		const agregatesButton = new Button("toggleAgregates", ["btn", "btn-primary", "min-with--nav", "round-btn"], languageNameSpace.labels["TOGGLEAGREGATES"], "", "true");
-		const tableButton = new Button("tb-togle-table", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle table", "", "true");
+		// const tableButton = new Button("tb-togle-table", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle table", "", "true");
 		const orderButton = new Button("tb-togle-order", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Select order of the chart", "", "true");
 
     percentageButton.setInnerHtml('<i id="percentage-icon" class="fas fa-percentage" aria-hidden="true"></i>');
     agregatesButton.setInnerHtml(agregateIcon())
-    tableButton.setInnerHtml('<i id="table-icon" class="fas fa-table" aria-hidden="true"></i><i id="chart-icon" class="fas fa-chart-bar" style="display: none;" aria-hidden="true"></i>');
+    // tableButton.setInnerHtml('<i id="table-icon" class="fas fa-table" aria-hidden="true"></i><i id="chart-icon" class="fas fa-chart-bar" style="display: none;" aria-hidden="true"></i>');
     orderButton.setInnerHtml('<i class="fas fa-sort-amount-down" aria-hidden="true"></i>');
 
     percentageButton.setClickHandler(function() {
@@ -177,19 +177,19 @@ class FloatingChartControls {
       self.toggleChartAgregates(); // Call the class method using the stored reference
     });
 
-    tableButton.setClickHandler(function() {
-      self.toggleIcons(); // Call the class method using the stored reference
-    });
+    // tableButton.setClickHandler(function() {
+    //   self.toggleIcons(); // Call the class method using the stored reference
+    // });
 
     const percentageElement = percentageButton.createButton();
     const agregatesElement = agregatesButton.createButton();
-    const tableElement = tableButton.createButton();
+    // const tableElement = tableButton.createButton();
     const orderElement = orderButton.createButton();
     
 
     document.getElementById("togglePercentage").appendChild(percentageElement);
     document.getElementById("Agregates").appendChild(agregatesElement);
-    document.getElementById("toggleTable").appendChild(tableElement);
+    // document.getElementById("toggleTable").appendChild(tableElement);
     document.getElementById("ChartOrder").appendChild(orderElement);
 
     const dropdownOrderBtn = document.querySelector("#tb-togle-order")

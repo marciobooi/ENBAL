@@ -86,7 +86,7 @@ function handleData(d, series ) {
   
   const findOrder = `${detail}_${order}`;
 
-  log(findOrder)
+  // log(findOrder)
   
   if (orderChange.hasOwnProperty(findOrder)) {
     orderChange[findOrder]();

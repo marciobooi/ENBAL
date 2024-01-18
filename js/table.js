@@ -83,10 +83,7 @@ function createDataTable(dataTable) {
       decimal: ",",
       thousands: " ",
     },
-    colReorder: true,
-    colReorder: {
-      // order: order,
-    },
+
 
   
 
@@ -138,6 +135,8 @@ function createDataTable(dataTable) {
 
   
 table.draw();
+
+
 
  
 }
@@ -453,10 +452,7 @@ function tableData() {
     dataTable = []
     rowIndex = []
     expandStatus = [];
-    destroyTable()
-    
-    
-    
+    destroyTable()      
   } 
   apiCall();
 

@@ -73,7 +73,7 @@ transform: rotate3d(25.5, -10.5, 6, 127deg);
 }
 
 .highlighted-row {
-  background-color: #0a328e26;
+  background-color: #F3F6FC;
 }
 .secondRow {
   padding-left: .2px;

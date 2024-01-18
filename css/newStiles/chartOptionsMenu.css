@@ -119,6 +119,13 @@ ul.dropdown-menu {
   line-height: 1.15;
 }
 
+#dropdown-geo-list a:nth-child(3) {
+  border-bottom: 2px solid #c7c1c1 !important;
+}
+#dropdown-geo-list a:nth-last-child(8) {
+  border-bottom: 2px solid #c7c1c1 !important;
+}
+
 
 
 

@@ -63,7 +63,7 @@ class Navbar {
 
   handleLangSelectionChange(event) {
     const selectedValue = this.langSelection.value;
-    languageNameSpace.ChangeLanguage(selectedValue);
+    languageNameSpace.setLanguage(selectedValue);
     REF.language = selectedValue;
   }
 
