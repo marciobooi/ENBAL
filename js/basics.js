@@ -344,26 +344,32 @@ function geturl(params) {
 }
 
 function download_DIVPdf() {
+  // Create a new jsPDF instance
   var doc = new window.jspdf.jsPDF("L", "pt");
-  doc.text("" +languageNameSpace.labels[REF.geo] +"\n" +languageNameSpace.labels[REF.fuel] +" - " +REF.year +"",
+
+  // Add a header to the PDF
+  doc.text(
+    "" + languageNameSpace.labels[REF.geo] + "\n" + languageNameSpace.labels[REF.fuel] + " - " + REF.year + "",
     doc.internal.pageSize.width / 2,
     50,
     null,
     null,
     "center"
   );
+
+  // Add a table to the PDF using autoTable plugin
   doc.autoTable({
-    html: "#ENTable",
+    html: "#dataTableContainer", 
     theme: "striped",
     tableWidth: 'auto',
     tableLineWidth: 0,
     startY: 125,
     columnStyles: {
       0: {
-          cellWidth: 100,
-          halign: "left",
-      },              
-  },
+        cellWidth: 100,
+        halign: "left",
+      },
+    },
     styles: {
       fontSize: 5,
       cellPadding: 8,
@@ -372,13 +378,14 @@ function download_DIVPdf() {
     },
   });
 
+  // Add an image to the PDF
   var img = new Image();
   img.onload = function () {
     doc.addImage(this, 730, 30, 100, 40);
-    doc.save("table.pdf");
+    doc.save("table.pdf"); // Save the PDF with a specified name
   };
   img.crossOrigin = "";
-  img.src = "img/logo.png";
+  img.src = "img/logo.png"; // Replace with the correct path to your image
 }
 
 if (isMobile) {

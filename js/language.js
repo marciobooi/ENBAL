@@ -176,6 +176,15 @@ var languageNameSpace = {
       $('#btnCloseModalChart').attr('title', languageNameSpace.labels["CLS"]);
 
 
+      $("#infoBtnChart > ul > button:nth-child(1)").attr("aria-label", languageNameSpace.labels['DATASET']).html(languageNameSpace.labels['DATASET']);
+      $("#infoBtnChart > ul > button:nth-child(2)").attr("aria-label", languageNameSpace.labels['META']).html(languageNameSpace.labels['META']);
+      $("#infoBtnChart > ul > button:nth-child(3)").attr("aria-label", languageNameSpace.labels['FEED']).html(languageNameSpace.labels['FEED']);
+      $("#infoBtnChart > ul > button:nth-child(4)").attr("aria-label", languageNameSpace.labels['BALGUIDE']).html(languageNameSpace.labels['BALGUIDE']);
+      $("#infoBtnChart > ul > button:nth-child(5)").attr("aria-label", languageNameSpace.labels['POPTUT']).html(languageNameSpace.labels['POPTUT']);
+
+      $("#downloadChart > ul > button:nth-child(1)").attr("aria-label", languageNameSpace.labels['POPDOWNLOADTABLEPDF']).html(languageNameSpace.labels['POPDOWNLOADTABLEPDF']);
+      $("#downloadChart > ul > button:nth-child(2)").attr("aria-label", languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']).html(languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']);
+      $("#downloadChart > ul > button:nth-child(3)").attr("aria-label", languageNameSpace.labels['POPDOWNLOADTABLECSV']).html(languageNameSpace.labels['POPDOWNLOADTABLECSV']);
 
       $(".IND").text(languageNameSpace.labels["IND"]);
       $(".CTR").text(languageNameSpace.labels["CTR"]);
