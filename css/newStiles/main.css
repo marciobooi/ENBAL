@@ -23,7 +23,7 @@ box-sizing: border-box;
 html {
 font-size: 16px;
 line-height: 1.5;
-font-family: Arial, sans-serif;
+font-family: var(--font-family-main);
 }
 
 body {  
@@ -77,4 +77,13 @@ transform: rotate3d(25.5, -10.5, 6, 127deg);
 }
 .secondRow {
   padding-left: .2px;
+}
+
+.pushDown {
+  margin-top: 15rem; /* Initial margin-top value */
+  transition: margin-top 0.5s ease; /* Smooth transition effect */
+}
+.pushup {
+  margin-top: initial; /* Initial margin-top value */
+  transition: margin-top 0.5s ease; /* Smooth transition effect */
 }

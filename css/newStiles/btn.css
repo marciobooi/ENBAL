@@ -77,7 +77,9 @@ li > button {
 
 button:focus,
 .input:focus {
-    box-shadow: var(--bs-btn-focus-box-shadow);
+    box-shadow: 0 0 0 0.15rem #cca3004d;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
 }
 
 ul.dropdown-menu.dropdown-menu-end.show {
@@ -100,11 +102,11 @@ ul.dropdown-menu.dropdown-menu-end.show {
     background-color: #CCA300!important;
     border-color: #CCA300 !important;
 }
-button:focus:not(:focus-visible):not(.dropdown-toggle), button:active:not(.dropdown-toggle) {
+/* button:focus:not(:focus-visible):not(.dropdown-toggle), button:active:not(.dropdown-toggle) {
     box-shadow: 0 0 0 0.15rem #cca3004d;
     background-color: #CCA300!important;
     border-color: #CCA300 !important;
-}
+} */
 
 .btn:disabled {
     box-shadow: 0 0 0 0.15rem #cca3006e;
@@ -118,6 +120,22 @@ button:focus:not(:focus-visible):not(.dropdown-toggle), button:active:not(.dropd
     background-color: #CCA300!important;
     border-color: #CCA300 !important;
 }
+
+.tableHeader > .tableInfoIcon:focus {
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.15rem #cca30000;
+    background-color: #ffffff !important;
+    color: #CCA300!important;
+}
+.tableRowIcon:focus  {
+    outline: 0 !important;
+    color: #ffffff;
+    background-color: #CCA300;
+}
+
+
+
+
 
 .form-switch.form-check-reverse {
     padding-right: 2.5em;

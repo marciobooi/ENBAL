@@ -9,7 +9,7 @@
     background: white;
     min-width: 100%;
     margin-top: 10px;
-    font-family: sans-serif;
+    font-family: var(--font-family-main);
     font-size: 0.9em;
 }
 .highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {

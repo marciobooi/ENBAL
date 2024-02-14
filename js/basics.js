@@ -2,7 +2,7 @@ var log = console.log.bind(console);
 
 var isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 850 || /Mobi|Android/i.test(navigator.userAgent) && (window.innerWidth < window.innerHeight);
 
-
+const isEmpty = value => value == null || value === '';
 
 // browser platform support
 // taken from http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser

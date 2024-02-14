@@ -2,26 +2,17 @@ var countries = [];
 
 function drawEntable() {
   languageNameSpace.initLanguage(REF.language);
-  // dataNameSpace.getRefURL()
-
-  // $("#mainTitle").text(languageNameSpace.labels["MAINTITLE"]);
 
   countries.length = 0;
   for (let i = 0; i < defGeos.length; i++) {
     countries.push([defGeos[i], languageNameSpace.labels[defGeos[i]]]);
   }
 
-  // chartMenuLanguages();
 
-  getYear();
-
-  // populateComboBoxes();
+  // getYear();
 
   tableData();
 
-  // clickEvents();
-
-  // dataNameSpace.setRefURL()
 }
 
 
@@ -53,14 +44,6 @@ function infoModal(info) {
 }
 
 function getYear(params) {
-
-
-  // let url = "https://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/nrg_bal_c?precision=1";
-  // url += "&nrg_bal=" + "NRGSUP";
-  // url += "&siec=" + "TOTAL";
-  // url += "&unit=" + REF.unit;
-  // url += "&geo=" + "EU27_2020";
-
 
   let url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_bal_c?";
   url += "format=JSON";

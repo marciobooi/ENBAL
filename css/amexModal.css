@@ -155,7 +155,7 @@ div#accord1 {
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@1,900&display=swap');
 .wrapper h2 {
-    font-family: "Source Code Pro", monospace;
+    font-family: var(--font-family-main);
     text-transform: uppercase;
     transform: translate(-50%, -50%) skew(10deg) rotate(-10deg);
     font-size: 8vw;

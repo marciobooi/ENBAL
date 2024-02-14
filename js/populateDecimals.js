@@ -1,62 +1,35 @@
-function populateDecimals() {
+  function populateDecimals() {
 
- 
+    const target = document.querySelector("#containerDecimals");
+    const elementId = 'selectDecimals';
+    const optionsArray = energyDecimals;
+    const labelDescription = languageNameSpace.labels["DECIMALS"];
+    const activeElement = REF.decimals;
+    const textChange = languageNameSpace.labels["MENU_DEC"];
 
-    const decimalsDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(4) > div > ul");
-    decimalsDropDown.empty()
-    let content = '';
+    const existingSingleSelect = document.getElementById(elementId);
+      if (existingSingleSelect) {
+          existingSingleSelect.parentElement.parentElement.remove();
+      }
+
+      function countDecimals(numString) {
+        const match = numString.match(/\.(\d*)$/);
+        return match ? match[1].length : 0;
+    }
   
-    energyDecimals.forEach(decimals => {     
-        const isActive = decimals == REF.decimals ? 'active' : '';
-      content += `
-        <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-decimals="${decimals}" data-bs-toggle="button" aria-pressed="true">
-          <span>${decimals}</span>
-          <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'} aria-hidden="true""></i>
-        </a>`;
+    const singleSelect = new Singleselect(elementId, optionsArray, labelDescription, activeElement, textChange, selectedValue => {
+      log(REF.decimals)
+
+        REF.decimals = countDecimals(selectedValue);
+        REF.full = 1;
+        tableData();
+        log(REF.decimals)
     });
   
-    const dropdownMenu = $("<div>")
-      .attr("id", "dropdown-decimals-list")
-      .attr("role", "menu")
-      .css("height", "auto")
-      .css("maxHeight", "48vh")
-      .css("overflowX", "hidden")
-      .html(content);
-
-
-      dropdownMenu.on('click', '.dropdown-item', function() {
-        const target = $(this);
-        const checkIcon = target.find('.fas.fa-check');
-      
-        dropdownMenu.find('.dropdown-item').removeClass('active');
-        dropdownMenu.find('.fas.fa-check').addClass('invisible');
-      
-        target.addClass('active');
-        checkIcon.removeClass('invisible');
-
-        const selectedText = target.find('span').text();
-        $('#selectDecimals').text(selectedText).append('<i class="fas fa-angle-down" aria-hidden="true"></i>');
-
-        REF.decimals = countDecimalPlaces(target.attr('data-decimals'))
-
-        REF.full = 1;
-        newApiCall()
-
-
-      });
+    const singleSelectHTML = singleSelect.createSingleSelect();
+    target.insertAdjacentHTML('beforeend', singleSelectHTML);
   
-    decimalsDropDown.prepend(dropdownMenu);
-
-    $('#selectDecimals').hover(
-        function() {
-          $(this).data('prevText', $(this).text());
-          $(this).html(`${languageNameSpace.labels['MENU_DEC']} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
-        },
-        function() {
-          const dropdownConsumerList = $('#dropdown-decimals-list');
-          const prevText = dropdownConsumerList.find('.dropdown-item.active span').text();
-          $(this).html(`${prevText} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
-        }
-      );
-
+    singleSelect.attachEventListeners();
   }
+
+

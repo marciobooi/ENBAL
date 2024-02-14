@@ -1,57 +1,29 @@
-function populateFuel() {
-    const fuelDropDown = $("#chartOptionsMenu > div.dropdown-grid > div > div:nth-child(2) > div > ul");
-    fuelDropDown.empty()
-    let content = '';
+
+  function populateFuel() {
+
+    const target = document.querySelector("#containerFuel");
+    const elementId = 'selectFuel';
+    const optionsArray = REF.fuelList;
+    const labelDescription = languageNameSpace.labels["FUEL"];
+    const activeElement = REF.fuel;
+    const textChange = languageNameSpace.labels["MENU_FUEL"];
+
+    const existingSingleSelect = document.getElementById(elementId);
+      if (existingSingleSelect) {
+          existingSingleSelect.parentElement.parentElement.remove();
+      }
   
-    REF.fuelList.forEach(fuel => {     
-        const isActive = fuel == REF.fuel ? 'active' : '';
-      content += `
-        <a role="menuitem" class="dropdown-item d-flex justify-content-between align-items-center ${isActive}" href="#" data-fuel="${fuel}" data-bs-toggle="button" aria-pressed="true">
-          <span>${languageNameSpace.labels[fuel]}</span>
-          <i class="fas fa-check ms-2 ${isActive ? '' : 'invisible'} aria-hidden="true""></i>
-        </a>`;
+    const singleSelect = new Singleselect(elementId, optionsArray, labelDescription, activeElement, textChange, selectedValue => {
+        REF.fuel = selectedValue;
+        REF.full = 1;
+        tableData();
+ 
     });
   
-    const dropdownMenu = $("<div>")
-      .attr("id", "dropdown-fuel-list")
-      .attr("role", "menu")
-      .css("height", "auto")
-      .css("maxHeight", "48vh")
-      .css("overflowX", "hidden")
-      .html(content);
-
-      dropdownMenu.on('click', '.dropdown-item', function() {
-        const target = $(this);
-        const checkIcon = target.find('.fas.fa-check');
-        
-        dropdownMenu.find('.dropdown-item').removeClass('active');
-        dropdownMenu.find('.fas.fa-check').addClass('invisible');
-        
-        target.addClass('active');
-        checkIcon.removeClass('invisible');
-        const selectedText = target.find('span').text();
-        $('#selectFuel').text(selectedText).append('<i class="fas fa-angle-down" aria-hidden="true"></i>');
-        REF.fuel = target.attr('data-fuel')  
-        
-        REF.full = 1;
-
-        // log(REF.fuel)
-        tableData();
-
-      });
+    const singleSelectHTML = singleSelect.createSingleSelect();
+    target.insertAdjacentHTML('beforeend', singleSelectHTML);
   
-    fuelDropDown.prepend(dropdownMenu);
-
-    $('#selectFuel').hover(
-        function() {
-          $(this).data('prevText', $(this).text());
-          $(this).html(`${languageNameSpace.labels['MENU_FUEL']} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
-        },
-        function() {
-          const dropdownFuelList = $('#dropdown-fuel-list');
-          const prevText = dropdownFuelList.find('.dropdown-item.active span').text();
-          $(this).html(`${prevText} <i class="fas fa-angle-down" aria-hidden="true"></i>`);
-        }
-      );
-
+    singleSelect.attachEventListeners();
   }
+
+

@@ -80,7 +80,7 @@
     rgba(255, 255, 255, 0.15),
     rgba(255, 255, 255, 0)
   );
-  --bs-body-font-family: var(--bs-font-sans-serif);
+  --bs-body-font-family: var(--font-family-main);
   --bs-body-font-size: 1rem;
   --bs-body-font-weight: 400;
   --bs-body-line-height: 1.5;
@@ -194,7 +194,7 @@
 }
 body {
   margin: 0;
-  font-family: var(--bs-body-font-family);
+  font-family: var(--font-family-main);
   font-size: var(--bs-body-font-size);
   font-weight: var(--bs-body-font-weight);
   line-height: var(--bs-body-line-height);
@@ -361,7 +361,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: var(--bs-font-monospace);
+  font-family: var(--font-family-main);
   font-size: 1em;
 }
 pre {
@@ -2908,7 +2908,7 @@ textarea.form-control.is-invalid {
     rgba(var(--bs-btn-focus-shadow-rgb), 0.5);
   display: inline-block;
   padding: var(--bs-btn-padding-y) var(--bs-btn-padding-x);
-  font-family: var(--bs-btn-font-family);
+  font-family: var(--font-family-main);
   font-size: var(--bs-btn-font-size);
   font-weight: var(--bs-btn-font-weight);
   line-height: var(--bs-btn-line-height);
@@ -5634,7 +5634,7 @@ fieldset:disabled .btn {
   z-index: var(--bs-tooltip-zindex);
   display: block;
   margin: var(--bs-tooltip-margin);
-  font-family: var(--bs-font-sans-serif);
+  font-family: var(--font-family-main);
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -5748,7 +5748,7 @@ fieldset:disabled .btn {
   z-index: var(--bs-popover-zindex);
   display: block;
   max-width: var(--bs-popover-max-width);
-  font-family: var(--bs-font-sans-serif);
+  font-family: var(--font-family-main);
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
@@ -8168,7 +8168,7 @@ fieldset:disabled .btn {
   column-gap: 3rem !important;
 }
 .font-monospace {
-  font-family: var(--bs-font-monospace) !important;
+  font-family: var(--font-family-main) !important;
 }
 .fs-1 {
   font-size: calc(1.375rem + 1.5vw) !important;
