@@ -661,8 +661,7 @@ function openMeta(params) {
 function openModal(info) {
   const obj = excelInfoData[0].find((o) => o.CODE === info);
   if (obj) {
-    const modal = new Modal(info, obj);
-    modal.open();
+    const modal = new Modal(info, obj); // Assuming you have info and obj defined
     modal.addToDOM('#definitionsModal');
   }
 }
@@ -971,23 +970,23 @@ function getTitle() {
   switch (REF.chart) {
     case "lineChart":
       chartTitle = `${dataset}<br><span style="font-size:10px; padding-top:5px">${fuel} - ${bal} - ${geo}</span>`;
-      title = `${fuel}`;
-      subtitle = `<span style="font-size:12px; padding-top:5px">${geo} - ${bal}</span>`;
+      title = `<strong>${fuel}, </strong> ${geo}, ${bal}`;
+      subtitle = "";
     break;
     case "pieChart":
       chartTitle = `${dataset}<br><span style="font-size:10px; padding-top:5px">${fuel} - ${bal} - ${geo} - ${time}</span>`;
-      title = `${fuel}`;
-      subtitle = `<span style="font-size:12px; padding-top:5px">${bal} - ${geo} - ${time}</span>`;
+      title = `<strong>${geo}, </strong> ${bal}, ${dataset}, ${time}`;
+      subtitle = "";
       break;
     case "barChart":
       chartTitle = `${dataset}<br><span style="font-size:12px; padding-top:5px">${fuel} - ${bal} - ${time}</span>`;
-      title = `${fuel}`;
-      subtitle = `<span style="font-size:12px; padding-top:5px">${bal} - ${time}</span>`;
+      title = `<strong>${fuel}, </strong> ${bal}, ${time}`;
+      subtitle = "";
       break;
     default:    
-      chartTitle = `${dataset}<br><span style="font-size:10px; padding-top:5px">${dataset} - ${geo} - ${time} - ${fuel}</span>`;
-      title = `${dataset}`;
-      subtitle = `${geo} - ${time} - ${fuel}`;   
+      chartTitle = `${geo},<span style="font-size:10px; padding-top:5px"> ${fuel}, ${time} </span>`;
+      title = `<strong>${geo}, </strong> ${fuel}, ${time}`;
+      subtitle = "";   
   }
 
   $("#title").html(title);

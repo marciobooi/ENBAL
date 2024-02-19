@@ -22,6 +22,7 @@ var dataNameSpace = {
     "dataset": "nrg_bal_c",
     "decimals": "0",
     "agregates": "0",
+    "share": "false",
     "fuelList": [ "fuelElectricity", "fuelCombustible", "fuelNonCombustible", "fuelOtherPetroleum", "fuelMainPetroleum", "fuelOil", "fuelOtherFossil", "fuelFossil", "fuelCoal", "fuelMainFuel"]
   },
 

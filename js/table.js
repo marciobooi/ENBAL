@@ -31,14 +31,11 @@ function createDataTable(dataTable) {
           $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<div><button class="tableRowIcon" title="${languageNameSpace.labels["POPEXP"]}"><i class="fas toggle-icon fa-plus" aria-hidden="true"></i></button></div>`);
         }
       
-        // Add a click event handler to toggle the icon when the first <td> is clicked
         $(row).find("td:first-child").on('click', function() {
-          // Call the addExtraBal function with dataTable[0] as an argument
           const clickedRowIndex = $("#dataTableContainer").DataTable().row($(this).closest("tr")).index();
           addExtraBal(dataTable[0], clickedRowIndex);
         });
-      
-        // Add CSS to change the cursor to a pointer on hover
+
         $(row).find("td:first-child").css('cursor', 'pointer');
       } else {
         $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}`);
@@ -82,10 +79,7 @@ function createDataTable(dataTable) {
     language: {
       decimal: ",",
       thousands: " ",
-    },
-
-
-  
+    },  
 
     buttons: [
       {
@@ -457,6 +451,8 @@ function tableData() {
   apiCall();
 
   getTitle()
+
+  dataNameSpace.setRefURL();
 }
 
 

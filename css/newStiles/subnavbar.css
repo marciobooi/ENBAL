@@ -1,5 +1,16 @@
+nav#chartControls > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-content: center;
+    width: 100vw;
+    padding: 0 1rem;
+}
+
 #menuToolbar {
     background-color: #e9eaeb !important;
+    padding: 0;
+    height: 4rem;
 }
 
 #menu > span {

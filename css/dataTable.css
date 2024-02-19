@@ -48,7 +48,7 @@ th.sorting_disabled > .tableHeader {
     flex-direction: column;
     align-items: flex-end;
     justify-content: space-between;
-    height: clamp(6rem, 100vw, 6.5rem);
+    height: clamp(4.5rem, 100vw, 5rem);
     text-align: end;
 }
 
@@ -139,3 +139,7 @@ tbody, td, tfoot, th, thead, tr {
     padding: 12px;
 }
 
+thead> tr > th:first-child {
+    vertical-align: text-top;
+    text-align: center;
+}

@@ -673,10 +673,10 @@
   "SHARE_T": "Auf Twitter teilen",
   "SHARE_F": "Auf Facebook teilen",
   "SHARE_L": "Auf LinkedIn teilen",
-  "MENU_COUNTRY": "Länder auswählen",
+  "MENU_COUNTRY": "Land auswählen",
   "MENU_FUEL": "Kraftstoff auswählen",
   "MENU_CONSUMER": "Verbraucher auswählen",
-  "MENU_DEC": "Dezimalstellen auswählen",
+  "MENU_DEC": "Anzahl der Dezimalstellen auswählen",
   "MENU_UNIT": "Einheit auswählen",
   "MENU_COUNTRY_SORTING": "Länderreihenfolge auswählen",
   "MENU_SAVE_DIAGRAM": "Dieses Diagramm speichern",
@@ -696,6 +696,9 @@
   "DWNIMAGE": "Diagrammbild herunterladen",
   "DWNCHART": "Diagrammdaten herunterladen",
   "EMBED": "Diagramm einbetten (iframe)",
-  "CLS": "Schließen"
+  "CLS": "Schließen",
+  "tutBACK": "Zurück",
+  "tutNEXT": "Weiter",
+  "tutFINISH": "Schließen"
 
 }

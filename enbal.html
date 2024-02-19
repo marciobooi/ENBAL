@@ -112,6 +112,7 @@
     <link href="css/EC/ecl-reset.css" rel="stylesheet">  
     <link href="css/EC/ecl-eu-default.css" rel="stylesheet">  
     <link href="css/EC/ecl-eu.css" rel="stylesheet">  
+    <link href="css/newStiles/modal.css" rel="stylesheet">  
     <link href="css/newStiles/mediaqueries.css" rel="stylesheet">  
 
     <link rel="stylesheet" href="css/intro/intro.css">
@@ -161,6 +162,7 @@
     <script type="text/javascript" src="js/external/chart/export-data.js"></script>
     <script type="text/javascript" src="js/external/chart/accessibility.js"></script>
     <script type="text/javascript" src="js/external/chart/data.js"></script>
+    <script type="text/javascript" src="js/iframe.js"></script>
 
 
     <!-- scripts -->
@@ -177,7 +179,6 @@
     <script src="js/createComponents.js"></script>
     <script src="js/populateCountries.js"></script>
     <script src="js/populateFuels.js"></script>
-    <script src="js/populateConsumer.js"></script>
     <script src="js/populateYears.js"></script>
     <script src="js/populateDecimals.js"></script>
     <script src="js/populateUnit.js"></script>
@@ -185,6 +186,7 @@
 
     <script type="text/javascript" src="js/bootstrap/bootstrap@5.3.0.js"></script>
     <script type="text/javascript" src="js/external/intro7.0.1.js"></script>
+    <script type="text/javascript" src="js/external/ecl-eu.js"></script>
 
     <!-- need to be added the correct params -->
     <script type="application/json"> { "utility" : "analytics", "siteID" : "59", "instance" : "ec.europa.eu" } </script>
@@ -227,119 +229,35 @@
   </div>     
   <div id="componentFooter"></div>
   <div id="definitionsModal"></div>
-</main>
+</main>  
 
-
-
-    <!-- <div id="page">
-      <div id="definitionsModal"></div>
-    </div> -->
-
- 
-
-
-
-    <div
-      class="modal fade"
-      id="warningMobile"
-      tabindex="-1"
-      aria-labelledby="warningMobilelLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-confirm">
-        <div class="modal-content rounded-0">
-          <div class="modal-header">
-            <div class="icon-box">
-              <i class="material-icons fas fa-times"></i>
-            </div>
+    
+    <dialog data-ecl-auto-init="Modal" id="iframeModal" data-ecl-modal-toggle="modal-toggle" class="ecl-modal ecl-modal--l">
+      <div class="ecl-modal__container ecl-container">
+        <div class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-8">
+          <header class="ecl-modal__header">
+            <div class="ecl-modal__header-content"></div>
+            <button class="ecl-button ecl-button--ghost ecl-modal__close" type="button" data-ecl-modal-close="">
+              <span class="ecl-button__container">
+                  <span class="ecl-u-sr-only" data-ecl-label="true">Close</span>
+                  <svg class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after" focusable="false" aria-hidden="true" data-ecl-icon="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="24" height="24">
+                      <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                      <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
+                  </svg>
+              </span>
+          </button>
+          </header>
+          <div class="ecl-modal__body">
+            <div class="ecl-modal__body-scroll targetUrl" data-ecl-modal-scroll></div>
           </div>
-          <div class="modal-body text-center">
-            <p id="modalWarningText">
-              This tool is not designed for small screens.<br />
-              Thank you for your understanding
-            </p>
-            <button
-              class="btn btn-success"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
-              Close
-            </button>
-          </div>
+          <footer class="ecl-modal__footer">
+            <div class="ecl-modal__footer-content">
+              <button id="close" class="ecl-button ecl-button--secondary ecl-modal__button" type="button" data-ecl-modal-close>Close</button>
+              <button id="share" class="ecl-button ecl-button--primary ecl-modal__button" onclick="copyUrl()" type="submit">Copy the URL</button></div>
+          </footer>
         </div>
       </div>
-    </div>
-
-    <div
-      class="modal fade"
-      id="sharemodal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="share"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content rounded-0">
-          <div class="modal-header">
-            <h5 class="modal-title" id="sharemodaltitle">Modal title</h5>
-            <button
-              type="button"
-              class="btn-close text-left"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <div
-              class="textarea-container fit style-scope iron-autogrow-textarea"
-            >
-              <textarea
-                readonly
-                class="form-control"
-                id="contentselect"
-                rows="10"
-              ></textarea>
-            </div>
-          </div>
-          <div class="modal-footer mx-1 d-flex justify-content-between">
-            <span id="status"></span>
-            <button
-              type="button"
-              class="btn copy-button"
-              data-clipboard-action="copy"
-              data-clipboard-target="#contentselect"
-            >
-              Copy
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  
-
-    <!-- <div class="modal" id="amexModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="searchModalLabel">Search</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." aria-label="Search" aria-describedby="searchIcon">
-                        <button class="btn btn-primary" id="searchIcon" type="button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Search</button>
-                </div>
-            </div>
-        </div>
-    </div> -->
+    </dialog>
     
 
     <button onclick="topFunction()" id="toTop" aria-label="Go to top">
@@ -360,14 +278,10 @@
 
     <script>
       $(document).ready(function () {
-       
-
-
-
-
         drawEntable();
         languageNameSpace.initLanguage(REF.language);
         $("#lang-selection").val(REF.language);   
+        hideForIframe()
       });
     </script>
 
@@ -379,7 +293,7 @@
       }
     </script>
 
-    <script src="js/three.js"></script>
-    <script src="js/orbit-controls.js"></script>
+    <!-- <script src="js/three.js"></script>
+    <script src="js/orbit-controls.js"></script> -->
   </body>
 </html>

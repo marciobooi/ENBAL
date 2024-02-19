@@ -12,7 +12,8 @@ function apiCall() {
       const numRows = balances.length;
       const numColumns = REF.siecs.length;    
  
-      firstCol = `${languageNameSpace.labels["tableYear"]}: ${REF.year} <br> ${languageNameSpace.labels["tableUnit"]}: ${REF.unit}`
+      firstCol = `${languageNameSpace.labels["YEAR"]}: ${REF.year} <br> ${languageNameSpace.labels["UNIT"]}: ${REF.unit}`
+
 
       // Add the column headers as the first row
       dataTable.push([firstCol].concat(REF.siecs));       

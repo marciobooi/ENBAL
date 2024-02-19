@@ -8,11 +8,12 @@ function drawEntable() {
     countries.push([defGeos[i], languageNameSpace.labels[defGeos[i]]]);
   }
 
-
-  // getYear();
+  getYear();
 
   tableData();
+ 
 
+ 
 }
 
 
@@ -43,7 +44,7 @@ function infoModal(info) {
   });
 }
 
-function getYear(params) {
+function getYear(params) { 
 
   let url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/nrg_bal_c?";
   url += "format=JSON";
@@ -52,33 +53,15 @@ function getYear(params) {
   url += "&unit=" + REF.unit;
   url += "&geo=" + "EU27_2020";
 
-
-
-  // test url
-  //  url = "https://ec.europa.eu/eurostat/wdds/rest/data/v2.1/json/en/nrg_bal_s?precision=1&nrg_bal=NRGSUP&siec=TOTAL&unit=KTOE&geo=EU27_202"
-
   a = JSONstat(url).Dataset(0);
 
-  // if (a == undefined) {
-  //   setTimeout(() => {     
-  //     formDown()
-      
-  //     let match = $('#message').val().match(message);
 
-  //     if(match) {
-  //       document.getElementById("formDown").submit();  
-  //       $("#formDown").remove();
-  //     } 
-   
-  //   }, 100);
-  // } else {
     years = a.Dimension("time").id;
     geo = a.Dimension("geo").id;
-    fuelList = REF.fuelList;  
-  
-    if (REF.year == undefined || REF.year == "") {
-      REF.year = years[years.length - 1]
-    }
+    fuelList = REF.fuelList;   
+
+
+    REF.year ||= years[years.length - 1];
   
   
   // condition to check if the last year in DB has data and define the REFERENCE YEAR only runs on the first try
@@ -94,6 +77,8 @@ function getYear(params) {
     }
   }
   // }
+
+  return years
 }
 
 

@@ -10,7 +10,7 @@ class ChartControls {
 	  const notMobileContent = `
 		
 		  <nav aria-label="Chart controls" id="chartControls" class="navbar navbar-expand-sm navbar-light bg-light navChartControls">
-			<div class="container-fluid">
+			<div class="">
 			  <div id="auxChartTitle">
 				<h2 id="title" class="title">title</h2>
 				<h6 id="subtitle" class="subtitle">subtitle</h6>

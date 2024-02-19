@@ -48,6 +48,7 @@
 #menuToolbar {
   background-color: #e9eaeb !important;
   padding: 0;
+  height: 6rem;
 }
 
 .subNavOne {
@@ -73,19 +74,28 @@
   margin-bottom: 0;
 }
 
-.btnGroup {
+#menu, #tools {
   color: white;
   border: none;
   background-color: transparent;
   position: relative;
+  width: 3rem;
+  height: 2rem;
 }
-
 span.iconText {
   font-size: .6em;
 }
 
 #menu {
   margin-left: 0;
+}
+
+.subNavOne .menuBtn {
+  width: 4rem !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .chartMenuMobile {
@@ -103,6 +113,13 @@ span.iconText {
   flex-direction: row;
   align-items: center;
   align-content: center;
+}
+.menu > #chartBtns > li {
+  margin: 0 !important;
+  padding: 0.3rem !important;
+}
+.menu > #chartBtns > li > button {
+
 }
 
 ul.dropdown-menu.dropdown-menu-end.show {
@@ -181,6 +198,10 @@ i.fas.fa-caret-down {
 
 
 /* marcio end here */
+.dataTables_scrollHead {
+  height: clamp(6rem, 100vw, 8rem) !important;
+}
+
 
 #chart {
   height: 65vh !important;
@@ -191,7 +212,7 @@ i.fas.fa-caret-down {
 }
 
 #auxChartTitle {
-  background-color: #e9eaeb !important;
+  /* background-color: #e9eaeb !important; */
 }
 
 .auxChartbtn{
@@ -209,6 +230,21 @@ i.fas.fa-caret-down {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
 }
 
+#chartControls > div {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#chartControls > div > .menu {
+  position: initial;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  background-color: #f3f6fc00;
+  height: 4rem;
+  z-index: 9;
+  box-shadow: rgb(0 0 0 / 0%) 0px 4px 6px -1px, rgb(0 0 0 / 0%) 0px 2px 4px -1px;
+}
 
 #page {
   min-height: 80vh;
@@ -388,8 +424,9 @@ span.iconText {
 ul.dropdown-menu.dropdown-menu-end.show {
   position: fixed;
   left: -1px;
-  top: 13rem;
+  top: 9.5rem;
   border: none;
+  width: 100vw !important;
 }
 
 button.dropdown-item {
@@ -398,8 +435,6 @@ button.dropdown-item {
 
 button.dropdown-item {
   width: 100vw;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #e3e3e4;
   color: #2e2e9d;
   font-size: 1.1em;
 }
@@ -414,7 +449,7 @@ button.dropdown-item:last-child {
 
 #chartOptionsMenu {
   position: absolute;
-  top: 3rem;
+  top: 4rem;
   left: 0;
   z-index: 9;
   background-color: #f3f6fc;
@@ -432,13 +467,13 @@ button.dropdown-item:last-child {
   padding: 0 0.6rem;
 }
 
-.dropdown-grid > .row {
+/* .dropdown-grid > .row {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: flex-start;
-}
+} */
 
 .dropdownBtnGroup button:not(.min-with--geo) {
   width: 90vw;
@@ -465,7 +500,36 @@ i.fas.fa-caret-down {
 
 @media only screen and (max-width: 400px) {
 
+  .ecl-modal__container.ecl-container {
+    width: 100vw; 
+}
 
+.ecl-modal__footer-content {
+  display: flex;
+  justify-content: flex-end;
+}
+
+p.card-text.text-left.text-wrap {
+  font-size: .8em;
+}
+
+td {
+  /* width: 200px !important; */
+  white-space: nowrap;
+}
+
+.dataTables_scroll {
+  width: 100vw;
+}
+
+th.sorting_disabled > .tableHeader {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+button#menu:focus, button#menu:active {
+  height: 3rem;
+}
 
 #menuToolbar {
   background-color: #e9eaeb !important;
@@ -483,9 +547,14 @@ i.fas.fa-caret-down {
   position: relative;
 }
 
+div#dataTableContainer_wrapper {
+  padding-top: 1rem;
+}
+
 .text-group {
+  height: 3rem;
   padding: 0.5rem;
-  /* color: black !important; */
+  align-items: center;
 }
 
 #title, #subtitle {
@@ -508,6 +577,16 @@ span.iconText {
 
 #menu {
   margin-left: 0;
+}
+
+button#tools:focus, button#tools:active {
+  background-color: #f3f6fc !important;
+  height: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-color: #CCA300 !important;
+  box-shadow: 0 0 0 0.15rem #cca30000 !important;
+  color: #0e47cb;
 }
 
 .chartMenuMobile {

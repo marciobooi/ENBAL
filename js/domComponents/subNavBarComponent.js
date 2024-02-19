@@ -5,7 +5,7 @@ class SubNavbar {
       this.subNavbar.setAttribute('id', 'menuToolbar');
       this.subNavbar.setAttribute('class', 'navbar navbar-expand-sm navbar-light bg-light');
 
-      // const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 768
+      const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 768
   
 
       const notMobileContent = /*html*/`<div class="container-fluid">
@@ -18,7 +18,6 @@ class SubNavbar {
             <div class="col-8">
               <div class="text-group">
                 <h2 id="title" class="title"></h2>
-                <h6 id="subtitle" class="subtitle"></h6>      
               </div>
             </div>
             <div class="col-3">
@@ -93,13 +92,13 @@ class SubNavbar {
 
       const mobileContent = `<div class="">
         <div class="col-12 subNavOne">
-          <div class="">              
+          <div class="menuBtn">              
               <button id="tools" class="btnGroup" type="button" aria-label="${languageNameSpace.labels["TOOLS"]}" title="${languageNameSpace.labels["TOOLS"]}" aria-haspopup="true">
                 <i class="fas fa-ellipsis-h" aria-hidden="true"></i>      
                 <span class="iconText">${languageNameSpace.labels["TOOLS"]}</span>    
               </button>
           </div>
-          <div class="">              
+          <div class="menuBtn">              
               <button id="menu" class="btnGroup" type="button" aria-label="${languageNameSpace.labels["MAINMENU"]}" title="${languageNameSpace.labels["MAINMENU"]}" aria-haspopup="true">
                 <i class="fas fa-bars" aria-hidden="true"></i>                    
                 <span class="iconText">${languageNameSpace.labels["MAINMENU"]}</span>           
@@ -160,7 +159,12 @@ class SubNavbar {
                 </button>
               </div>
               <div class="dropdown-grid">
-                <div class="row">        
+                <div class="row">    
+                  <div id="containerCountries" class="col-12 col-sm-4 p-2"></div>
+                  <div id="containerFuel" class="col-12 col-sm-4 p-2"></div>
+                  <div id="containerYear" class="col-12 col-sm-4 p-2"></div>
+                  <div id="containerDecimals" class="col-12 col-sm-4 p-2"></div>
+                  <div id="containerUnit" class="col-12 col-sm-4 p-2"></div>    
                 </div>
               </div>
             </div>
@@ -169,8 +173,7 @@ class SubNavbar {
         </div>
         <div class="col-12 subNavTwo">
           <div class="text-group">
-              <h2 id="title" class="title"></h2>
-              <h6 id="subtitle" class="subtitle"></h6>      
+              <h2 id="title" class="title"></h2> 
             </div>
         </div>
       </div>`;
@@ -179,26 +182,28 @@ class SubNavbar {
          
 
 
-        if (isMobile) {          
-          this.subNavbar.innerHTML = mobileContent         
-          
-          this.toolsButton = this.subNavbar.querySelector('#tools');
-          this.chartToolsMenu = this.subNavbar.querySelector('.chartMenuMobile');
-          this.menuButton = this.subNavbar.querySelector('#menu');
-          this.chartOptionsMenu = this.subNavbar.querySelector('#chartOptionsMenu');
-          this.chartMenuOpen = this.subNavbar.querySelector('#menu');
-      
-          this.toolsButton.addEventListener('click', () => {        
-            this.chartOptionsMenu.classList.contains("toggleMenu") ? "" : this.toggleChartOptionsMenu();
-            this.chartToolsMenu.classList.toggle('d-none');
-          });
+      if (isMobile) {          
+        this.subNavbar.innerHTML = mobileContent               
+        
+        this.toolsButton = this.subNavbar.querySelector('#tools');
+        this.chartToolsMenu = this.subNavbar.querySelector('.chartMenuMobile');
 
-          this.menuButton.addEventListener('click', () => {
-            this.chartToolsMenu.classList.contains("d-none") ? "" : this.chartToolsMenu.classList.toggle('d-none');
-            this.toggleChartOptionsMenu();
-          });
+        this.chartOptionsMenu = this.subNavbar.querySelector('#chartOptionsMenu');
+        this.chartMenuOpen = this.subNavbar.querySelector('#menu');
 
-        } else {
+
+    
+        this.toolsButton.addEventListener('click', () => {        
+          this.chartOptionsMenu.classList.contains("d-none") ? "" : this.chartOptionsMenu.classList.toggle('d-none');          
+          this.chartToolsMenu.classList.toggle('d-none');
+        });
+
+        this.chartMenuOpen.addEventListener('click', () => {
+          this.chartToolsMenu.classList.contains("d-none") ? "" : this.chartToolsMenu.classList.toggle('d-none');
+          this.chartOptionsMenu.classList.toggle('d-none');          
+        });
+
+      } else {
 
           this.subNavbar.innerHTML = notMobileContent      
 

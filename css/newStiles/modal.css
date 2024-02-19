@@ -1,0 +1,32 @@
+
+.ecl-modal--s .ecl-modal__content {
+    max-height: initial;
+}
+
+.ecl-modal__container.ecl-container {
+    width: 55vw; 
+}
+
+
+header.ecl-modal__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.ecl-modal__body {
+    padding: 0;
+}
+
+.ecl-modal__body > p, #btnControl {
+    padding: 1rem !important;
+}
+
+.ecl-modal__footer {
+    padding: 1rem;
+}
+
+#btnControl > .ecl-button {
+    margin-left: 1rem;
+}
+
