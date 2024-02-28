@@ -202,6 +202,8 @@ class ChartControls {
 			document.getElementById("closeChart").appendChild(closeChartElement);
 
 			barChart.setDisabled(true);
+
+			languageNameSpace.initLanguage(REF.language);
 	}
   
 	removeFromDOM() {

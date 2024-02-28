@@ -1,90 +1,165 @@
 .highcharts-data-table {
-    height: 77vh;
+    margin-top: 3rem;
+    height: 64vh;
     overflow: auto;
 }
 
-.highcharts-data-table table {
+.highcharts-data-table table {   
     border-collapse: collapse;
-    border-spacing: 0;
-    background: white;
-    min-width: 100%;
-    margin-top: 10px;
-    font-family: var(--font-family-main);
-    font-size: 0.9em;
-}
-.highcharts-data-table td, .highcharts-data-table th, .highcharts-data-table caption {
-    border: 1px solid silver;
-    padding: 0.5em;
-}
-.highcharts-data-table tr:nth-child(even), .highcharts-data-table thead tr {
-    background: #f8f8f8;
-}
-.highcharts-data-table tr:hover {
-    background: #eff;
-}
-.highcharts-data-table caption {
-    border-bottom: none;
-    font-size: 1.1em;
-    font-weight: bold;
+    color: #171a22;
+    font: normal normal 400 1rem/1.25rem arial,sans-serif;
+    margin: 0;
+    width: 100%;
+    background-color: #ffffff;
 }
 
-#tooltipTable {
+.highcharts-data-table thead {
+    background-color: #f3f6fc;
+    display: table-header-group;
+}
+
+.highcharts-data-table thead tr {
+    border-bottom: 2px solid #6e91e0;
+    text-align: center;
+}
+
+.highcharts-data-table tbody tr {
+    border-bottom: 1px solid #cfdaf5;
+    border-top-width: 0;
+    text-align: center;
+}
+
+th.highcharts-text {
+    border-width: 0;
+    display: table-cell;
+    padding: 0.75rem 2rem 0.75rem 1rem;
+}
+
+
+
+
+
+
+
+/* #tooltipTable {
     --bs-table-bg: transparent !important;
     line-height: inherit !important;
     border-collapse: inherit !important;
     margin-bottom: 0 !important;
     background-color: #fff;
-}
+} */
 
-tbody, td, tfoot, th, thead, tr {
+/* tbody, td, tfoot, th, thead, tr {
     border-color: #2c2c2c5c;
     border-style: solid;
     border-width: 0;
-}
+    line-height: .5rem;
+} */
 
-#tooltipTable tbody > tr:last-child > td {
+
+/* #tooltipTable tbody > tr:last-child > td {
     border-bottom: 0;
-  }
+  } */
 
-  #tooltipTable > :not(caption) > * > * {
+  /* #tooltipTable > :not(caption) > * > * {
     padding: 8px !important;
     color: initial;
-}
+} */
 
 
 
-#tooltipTable > :not(caption) > * > * {
+/* #tooltipTable > :not(caption) > * > * {
     padding: 8px !important;
-}
+} */
 
-.tooltipTable{
+/* .tooltipTable{
     border:1px solid #515560;
     background-color: #fff;
     color:#fff
-}
+} */
 
-.tooltipTableHead, #tooltipTable > thead > tr > th {
+/* .tooltipTableHead, #tooltipTable > thead > tr > th {
     background-color: #515560;
     font-size: 14px;
     padding: 2px 5px;
     text-align: left;
     color: white;
 
-}
+} */
 
 
-tr.tooltipTableTr {
+/* tr.tooltipTableTr {
     font-size: 16px;
     color: white;
-}
+} */
 
-#tooltipTable > thead > tr > th {
+/* #tooltipTable > thead > tr > th {
     text-align: center;
     color: white !important;
+} */
+
+/* #tooltipTable > tbody > tr > td {
+    text-align: end;
+} */
+
+
+/* #tooltipTable > tbody > tr > td:first-child {
+    text-align: start;
+} */
+
+
+
+
+.highcharts-tooltip span {
+    white-space: initial !important;
+    font-family: Arial, sans-serif !important;
 }
 
-#tooltipTable > tbody > tr > td {
-    text-align: end;
+
+.table_component {
+    overflow: auto; 
+    width: 24rem !important;
+  
+    
 }
+
+.table_component table {
+    border: 1px dotted #dededf;
+    /* width: 50%; */
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-spacing: 1px;
+    text-align: left;
+}
+
+.highcharts-data-table tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    /* width: 1rem; */
+}
+
+.table_component caption {
+    caption-side: top;
+    text-align: center;
+}
+
+.table_component th {
+    border: 1px dotted #dededf;
+    background-color: #515560;
+    color: #ffffff;
+    padding: 5px;
+    text-align: center;
+}
+
+.table_component td {
+    border: 1px dotted #dededf;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 5px;
+}
+
+
+
 
 

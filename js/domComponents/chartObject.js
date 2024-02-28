@@ -27,6 +27,7 @@ class Chart {
           plotShadow: false,
           style: {
             fontFamily: 'arial,sans-serif',
+            fontSize: 20, // Adjusted font size
             animation: true,
             duration: 1000,
           },
@@ -83,7 +84,7 @@ class Chart {
               xAxis: [{
                 labels: {
                   style: {
-                    fontSize: '10px'
+                    fontSize: '12px'
                   }
                 }
               }]

@@ -54,6 +54,9 @@ function renderPieChart(chartBal) {
     }    
   });
 
+  const tooltipFormatter = function() {
+    return chartNormalTooltip(this.point);
+  };
 
   const chartOptions = {
     containerId: "chart",
@@ -62,7 +65,7 @@ function renderPieChart(chartBal) {
     subtitle: null,
     xAxis: null,
     yAxisFormat: "",
-    tooltipFormatter: "",
+    tooltipFormatter: tooltipFormatter,
     creditsText: credits(),
     series: [{
       name: 'Categories',

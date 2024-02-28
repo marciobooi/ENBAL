@@ -1029,11 +1029,44 @@ function extraBalances(id) {
 
 
 function chartNormalTooltip(points) {
-  const value = Highcharts.numberFormat(points[0].y, 4);
-  const unit = `${languageNameSpace.labels["S_" + REF.currency]}/${languageNameSpace.labels["S_" + REF.unit]}`;
-  const na = languageNameSpace.labels['FLAG_NA'];
-  const title = REF.chartId==="lineChart" ?  points[0].key : points[0].x
-  return this.y == 0 ? `<b>${title}<br>Total: <b>${na}</b>` : `<b>${title}<br>Total: <b>${value}</b> ${unit}`;
+  // const value = Highcharts.numberFormat(points[0].y, 4);
+  // const unit = `${languageNameSpace.labels["S_" + REF.currency]}/${languageNameSpace.labels["S_" + REF.unit]}`;
+  // const na = languageNameSpace.labels['FLAG_NA'];
+  // const title = REF.chartId==="lineChart" ?  points[0].key : points[0].x
+  // return this.y == 0 ? `<b>${title}<br>Total: <b>${na}</b>` : `<b>${title}<br>Total: <b>${value}</b> ${unit}`;
+
+
+
+
+
+  const title = points.options.name
+    const value = Highcharts.numberFormat(points.options.y, 4);
+    const unit = `${languageNameSpace.labels[REF.unit]}`;
+
+    let html = "";
+      
+    html += `<table class="table_component"> 
+    <thead class="">
+      <tr>
+          <th scope="cols" colspan="2">${title}</th>                
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td><b>${value}</b> ${unit}</td>
+      </tr>
+    </tbody>
+    </table>`;
+
+
+
+    return html
+
+
+
+
+
+
 }
 
 function tooltipTable(points) {
@@ -1042,7 +1075,7 @@ function tooltipTable(points) {
 
   if(REF.percentage == 1 ){
     let html = "";
-    html += `<table id="tooltipTable" class="table">                
+    html += `<table id="tooltipTable" class="table_component">                
                 <thead>
                   <tr>
                     <th scope="cols">${points[0].x}</th>                    
@@ -1072,7 +1105,7 @@ function tooltipTable(points) {
       return 0;
     });
     
-    html += `<table id="tooltipTable" class="table">                
+    html += `<table id="tooltipTable" class="table_component">                
       <thead>
         <tr>
           <th scope="cols">${sortedPoints[0].key}</th>                    
@@ -1157,14 +1190,14 @@ function enableScreenREader(params) {
   }
 
     //  function to check focus on building fase
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Tab') {
-      var focusedElement = document.activeElement;
-      console.log('Focused element:', focusedElement);
-      focusedElement.style.outline = '2px solid red';
-      // log(focusedElement)
-    }
-  });
+  // document.addEventListener('keydown', function(event) {
+  //   if (event.key === 'Tab') {
+  //     var focusedElement = document.activeElement;
+  //     console.log('Focused element:', focusedElement);
+  //     focusedElement.style.outline = '2px solid red';
+  //     // log(focusedElement)
+  //   }
+  // });
 
 
   function openVizTable() {

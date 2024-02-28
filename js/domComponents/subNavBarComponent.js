@@ -45,11 +45,7 @@ class SubNavbar {
                   </ul>
                 </li>     
 
-                <!-- <li class="nav-item button px-1" id="shareChart" role="none">
-                  <button id="shareBtn" title="share chart" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="share chart" onclick="">
-                    <i class="fas fa-share-alt" aria-hidden="true"></i>
-                  </button>
-                </li> -->
+
                 <li class="nav-item button px-1" id="embebedChart" role="none">
                   <button id="embebedBtn" title="Embebed chart iframe" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="Embebed chart iframe" onclick="exportIframe()">
                     <i class="fas fa-code" aria-hidden="true"></i>
@@ -129,11 +125,7 @@ class SubNavbar {
                   <button class="dropdown-item" role="menuitem" onclick="exportXlsChart()" aria-label="${languageNameSpace.labels['downloadXLS']}">${languageNameSpace.labels["downloadXLS"]}</button>        		
                 </ul>
               </li>     
-              <li class="nav-item button px-1" id="shareChart" role="none">
-                <button id="shareBtn" title="share chart" type="button" class="btn btn-primary  min-with--nav round-btn" aria-label="share chart" onclick="">
-                  <i class="fas fa-share-alt" aria-hidden="true"></i>
-                </button>
-              </li>
+
               <li class="nav-item dropdown px-1" id="social-media-dropdown" role="none">
               <button class="btn btn-primary min-with--nav round-btn" type="button" aria-label="Share in social media" data-bs-toggle="dropdown" role="menuitem" title="Share chart" aria-haspopup="true" aria-expanded="true" id="shareChart1">
                 <i class="fas fa-share-alt" aria-hidden="true"></i>

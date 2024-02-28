@@ -18,7 +18,7 @@
 
   #lang-section {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     align-content: space-around;
   }
   select#lang-selection {
@@ -301,7 +301,9 @@ span.agregates.fa-stack.fa-rotate-180 {
   margin-top: 0.8rem;
 }
 
-
+.ecl-link {
+  font-size: 12px;
+}
 
 
 
@@ -608,9 +610,18 @@ button#tools:focus, button#tools:active {
 
 ul.dropdown-menu.dropdown-menu-end.show {
   position: fixed;
-  left: -1px;
-  top: 13rem;
+  left: 0px;
+  top: 12rem;
   border: none;
+
+
+
+    box-shadow: 0 7px 8px rgb(9 49 142 / 0%);
+
+}
+
+.dropdown-menu {
+  background-color: transparent;
 }
 
 button.dropdown-item {
