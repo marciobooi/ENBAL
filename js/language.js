@@ -260,12 +260,14 @@ var languageNameSpace = {
       $("#footer-cookies").html(languageNameSpace.labels["COOKIES"]);
       $("#footer-privacy").html(languageNameSpace.labels["PRIVACY"]);
       $("#footer-legal").html(languageNameSpace.labels["LEGAL"]);
+      $("#footer-access").html(languageNameSpace.labels["ACCESS"]);
 
 
 
       $('.ecl-modal__header-content').html(languageNameSpace.labels["EMBED"]);
-
-
+ 
+      $("#close").html(languageNameSpace.labels["CLS"]);
+      $("#share").html(languageNameSpace.labels["COPY"]);
 
 
     });
@@ -275,6 +277,7 @@ var languageNameSpace = {
   //Set language function
   setLanguage: function (val) {    
     REF.language = val;
+    // 
     languageNameSpace.initLanguage(REF.language);   
     REF.full = 1  
     // tableData();
@@ -289,5 +292,14 @@ var languageNameSpace = {
     if(REF.chart !== "") {
       handleChartAction()
     }    
+
+
+    if ($('.highcharts-data-table').is(':visible')) {
+      closeTable();
+      openVizTable();
+      $('#toggleTableBtn').focus();
+    } 
+
+
   },
 };

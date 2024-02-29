@@ -700,6 +700,7 @@
   "tutBACK": "Zurück",
   "tutNEXT": "Weiter",
   "tutFINISH": "Schließen",
-  "ACCESS": "Zugänglichkeit"
+  "ACCESS": "Zugänglichkeit",
+  "COPY": "URL kopieren"
 
 }

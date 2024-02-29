@@ -317,15 +317,15 @@ function siec(key) {
   return siec[key] || siec.default;
 }
 
-$(document).on("click", function (e) {
-  if ($(e.target).closest(".highcharts-data-table").length === 0) {
-    $(".highcharts-data-table").hide();
-    $(".overlay").removeClass("overlay");
-  } else {
-    $(".highcharts-data-table").hide();
-    $(".overlay").removeClass("overlay");
-  }
-});
+// $(document).on("click", function (e) {
+//   if ($(e.target).closest(".highcharts-data-table").length === 0) {
+//     $(".highcharts-data-table").hide();
+//     $(".overlay").removeClass("overlay");
+//   } else {
+//     $(".highcharts-data-table").hide();
+//     $(".overlay").removeClass("overlay");
+//   }
+// });
 
 function geturl(params) {
   dataNameSpace.setRefURL();

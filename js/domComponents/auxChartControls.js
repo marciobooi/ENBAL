@@ -171,7 +171,7 @@ class ChartControls {
 			exportHandling(this.id);
 		});
 		embebedeChart.setClickHandler(function() {
-			exportHandling(this.id);
+			exportIframe();
 		});
 		closeChart.setClickHandler(function() {
 		  removeAuxiliarBarGraphOptions();
