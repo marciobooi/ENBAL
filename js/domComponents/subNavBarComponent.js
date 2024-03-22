@@ -27,11 +27,11 @@ class SubNavbar {
                     <i class="fas fa-info" aria-hidden="true"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="infoBtn">     					
-                    <button class="dropdown-item" role="menuitem" onclick="openDataset()" aria-label="${languageNameSpace.labels['DATASET']}" value="dataset">${languageNameSpace.labels['DATASET']}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="openMeta()" aria-label="${languageNameSpace.labels['META']}" value="Metadata" >${languageNameSpace.labels['META']}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.email()" aria-label="${languageNameSpace.labels['FEED']}" value="Feedback">${languageNameSpace.labels['FEED']}</button>          		
-                    <button class="dropdown-item" role="menuitem" onclick="openBalDefinitions()" aria-label="${languageNameSpace.labels['BALGUIDE']}" value="guide">${languageNameSpace.labels['BALGUIDE']}</button>          		
-                    <button class="dropdown-item" role="menuitem" onclick="tutorial()" aria-label="${languageNameSpace.labels['POPTUT']}" value="tuturial">${languageNameSpace.labels['POPTUT']}</button>          		
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="openDataset()" aria-label="${languageNameSpace.labels['DATASET']}" value="dataset">${languageNameSpace.labels['DATASET']}</button>
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="openMeta()" aria-label="${languageNameSpace.labels['META']}" value="Metadata" >${languageNameSpace.labels['META']}</button>
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.email()" aria-label="${languageNameSpace.labels['FEED']}" value="Feedback">${languageNameSpace.labels['FEED']}</button>          		
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="openBalDefinitions()" aria-label="${languageNameSpace.labels['BALGUIDE']}" value="guide">${languageNameSpace.labels['BALGUIDE']}</button>          		
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="tutorial()" aria-label="${languageNameSpace.labels['POPTUT']}" value="tuturial">${languageNameSpace.labels['POPTUT']}</button>          		
                   </ul>
                 </li>
                 <li class="nav-item dropdown px-1" id="downloadChart" role="none">
@@ -39,9 +39,9 @@ class SubNavbar {
                     <i class="fas fa-download" aria-hidden="true"></i>
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Download chart">     					
-                    <button class="dropdown-item" role="menuitem" onclick="download_DIVPdf()" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLEPDF']}">${languageNameSpace.labels["POPDOWNLOADTABLEPDF"]}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="table.button( '.exportxcel' ).trigger();" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']}">${languageNameSpace.labels["POPDOWNLOADTABLEEXCEL"]}</button>
-                    <button class="dropdown-item" role="menuitem" onclick="table.button( '.exportcsv' ).trigger();" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLECSV']}">${languageNameSpace.labels["POPDOWNLOADTABLECSV"]}</button>        		
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="download_DIVPdf()" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLEPDF']}">${languageNameSpace.labels["POPDOWNLOADTABLEPDF"]}</button>
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="table.button( '.exportxcel' ).trigger();" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']}">${languageNameSpace.labels["POPDOWNLOADTABLEEXCEL"]}</button>
+                    <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="table.button( '.exportcsv' ).trigger();" aria-label="${languageNameSpace.labels['POPDOWNLOADTABLECSV']}">${languageNameSpace.labels["POPDOWNLOADTABLECSV"]}</button>        		
                   </ul>
                 </li>     
 
@@ -56,10 +56,59 @@ class SubNavbar {
                   <i class="fas fa-share-alt" aria-hidden="true"></i>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Share chart">     					
-                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.twitter()" aria-label="${languageNameSpace.labels['SHARE_T']}">${languageNameSpace.labels["SHARE_T"]}</button>
-                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.facebook()" aria-label="${languageNameSpace.labels['SHARE_F']}">${languageNameSpace.labels["SHARE_F"]}</button>
-                <button class="dropdown-item" role="menuitem" onclick="socialNameSpace.linkedin()" aria-label="${languageNameSpace.labels['SHARE_L']}">${languageNameSpace.labels["SHARE_L"]}</button>        
-                </ul>
+                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.twitter()" aria-label="${languageNameSpace.labels['SHARE_T']}">${languageNameSpace.labels["SHARE_T"]}</button>
+                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.facebook()" aria-label="${languageNameSpace.labels['SHARE_F']}">${languageNameSpace.labels["SHARE_F"]}</button>
+                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.linkedin()" aria-label="${languageNameSpace.labels['SHARE_L']}">${languageNameSpace.labels["SHARE_L"]}</button>        
+                
+
+                
+                
+                
+                
+                
+    <div class="ecl-social-media-share">
+    <p class="ecl-social-media-share__description">Share this page</p>
+    <ul class="ecl-social-media-share__list">
+      <li class="ecl-social-media-share__item">
+        <a href="/component-library/example#n1gl5" class="ecl-link ecl-link--standalone ecl-link--icon ecl-social-media-share__link">
+          <svg class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" focusable="false" aria-hidden="true">
+            <use xlink:href="static/media/icons-social-media.35074b29.svg#twitter-color"></use>
+          </svg>
+          <span class="ecl-link__label">Twitter</span>
+        </a>
+      </li>
+      <li class="ecl-social-media-share__item">
+        <a href="/component-library/example#fd9y1" class="ecl-link ecl-link--standalone ecl-link--icon ecl-social-media-share__link">
+          <svg class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" focusable="false" aria-hidden="true">
+            <use xlink:href="/img/ecl-icons/icons-social-media.svg#facebook-color"></use>
+          </svg>
+          <span class="ecl-link__label">Facebook</span>
+        </a>
+      </li>
+      <li class="ecl-social-media-share__item">
+        <a href="/component-library/example#g0qyl" class="ecl-link ecl-link--standalone ecl-link--icon ecl-social-media-share__link">
+
+
+
+
+
+
+          <svg class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" focusable="false" aria-hidden="true">
+            <use xlink:href="/component-library/dist/media/icons-social-media.35074b29.svg#linkedin-color"></use>
+          </svg>
+          <span class="ecl-link__label">Linkedin</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+                
+                
+                
+                
+                
+                
+                
+                 </ul>
               </li>  
 
               </ul>

@@ -1216,3 +1216,6 @@ function enableScreenREader(params) {
     $(".highcharts-data-table").hide();
     $("#chart").show();
   }
+
+
+

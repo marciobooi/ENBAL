@@ -10,10 +10,16 @@ class Modal {
       
         create() {
 
+          function capitalizeFirstLetter(string) {
+            string = string.toLowerCase() // Convert the string to lowercase
+            // string = string.replace(/&nbsp;/g, ' '); // Replace all occurrences of &nbsp; with space
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }    
+
           this.modal.innerHTML = /*html*/
     `<dialog data-ecl-auto-init="Modal" id="${this.modal.id}" data-ecl-modal-toggle="modal-toggle" class="ecl-modal ecl-modal--s">
       <div class="ecl-modal__container ecl-container">
-        <div class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-8">
+        <div class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-10">
           <header class="ecl-modal__header">
             <div class="ecl-modal__header-content">
             <h5 class="card-title"><b>${languageNameSpace.labels[this.info]}</b></h5>
@@ -33,11 +39,11 @@ class Modal {
               <div id="dialog-picture-credit" style="font-size: .7rem">
 					      <p class="text-end">${this.obj.SOURCE}</p>
               </div>
-              <p class="card-text text-left text-wrap">${this.obj[REF.language]}</p>
-              <div id="btnControl" class="d-flex justify-content-end p-2">
-                <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="ecl-button ecl-button--secondary" aria-label="Open metadata">${languageNameSpace.labels["POPMETA"]}</button>
-                <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="ecl-button ecl-button--secondary" aria-label="Open database">${languageNameSpace.labels["POPDB"]}</button>
-              </div>
+                <p id="desc" class="card-text text-left text-wrap">${capitalizeFirstLetter(this.obj[REF.language])}</p>
+                <div id="btnControl" class="d-flex justify-content-end p-2">
+                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="ecl-button ecl-button--secondary" aria-label="Open metadata">${languageNameSpace.labels["POPMETA"]}</button>
+                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="ecl-button ecl-button--secondary" aria-label="Open database">${languageNameSpace.labels["POPDB"]}</button>
+                </div>
               </div>
           <footer class="ecl-modal__footer">
             <div class="ecl-modal__footer-content">
@@ -56,6 +62,8 @@ class Modal {
 
     ECL.autoInit();
 
+
+
     const parentElement = document.getElementById('definitionsModal');
   
     parentElement.addEventListener('click', event => {
@@ -73,6 +81,10 @@ class Modal {
     addToDOM(targetElement) {
       const container = document.querySelector(targetElement);
       container.appendChild(this.modal);
+
+      log($('#desc'))
+
+      $('#desc').html($('#desc').html().replace(/&nbsp;/g, ' '));
     }
   }
   

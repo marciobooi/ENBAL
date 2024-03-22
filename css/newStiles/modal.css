@@ -30,3 +30,8 @@ header.ecl-modal__header {
     margin-left: 1rem;
 }
 
+img.card-img-top {
+    max-height: 250px;
+    width: 100%;
+    object-fit: cover;
+}

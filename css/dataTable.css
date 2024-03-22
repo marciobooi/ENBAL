@@ -50,6 +50,7 @@ th.sorting_disabled > .tableHeader {
     justify-content: space-between;
     height: clamp(4.5rem, 100vw, 5rem);
     text-align: end;
+    font-size: 14px;
 }
 
 .icoContainer {
@@ -63,7 +64,7 @@ th.sorting_disabled > .tableHeader {
     border-top: none;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
-    width: 96.7vw !important;
+    width: 94vw !important;
     margin: 0 !important;
     padding: 0 !important;
 }
@@ -80,6 +81,7 @@ th {
 }
 tbody, td, tfoot, th, thead, tr {
     padding: 0.3rem;
+    font-size: 14px;   
 }
 
 .expand {

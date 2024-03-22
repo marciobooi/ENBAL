@@ -122,12 +122,11 @@ i.fas.fa-angle-down {
 
 ul.dropdown-menu {
   width: 20.3rem;
-  padding-bottom: calc(0.75rem - 1px);
-  padding-top: calc(0.75rem - 1px);
-  border: 1px solid #515560;
+  border: transparent;
   border-radius: 2px;
-  box-shadow: 0 7px 8px rgba(9,49,142,.08),0 0 22px rgba(9,49,142,.04),0 12px 17px rgba(9,49,142,.04),0 -4px 4px rgba(9,49,142,.04);
+  box-shadow: 0 7px 8px rgb(9 49 142 / 8%), 0 0 22px rgb(9 49 142 / 4%), 0 12px 17px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%);
   line-height: 1.15;
+  background-color: #f9f9f9;
 }
 
 #dropdown-geo-list a:nth-child(3) {
@@ -173,8 +172,8 @@ ul.dropdown-menu {
 }
 
 .dropdown-item {
-  font-size: 0.8em;
   text-size-adjust: 100%;
+  border-bottom: 1px solid lightgray;
 }
 
 .dropdown-item:focus,
