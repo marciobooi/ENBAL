@@ -35,3 +35,8 @@ img.card-img-top {
     width: 100%;
     object-fit: cover;
 }
+
+#desc {
+    max-height: 300px;
+    overflow-y: auto;
+}

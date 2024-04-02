@@ -706,6 +706,8 @@
   "tutFINISH": "Fermer",
   "ACCESS": "Accessibilité",
   "COPY": "Copier l'URL",
-  "N/A": "Non disponible"
+  "N/A": "Non disponible",
+  "VAL": "Valeur",
+  "VALS": "Valeurs"
 
 }

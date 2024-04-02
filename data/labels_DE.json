@@ -703,6 +703,8 @@
   "tutFINISH": "Schließen",
   "ACCESS": "Zugänglichkeit",
   "COPY": "URL kopieren",
-  "N/A": "Nicht verfügbar"
+  "N/A": "Nicht verfügbar",
+  "VAL": "Wert",
+  "VALS": "Werte"
 
 }

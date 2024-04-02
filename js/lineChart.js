@@ -35,17 +35,18 @@ function renderLineChart(chartBal) {
         data.push(valores[0]);
         valores.shift();
       }
-      barobj = {
+      lineobj = {
         name: languageNameSpace.labels[siecs[item]],
         data: data,
       };
-      lineChartData.push(barobj);
+      lineChartData.push(lineobj);
     }  
 
    
     const tooltipFormatter = function () { return tooltipTable(this.points);}; 
      
 
+    log(lineChartData)
    
       const chartOptions = {
         containerId: "chart",

@@ -969,22 +969,22 @@ function getTitle() {
   let chartTitle = "";
   switch (REF.chart) {
     case "lineChart":
-      chartTitle = `${dataset}<br><span style="font-size:10px; padding-top:5px">${fuel} - ${bal} - ${geo}</span>`;
+      chartTitle = `${dataset} - ${fuel} - ${bal} - ${geo}`;
       title = `<strong>${fuel}, </strong> ${geo}, ${bal}`;
       subtitle = "";
     break;
     case "pieChart":
-      chartTitle = `${dataset}<br><span style="font-size:10px; padding-top:5px">${fuel} - ${bal} - ${geo} - ${time}</span>`;
+      chartTitle = `${dataset} - ${fuel} - ${bal} - ${geo} - ${time}`;
       title = `<strong>${geo}, </strong> ${bal}, ${dataset}, ${time}`;
       subtitle = "";
       break;
     case "barChart":
-      chartTitle = `${dataset}<br><span style="font-size:12px; padding-top:5px">${fuel} - ${bal} - ${time}</span>`;
+      chartTitle = `${dataset} - ${fuel} - ${bal} - ${time}`;
       title = `<strong>${fuel}, </strong> ${bal}, ${time}`;
       subtitle = "";
       break;
     default:    
-      chartTitle = `${geo},<span style="font-size:10px; padding-top:5px"> ${fuel}, ${time} </span>`;
+      chartTitle = `${geo} - ${fuel}, ${time}`;
       title = `<strong>${geo}, </strong> ${fuel}, ${time}`;
       subtitle = "";   
   }

@@ -42,7 +42,7 @@ function renderPieChart(chartBal) {
             fontSize: '.8rem',
             fontWeight: 'normal'
         },
-          format: "<b>{point.name}</b>:<br>{point.percentage:."+ REF.decimals +"f} %<br>value: {point.y:,."+ REF.decimals +"f} " + REF.unit
+          format: "<b>{point.name}</b>:<br>{point.percentage:."+ REF.decimals +"f} %<br>"+ languageNameSpace.labels["VAL"]+": {point.y:,."+ REF.decimals +"f} " + REF.unit
         },
     } 
     
@@ -66,6 +66,8 @@ function renderPieChart(chartBal) {
     return chartNormalTooltip(this.point);
   };
 
+  log(pieChartData)
+
   const chartOptions = {
     containerId: "chart",
     type: "pie",
@@ -76,7 +78,7 @@ function renderPieChart(chartBal) {
     tooltipFormatter: tooltipFormatter,
     creditsText: credits(),
     series: [{
-      name: 'Categories',
+      name: languageNameSpace.labels["VALS"],
       data: pieChartData
     }],
     colors: colors,

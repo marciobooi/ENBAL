@@ -580,6 +580,8 @@
  "tutFINISH": "Close",
  "ACCESS": "Accessibility",
  "COPY": "Copy the URL",
- "N/A": "Not available"
+ "N/A": "Not available",
+ "VAL": "Value",
+ "VALS": "Values"
   
 }
