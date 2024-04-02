@@ -23,7 +23,6 @@ function renderPieChart(chartBal) {
     d = chartApiCall();
 
     const seriesOpt = {
-      innerSize: "75%",
       showInLegend: true,
       dataLabels: {
         enabled: true,
@@ -32,11 +31,18 @@ function renderPieChart(chartBal) {
   
     const pieOpt = {  
         allowPointSelect: true,
+        // size: "75%",
+        innerSize: "75%",
+        showInLegend: true,
         animation: true,
         cursor: "pointer",
         dataLabels: {
           enabled: true,
-          format: "<b>{point.name}</b>:<br>{point.percentage:.1f} %<br>value: {point.y:,.4f} " + REF.unit
+          style: {
+            fontSize: '.8rem',
+            fontWeight: 'normal'
+        },
+          format: "<b>{point.name}</b>:<br>{point.percentage:."+ REF.decimals +"f} %<br>value: {point.y:,."+ REF.decimals +"f} " + REF.unit
         },
     } 
     
@@ -49,8 +55,10 @@ function renderPieChart(chartBal) {
 
   val = pieSiec.map((siec, sIdx) => {
     if(siec !== "TOTAL"){     
-      d.value[sIdx] == null ? d.value[sIdx] = 0 : d.value[sIdx] = d.value[sIdx]     
-      pieChartData.push({ name: languageNameSpace.labels[siec], y: d.value[sIdx] });
+      // d.value[sIdx] == null ? d.value[sIdx] = 0 : d.value[sIdx] = d.value[sIdx]     
+        if(d.value[sIdx] > 0){
+          pieChartData.push({ name: languageNameSpace.labels[siec], y: d.value[sIdx] });
+        }
     }    
   });
 
@@ -72,7 +80,18 @@ function renderPieChart(chartBal) {
       data: pieChartData
     }],
     colors: colors,
-    legend: {},
+    legend: {
+        padding: 3,   
+        itemMarginTop: 5,
+        itemMarginBottom: 5,
+        itemHiddenStyle: {
+          color: '#767676'
+        },
+        itemStyle: {
+          fontSize: '.9rem',
+          fontWeight: 'light'
+        }
+      },
     pieOptions: pieOpt,
     columnOptions: null,
     seriesOptions: seriesOpt,

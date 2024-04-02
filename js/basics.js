@@ -762,7 +762,7 @@ let auxiliarBarGraphOptions;
     $("li#Agregates").css('display', "initial") 
     $("li#ChartOrder").css('display', "initial") 
     $("li#togglePercentage").css('display', "initial") 
-    $(".form-check.form-switch.form-check-reverse").css('display', "block") 
+    $("#switchBtn").css('display', "block") 
   }
   
   function hideMenuSwitch() { 
@@ -770,7 +770,7 @@ let auxiliarBarGraphOptions;
     $("li#Agregates").css('display', "none") 
     $("li#ChartOrder").css('display', "none") 
     $("li#togglePercentage").css('display', "none") 
-    $(".form-check.form-switch.form-check-reverse").css('display', "none") 
+    $("#switchBtn").css('display', "none") 
   }
   
 
@@ -997,8 +997,8 @@ function getTitle() {
 
 
 function credits() {
-  const chartCredits = `<span style="font-size: .75rem;">${languageNameSpace.labels["eurostat"]} - </span>
-  <a style="color:blue; text-decoration: underline; font-size: .75rem;"
+  const chartCredits = `<span id="credits" style="font-size: .9rem; color="#262B38">${languageNameSpace.labels["eurostat"]} - </span>
+  <a style="color:blue; text-decoration: underline; font-size: .9rem;"
   href="https://ec.europa.eu/eurostat/databrowser/view/${REF.dataset}/default/table?lang=${REF.language}">${languageNameSpace.labels['DB']}</a>,
   <span style="font-size: .875rem;">                           
 </span>`;
@@ -1029,18 +1029,8 @@ function extraBalances(id) {
 
 
 function chartNormalTooltip(points) {
-  // const value = Highcharts.numberFormat(points[0].y, 4);
-  // const unit = `${languageNameSpace.labels["S_" + REF.currency]}/${languageNameSpace.labels["S_" + REF.unit]}`;
-  // const na = languageNameSpace.labels['FLAG_NA'];
-  // const title = REF.chartId==="lineChart" ?  points[0].key : points[0].x
-  // return this.y == 0 ? `<b>${title}<br>Total: <b>${na}</b>` : `<b>${title}<br>Total: <b>${value}</b> ${unit}`;
-
-
-
-
-
-  const title = points.options.name
-    const value = Highcharts.numberFormat(points.options.y, 4);
+   const title = points.options.name
+    const value = Highcharts.numberFormat(points.options.y, REF.decimals);
     const unit = `${languageNameSpace.labels[REF.unit]}`;
 
     let html = "";
@@ -1058,20 +1048,12 @@ function chartNormalTooltip(points) {
     </tbody>
     </table>`;
 
-
-
     return html
-
-
-
-
-
-
 }
 
 function tooltipTable(points) {
 
-  const decimals = REF.dataset == "demo_pjan" ? 0 : 3
+  const decimals = REF.decimals
 
   if(REF.percentage == 1 ){
     let html = "";
@@ -1096,7 +1078,7 @@ function tooltipTable(points) {
   } else {
     let html = "";
     let totalAdded = false; // Flag to track if the total row has been added
-    let totalColor = "#7cb5ec";
+    let totalColor = "rgb(14, 71, 203)";
     
     // Sort the points so that the "Total" item is at the last place
     const sortedPoints = points.sort(function (a, b) {
@@ -1115,16 +1097,17 @@ function tooltipTable(points) {
     
     sortedPoints.forEach(function (point) {
       const color = point.series.color;
-      const value = point.y.toFixed(decimals); // Limit decimals to three places
+      const value = point.y.toFixed(decimals); 
       const category = point.series.name;
-    
-      html += `<tr>
+
+      if(REF.details != 0) {
+        html += `<tr>
         <td><svg width="10" height="10" style="vertical-align: baseline;"><circle cx="5" cy="5" r="3" fill="${color}" /></svg> ${category}</td>
         <td>${value}</td>
       </tr>`;
-    
+      }    
       // Check if point is "Total" and set the flag if found
-      if (category == languageNameSpace.labels['TOTAL']) {
+      if (category == languageNameSpace.labels['total']) {
         totalAdded = true;
       }
     });
@@ -1134,9 +1117,19 @@ function tooltipTable(points) {
       return point.y === 0;
     });
     
-    // if (allValuesZero) {
-    //   html = "<p>All values are zero.</p>"; // Replace the table with the message
-    // } else {
+    if (allValuesZero) {
+      html = 
+    `<table id="tooltipTable" class="table_component">                
+    <thead>
+      <tr>
+        <th scope="cols">${sortedPoints[0].key}</th>                                    
+      </tr>
+    </thead><tr>      
+    <td>${languageNameSpace.labels["N/A"]}</td>
+  </tr></table>`;
+
+
+    } else {
       // Add a row for the total if not already added
       if (!totalAdded) {
         // Calculate the total sum of all values
@@ -1153,10 +1146,13 @@ function tooltipTable(points) {
           <td>${totalValue}</td>
         </tr>`;
       }
-    // }
+    }
     
     html += `</table>`;
     
+
+log(allValuesZero)
+
     return `<div>${html}</div>`;
     
   }

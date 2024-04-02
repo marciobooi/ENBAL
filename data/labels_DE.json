@@ -595,7 +595,7 @@
   "POPDETAILS": "Details ein-/ausblenden",
   "POPSHARE": "Share-Menü öffnen",
   "POPMETA": "Metadaten öffnen",
-  "POPDB": "Datenbank öffnen",
+  "POPDB": "Datenset öffnen",
 
   "LINKS": "Links",
   "COOKIES": "Cookies",
@@ -627,7 +627,7 @@
   "tableYear": "Jahr",
   "tableUnit": "Einheit",
 
-  "POPPERCENTAGES": "Prozentsätze/Werte umschalten",
+  "POPPERCENTAGES": "Prozentsätze/Werte anzeigen",
 
   "DEC": "Dezimalstellen",
 
@@ -669,10 +669,10 @@
   "TOOLS": "Werkzeuge",
   "DB": "zugriff auf Datensatz",
   "%": "in Prozent",
-  "TOGGLEAGREGATES": "Aggregatzustände umschalten",
-  "SHARE_T": "Auf Twitter teilen",
-  "SHARE_F": "Auf Facebook teilen",
-  "SHARE_L": "Auf LinkedIn teilen",
+  "TOGGLEAGREGATES": "Aggregatzustände anzeigen",
+  "SHARE_T": "Twitter",
+  "SHARE_F": "Facebook",
+  "SHARE_L": "LinkedIn",
   "MENU_COUNTRY": "Land auswählen",
   "MENU_FUEL": "Kraftstoff auswählen",
   "MENU_CONSUMER": "Verbraucher auswählen",
@@ -682,16 +682,17 @@
   "MENU_SAVE_DIAGRAM": "Dieses Diagramm speichern",
   "MENU_YEARS": "Jahr auswählen",
   "details": "Details anzeigen",
+  "hidDetails": "Details ausblenden",
   "POPCOLAPSE": "Fluss zusammenklappen",
   "TOP": "Nach oben gehen",
   "INFO": "Info ein-/ausschalten",
   "DWL": "Diagrammbild herunterladen",
   "EMB": "Diagramm einbetten (iframe)",
   "SHA": "In sozialen Medien teilen",
-  "TGLBAR": "Säulendiagramm umschalten",
-  "TGLPIE": "Kreisdiagramm umschalten",
-  "TGLLINE": "Liniendiagramm umschalten",
-  "TGLTABLE": "Tabelle umschalten",
+  "TGLBAR": "Säulendiagramm anzeigen",
+  "TGLPIE": "Kreisdiagramm anzeigen",
+  "TGLLINE": "Liniendiagramm anzeigen",
+  "TGLTABLE": "Tabelle anzeigen",
   "PRINT": "Diagramm drucken",
   "DWNIMAGE": "Diagrammbild herunterladen",
   "DWNCHART": "Diagrammdaten herunterladen",
@@ -701,6 +702,7 @@
   "tutNEXT": "Weiter",
   "tutFINISH": "Schließen",
   "ACCESS": "Zugänglichkeit",
-  "COPY": "URL kopieren"
+  "COPY": "URL kopieren",
+  "N/A": "Nicht verfügbar"
 
 }

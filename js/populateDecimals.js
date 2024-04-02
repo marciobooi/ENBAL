@@ -4,7 +4,7 @@
     const elementId = 'selectDecimals';
     const optionsArray = energyDecimals;
     const labelDescription = languageNameSpace.labels["DECIMALS"];
-    const activeElement = REF.decimals;
+    const activeElement = energyDecimals[REF.decimals];
     const textChange = languageNameSpace.labels["MENU_DEC"];
 
     const existingSingleSelect = document.getElementById(elementId);
@@ -18,12 +18,9 @@
     }
   
     const singleSelect = new Singleselect(elementId, optionsArray, labelDescription, activeElement, textChange, selectedValue => {
-      log(REF.decimals)
-
         REF.decimals = countDecimals(selectedValue);
         REF.full = 1;
         tableData();
-        log(REF.decimals)
     });
   
     const singleSelectHTML = singleSelect.createSingleSelect();

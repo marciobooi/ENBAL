@@ -57,33 +57,42 @@ function setupDefaultData() {
   defaultData = $("#dataTableContainer").DataTable().data().toArray();
 }
 
-  function addStyleNewRows() {
-    rowIndex.forEach(entry => {
-        if (entry) {
-            const table = $("#dataTableContainer").DataTable();
-            const index = entry[2];             
+function addStyleNewRows() {
+  rowIndex.forEach(entry => {
+      if (entry) {
+          const borderTop = '2px solid lightgrey';
+          const table = $("#dataTableContainer").DataTable();
+          const index = entry[2];
+          let marginLeft = 0; // Initialize the margin-left value
 
-            const typeToRowsMap = {
-                "TI_RPI_E": 8,
-                "TI_EHG_E": 13,
-                "TO_EHG": 12,
-                "TO_RPI": 8,
-                "FC_OTH_E": 2,
-                "FC_TRA_E": 1,
-                "FC_IND_E": 0, // No change
-            };
-    
-            const extraRows = typeToRowsMap[entry[0]] || 0;
+          const typeToRowsMap = {
+              "TI_RPI_E": 8,
+              "TI_EHG_E": 13,
+              "TO_EHG": 12,
+              "TO_RPI": 8,
+              "FC_OTH_E": 2,
+              "FC_TRA_E": 1,
+              "FC_IND_E": 0, // No change
+          };
 
-            let numRowsToAddClass = entry[1] + extraRows
- 
-            for (let i = 0; i < numRowsToAddClass; i++) {
-                table.row(index + i).nodes().to$().addClass('highlighted-row');
-                table.row(index + i).nodes().to$().find('td:first').css('margin-left', '.9rem'); // Adjust padding as needed
-            }
-        }
-    });
+          const extraRows = typeToRowsMap[entry[0]] || 0;
+          let numRowsToAddClass = entry[1] + extraRows;
+
+          for (let i = 0; i < numRowsToAddClass; i++) {
+              const row = table.row(index + i).nodes().to$();
+              row.addClass('highlighted-row');
+              if (i === 0) {
+                  row.css('border-top', borderTop);
+              }
+              const currentMarginLeft = parseFloat(row.find('td:first-child').css('margin-left')) || 0; // Get current margin-left value, or 0 if not set
+              marginLeft = Math.min(currentMarginLeft + 1, 2); // Limit margin-left to max 1.8rem
+              row.find('td:first-child').css('margin-left', `${marginLeft}rem`); // Set margin-left dynamically
+          }
+      }
+  });
 }
+
+
 
 
 function removeRows(id) {

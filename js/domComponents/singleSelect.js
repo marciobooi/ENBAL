@@ -23,7 +23,6 @@ class Singleselect {
         let optionsHTML = '';
 
         if (this.elementId === "selectCountry") {
-
             optionsHTML = `
             <optgroup label="Agreggates">
                 ${countriesAgregates.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''}>${languageNameSpace.labels[ctr]}</option>`).join('')}

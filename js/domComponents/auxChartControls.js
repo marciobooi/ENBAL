@@ -176,6 +176,7 @@ class ChartControls {
 		closeChart.setClickHandler(function() {
 		  removeAuxiliarBarGraphOptions();
 		  auxiliarBarGraphOptions = undefined
+		  closeTable()
 		});
 
 	  	  // Create the button elements

@@ -25,9 +25,9 @@ class Chart {
           plotBackgroundColor: null,
           plotBorderWidth: null,
           plotShadow: false,
+          spacingBottom: 50,
           style: {
             fontFamily: 'arial,sans-serif',
-            fontSize: 20, // Adjusted font size
             animation: true,
             duration: 1000,
           },
@@ -51,7 +51,7 @@ class Chart {
         colors: this.colors,
         tooltip: {
           formatter: this.tooltipFormatter,
-          valueDecimals: 4,
+          valueDecimals: REF.decimals,
           shared: true,
           useHTML: true,         
           padding: 5,
@@ -64,16 +64,19 @@ class Chart {
             align:'center',
           },   
         },
-        legend: this.legend,
-        legend: {          
+        legend: {                
           itemHiddenStyle: {
             color: '#767676'
           },
+          itemStyle: {
+            fontSize: '1rem',
+          }
         },
+        legend: this.legend,
         plotOptions: {
           column: this.columnOptions,
           pie: this.pieOptions,
-          series: this.seriesOptions,
+          // series: this.seriesOptions,
       },
         series: this.series,
         exporting: {         

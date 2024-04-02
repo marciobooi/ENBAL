@@ -42,6 +42,11 @@
     padding: 4px;
 }
 
+.tableRowIcon:focus  {
+    outline: 0 !important;
+    color: #ffffff;
+    background-color: #CCA300;
+}
 
 th.sorting_disabled > .tableHeader {
     display: flex;
@@ -143,5 +148,10 @@ tbody, td, tfoot, th, thead, tr {
 
 thead> tr > th:first-child {
     vertical-align: text-top;
-    text-align: center;
+    text-align: left;
+}
+
+.expanded {
+    height: 4rem;
+    font-weight: bold;
 }

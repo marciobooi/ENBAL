@@ -113,6 +113,7 @@ th.highcharts-text {
 .highcharts-tooltip span {
     white-space: initial !important;
     font-family: Arial, sans-serif !important;
+    font: normal normal 400 .8rem/1rem arial,sans-serif;
 }
 
 

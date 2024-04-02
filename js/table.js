@@ -33,6 +33,8 @@ function createDataTable(dataTable) {
       
         $(row).find("td:first-child").on('click', function() {
           const clickedRowIndex = $("#dataTableContainer").DataTable().row($(this).closest("tr")).index();
+          // $("#dataTableContainer").DataTable().row($(this).closest("tr")).addClass('expanded');
+         
           addExtraBal(dataTable[0], clickedRowIndex);
         });
 

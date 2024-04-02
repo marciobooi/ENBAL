@@ -596,7 +596,7 @@
   "POPDETAILS": "Afficher/masquer les détails",
   "POPSHARE": "Ouvrir le menu de partage",
   "POPMETA": "Ouvrir les métadonnées",
-  "POPDB": "Ouvrir la base de données",
+  "POPDB": "Ensemble de données ouvertes",
 
   "LINKS": "Liens",
   "COOKIES": "Cookies",
@@ -639,7 +639,7 @@
 
  "LOADINGTEXT": "Veuillez patienter pendant que nous traitons votre demande",
 
- "POPPERCENTAGES": "Basculer les pourcentages/les valeurs",
+ "POPPERCENTAGES": "Afficher les pourcentages/les valeurs",
 
  "DEC": "Décimal",
 
@@ -672,10 +672,10 @@
   "TOOLS": "Outils",
   "DB": "accéder à l'ensemble de données",
   "%": "en pourcentage",
-  "TOGGLEAGREGATES": "Basculer les agrégats",
-  "SHARE_T": "Partager sur Twitter",
-  "SHARE_F": "Partager sur Facebook",
-  "SHARE_L": "Partager sur LinkedIn",
+  "TOGGLEAGREGATES": "Afficher les agrégats",
+  "SHARE_T": "Twitter",
+  "SHARE_F": "Facebook",
+  "SHARE_L": "LinkedIn",
   "MENU_COUNTRY": "Sélectionnez un pays",
   "MENU_FUEL": "Sélectionner le carburant",
   "MENU_CONSUMER": "Sélectionner le consommateur",
@@ -685,16 +685,17 @@
   "MENU_SAVE_DIAGRAM": "Enregistrer ce diagramme",
   "MENU_YEARS": "Sélectionner l'année",
   "details": "Afficher les détails",
+  "hidDetails": "Masquer les détails",
   "POPCOLAPSE": "Réduire le flux",
   "TOP": "Remonter en haut",
   "INFO": "Afficher/masquer les informations",
   "DWL": "Télécharger l'image du graphique",
   "EMB": "Intégrer le graphique (iframe)",
   "SHA": "Partager sur les réseaux sociaux",
-  "TGLBAR": "Basculer le diagramme en barres",
-  "TGLPIE": "Basculer le diagramme circulaire",
-  "TGLLINE": "Basculer le diagramme linéaire",
-  "TGLTABLE": "Basculer la table",
+  "TGLBAR": "Afficher le diagramme en barres",
+  "TGLPIE": "Afficher le diagramme circulaire",
+  "TGLLINE": "Afficher le diagramme linéaire",
+  "TGLTABLE": "Afficher la table",
   "PRINT": "Imprimer le graphique",
   "DWNIMAGE": "Télécharger l'image du graphique",
   "DWNCHART": "Télécharger les données du graphique",
@@ -704,6 +705,7 @@
   "tutNEXT": "Suivant",
   "tutFINISH": "Fermer",
   "ACCESS": "Accessibilité",
-  "COPY": "Copier l'URL"
+  "COPY": "Copier l'URL",
+  "N/A": "Non disponible"
 
 }

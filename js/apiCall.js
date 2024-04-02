@@ -8,9 +8,7 @@ function apiCall() {
   REF.siecs = siec(REF.fuel);
 
     d = chartApiCall();      
-
-    log(d)
-    
+   
       const numRows = balances.length;
       const numColumns = REF.siecs.length;    
  

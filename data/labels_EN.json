@@ -472,7 +472,7 @@
   "POPDETAILS": "Show/hide details",
   "POPSHARE": "Open share menu",
   "POPMETA": "Open metadata",
-  "POPDB": "Open database",
+  "POPDB": "Open dataset",
 
   "KTOE":	"Thousand tonnes of oil equivalent",
   "GWH":	"Gigawatt-hour",
@@ -508,7 +508,7 @@
  "DATASET": "Dataset",
  
  "AGREGATES": "Show/hide EU aggregates",
- "POPPERCENTAGES": "Toggle percentages/values",
+ "POPPERCENTAGES": "Display percentages/values",
 
 
  "headingOne": "Maximum and minimum values",
@@ -545,10 +545,10 @@
  "TOOLS": "Tools",
  "DB": "access to dataset",
  "%": "in percentages",
- "TOGGLEAGREGATES": "Toggle aggregates",
- "SHARE_T": "Share on Twitter",
- "SHARE_F": "Share on facebook",
- "SHARE_L": "Share on linkedin",
+ "TOGGLEAGREGATES": "Display aggregates",
+ "SHARE_T": "Twitter",
+ "SHARE_F": "Facebook",
+ "SHARE_L": "Linkedin",
  "MENU_COUNTRY": "Select country",
  "MENU_FUEL": "Select fuel",
  "MENU_CONSUMER": "Select consumer",
@@ -559,16 +559,17 @@
  "MENU_MORE": "Find out more",
  "MENU_YEARS": "Select year",
  "details": "Show details",
+ "hidDetails": "Hide details",
  "POPCOLAPSE": "Colapse flow",
  "TOP" : "Go to top",
- "INFO": "Toggle info",
+ "INFO": "Display info",
  "DWL": "Download chart image",
  "EMB": "Embebed chart iframe",
  "SHA": "Share in social media",
- "TGLBAR": "Toggle bar Chart",
- "TGLPIE": "Toggle pie Chart",
- "TGLLINE": "Toggle line Chart",
- "TGLTABLE": "Toggle table",
+ "TGLBAR": "Display bar Chart",
+ "TGLPIE": "Display pie Chart",
+ "TGLLINE": "Display line Chart",
+ "TGLTABLE": "Display table",
  "PRINT": "Print chart",
  "DWNIMAGE": "Download chart image",
  "DWNCHART": "Download chart data",
@@ -578,6 +579,7 @@
  "tutNEXT": "Next",
  "tutFINISH": "Close",
  "ACCESS": "Accessibility",
- "COPY": "Copy the URL"
+ "COPY": "Copy the URL",
+ "N/A": "Not available"
   
 }

@@ -57,12 +57,21 @@ li > button {
 
 
 
-#menuSwitch label {
-    font-size: 0.8rem;
+#SHOW, #HIDE {
+    font-size: 1rem;
+} 
+
+#menuSwitch input[type="checkbox"]:checked + label {    
+    font-weight: bold;
+   
 }
 
-#menuSwitch input[type="checkbox"]:checked + label {    font-weight: bold;
-   
+.form-check-label:first-of-type {
+    margin-right: 10px; /* Adjust as needed */
+}
+
+.form-check-label:last-of-type {
+    margin-left: 10px; /* Adjust as needed */
 }
 
 #floatingMenu {
@@ -128,17 +137,13 @@ ul.dropdown-menu.dropdown-menu-end.show {
     background-color: #ffffff !important;
     color: #CCA300!important;
 }
-.tableRowIcon:focus  {
-    outline: 0 !important;
-    color: #ffffff;
-    background-color: #CCA300;
-}
 
 
 
 
 
-.form-switch.form-check-reverse {
+
+#switchBtn {
     padding-right: 2.5em;
     padding-left: 1rem;
 }
@@ -158,10 +163,10 @@ span.agregates.fa-stack.fa-rotate-180 {
 
 
 #btnCloseModalChart {
-    background-color: #ff000000 !important;
-    border-color: #E7EDFA!important;
-    color: #082B7A;
-    border: 3px solid #E7EDFA!important;
+    background-color: #cfdaf5 !important;
+    border-color: #cfdaf5!important;
+    color: #0e47cb;
+    border: 3px solid #cfdaf5!important;
     font-size: 1.7rem !important;
     /* position: absolute; */
     /* right: 4px; */
@@ -174,9 +179,9 @@ span.agregates.fa-stack.fa-rotate-180 {
 }
 
 #btnCloseModalChart:hover {
-    box-shadow: 0 0 0 0.15rem #cca3004d;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
+    box-shadow: 0 0 0 0.15rem #0e47cb4d;
+    background-color: #0e47cb!important;
+    border-color: #0e47cb !important;
     color: white !important;
 }
 
@@ -314,3 +319,4 @@ button#menu:focus, button#menu:active {
     box-shadow: 0 0 0 0.15rem #cca30000 !important;
     color: #0e47cb;
 }
+

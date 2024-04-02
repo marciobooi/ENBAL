@@ -19,7 +19,8 @@ function handleData(d, series ) {
             data.push(0);
             valores.shift();
           } else {
-            data.push(valores[0]);
+           val = valores[0] == null ? 0 : valores[0]
+            data.push(val);
             valores.shift();
           }          
             if (barcateg.length < series.length) {
@@ -60,8 +61,8 @@ function handleData(d, series ) {
     val2 = series.map((geo, yIdx) => {   
       barcateg.push(languageNameSpace.labels[geo]);
       const languageLabel = languageNameSpace.labels[geo];
-      const color = geo == "EU27_2020" ? '#14375a' : (geo == "EA" ? '#800000' : "#32afaf");
-      chartSeries.push({ name: languageLabel, y: d.value[yIdx], color }); 
+      const color = geo == "EU27_2020" ? '#CCA300' : (geo == "EA" ? '#208486' : "#0E47CB");
+      chartSeries.push({ name: languageLabel, y: d.value[yIdx] == null ? 0 : d.value[yIdx] , color }); 
     });
   }
 
@@ -109,9 +110,7 @@ function createBarChart() {
   const series = d.Dimension("geo").id;
   const categories = d.Dimension("geo").id;  
 
-  handleData(d, series);   
-
- 
+  handleData(d, series);    
 
   const yAxisTitle = d.__tree__.dimension.unit.category.label[REF.unit]   
 
@@ -119,11 +118,13 @@ function createBarChart() {
 
   const chartData = REF.details == 0 ? [{name: languageNameSpace.labels[REF.unit], data: chartSeries}] : orderedSeries.reverse();
 
-
+  const legendStatus = REF.details == 0 ? false : true ;
 
   const tooltipFormatter = function() {
     return tooltipTable(this.points) ;
   };
+
+  log(chartData)
 
 
   const chartOptions = {
@@ -139,15 +140,27 @@ function createBarChart() {
     creditsHref: "",
     series: chartData,
     colors: colors,
-    legend: {},
+    legend: {
+      enabled: legendStatus,
+      padding: 3,   
+      itemMarginTop: 5,
+      itemMarginBottom: 5,
+      itemHiddenStyle: {
+        color: '#767676'
+      },
+      itemStyle: {
+        fontSize: '.9rem',
+        fontWeight: 'light'
+      }
+    },
     columnOptions: {
         stacking: REF.stacking == "normal" ? "normal" : "percent",
         connectNulls: true,
         events: {
           mouseOver: function () {
             var point = this;
-            var color = point.color;
-            $('path.highcharts-label-box.highcharts-tooltip-box').css('stroke', color);
+            // var color = point.color;
+            // $('path.highcharts-label-box.highcharts-tooltip-box').css('stroke', color);
           }
         }
       },
@@ -163,6 +176,8 @@ changeLegendPisition(barChart);
 $(window).on('resize', function () {
   changeLegendPisition(barChart);
 });
+
+
 
 }
 

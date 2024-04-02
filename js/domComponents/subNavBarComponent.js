@@ -55,56 +55,59 @@ class SubNavbar {
                 <button class="btn btn-primary min-with--nav round-btn" type="button" aria-label="Share in social media" data-bs-toggle="dropdown" role="menuitem" title="Share chart" aria-haspopup="true" aria-expanded="true" id="shareChart1">
                   <i class="fas fa-share-alt" aria-hidden="true"></i>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="Share chart">     					
-                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.twitter()" aria-label="${languageNameSpace.labels['SHARE_T']}">${languageNameSpace.labels["SHARE_T"]}</button>
-                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.facebook()" aria-label="${languageNameSpace.labels['SHARE_F']}">${languageNameSpace.labels["SHARE_F"]}</button>
-                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.linkedin()" aria-label="${languageNameSpace.labels['SHARE_L']}">${languageNameSpace.labels["SHARE_L"]}</button>        
+
+
+
+                <ul class="dropdown-menu dropdown-menu-end" style="padding: 12px;" role="menu" aria-labelledby="Share chart">     			
+                  <p class="ecl-social-media-share__description" style="font-weight: normal;">Share this page</p>   		
+
+                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.twitter()" aria-label="${languageNameSpace.labels['SHARE_T']}">                  
+                      <span class="socialImg ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon">
+                        <img class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" src="img/social-media/twiter.svg" alt="Twitter Icon" width="24" height="24" focusable="false" aria-hidden="true">
+                      </span>
+                      <span class="ecl-link__label">${languageNameSpace.labels["SHARE_T"]}</span>                  
+                  </button>  
+
+                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.facebook()" aria-label="${languageNameSpace.labels['SHARE_F']}">
+                    <span class="socialImg ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon">
+                      <img class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" src="img/social-media/face.svg" alt="Facebook Icon" width="24" height="24" focusable="false" aria-hidden="true">
+                    </span>
+                    <span class="ecl-link__label">${languageNameSpace.labels["SHARE_F"]}</span>                  
+                  </button>
+
+                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.linkedin()" aria-label="${languageNameSpace.labels['SHARE_L']}">
+                    <span class="socialImg ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon">
+                      <img class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" src="img/social-media/linkdin.svg" alt="Linkedin Icon" width="24" height="24" focusable="false" aria-hidden="true">
+                    </span>
+                    <span class="ecl-link__label">${languageNameSpace.labels["SHARE_L"]}</span>                  
+                  </button>        
                 
+                
+      
 
                 
                 
                 
                 
-                
-    <div class="ecl-social-media-share">
-    <p class="ecl-social-media-share__description">Share this page</p>
-    <ul class="ecl-social-media-share__list">
-      <li class="ecl-social-media-share__item">
-        <a href="/component-library/example#n1gl5" class="ecl-link ecl-link--standalone ecl-link--icon ecl-social-media-share__link">
-          <svg class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" focusable="false" aria-hidden="true">
-            <use xlink:href="static/media/icons-social-media.35074b29.svg#twitter-color"></use>
-          </svg>
-          <span class="ecl-link__label">Twitter</span>
-        </a>
-      </li>
-      <li class="ecl-social-media-share__item">
-        <a href="/component-library/example#fd9y1" class="ecl-link ecl-link--standalone ecl-link--icon ecl-social-media-share__link">
-          <svg class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" focusable="false" aria-hidden="true">
-            <use xlink:href="/img/ecl-icons/icons-social-media.svg#facebook-color"></use>
-          </svg>
-          <span class="ecl-link__label">Facebook</span>
-        </a>
-      </li>
-      <li class="ecl-social-media-share__item">
-        <a href="/component-library/example#g0qyl" class="ecl-link ecl-link--standalone ecl-link--icon ecl-social-media-share__link">
-
-
-
-
-
-
-          <svg class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" focusable="false" aria-hidden="true">
-            <use xlink:href="/component-library/dist/media/icons-social-media.35074b29.svg#linkedin-color"></use>
-          </svg>
-          <span class="ecl-link__label">Linkedin</span>
-        </a>
-      </li>
-    </ul>
-  </div>
+    
                 
                 
                 
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
                 
                 
