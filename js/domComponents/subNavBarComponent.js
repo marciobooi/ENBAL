@@ -80,37 +80,7 @@ class SubNavbar {
                       <img class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" src="img/social-media/linkdin.svg" alt="Linkedin Icon" width="24" height="24" focusable="false" aria-hidden="true">
                     </span>
                     <span class="ecl-link__label">${languageNameSpace.labels["SHARE_L"]}</span>                  
-                  </button>        
-                
-                
-      
-
-                
-                
-                
-                
-    
-                
-                
-                
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-                
-                
+                  </button>
                  </ul>
               </li>  
 

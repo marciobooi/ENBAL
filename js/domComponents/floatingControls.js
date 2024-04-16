@@ -68,8 +68,6 @@ class FloatingChartControls {
           REF.component = switchElement.value === '1' ? 1 : 0;
         }     
 
-        log(switchElement.value)
-
         const hide = document.getElementById('HIDE');
         const show = document.getElementById('SHOW');
 
