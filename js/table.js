@@ -18,9 +18,11 @@ function createDataTable(dataTable) {
   const column = tableHeader(dataTable)
 
   table = $("#dataTableContainer").DataTable({
+    "autoWidth": true,
     dom: "Bfrtip",
     responsive: true,
     createdRow: function (row, dataTable, dataIndex) {
+      $('td:eq(0)', row).css('min-width', '12rem');
       $(row).attr("id", dataTable[0]);
 
       if (expandables.includes(dataTable[0])) {
@@ -42,7 +44,7 @@ function createDataTable(dataTable) {
       } else {
         $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}`);
       }
-  },
+    },
     scrollX:"true",
     columns: column,
     columnDefs: [      
@@ -82,7 +84,9 @@ function createDataTable(dataTable) {
       decimal: ",",
       thousands: " ",
     },  
-
+    fixedColumns: true,
+    scrollCollapse: true,
+    scrollX: true,
     buttons: [
       {
         className: 'exportpdf d-none',

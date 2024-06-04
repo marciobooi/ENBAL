@@ -78,15 +78,15 @@ function addStyleNewRows() {
           const extraRows = typeToRowsMap[entry[0]] || 0;
           let numRowsToAddClass = entry[1] + extraRows;
 
-          for (let i = 0; i < numRowsToAddClass; i++) {
-              const row = table.row(index + i).nodes().to$();
+          for (let i = 0; i < numRowsToAddClass; i++) {            
+            const row = $(table.row(index + i).node());
               row.addClass('highlighted-row');
-              if (i === 0) {
-                  row.css('border-top', borderTop);
+              if (i === 0) {                  
+                  $(row).prev('tr').addClass('previous-highlighted-row');            
               }
               const currentMarginLeft = parseFloat(row.find('td:first-child').css('margin-left')) || 0; // Get current margin-left value, or 0 if not set
               marginLeft = Math.min(currentMarginLeft + 1, 2); // Limit margin-left to max 1.8rem
-              row.find('td:first-child').css('margin-left', `${marginLeft}rem`); // Set margin-left dynamically
+              row.find('td:first-child').css('padding-left', `${marginLeft}rem`); // Set margin-left dynamically
           }
       }
   });

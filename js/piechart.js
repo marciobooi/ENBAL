@@ -66,8 +66,6 @@ function renderPieChart(chartBal) {
     return chartNormalTooltip(this.point);
   };
 
-  log(pieChartData)
-
   const chartOptions = {
     containerId: "chart",
     type: "pie",

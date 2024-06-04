@@ -37,6 +37,6 @@ img.card-img-top {
 }
 
 #desc {
-    max-height: 300px;
+    max-height: 8rem;
     overflow-y: auto;
 }
