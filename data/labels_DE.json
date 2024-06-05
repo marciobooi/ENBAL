@@ -705,6 +705,8 @@
   "COPY": "URL kopieren",
   "N/A": "Nicht verfügbar",
   "VAL": "Wert",
-  "VALS": "Werte"
+  "VALS": "Werte",
+  "SELECTLANGUAGE": "Wählen Sie Ihre Sprache",
+  "OFFICIAL": "Amtssprache der EU:"
 
 }

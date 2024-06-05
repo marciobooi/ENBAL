@@ -509,27 +509,26 @@ function makeOrderedSeries(categoriesAndStacks) {
 }
 
 $(document).ready(function () {
-  var mybutton = document.getElementById("toTop");
+  var topBtn = document.getElementById("toTop");
 
   window.onscroll = function () {
     scrollFunction();
   };
 
   function scrollFunction() {
-    if (
-      document.body.scrollTop > 600 ||
-      document.documentElement.scrollTop > 600
-    ) {
-      mybutton.style.display = "block";
+    if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+      topBtn.classList.add("show");
     } else {
-      mybutton.style.display = "none";
+      topBtn.classList.remove("show");
     }
   }
 });
 
 function topFunction() {
-  document.body.scrollTop = 0;
-  document.documentElement.scrollTop = 0;
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 

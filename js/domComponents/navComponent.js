@@ -1,8 +1,8 @@
 class Navbar {
   constructor() {
     this.createNavbar();
-    this.setupInitialLanguage();
-    this.setupEventListeners();
+    this.toggleDropdown = this.toggleDropdown.bind(this);
+    this.selectLanguage = this.selectLanguage.bind(this);
   }
 
   createNavbar() {
@@ -10,84 +10,218 @@ class Navbar {
     this.navbar.className = 'navbar navbar-top';
     this.navbar.setAttribute('role', 'navigation');
 
-    this.navbar.innerHTML = `
-    <div class="container-fluid">
+    this.navbar.innerHTML = /*html*/`
+    <div class="col-6 col-lg-6">
+      <div id="header-title">
+        <h1 id="header-title-label">${languageNameSpace.labels['MAINTITLE']}</h1>
+      </div>
+    </div>
 
-      <div class="col-6 col-lg-9">
-        <div id="header-title">
-        <h1 id="header-title-label">${languageNameSpace.labels["pub2"]}</h1>
-        </div>
+    <div class="col-3 col-lg-2" id="lang-section">
+      <button id="toggleLanguageBtn" type="button" class="btn btn-outline-primary" aria-expanded="false" aria-label="Change language, current language is English">
+        <i class="fas fa-globe" focusable="false" aria-hidden="true"></i><span id="lang-selection-text">English</span>
+      </button>
+      <div class="ecl-site-header__language-container" id="language-list-overlay" data-ecl-language-list-overlay="" aria-labelledby="ecl-site-header__language-title" role="dialog" aria-modal="true">
+      <div class="ecl-site-header__language-header">
+          <div class="ecl-site-header__language-title" id="ecl-site-header__language-title">${languageNameSpace.labels['SELECTLANGUAGE']}</div>
+          <button id="languageClsBtn" class="ecl-button ecl-button--ghost ecl-site-header__language-close" type="submit" data-ecl-language-list-close="" tabindex="0">
+              <span class="ecl-button__container">
+                  <span class="ecl-u-sr-only" data-ecl-label="true">Close</span>   
+                  <i class="fas fa-times-circle ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after" focusable="false" aria-hidden="true" data-ecl-icon=""></i>
+              </span>
+          </button>
       </div>
 
-      <div class="col-3 col-lg-1" id="lang-section">
-      <label for="lang-selection" class="visually-hidden">Select Language:</label>
-        <select id="lang-selection" class="form-select langSelect" tabindex="0" aria-labelledby="Select language" aria-expanded="false">
-          <option value="EN"><span class="bold">EN</span> English</option>
-          <option value="FR"><span class="bold">FR</span> Français</option>
-          <option value="DE"><span class="bold">DE</span> Deutsch</option>
-        </select>
+      <div class="ecl-site-header__language-content ecl-site-header__language-content--stack">
+          <div class="ecl-site-header__language-category ecl-site-header__language-category--3-col" data-ecl-language-list-eu="">
+              <div class="ecl-site-header__language-category-title">${languageNameSpace.labels['OFFICIAL']}</div>
+              <ul class="ecl-site-header__language-list">
+              <li class="ecl-site-header__language-item" id="EN" data-lang="EN" tabindex="0">
+                <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
+                  <span class="ecl-site-header__language-link-code">en</span>
+                  <span class="ecl-site-header__language-link-label">English</span>
+                </span>
+              </li>
+              <li class="ecl-site-header__language-item" id="DE"  data-lang="DE" tabindex="0">
+                <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
+                  <span class="ecl-site-header__language-link-code">de</span>
+                  <span class="ecl-site-header__language-link-label">Deutsch</span>
+                </span>
+              </li>
+              <li class="ecl-site-header__language-item" id="FR" data-lang="FR" tabindex="0">
+                <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
+                  <span class="ecl-site-header__language-link-code">fr</span>
+                  <span class="ecl-site-header__language-link-label">français</span>
+                </span>
+              </li>
+            </ul>
+          </div>     
       </div>
+  </div>
+    </div>
 
-      <div class="col-3  col-lg-2 logo"> 
-        <a id="home" href="https://ec.europa.eu/eurostat/web/main/home">
-          <img id="eurostatLogo" src="img/logo/estat_RGB_neg.png" alt="Eurostat - Official Logo">
-        </a>
-      </div>
+    <div class="col-3  col-lg-2 logo"> 
+    <a id="home" href="https://ec.europa.eu/eurostat/web/main/home">
+    <img id="eurostatLogo" src="img/logo/estat_RGB_neg.png" alt="Eurostat - Official Logo">
+      </a>
+    </div>
+  `;
+
+  const closeButton = this.navbar.querySelector(".ecl-site-header__language-close");
+
+  closeButton.addEventListener("click", this.toggleDropdown.bind(this));
+
+  this.langSelection = this.navbar.querySelector("#lang-section button");
+
+  const defaultLanguageItem = this.navbar.querySelector("#" + language);
+  
+  this.selectLanguage(defaultLanguageItem);
+
+  this.langSelection.addEventListener("keydown", this.handleButtonKeyDown.bind(this));
+
+  // Add event listener for keydown on the dropdown
+  const dropdown = this.langSelection.nextElementSibling;
+  if (dropdown) {
+    dropdown.addEventListener("keydown", this.handleDropdownKeyDown.bind(this));
+  }   
 
 
-    </div>`;
 
-    this.langSelection = this.navbar.querySelector("#lang-selection");
-  }
+  this.navbar.addEventListener('click', (event) => {
+    const langItem = event.target.closest(".ecl-site-header__language-item");
+    if (langItem) {
+        // Get the language value from the data-lang attribute
+        const langValue = langItem.dataset.lang;
+        
+        // Call the setLanguage method with the selected language
+        languageNameSpace.setLanguage(langValue);
 
-  setupInitialLanguage() {
-    const initialLanguage = REF.language;
-    for (let i = 0; i < this.langSelection.options.length; i++) {
-      if (this.langSelection.options[i].value === initialLanguage) {
-        this.langSelection.selectedIndex = i;
-        break;
-      }
+        // Call the selectLanguage method to update the UI
+        this.selectLanguage(langItem);
+
+        document.querySelector("#toggleLanguageBtn").focus()
     }
+});
+
+
+
+
+}
+
+
+selectLanguage(langItem) {
+  // Remove "active" class from all language items
+  const languageItems = this.navbar.querySelectorAll(".ecl-site-header__language-item");
+  languageItems.forEach(item => item.classList.remove("active"));
+
+  // Add "active" class to the selected language item
+  langItem.classList.add("active");
+
+  // Update button text with the selected language
+  const langLabel = langItem.querySelector(".ecl-site-header__language-link-label").textContent;
+  this.langSelection.innerHTML = `<i class="fas fa-globe" focusable="false" aria-hidden="true"></i>${langLabel}`;
+  this.langSelection.setAttribute("aria-label", `Change language, current language is ${langLabel}`); 
+
+}
+
+
+
+toggleDropdown() {
+  var dropdown = this.langSelection.nextElementSibling;
+  dropdown.classList.toggle("visible");
+
+  document.querySelector("#toggleLanguageBtn").focus()
+}
+
+handleButtonKeyDown(event) {
+  // Check if the dropdown is open
+  const dropdown = this.langSelection.nextElementSibling;
+  const isDropdownVisible = dropdown && dropdown.classList.contains("visible");
+
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    this.toggleDropdown();
   }
 
-  setupEventListeners() {
-    this.langSelection.addEventListener("change", this.handleLangSelectionChange.bind(this));
-    this.langSelection.addEventListener("keydown", this.handleLangSelectionKeydown.bind(this));
+  // Handle Tab key press
+  if (event.key === "Tab" && isDropdownVisible) {
+    event.preventDefault(); // Prevent the default behavior of the Tab key
 
-    // Adding the click event listener
-    this.langSelection.addEventListener("click", function (event) {
-      const isExpanded = this.langSelection.getAttribute("aria-expanded") === "true";
-      this.langSelection.setAttribute("aria-expanded", !isExpanded);
-    }.bind(this));
-  }
-
-  handleLangSelectionChange(event) {
-    const selectedValue = this.langSelection.value;
-    languageNameSpace.setLanguage(selectedValue);
-    REF.language = selectedValue;
-  }
-
-  handleLangSelectionKeydown(event) {
-    const key = event.key;
-    if (key === Key.ARROW_UP && this.langSelection.selectedIndex > 0) {
-      this.langSelection.selectedIndex -= 1;
-    } else if (key === Key.ARROW_DOWN && this.langSelection.selectedIndex < this.langSelection.options.length - 1) {
-      this.langSelection.selectedIndex += 1;
-    } else if (key === Key.ENTER) {
-      event.preventDefault();
-      const selectedValue = this.langSelection.value;
-      languageNameSpace.ChangeLanguage(selectedValue);
+    // Focus the first focusable item within the dropdown
+    const firstFocusableItem = dropdown.querySelector('.ecl-site-header__language-item:not([hidden])');
+    if (firstFocusableItem) {
+      firstFocusableItem.focus();
     }
-  }
-
-  addToDOM(targetElement) {
-    const container = document.querySelector(targetElement);
-    container.appendChild(this.navbar);
   }
 }
 
-const Key = {
-  ARROW_UP: "ArrowUp",
-  ARROW_DOWN: "ArrowDown",
-  ENTER: "Enter"
-};
+handleDropdownKeyDown(event) {
+  const focusableItems = [
+    '#EN',
+    '#DE',
+    '#FR',
+    '#languageClsBtn'
+  ].map(selector => this.navbar.querySelector(selector));
+
+
+  if (focusableItems.length === 0) return;
+
+  if (event.key === 'Tab') {
+    event.preventDefault();
+
+    const currentIndex = focusableItems.indexOf(document.activeElement);
+
+    if (!event.shiftKey && currentIndex === focusableItems.length - 1) {
+      // If Tab on the last item, focus the first item
+      focusableItems[0] && focusableItems[0].focus();
+    } else if (event.shiftKey && currentIndex === 0) {
+      // If Shift + Tab on the first item, focus the last item
+      focusableItems[focusableItems.length - 1] && focusableItems[focusableItems.length - 1].focus();
+    } else {
+      // Otherwise, move to the next or previous item based on Tab or Shift + Tab
+      const nextIndex = event.shiftKey ? currentIndex - 1 : currentIndex + 1;
+      focusableItems[nextIndex] && focusableItems[nextIndex].focus();
+    }
+  } else if (event.key === 'Enter' || event.key === 'Space') {
+    // If Enter or Space is pressed, prevent default action and handle the desired action
+    event.preventDefault();
+    
+    const activeElement = document.activeElement;
+    if (activeElement.id === 'languageClsBtn') {
+      // Handle action for close button
+      this.toggleDropdown();
+    } else {
+      // Handle action for language selection
+      const selectedLanguage = activeElement.closest('.ecl-site-header__language-item')  
+      const defaultLanguageItem = this.navbar.querySelector("#" + selectedLanguage.id);    
+      this.selectLanguage(defaultLanguageItem);
+      languageNameSpace.setLanguage(selectedLanguage.id);    
+
+      this.toggleDropdown();
+
+      document.querySelector("#toggleLanguageBtn").focus()
+    }
+  } else if (event.key === 'Escape') {
+      event.preventDefault();
+      this.toggleDropdown();
+    
+  }
+}
+
+addToDOM(targetElement) {
+  const container = document.querySelector(targetElement);
+  container.appendChild(this.navbar);
+
+  this.langSelection.addEventListener("click", this.toggleDropdown);
+
+
+
+  const languageItems = this.navbar.querySelectorAll(".ecl-site-header__language-item");
+  languageItems.forEach(item => {
+    item.addEventListener("click", () => {
+      this.selectLanguage(item);
+      this.toggleDropdown();
+    });
+  });
+}
+}

@@ -320,3 +320,32 @@ button#menu:focus, button#menu:active {
     color: #0e47cb;
 }
 
+
+
+#toTop {
+    opacity: 0; /* Initially invisible */
+    visibility: hidden; /* Initially hidden */
+    transition: opacity 0.8s, visibility 0.8s; /* Smooth transition for opacity and visibility */
+    position: fixed;
+    top: 92vh;
+    left: 20px;
+    z-index: 99;    
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: var(--tool-1) !important;
+    width: 2.5rem;
+    height: 2.5rem;  
+    font-size: 1.2em !important;
+}
+
+  #toTop:hover {   
+    border:none;
+    background-color: #CCA300!important;
+  }
+
+  #toTop.show {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Visible */
+  }

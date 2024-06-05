@@ -582,6 +582,8 @@
  "COPY": "Copy the URL",
  "N/A": "Not available",
  "VAL": "Value",
- "VALS": "Values"
+ "VALS": "Values",
+ "SELECTLANGUAGE": "Select language",
+ "OFFICIAL": "Official EU languages:"
   
 }

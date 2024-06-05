@@ -708,6 +708,8 @@
   "COPY": "Copier l'URL",
   "N/A": "Non disponible",
   "VAL": "Valeur",
-  "VALS": "Valeurs"
+  "VALS": "Valeurs",
+  "SELECTLANGUAGE": "Choisissez votre langue",
+  "OFFICIAL": "Langue officielle de l'UE:"
 
 }

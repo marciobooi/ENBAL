@@ -205,6 +205,10 @@ var languageNameSpace = {
 
       $("#search-input").attr('placeholder',languageNameSpace.labels['SEARCHAMEXBOX']);
 
+      $("#ecl-site-header__language-title").text(languageNameSpace.labels["SELECTLANGUAGE"]);
+      $(".ecl-site-header__language-category-title").text(languageNameSpace.labels["OFFICIAL"]);
+      
+
       //Country labels
       energyCountries["EU27_2020"] = languageNameSpace.labels["EU27_2020"];
       energyCountries["EU28"] = languageNameSpace.labels["EU28"];
