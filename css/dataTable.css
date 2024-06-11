@@ -838,7 +838,7 @@ tbody tr td:not(:first-child) {
 .tableHeader {
   display: flex;
   align-items: flex-end;
-  height: 6rem;
+  height: 7rem;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -869,4 +869,12 @@ tbody tr td:first-child {
 .previous-highlighted-row {
   border-bottom: 2px solid #6e91e0;
   font-weight: 700;
+}
+
+th.dt-orderable-none.dtfc-fixed-start.dtfc-fixed-left {
+  min-width: 15rem;
+}
+
+tr:hover {
+  font-weight: bold;
 }

@@ -1,10 +1,10 @@
 
 .ecl-modal--s .ecl-modal__content {
-    max-height: initial;
+    max-height: min(100vh, 575px);
 }
 
 .ecl-modal__container.ecl-container {
-    width: 55vw; 
+    width: 59vw; 
 }
 
 
@@ -19,7 +19,7 @@ header.ecl-modal__header {
 }
 
 .ecl-modal__body > p, #btnControl {
-    padding: 1rem !important;
+    padding: .5rem !important;
 }
 
 .ecl-modal__footer {
@@ -39,4 +39,18 @@ img.card-img-top {
 #desc {
     max-height: 8rem;
     overflow-y: auto;
+    font-size: .9rem;
 }
+
+p.text-end {
+    margin: 0;
+}
+
+.ecl-modal__header {
+    padding: 0.6rem 0.7rem;
+}
+
+#btnControl > .ecl-button--secondary, .ecl-modal__footer-content > #close {
+    padding: calc(0.65rem - 2px) calc(0.9rem - 2px);
+}
+
