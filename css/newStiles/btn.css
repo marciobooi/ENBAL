@@ -349,3 +349,65 @@ button#menu:focus, button#menu:active {
     opacity: 1; /* Fully visible */
     visibility: visible; /* Visible */
   }
+
+
+  button.btn.btn-outline-primary {
+    color: var(--eublue);
+    --bs-btn-border-color: transparent;
+    background-color: white;
+    border-radius: 0.2rem;
+}
+
+.btn:active, .btn:hover, .btn:focus-visible, .btn.show, .btn:focus {
+    box-shadow: 0 2px 4px rgb(167 186 231 / 19%), 0 0 10px rgb(167 186 231 / 19%), 0 4px 5px rgb(167 186 231 / 19%), 0 -4px 4px rgb(167 186 231 / 19%);
+    text-decoration: none;
+    color: white !important;
+    border-color: transparent !important;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
+}
+
+
+.button-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.roundBtn {
+    color: var(--eublue);
+    background: white;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em !important;
+    margin: 0 0.5rem 0 0.5rem;
+}
+
+.roundBtn:hover {
+    box-shadow: 0 0 0 0.15rem #cca3004d;
+    background-color: #CCA300!important;
+    border-color: #CCA300 !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:focus-visible {
+    color: white;
+    background-color: var(--eublue);
+    outline: -webkit-focus-ring-color auto 0px;
+}
+
+
+.button-container .dropdown-menu {
+    position: absolute;
+    top: 3.6rem;
+    transform: translateX(-20%);
+    border: 1px solid #515560;
+    border-radius: 2px;
+    box-shadow: 0 7px 8px rgb(9 49 142 / 8%), 0 0 22px rgb(9 49 142 / 4%), 0 12px 17px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%);
+    line-height: 1.15;
+}

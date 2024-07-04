@@ -7,64 +7,90 @@ class Navbar {
 
   createNavbar() {
     this.navbar = document.createElement('div');
-    this.navbar.className = 'navbar navbar-top';
-    this.navbar.setAttribute('role', 'navigation');
+    this.navbar.className = 'es_app_top';
+    this.navbar.setAttribute('role', 'banner');
 
     this.navbar.innerHTML = /*html*/`
-    <div class="col-6 col-lg-6">
-      <div id="header-title">
-        <h1 id="header-title-label">${languageNameSpace.labels['MAINTITLE']}</h1>
-      </div>
-    </div>
 
-    <div class="col-3 col-lg-2" id="lang-section">
-      <button id="toggleLanguageBtn" type="button" class="btn btn-outline-primary" aria-expanded="false" aria-label="Change language, current language is English">
-        <i class="fas fa-globe" focusable="false" aria-hidden="true"></i><span id="lang-selection-text">English</span>
-      </button>
-      <div class="ecl-site-header__language-container" id="language-list-overlay" data-ecl-language-list-overlay="" aria-labelledby="ecl-site-header__language-title" role="dialog" aria-modal="true">
-      <div class="ecl-site-header__language-header">
-          <div class="ecl-site-header__language-title" id="ecl-site-header__language-title">${languageNameSpace.labels['SELECTLANGUAGE']}</div>
-          <button id="languageClsBtn" class="ecl-button ecl-button--ghost ecl-site-header__language-close" type="submit" data-ecl-language-list-close="" tabindex="0">
-              <span class="ecl-button__container">
-                  <span class="ecl-u-sr-only" data-ecl-label="true">Close</span>   
-                  <i class="fas fa-times-circle ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after" focusable="false" aria-hidden="true" data-ecl-icon=""></i>
-              </span>
+
+
+
+  
+
+      <div class="container" id="es_app_header">
+        <div id="es_app_header_title" class="">
+          <h1 id="header-title-label" class="es_app_title">${languageNameSpace.labels['MAINTITLE']}</h1>
+        </div>
+        <div id="lang-section">
+          <button id="toggleLanguageBtn" type="button" class="btn btn-outline-primary" aria-expanded="false" aria-label="Change language, current language is English">
+            <i class="fas fa-globe" focusable="false" aria-hidden="true"></i>
+            <span id="lang-selection-text" class="btn-text">English</span>
           </button>
+          <div class="ecl-site-header__language-container" id="language-list-overlay" data-ecl-language-list-overlay="" aria-labelledby="ecl-site-header__language-title" role="dialog" aria-modal="true">
+          <div class="ecl-site-header__language-header">
+              <div class="ecl-site-header__language-title" id="ecl-site-header__language-title">${languageNameSpace.labels['SELECTLANGUAGE']}</div>
+              <button id="languageClsBtn" class="ecl-button ecl-button--ghost ecl-site-header__language-close" type="submit" data-ecl-language-list-close="" tabindex="0">
+                  <span class="ecl-button__container">
+                      <span class="ecl-u-sr-only" data-ecl-label="true">Close</span>   
+                      <i class="fas fa-times-circle ecl-icon ecl-button__icon ecl-button__icon--after" focusable="false" aria-hidden="true" data-ecl-icon=""></i>
+                  </span>
+              </button>
+          </div>
+    
+          <div class="ecl-site-header__language-content ecl-site-header__language-content--stack">
+              <div class="ecl-site-header__language-category ecl-site-header__language-category--3-col" data-ecl-language-list-eu="">
+                  <div class="ecl-site-header__language-category-title">${languageNameSpace.labels['OFFICIAL']}</div>
+                  <ul class="ecl-site-header__language-list">
+                  <li class="ecl-site-header__language-item" id="EN" data-lang="EN" tabindex="0">
+                    <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
+                      <span class="ecl-site-header__language-link-code">en</span>
+                      <span class="ecl-site-header__language-link-label">English</span>
+                    </span>
+                  </li>
+                  <li class="ecl-site-header__language-item" id="DE"  data-lang="DE" tabindex="0">
+                    <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
+                      <span class="ecl-site-header__language-link-code">de</span>
+                      <span class="ecl-site-header__language-link-label">Deutsch</span>
+                    </span>
+                  </li>
+                  <li class="ecl-site-header__language-item" id="FR" data-lang="FR" tabindex="0">
+                    <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
+                      <span class="ecl-site-header__language-link-code">fr</span>
+                      <span class="ecl-site-header__language-link-label">français</span>
+                    </span>
+                  </li>
+                </ul>
+              </div>     
+          </div>
       </div>
-
-      <div class="ecl-site-header__language-content ecl-site-header__language-content--stack">
-          <div class="ecl-site-header__language-category ecl-site-header__language-category--3-col" data-ecl-language-list-eu="">
-              <div class="ecl-site-header__language-category-title">${languageNameSpace.labels['OFFICIAL']}</div>
-              <ul class="ecl-site-header__language-list">
-              <li class="ecl-site-header__language-item" id="EN" data-lang="EN" tabindex="0">
-                <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
-                  <span class="ecl-site-header__language-link-code">en</span>
-                  <span class="ecl-site-header__language-link-label">English</span>
-                </span>
-              </li>
-              <li class="ecl-site-header__language-item" id="DE"  data-lang="DE" tabindex="0">
-                <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
-                  <span class="ecl-site-header__language-link-code">de</span>
-                  <span class="ecl-site-header__language-link-label">Deutsch</span>
-                </span>
-              </li>
-              <li class="ecl-site-header__language-item" id="FR" data-lang="FR" tabindex="0">
-                <span class="ecl-link ecl-link--standalone ecl-site-header__language-link">
-                  <span class="ecl-site-header__language-link-code">fr</span>
-                  <span class="ecl-site-header__language-link-label">français</span>
-                </span>
-              </li>
-            </ul>
-          </div>     
+        </div>
+        <div id="es_app_header_ribbon" style="">
+          <img alt="" src="https://ec.europa.eu/eurostat/cache/countryfacts/img/banner-graphical-element.svg">
+        </div>
+        <a id="es_app_title" tabindex="0" href="https://ec.europa.eu/eurostat/" target="_blank">
+          <img alt="Home - Eurostat" src="https://ec.europa.eu/eurostat/cache/countryfacts/img/estat-logo-horizontal.svg" class="d-inline es_logo">
+        </a>
       </div>
-  </div>
-    </div>
+ 
 
-    <div class="col-3  col-lg-2 logo"> 
-    <a id="home" href="https://ec.europa.eu/eurostat/web/main/home">
-    <img id="eurostatLogo" src="img/logo/estat_RGB_neg.png" alt="Eurostat - Official Logo">
-      </a>
-    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
   `;
 
   const closeButton = this.navbar.querySelector(".ecl-site-header__language-close");
@@ -112,14 +138,15 @@ class Navbar {
 selectLanguage(langItem) {
   // Remove "active" class from all language items
   const languageItems = this.navbar.querySelectorAll(".ecl-site-header__language-item");
-  languageItems.forEach(item => item.classList.remove("active"));
+  languageItems.forEach(item => item.classList.remove("ecl-site-header__language-link--active"));
 
   // Add "active" class to the selected language item
-  langItem.classList.add("active");
+  langItem.classList.add("ecl-site-header__language-link--active");
 
   // Update button text with the selected language
   const langLabel = langItem.querySelector(".ecl-site-header__language-link-label").textContent;
-  this.langSelection.innerHTML = `<i class="fas fa-globe" focusable="false" aria-hidden="true"></i>${langLabel}`;
+  this.langSelection.innerHTML = `<i class="fas fa-globe" focusable="false" aria-hidden="true"></i>
+  <span id="lang-selection-text" class="btn-text">${langLabel}</span>`;
   this.langSelection.setAttribute("aria-label", `Change language, current language is ${langLabel}`); 
 
 }

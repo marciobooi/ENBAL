@@ -1,29 +1,9 @@
-
-.navbar-top {
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    padding-top: 0.6rem;
-    padding-bottom: 0.5rem;
-    background: rgb(8, 43, 122);
-    background: linear-gradient(90deg, rgba(8, 43, 122, 1) 61%, rgba(14, 71, 203, 1) 88%);
-    color: white;
+.globan-invalid-domain {
+    display: none !important;
 }
 
-.nav-tabs .nav-link:focus,
-.nav-tabs .nav-link:hover {
-    color: white;
-    background-color: var(--nav-color);
-}
 
-#header-title-label {
-    font-size: 2.4rem;
-    font-weight: bold;
-    margin: 0;
-}
+
 
 select#lang-selection {
     width: 7.5rem;
@@ -35,9 +15,36 @@ select#lang-selection {
     color: var(--main-color);
 }
 
-img#eurostatLogo {
-    height: 1.5rem;
+#lang-section > button > i {
+    padding-right: 10px;
 }
+#lang-section > button > i {
+    line-height: 20px;
+}
+
+
+
+#lang-section {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#toggleLanguageBtn {
+    position: relative;
+}
+
+#language-list-overlay {
+    position: absolute;
+    top: 40px;
+}
+
+
+
+
+
 
 option:disabled {
     color: var(--bs-gray-500);
@@ -49,43 +56,11 @@ select:focus option:focus {
     background-color: #eaf2ff;
 }
 
-.globan-invalid-domain {
-    display: none !important;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    align-content: center;
-    flex-wrap: nowrap;
-    flex-direction: row;
-}
-
-img#eurostatLogo {
-    height: 1.5rem;
-}
 
 
-h1 {
-    font-size: 1.7rem;
-}
 
-button.btn.btn-outline-primary {
-    color: var(--eublue);
-    --bs-btn-border-color: transparent;
-    background-color: white;
-    border-radius: 0.2rem;
-}
 
-.btn:active, .btn:hover, .btn:focus-visible, .btn.show, .btn:focus {
-    box-shadow: 0 2px 4px rgb(167 186 231 / 19%), 0 0 10px rgb(167 186 231 / 19%), 0 4px 5px rgb(167 186 231 / 19%), 0 -4px 4px rgb(167 186 231 / 19%);
-    text-decoration: none;
-    color: white !important;
-    border-color: transparent !important;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
-}
+
 
 .ecl-site-header__language-container {
     display: none;
@@ -100,89 +75,201 @@ button.btn.btn-outline-primary {
     color:black
 }
 
-.ecl-site-header__language-category-title {
-    color:black
-}
-
-.active {
-    background-color: #e7edfa;
-    box-shadow: inset 4px 0 0 0 #0e47cb;
-    color: #171a22;
-}
-
-#lang-section > button > i {
-    padding-right: 10px;
-}
-#lang-section > button > i {
-    line-height: 20px;
-}
 
 
-#eurostatLogo {
-    height: 1.5rem;
-}
-
-#lang-section {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.button-container {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: center;
-}
-
-.roundBtn {
-    color: var(--eublue);
-    background: white;
-    border-radius: 50%;
-    width: 2.5rem;
-    height: 2.5rem;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em !important;
-    margin: 0 0.5rem 0 0.5rem;
-}
-
-.roundBtn:hover {
-    box-shadow: 0 0 0 0.15rem #cca3004d;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
-}
-
-.dropdown-item:focus, .dropdown-item:hover, .dropdown-item:focus-visible {
-    color: white;
-    background-color: var(--eublue);
-    outline: -webkit-focus-ring-color auto 0px;
-}
 
 
-.button-container .dropdown-menu {
-    position: absolute;
-    top: 3.6rem;
-    transform: translateX(-20%);
-    border: 1px solid #515560;
-    border-radius: 2px;
-    box-shadow: 0 7px 8px rgb(9 49 142 / 8%), 0 0 22px rgb(9 49 142 / 4%), 0 12px 17px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%);
-    line-height: 1.15;
-}
 
-#toggleLanguageBtn {
-    position: relative;
-}
 
-#language-list-overlay {
-    position: absolute;
-    top: 40px;
-}
+
 
 
 .ecl-site-header__language-link {
     cursor: pointer;
 }
+
+
+
+
+
+#es_app_header {
+    display: grid;
+    grid-template-columns: auto 190px 220px 190px;
+    min-height: 70px;
+    padding: 0px;
+    align-items: center;
+}
+
+
+
+.es_app_top {
+    padding: 0rem 1rem !important;
+    background-color: #082B7A;
+    background: linear-gradient(125deg, #082b7a 35%, #AFDFE9 75%, white 100%);
+}
+
+.es_app_top {
+    height: 21vh;
+    min-height: 99px;
+    max-height: 99px;
+}
+
+
+
+  #es_app_header_ribbon img {
+    max-height: 99px;
+  }
+  
+
+
+#header-title-label {
+    font-weight: 1000;
+    line-height: 100%;
+    margin-bottom: 0;
+    display: inline;
+    padding-right: 1rem;
+    padding-left: 2rem;
+    left: -2.2rem;
+    position: relative;
+    text-align: left;
+    font: normal normal bold 2.4rem / 2.6rem Arial;
+    letter-spacing: 0px;
+    color: #F3F6FC;
+    white-space: nowrap;
+}
+
+
+#es_app_header_ribbon img {
+    max-height: 99px;
+}
+
+
+.es_logo {
+    max-height: 26px;
+}
+
+.d-inline {
+    display: inline !important;
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    #header-title-label {
+        font-size: 2.15rem;
+    }
+    #es_app_header {
+        display: grid;
+        grid-template-columns: auto 190px 220px 190px;
+        min-height: 70px;
+        padding: 0px;
+        align-items: center;
+      }
+  .es_app_top, #es_app_header_ribbon img {
+    max-height: 108px;;
+  }
+}
+  @media (min-width: 577px) and (max-width: 768px) {
+      .es_app_title {
+          font-size: 2.15rem;
+      text-shadow: 0px 0px 2px #000;
+      }
+    .es_app_instructions {
+          font-size: 0.9rem;
+          margin-top: 0px;
+      }
+    #es_app_header {
+      max-width: 540px;
+      height: 100%;       
+      grid-template-columns: auto 80px 0 143px;
+      justify-content: center;
+    }
+    #es_app_header_ribbon { 
+      display: none;
+    }
+    .btn .btn-text {
+        display: none;
+      }
+
+      #toggleLanguageBtn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .es_logo {
+        max-height: 18px;
+    }
+    #language-list-overlay {
+        position: absolute;
+        top: 40px;
+        left: -72px;
+        width: 14rem;
+    }
+  }
+@media  (max-width: 576px) {
+    .es_app_top {
+      min-height: 70px;
+      max-height: 70px;
+      background: rgba(0,0,0,0) linear-gradient(280deg, #F6FAFC 0%, #AFDFE9 51%, #3E639D 73%, #122A75 90%, #082B7A 100%) 0% 0% no-repeat padding-box;
+    }
+    #header-title-label {
+      font-size: 1.5rem;
+      text-shadow: 0px 0px 2px #000;
+    }
+
+    #es_app_header {
+        height: 100%;       
+        grid-template-columns: auto 80px 0 143px;
+        justify-content: center;
+    }
+    #es_app_header_ribbon { 
+      display: none;
+    }
+    .btn .btn-text {
+        display: none;
+      }
+
+      #toggleLanguageBtn {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+    .es_logo {
+        max-height: 18px;
+    }
+    #language-list-overlay {
+        position: absolute;
+        top: 40px;
+        left: -72px;
+        width: 14rem;
+    }
+  
+  }
+
+
+
+
+
+
+
+  span.ecl-link.ecl-site-header__language-link {
+    text-decoration: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
