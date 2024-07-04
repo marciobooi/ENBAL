@@ -1940,7 +1940,7 @@
     border-color: #ccc #ccc #bbb;
     color: #333;
     display: block;
-    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-family: "Arial", sans-serif;
     position: relative;
     z-index: 9999
 }
@@ -4185,7 +4185,7 @@
 }
 
 .ecl-link--standalone {
-    font-family: arial, sans-serif;
+    font-family: "Arial", sans-serif;
     text-decoration: none
 }
 

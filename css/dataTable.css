@@ -875,6 +875,8 @@ th.dt-orderable-none.dtfc-fixed-start.dtfc-fixed-left {
   min-width: 15rem;
 }
 
-tr:hover {
+
+
+tr:hover td:not(:first-child) {
   font-weight: bold;
 }
