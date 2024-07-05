@@ -350,32 +350,91 @@ function download_DIVPdf() {
   // Add a header to the PDF
   doc.text(
     "" + languageNameSpace.labels[REF.geo] + "\n" + languageNameSpace.labels[REF.fuel] + " - " + REF.year + "",
-    doc.internal.pageSize.width / 2,
+    doc.internal.pageSize.getWidth() / 2,
     50,
     null,
     null,
     "center"
   );
 
+  // Calculate page width and margins
+  var pageWidth = doc.internal.pageSize.getWidth();
+  var margin = 20; // Set a margin of 20 units on each side
+  var availableWidth = pageWidth - margin * 2;
+
+  // Extract headers manually
+  var headers = [];
+  
+  $("#dataTableContainer_wrapper > div.dt-scroll > div.dt-scroll-head > div > table > thead > tr > th").each(function() {
+    var headerText = $(this).find('.tableHeader').text().trim() || $(this).text().trim();
+    if (headerText) {
+      headers.push(headerText);
+    }
+  });
+
+  // Extract body content manually
+  var body = [];
+  $("#dataTableContainer tbody tr").each(function() {
+    var row = [];
+    $(this).find("td").each(function() {
+      row.push($(this).text().trim());
+    });
+    body.push(row);
+  });
+
   // Add a table to the PDF using autoTable plugin
   doc.autoTable({
-    html: "#dataTableContainer", 
+    head: [headers],
+    body: body,
     theme: "striped",
-    tableWidth: 'auto',
-    tableLineWidth: 0,
     startY: 125,
-    columnStyles: {
-      0: {
-        cellWidth: 100,
-        halign: "left",
-      },
-    },
+    tableWidth: 'auto',
     styles: {
       fontSize: 5,
       cellPadding: 8,
-      halign: "right",
-      cellWidth: 53,
     },
+    columnStyles: {
+      0: {
+        cellWidth: 'wrap',
+        halign: "left",
+      },
+    },
+    didDrawPage: function (data) {
+      // Calculate the scale factor if the table exceeds the available width
+      var scaleFactor = 1;
+      if (data.table.width > availableWidth) {
+        scaleFactor = availableWidth / data.table.width;
+      }
+
+      // Apply scaling
+      if (scaleFactor < 1) {
+        data.table.width *= scaleFactor;
+        data.table.height *= scaleFactor;
+        data.table.rows.forEach(function (row) {
+          row.height *= scaleFactor;
+          row.cells.forEach(function (cell) {
+            cell.width *= scaleFactor;
+            cell.height *= scaleFactor;
+            cell.text = cell.text.map(function (text) {
+              return {
+                width: text.width * scaleFactor,
+                text: text.text,
+              };
+            });
+          });
+        });
+      }
+    },
+    didParseCell: function (data) {
+      // Ensure each cell fits within the available width
+      if (data.cell.raw && data.cell.text) {
+        var cellFontSize = (data.styles && data.styles.fontSize) ? data.styles.fontSize : 5; // Default fontSize if undefined
+        var maxCellWidth = availableWidth / data.table.columns.length;
+        if (data.cell.text[0].length * cellFontSize > maxCellWidth) {
+          data.cell.styles.cellWidth = maxCellWidth;
+        }
+      }
+    }
   });
 
   // Add an image to the PDF
@@ -387,6 +446,14 @@ function download_DIVPdf() {
   img.crossOrigin = "";
   img.src = "img/logo.png"; // Replace with the correct path to your image
 }
+
+
+
+
+
+
+
+
 
 if (isMobile) {
   chartheight = (9 / 16) * 77 + "%";
