@@ -39,6 +39,7 @@ select#lang-selection {
 #language-list-overlay {
     position: absolute;
     top: 40px;
+    z-index: 99999999999;
 }
 
 

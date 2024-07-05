@@ -1,22 +1,20 @@
 {
 	"START_TOUR_TITLE": "Introduction",
-	"START_TOUR_TEXT": "Welcome to the tutorial of Eurostat's energy balance visualisation tool. This guided tour will show you the main ways of interacting with the tool. For a more detailed documentation click <a target='_blank' href = 'https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_balance_-_new_methodology'>here</a>.",
+	"START_TOUR_TEXT": "Welcome to the tutorial of Eurostat's energy balance visualisation tool. This guided tour will show you the main ways of interacting with the tool. For more detailed documentation, follow this link to access the <a target='_blank' href = 'https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_balance_-_new_methodology'>energy balance</a> page.",
 	"TUTO_1": "Menu",
 	"TUTO_2": "The tool contains a menu for additional features. Click on the menu icon to customize the chart. Click next to learn about the menu options.",
 	"TUTO_3": "Info",
-	"TUTO_4": "Use this menu to access the tutorial or metadata or send some feedback",
-	"TUTO_5": "Download options",
-	"TUTO_6": "Click here to download a picture or data.",
-	"TUTO_7": "Embebbed",
-	"TUTO_8": "use this button to embebed the chart in other tools",
-	"TUTO_9": "Expand flows",
-	"TUTO_10": "Use this option to expand the flows of the energy balance table",
-	"TUTO_11": "Visualisation menu",
-	"TUTO_12": "Use this option to visualise the data of the energy balance table using pie charts, bar charts or line charts",	
-	"TUTO_21": "Social-media",
-	"TUTO_22": "Sharing it with others on Twitter, Facebook, e-mail and LinkedIn will help us improve our tool. Thank you!",
-
+	"TUTO_4": "Use this menu to access the tutorial, metadata, or send feedback.",
+	"TUTO_5": "Download Options",
+	"TUTO_6": "Use this option to download a picture or data.",
+	"TUTO_7": "Embed",
+	"TUTO_8": "Use this button to embed the chart in other tools.",
+	"TUTO_9": "Expand Flows",
+	"TUTO_10": "Use this option to expand the flows of the energy balance table.",
+	"TUTO_11": "Visualisation Menu",
+	"TUTO_12": "Use this option to visualise the data of the energy balance table using pie charts, bar charts, or line charts.",
+	"TUTO_21": "Social Media",
+	"TUTO_22": "Sharing it with others on X (old Twitter), Facebook, email, and LinkedIn will help us improve our tool. Thank you!",
 	"END_TOUR_TITLE": "That is it for our tour.",
-	"END_TOUR_TEXT": "All the images illustrating the definitions in this tool are coming from Unsplash or pixabay.<br>If you find this visualisation tool useful, please share it with others using our social media buttons. Thank you!"
-
+	"END_TOUR_TEXT": "All the images illustrating the definitions in this tool are coming from Unsplash or Pixabay.<br>If you find this visualisation tool useful, please share it with others using our social media buttons. Thank you!"
 }
