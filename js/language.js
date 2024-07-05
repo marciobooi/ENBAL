@@ -272,6 +272,7 @@ var languageNameSpace = {
  
       $("#close").html(languageNameSpace.labels["CLS"]);
       $("#share").html(languageNameSpace.labels["COPY"]);
+      $(".ecl-social-media-share__description").html(languageNameSpace.labels["SHARE"]);
 
 
     });

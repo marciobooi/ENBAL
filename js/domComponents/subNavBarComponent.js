@@ -59,7 +59,7 @@ class SubNavbar {
 
 
                 <ul class="dropdown-menu dropdown-menu-end" style="padding: 12px;" role="menu" aria-labelledby="Share chart">     			
-                  <p class="ecl-social-media-share__description" style="font-weight: normal;">Share this page</p>   		
+                  <p class="ecl-social-media-share__description" style="font-weight: normal;">${languageNameSpace.labels['SHARE']}</p>   		
 
                   <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.twitter()" aria-label="${languageNameSpace.labels['SHARE_T']}">                  
                       <span class="socialImg ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon">
@@ -75,7 +75,7 @@ class SubNavbar {
                     <span class="ecl-link__label">${languageNameSpace.labels["SHARE_F"]}</span>                  
                   </button>
 
-                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.linkedin()" aria-label="${languageNameSpace.labels['SHARE_L']}">
+                  <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="socialNameSpace.linkedIn()" aria-label="${languageNameSpace.labels['SHARE_L']}">
                     <span class="socialImg ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon">
                       <img class="ecl-icon ecl-icon--m ecl-link__icon ecl-social-media-share__icon" src="img/social-media/linkdin.svg" alt="Linkedin Icon" width="24" height="24" focusable="false" aria-hidden="true">
                     </span>

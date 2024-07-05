@@ -124,3 +124,10 @@ tspan#credits {
   fill: #262B38 !important;
 }
 
+.ecl-link--standalone, .ecl-link {
+ text-decoration: none !important;
+}
+.ecl-link--standalone:hover, .ecl-link:hover {
+ text-decoration: underline !important;
+}
+
