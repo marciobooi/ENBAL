@@ -207,6 +207,7 @@ var languageNameSpace = {
 
       $("#ecl-site-header__language-title").text(languageNameSpace.labels["SELECTLANGUAGE"]);
       $(".ecl-site-header__language-category-title").text(languageNameSpace.labels["OFFICIAL"]);
+      $("#toTop").attr("aria-label", languageNameSpace.labels['TOP'])
       
 
       //Country labels
