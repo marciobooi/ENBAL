@@ -43,13 +43,30 @@ class Singleselect {
             
         `;
         } else {
-            // For other elementIds, create options based on the provided optionsArray
-            optionsHTML = this.optionsArray.map(option => `
-                <option value="${option}" ${this.activeElement === option ? 'selected' : ''}>
-                    ${languageNameSpace.labels[option] !== undefined ? languageNameSpace.labels[option] : option}
+            const translatedOptions = this.optionsArray.map(option => {
+                const isNumber = !isNaN(option);
+                return {
+                    value: option,
+                    label: isNumber ? option : (languageNameSpace.labels[option] !== undefined ? languageNameSpace.labels[option] : option),
+                    isNumber: isNumber
+                };
+            });            
+           
+            translatedOptions.sort((a, b) => {
+                if (a.isNumber && b.isNumber) return 0; // Do not sort numbers
+                if (a.isNumber) return -1; // Keep numbers at the beginning
+                if (b.isNumber) return 1;  // Keep numbers at the beginning
+                return a.label.localeCompare(b.label); // Sort by label
+            });
+
+             optionsHTML = translatedOptions.map(option => `
+                <option value="${option.value}" ${this.activeElement === option.value ? 'selected' : ''}>
+                    ${option.label}
                 </option>
             `).join('');
         }
+
+    
 
         // Generate the full HTML for the single select element
         const singleSelectHTML = `
