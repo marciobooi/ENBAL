@@ -616,7 +616,7 @@
 
   "IND": "Carburant",
   "CTR": "Pays",
-  "YEAR": "Anné",  
+  "YEAR": "Année",  
   "UNIT": "Unité",
   "pub2": "Bilans énergétiques",
   "pub": "Publications",
@@ -711,6 +711,12 @@
   "VALS": "Valeurs",
   "SELECTLANGUAGE": "Choisissez votre langue",
   "OFFICIAL": "Langue officielle de l'UE:",
- "SHARE": "Partager"
+ "SHARE": "Partager",
+
+ "AGGREGATE": "Agrégat",
+ "EUCTR": "Pays de l'UE",
+ "EFTA": "Pays de l'AELE",
+ "ENLARGEMENT": "Pays en élargissement",
+ "OTHERCTR": "Autres pays tiers"
 
 }

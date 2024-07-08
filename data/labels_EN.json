@@ -486,7 +486,7 @@
 
   "IND": "Fuel",
   "CTR": "Countries",
-  "YEAR": "Years",
+  "YEAR": "Year",
   "UNIT": "Unit",
   "sharemodaltitle": "Embed chart",
   "msg": "Text copied to clipboard",
@@ -585,6 +585,12 @@
  "VALS": "Values",
  "SELECTLANGUAGE": "Select language",
  "OFFICIAL": "Official EU languages:",
- "SHARE": "Share"
+ "SHARE": "Share",
+
+ "AGGREGATE": "Aggregate",
+ "EUCTR": "EU countries",
+ "EFTA": "EFTA countries",
+ "ENLARGEMENT": "Enlargement countries",
+ "OTHERCTR": "Other third countries"
   
 }

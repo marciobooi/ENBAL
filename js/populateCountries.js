@@ -1,4 +1,3 @@
-
 function populateCountries() {
 
   const target = document.querySelector("#containerCountries");
