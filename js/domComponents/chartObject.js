@@ -42,6 +42,9 @@ class Chart {
         yAxis: {
           labels: {
             format: this.yAxisFormat,
+            formatter: function () {
+              return Math.round(this.value); // Remove decimals by rounding to the nearest integer
+            }
           },
           title: {
             enabled: true,

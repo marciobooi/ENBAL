@@ -3615,7 +3615,7 @@
           return (this.style = c(
             {
               fontFamily:
-                '"Lucida Grande", "Lucida Sans Unicode", Arial, Helvetica, sans-serif',
+                'Arial,  sans-serif',                
               fontSize: "12px",
             },
             a
