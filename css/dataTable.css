@@ -881,3 +881,40 @@ th.dt-orderable-none.dtfc-fixed-start.dtfc-fixed-left {
 tr:hover td:not(:first-child) {
   font-weight: bold;
 }
+
+span.dt-column-order {
+  display: none;
+  visibility: hidden;
+}
+
+table.dataTable {
+  width: 100%;
+  margin: 0 0;
+  border-spacing: 0;
+}
+
+table.dataTable > thead > tr > th, 
+table.dataTable > thead > tr > td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    height: 5rem;
+    vertical-align: top;
+}
+
+.tableHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribute space evenly */
+  align-items: flex-start; /* Align items to the start */
+  width: 100%;
+  height: 100%; /* Ensure it takes the full height of the th */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.tableInfoIcon {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    align-self: flex-end; /* Align button to the end */
+}
