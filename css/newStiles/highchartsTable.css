@@ -160,7 +160,13 @@ th.highcharts-text {
     padding: 5px;
 }
 
+#tooltipTable > tbody > tr:last-child {
+    font-size: 15px !important;
+    font-weight: bold;
+    line-height: 28px;
+}
 
-
-
+#tooltipTable > tbody > tr:last-child > td:first-child {
+    justify-content: flex-end;
+}
 

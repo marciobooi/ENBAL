@@ -1144,7 +1144,7 @@ function tooltipTable(points) {
   } else {
     let html = "";
     let totalAdded = false; // Flag to track if the total row has been added
-    let totalColor = "rgb(14, 71, 203)";
+    let totalColor = "";
     
     // Sort the points so that the "Total" item is at the last place
     const sortedPoints = points.sort(function (a, b) {
@@ -1208,7 +1208,7 @@ function tooltipTable(points) {
     
         // Add a row for the total
         html += `<tr>
-          <td><svg width="10" height="10" style="vertical-align: baseline;"><circle cx="5" cy="5" r="3" fill="${totalColor}" /></svg> ${languageNameSpace.labels['TOTAL']}</td>
+          <td> ${languageNameSpace.labels['TOTAL']}</td>
           <td>${totalValue}</td>
         </tr>`;
       }
