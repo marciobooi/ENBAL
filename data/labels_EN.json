@@ -474,10 +474,10 @@
   "POPMETA": "Open metadata",
   "POPDB": "Open dataset",
 
-  "KTOE":	"Thousand tonnes of oil equivalent",
-  "GWH":	"Gigawatt-hour",
-  "TJ": "Terajoule",  
-
+  "KTOE":	"Thousand tonnes of oil equivalent (KTOE)",
+  "GWH":	"Gigawatt-hour (GWH)",
+  "TJ": "Terajoule (TJ)",  
+  
 
   "PROTO": "Protocol order",
   "ALPHA": "Alphabetical order",

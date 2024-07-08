@@ -280,9 +280,9 @@
   "KGOE_TEUR_PPS": "Kilogramm Rohöleinheiten (KGRÖE) pro Tausend Euro in Kaufkraftstandards (KKS)",
   "THS_T": "Tausend Tonnen",
   "KOE": "Kilogramm Öläquivalent",
-  "KTOE": "Tausend Tonnen Öläquivalent",
-  "GWH": "Gigawattstunde",
-  "TJ": "Terajoule",
+  "KTOE": "Tausend Tonnen Öläquivalent (KTOE)",
+  "GWH": "Gigawattstunde (GWH)",
+  "TJ": "Terajoule (TJ)",
 
   "chart_1": "Energieeffizienz",
   "chart_2": "Anteil von Energie aus erneuerbaren Quellen",

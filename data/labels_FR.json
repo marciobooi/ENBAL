@@ -282,9 +282,9 @@
   "KGOE_TEUR_PPS": "Kilogrammes d'equivalent pétrole (KGEP) par millier d'euros en standards de pouvoir d'achat (SPA)",
   "THS_T": "Mille tonnes",
   "KOE": "kilogrammes d'équivalent pétrole",
-  "KTOE": "Mille tonnes d'équivalent pétrole",
-  "GWH": "Gigawatt-heure",
-  "TJ": "Terajoule",
+  "KTOE": "Kilotonnes équivalent pétrole (KTOE)",
+  "GWH": "Gigawatt-heure (GWH)",
+  "TJ": "Térajoule (TJ)",
 
   "chart_1": "Efficacité énergétique",
   "chart_2": "Part de l'énergie produite à partir de sources renouvelables",
