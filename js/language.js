@@ -127,11 +127,11 @@ var languageNameSpace = {
 
       $("#header-title-label").text(languageNameSpace.labels["pub2"]);   
 
-      $('label[for="selectCountry"]').text(languageNameSpace.labels["COUNTRY"]);
-      $('label[for="selectFuel"]').text(languageNameSpace.labels["FUEL"]);
-      $('label[for="selectYear"]').text(languageNameSpace.labels["REFERENCE"]);
-      $('label[for="selectDecimals"]').text(languageNameSpace.labels["DECIMALS"]);
-      $('label[for="selectUnit"]').text(languageNameSpace.labels["UNIT"]);
+      // $('label[for="selectCountry"]').text(languageNameSpace.labels["COUNTRY"]);
+      // $('label[for="selectFuel"]').text(languageNameSpace.labels["FUEL"]);
+      // $('label[for="selectYear"]').text(languageNameSpace.labels["REFERENCE"]);
+      // $('label[for="selectDecimals"]').text(languageNameSpace.labels["DECIMALS"]);
+      // $('label[for="selectUnit"]').text(languageNameSpace.labels["UNIT"]);
 
 
       $('tbody tr').each(function () {
@@ -188,11 +188,11 @@ var languageNameSpace = {
       $("#downloadChart > ul > button:nth-child(2)").attr("aria-label", languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']).html(languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']);
       $("#downloadChart > ul > button:nth-child(3)").attr("aria-label", languageNameSpace.labels['POPDOWNLOADTABLECSV']).html(languageNameSpace.labels['POPDOWNLOADTABLECSV']);
 
-      $(".IND").text(languageNameSpace.labels["IND"]);
-      $(".CTR").text(languageNameSpace.labels["CTR"]);
-      $(".YEAR").text(languageNameSpace.labels["YEAR"]);
-      $(".UNIT").text(languageNameSpace.labels["UNIT"]);
-      $(".DEC").text(languageNameSpace.labels["DEC"]);
+      // $(".IND").text(languageNameSpace.labels["IND"]);
+      // $(".CTR").text(languageNameSpace.labels["CTR"]);
+      // $(".YEAR").text(languageNameSpace.labels["YEAR"]);
+      // $(".UNIT").text(languageNameSpace.labels["UNIT"]);
+      // $(".DEC").text(languageNameSpace.labels["DEC"]);
 
       document.getElementById('toTop').setAttribute('aria-label', languageNameSpace.labels["TOP"]);    
 
@@ -289,6 +289,8 @@ var languageNameSpace = {
     populateCountries();
     populateFuel();
     populateUnit();
+    populateDecimals();
+    populateYearsData();
     if (REF.language === "FR") {
       $("th:nth-child(10)").css('width', '11rem');
     } else {
