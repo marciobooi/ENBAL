@@ -508,7 +508,7 @@
  "DATASET": "Dataset",
  
  "AGREGATES": "Show/hide EU aggregates",
- "POPPERCENTAGES": "Display percentages/values",
+
 
 
  "headingOne": "Maximum and minimum values",
@@ -545,7 +545,7 @@
  "TOOLS": "Tools",
  "DB": "access to dataset",
  "%": "in percentages",
- "TOGGLEAGREGATES": "Display aggregates",
+
  "SHARE_T": "Twitter",
  "SHARE_F": "Facebook",
  "SHARE_L": "Linkedin",
@@ -562,14 +562,18 @@
  "hidDetails": "Hide details",
  "POPCOLAPSE": "Colapse flow",
  "TOP" : "Go to top",
- "INFO": "Display info",
  "DWL": "Download chart image",
  "EMB": "Embebed chart iframe",
  "SHA": "Share in social media",
- "TGLBAR": "Display bar Chart",
- "TGLPIE": "Display pie Chart",
- "TGLLINE": "Display line Chart",
- "TGLTABLE": "Display table",
+
+ "TOGGLEAGREGATES": "Show aggregates",
+ "INFO": "Show info",
+ "TGLBAR": "Show bar Chart",
+ "TGLPIE": "Show pie Chart",
+ "TGLLINE": "Show line Chart",
+ "TGLTABLE": "Show table",
+ "POPPERCENTAGES": "Show percentages/values",
+
  "PRINT": "Print chart",
  "DWNIMAGE": "Download chart image",
  "DWNCHART": "Download chart data",

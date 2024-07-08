@@ -627,7 +627,7 @@
   "tableYear": "Jahr",
   "tableUnit": "Einheit",
 
-  "POPPERCENTAGES": "Prozentsätze/Werte anzeigen",
+
 
   "DEC": "Dezimalstellen",
 
@@ -669,7 +669,7 @@
   "TOOLS": "Werkzeuge",
   "DB": "zugriff auf Datensatz",
   "%": "in Prozent",
-  "TOGGLEAGREGATES": "Aggregatzustände anzeigen",
+
   "SHARE_T": "Twitter",
   "SHARE_F": "Facebook",
   "SHARE_L": "LinkedIn",
@@ -685,14 +685,24 @@
   "hidDetails": "Details ausblenden",
   "POPCOLAPSE": "Fluss zusammenklappen",
   "TOP": "Nach oben gehen",
-  "INFO": "Info ein-/ausschalten",
-  "DWL": "Diagrammbild herunterladen",
-  "EMB": "Diagramm einbetten (iframe)",
-  "SHA": "In sozialen Medien teilen",
-  "TGLBAR": "Säulendiagramm anzeigen",
+
+
+
+  "TOGGLEAGREGATES": "Aggregate anzeigen",
+  "INFO": "Info anzeigen",
+  "TGLBAR": "Balkendiagramm anzeigen",
   "TGLPIE": "Kreisdiagramm anzeigen",
   "TGLLINE": "Liniendiagramm anzeigen",
   "TGLTABLE": "Tabelle anzeigen",
+  "POPPERCENTAGES": "Prozentsätze/Werte anzeigen",
+
+  "DWL": "Diagrammbild herunterladen",
+  "EMB": "Diagramm einbetten (iframe)",
+  "SHA": "In sozialen Medien teilen",
+
+
+
+
   "PRINT": "Diagramm drucken",
   "DWNIMAGE": "Diagrammbild herunterladen",
   "DWNCHART": "Diagrammdaten herunterladen",
