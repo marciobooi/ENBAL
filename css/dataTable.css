@@ -374,7 +374,7 @@ table.dataTable > tbody > tr.selected a {
 }
 table.dataTable > tbody > tr > th,
 table.dataTable > tbody > tr > td {
-  padding: 8px 10px;
+  padding: 8px 2px;
 }
 table.dataTable.row-border > tbody > tr > *, table.dataTable.display > tbody > tr > * {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
@@ -769,27 +769,37 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
     font-size: 1.2rem;
 }
 .tableRowIcon {
-    color: var(--tool-1);
-    background-color: white;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    border: 1px solid var(--tool-1);
-    margin-bottom: -3px;
-
+  color: var(--tool-1);
+  background-color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  border: 1px solid var(--tool-1);
+  margin-bottom: -3px;
+  width: 25px;
+  height: 24px;
+  padding: 0;
+  position: relative;
 }
+
+.tableRowIcon i {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 
 .tableRowIcon:hover {
     background-color: var(--tool-1);
     color: white;
 }
 
-.tableRowIcon i {
-    font-size: 7px;
-    display: block;
-    margin: auto;
-    padding: 4px;
-}
+
 
 .tableRowIcon:focus  {
     outline: 0 !important;
@@ -814,14 +824,17 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
     position: relative;
     padding: 0.65rem;
     margin: 0.1rem;
+    width: 34px;
+    height: 34px;
 }
 
 .chartIcon > i {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1rem;
 }
 
 
@@ -878,9 +891,6 @@ th.dt-orderable-none.dtfc-fixed-start.dtfc-fixed-left {
 
 
 
-tr:hover td:not(:first-child) {
-  font-weight: bold;
-}
 
 span.dt-column-order {
   display: none;
@@ -904,17 +914,42 @@ table.dataTable > thead > tr > td {
 .tableHeader {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* Distribute space evenly */
-  align-items: flex-start; /* Align items to the start */
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
-  height: 100%; /* Ensure it takes the full height of the th */
-  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  height: 100%;
+  box-sizing: border-box;
 }
 
 .tableInfoIcon {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    align-self: flex-end; /* Align button to the end */
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  align-self: flex-end;
+  font-size: 1.8rem;
+}
+
+
+
+/* Hover effect for entire row */
+table.dataTable tbody tr:hover {
+  background-color: #cfdaf5;
+  font-weight: bold;
+}
+
+/* Hover effect for fixed start column */
+table.dataTable tbody tr:hover > .dtfc-fixed-start {
+  background-color: #cfdaf5;
+  font-weight: bold;
+}
+
+/* Ensure fixed start column retains hover effect */
+table.dataTable tbody tr > .dtfc-fixed-start {
+  transition: background-color 0.3s;
+}
+
+/* Optional: Transition effect for smooth background color change */
+table.dataTable tbody tr {
+  transition: background-color 0.3s;
 }

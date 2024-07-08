@@ -561,7 +561,7 @@
  "details": "Show details",
  "hidDetails": "Hide details",
  "POPCOLAPSE": "Colapse flow",
- "TOP" : "Go to top",
+ "TOP" : "Back to top",
  "DWL": "Download chart image",
  "EMB": "Embebed chart iframe",
  "SHA": "Share in social media",
@@ -596,5 +596,7 @@
  "EFTA": "EFTA countries",
  "ENLARGEMENT": "Enlargement countries",
  "OTHERCTR": "Other third countries"
+
+
   
 }
