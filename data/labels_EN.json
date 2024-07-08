@@ -459,7 +459,7 @@
   "POPINFO": "Open balance info",
   "POPINFOPRODUCTS": "Open product info",
 
-  "POPTW": "Twitter",
+  "POPTW": "X",
   "POPFB": "Facebook",
   "POPLK": "LinkedIn",
   "POPMAIL": "Email",
@@ -546,7 +546,7 @@
  "DB": "access to dataset",
  "%": "in percentages",
 
- "SHARE_T": "Twitter",
+ "SHARE_T": "X",
  "SHARE_F": "Facebook",
  "SHARE_L": "Linkedin",
  "MENU_COUNTRY": "Select country",

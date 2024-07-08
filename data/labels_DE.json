@@ -602,7 +602,7 @@
 	"PRIVACY": "Datenschutz",
 	"LEGAL": "Rechtlicher Hinweis",
 
-  "POPTW": "Twitter",
+  "POPTW": "X",
   "POPFB": "Facebook",
   "POPLK": "LinkedIn",
   "POPMAIL": "E-Mail",
@@ -670,7 +670,7 @@
   "DB": "zugriff auf Datensatz",
   "%": "in Prozent",
 
-  "SHARE_T": "Twitter",
+  "SHARE_T": "X",
   "SHARE_F": "Facebook",
   "SHARE_L": "LinkedIn",
   "MENU_COUNTRY": "Land auswählen",

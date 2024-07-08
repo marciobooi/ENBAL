@@ -603,7 +603,7 @@
   "PRIVACY": "Protection de la vie privée",
   "LEGAL": "Avis juridique",
 
-  "POPTW": "Twitter",
+  "POPTW": "X",
   "POPFB": "Facebook",
   "POPLK": "LinkedIn",
   "POPMAIL": "E-mail",
@@ -673,7 +673,7 @@
   "DB": "accéder à l'ensemble de données",
   "%": "en pourcentage",
   "TOGGLEAGREGATES": "Afficher les agrégats",
-  "SHARE_T": "Twitter",
+  "SHARE_T": "X",
   "SHARE_F": "Facebook",
   "SHARE_L": "LinkedIn",
   "MENU_COUNTRY": "Sélectionnez un pays",
