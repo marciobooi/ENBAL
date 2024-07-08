@@ -766,6 +766,7 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
     background-color: transparent;
     border-radius: 50%;
     border: none;
+    font-size: 1.2rem;
 }
 .tableRowIcon {
     color: var(--tool-1);
