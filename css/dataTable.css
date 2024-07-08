@@ -376,6 +376,9 @@ table.dataTable > tbody > tr > th,
 table.dataTable > tbody > tr > td {
   padding: 8px 2px;
 }
+table.dataTable > tbody > tr > td:first-child {
+  padding: 15px 8px;
+}
 table.dataTable.row-border > tbody > tr > *, table.dataTable.display > tbody > tr > * {
   border-top: 1px solid rgba(0, 0, 0, 0.15);
 }
@@ -772,7 +775,7 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
   color: var(--tool-1);
   background-color: white;
   border-radius: 50%;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   border: 1px solid var(--tool-1);
   margin-bottom: -3px;
@@ -783,10 +786,10 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
 }
 
 .tableRowIcon i {
-  font-size: 12px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+  /* font-size: 12px; */
+  /* margin: 0; */
+  /* padding: 0; */
+  /* line-height: 1; */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -867,18 +870,14 @@ tbody tr td:first-child {
 
 
 .highlighted-row {
-  background-color: #f3f6fc !important;
+  background-color: #f3f6fc;
   border-bottom:1px solid #cfdaf5;
-
-
 }
 
 .highlighted-row td {
-  background-color: #f3f6fc !important;
-
-
-
+  background-color: #f3f6fc;
 }
+
 
 .previous-highlighted-row {
   border-bottom: 2px solid #6e91e0;
@@ -935,13 +934,13 @@ table.dataTable > thead > tr > td {
 /* Hover effect for entire row */
 table.dataTable tbody tr:hover {
   background-color: #cfdaf5;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 /* Hover effect for fixed start column */
 table.dataTable tbody tr:hover > .dtfc-fixed-start {
   background-color: #cfdaf5;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 /* Ensure fixed start column retains hover effect */
