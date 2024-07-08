@@ -53,8 +53,10 @@ li > button {
     justify-content: space-evenly;
     align-items: center;
     /* margin-bottom: 0 !important; */
+    position: absolute;
+    left: 0;
+    bottom: 11%;
 }
-
 
 
 #SHOW, #HIDE {

@@ -25,7 +25,7 @@ class Chart {
           plotBackgroundColor: null,
           plotBorderWidth: null,
           plotShadow: false,
-          spacingBottom: 50,
+          spacingBottom: 70,
           style: {
             fontFamily: 'arial,sans-serif',
             animation: true,
