@@ -48,14 +48,16 @@ li > button {
 #menuSwitch {
     /* color: var(--main-color); */
     display: flex;
-    flex-direction: row-reverse;
-    align-content: center;
-    justify-content: space-evenly;
     align-items: center;
     /* margin-bottom: 0 !important; */
-    position: absolute;
-    left: 0;
-    bottom: 11%;
+    /* position: absolute;
+    left: 2%;
+    bottom: calc(11% - 20px); */
+    position: fixed;
+    left: 2%;
+    bottom: 11vh; /* Adjust this value as needed */
+    transform: translateY(50px); /* Fine-tune the vertical position */
+    z-index: 1000; /* Ensure the element stays above other content */
 }
 
 
@@ -83,6 +85,7 @@ li > button {
 #floatingMenu {
     display: flex;
     position: relative;
+    padding: 0;
 }
 
 #floatingMenu > li {
@@ -152,16 +155,6 @@ ul.dropdown-menu.dropdown-menu-end.show {
     box-shadow: 0 0 0 0.15rem #cca30000;
     background-color: #ffffff !important;
     color: #CCA300!important;
-}
-
-
-
-
-
-
-#switchBtn {
-    padding-right: 2.5em;
-    padding-left: 1rem;
 }
 
 dl, ol, ul {

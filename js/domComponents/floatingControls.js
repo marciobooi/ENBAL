@@ -4,7 +4,7 @@ class FloatingChartControls {
     this.chartControls.className = 'menuSwitch';
     this.chartControls.id = 'menuSwitch';
 
-    this.chartControls.innerHTML = ` 
+    this.chartControls.innerHTML = /*html*/` 
                 <div id="switchBtn">
                     <label id="SHOW" class="form-check-label" for="switchDetails">${languageNameSpace.labels['details']}</label>
                     <div class="form-check form-switch d-inline-block">
