@@ -89,7 +89,7 @@ class ChartControls {
 		const lineChart = new Button("lineChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle line Chart", "lineChart", "false");
 		const table = new Button("toggleTableBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle table", "table", "false");
 
-		const createprintChart = new Button("printBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Print chart", "false");
+		// const createprintChart = new Button("printBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Print chart", "false");
 		const downloadChart = new Button("downloadBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Download chart image", "false");
 		const downloadExcel = new Button("excelBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Download chart data", "false");
 		const embebedeChart = new Button("embebedBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Embebed chart iframe", "false");
@@ -100,7 +100,7 @@ class ChartControls {
 		pieChart.setInnerHtml('<i class="fas fa-chart-pie" aria-hidden="true"></i>');
 		lineChart.setInnerHtml('<i class="fas fa-chart-line" aria-hidden="true"></i>');
 		table.setInnerHtml('<i class="fas fa-table"></i>');
-		createprintChart.setInnerHtml('<i class="fas fa-print" aria-hidden="true"></i>');
+		// createprintChart.setInnerHtml('<i class="fas fa-print" aria-hidden="true"></i>');
 		downloadChart.setInnerHtml('<i class="fas fa-download" aria-hidden="true"></i>');
 		downloadExcel.setInnerHtml('<i class="fas fa-file-excel" aria-hidden="true"></i>');
 		embebedeChart.setInnerHtml('<i class="fas fa-code" aria-hidden="true"></i>');
@@ -161,9 +161,9 @@ class ChartControls {
 				tableBtn.focus();
 			}			
 		});
-		createprintChart.setClickHandler(function() {
-			exportHandling(this.id);
-		});
+		// createprintChart.setClickHandler(function() {
+		// 	exportHandling(this.id);
+		// });
 		downloadChart.setClickHandler(function() {
 			exportHandling(this.id);
 		});
@@ -184,7 +184,7 @@ class ChartControls {
 			const pieChartElement = pieChart.createButton();
 			const lineChartElement = lineChart.createButton();
 			const tableChartElement = table.createButton();
-			const printChartElement = createprintChart.createButton();
+			// const printChartElement = createprintChart.createButton();
 			const downloadChartElement = downloadChart.createButton();
 			const downloadExcelElement = downloadExcel.createButton();
 			const embebedeChartElement = embebedeChart.createButton();
@@ -196,7 +196,7 @@ class ChartControls {
 			document.getElementById("togglePieChart").appendChild(pieChartElement);
 			document.getElementById("toggleLineChart").appendChild(lineChartElement);
 			document.getElementById("toggleAuxTable").appendChild(tableChartElement);
-			document.getElementById("printChart").appendChild(printChartElement);
+			// document.getElementById("printChart").appendChild(printChartElement);
 			document.getElementById("downloadChart").appendChild(downloadChartElement);
 			document.getElementById("downloadExcel").appendChild(downloadExcelElement);
 			document.getElementById("embebedChart").appendChild(embebedeChartElement);

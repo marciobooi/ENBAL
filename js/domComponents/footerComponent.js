@@ -26,17 +26,17 @@ class Footer {
 
     const linksContent = /*html*/`     
     <li class="ecl-site-footer__list-item">
-      <a id="footer-cookies" href="https://ec.europa.eu/info/cookies_${REF.language.toLowerCase()}" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
+    <a id="footer-privacy" href="https://ec.europa.eu/info/privacy-policy_${REF.language.toLowerCase()}" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
     </li>
     <hr>
     <li class="ecl-site-footer__list-item">
-      <a id="footer-privacy" href="https://ec.europa.eu/info/privacy-policy_${REF.language.toLowerCase()}" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
-      </li>
-      <hr>
+    <a id="footer-legal" href="https://ec.europa.eu/info/legal-notice_${REF.language.toLowerCase()}" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
+    </li>
+    <hr>
     <li class="ecl-site-footer__list-item">
-      <a id="footer-legal" href="https://ec.europa.eu/info/legal-notice_${REF.language.toLowerCase()}" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
-      </li>
-      <hr>
+      <a id="footer-cookies" href="https://ec.europa.eu/info/cookies_${REF.language.toLowerCase()}" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
+    </li>
+    <hr>
     <li class="ecl-site-footer__list-item">
       <a id="footer-access" href="https://ec.europa.eu/eurostat/web/main/help/accessibility" class="ecl-link ecl-link--standalone ecl-site-footer__link">${languageNameSpace.labels["ACCESS"]}</a>
     </li>`;
