@@ -877,13 +877,16 @@ var legendHide = {
 }
 
 function changeLegendPisition() {
+  
 
     Highcharts.charts.forEach(chart => {
       if (chart) {      
             if ($(window).width() > 1100) {
               chart.update({ legend: legendBig }, true); // true for redraw
+              chart.update({ credits: { position: { align: 'center', x: -125 } } }, true);
             } else {
               chart.update({ legend: legendSmall }, true); // true for redraw
+              chart.update({ credits: { position: { align: 'center', x: 0 } } }, true);
             }
             chart.redraw()            
       }
