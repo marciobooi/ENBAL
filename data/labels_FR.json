@@ -608,10 +608,10 @@
   "POPLK": "LinkedIn",
   "POPMAIL": "E-mail",
 
-  "PROTO": "Ordre protocolaire",
-  "ALPHA": "Ordre alphabétique",
-  "ASC": "Valeurs ascendantes",
-  "DESC": "Valeurs décroissantes",
+  "PROTO": "Ordre des pays par protocole",
+  "ALPHA": "Ordre alphabétique des pays",
+  "ASC": "Valeurs de données ascendantes",
+  "DESC": "Valeurs de données descendantes",
 
 
   "IND": "Carburant",
@@ -643,7 +643,7 @@
 
  "DEC": "Décimal",
 
- "AGREGATES": "Afficher/masquer les agrégats de l'UE",
+"AGREGATES": "Afficher les agrégats de l'UE",
 
  "headingOne": "Valeurs maximales et minimales",
  "headingTwo": "Évolution dans le temps",
@@ -711,6 +711,7 @@
   "SELECTLANGUAGE": "Choisissez votre langue",
   "OFFICIAL": "Langue officielle de l'UE:",
  "SHARE": "Partager",
+ "ORDER": "Sélectionner l'ordre de tri",
 
  "AGGREGATE": "Agrégat",
  "EUCTR": "Pays de l'UE",

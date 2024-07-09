@@ -424,3 +424,7 @@ button#menu:focus, button#menu:active {
     box-shadow: 0 7px 8px rgb(9 49 142 / 8%), 0 0 22px rgb(9 49 142 / 4%), 0 12px 17px rgb(9 49 142 / 4%), 0 -4px 4px rgb(9 49 142 / 4%);
     line-height: 1.15;
 }
+
+.notLink:hover {
+text-decoration: none !important;
+}

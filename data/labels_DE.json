@@ -607,10 +607,10 @@
   "POPLK": "LinkedIn",
   "POPMAIL": "E-Mail",
 
-  "PROTO": "Protokollauftrag",
-  "ALPHA": "Alphabetische Ordnung",
-  "ASC": "Aufsteigende Werte",
-  "DESC": "Absteigende Werte",
+  "PROTO": "Protokoll-Länderreihenfolge",
+  "ALPHA": "Alphabetische Länderreihenfolge",
+  "ASC": "Aufsteigende Datenwerte",
+  "DESC": "Absteigende Datenwerte",
 
   "IND": "Kraftstoff",
   "CTR": "Länder",
@@ -631,7 +631,7 @@
 
   "DEC": "Dezimalstellen",
 
-  "AGREGATES": "EU-Aggregate ein-/ausblenden",
+  "AGREGATES": "EU-Aggregate anzeigen",
 
   "headingOne": "Maximal - und Minimalwerte",
  "headingTwo": "Evolution im Laufe der Zeit",
@@ -685,6 +685,7 @@
   "hidDetails": "Details ausblenden",
   "POPCOLAPSE": "Fluss zusammenklappen",
   "TOP": "Zurück nach oben",
+  "ORDER": "Sortierreihenfolge auswählen",
 
 
 

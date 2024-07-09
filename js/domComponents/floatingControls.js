@@ -17,11 +17,11 @@ class FloatingChartControls {
           <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.details == 1 ? "" : "none"}"></li>
           <li class="nav-item px-1" id="Agregates" role="none"></li>			  
             <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
-              <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     					
-                <li><a href="#" class="dropdown-item ecl-link ecl-link--standalone ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['PROTO']}</a></li>
-                <li><a href="#" class="dropdown-item ecl-link ecl-link--standalone ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['DESC']}</a></li>
-                <li><a href="#" class="dropdown-item ecl-link ecl-link--standalone ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['ASC']}</a></li>
-                <li><a href="#" class="dropdown-item ecl-link ecl-link--standalone ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['ALPHA']}</a></li>                		
+              <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     
+                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['DESC']}</a></li>					
+                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['ASC']}</a></li>
+                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['ALPHA']}</a></li> 
+                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['PROTO']}</a></li>
               </ul>
             </li>
 
@@ -170,10 +170,10 @@ class FloatingChartControls {
 
     const self = this; 
 
-		const percentageButton = new Button("tb-togle-percentage", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle percentage", "", "true");
+		const percentageButton = new Button("tb-togle-percentage", ["btn", "btn-primary", "min-with--nav", "round-btn"], languageNameSpace.labels["POPPERCENTAGES"], "", "true");
 		const agregatesButton = new Button("toggleAgregates", ["btn", "btn-primary", "min-with--nav", "round-btn"], languageNameSpace.labels["TOGGLEAGREGATES"], "", "true");
 		// const tableButton = new Button("tb-togle-table", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle table", "", "true");
-		const orderButton = new Button("tb-togle-order", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Select order of the chart", "", "true");
+		const orderButton = new Button("tb-togle-order", ["btn", "btn-primary", "min-with--nav", "round-btn"], languageNameSpace.labels["ORDER"], "", "true");
 
     percentageButton.setInnerHtml('<i id="percentage-icon" class="fas fa-percentage" aria-hidden="true"></i>');
     agregatesButton.setInnerHtml(agregateIcon())
@@ -210,7 +210,6 @@ class FloatingChartControls {
     dropdownOrderBtn.setAttribute("aria-haspopup", "true");
     dropdownOrderBtn.setAttribute("data-bs-auto-close", "true");
     dropdownOrderBtn.setAttribute("aria-expanded", "false");
-    dropdownOrderBtn.setAttribute("data", "dropdown");
     dropdownOrderBtn.setAttribute("data", "dropdown");
 
     hideMenuSwitch()

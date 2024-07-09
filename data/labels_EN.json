@@ -479,10 +479,16 @@
   "TJ": "Terajoule (TJ)",  
   
 
-  "PROTO": "Protocol order",
-  "ALPHA": "Alphabetical order",
-  "ASC": "Ascending values",
-  "DESC": "Descending values", 
+  "PROTO": "Protocol country order",
+  "ALPHA": "Alphabetically country order",
+  "ASC": "Ascending data values",
+  "DESC": "Descending data values", 
+
+ 
+
+
+
+
 
   "IND": "Fuel",
   "CTR": "Countries",
@@ -507,7 +513,7 @@
  "META": "Metadata",
  "DATASET": "Dataset",
  
- "AGREGATES": "Show/hide EU aggregates",
+ "AGREGATES": "Show EU aggregates",
 
 
 
@@ -572,7 +578,8 @@
  "TGLPIE": "Show pie Chart",
  "TGLLINE": "Show line Chart",
  "TGLTABLE": "Show table",
- "POPPERCENTAGES": "Show percentages/values",
+ "POPPERCENTAGES": "Show percentages",
+ "ORDER": "Select sorting order",
 
  "PRINT": "Print chart",
  "DWNIMAGE": "Download chart image",

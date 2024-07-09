@@ -117,7 +117,6 @@ var languageNameSpace = {
       $("#menu-consumer-title").text(languageNameSpace.labels["MENU_CONSUMER"]);
       $("#menu-band-title").text(languageNameSpace.labels["MENU_BAND"]);
       $("#menu-unit-title").text(languageNameSpace.labels["MENU_UNIT"]);
-      $("#menu-country-sorting-title").text(languageNameSpace.labels["MENU_COUNTRY_SORTING"]);
       $("#menu-save-diagram-title").text(languageNameSpace.labels["MENU_SAVE_DIAGRAM"]);
       $("#menu-more-title").text(languageNameSpace.labels["MENU_MORE"]);
       $("#sharemodaltitle").text(languageNameSpace.labels["sharemodaltitle"]);
