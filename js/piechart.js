@@ -38,6 +38,7 @@ function renderPieChart(chartBal) {
         cursor: "pointer",
         dataLabels: {
           enabled: true,
+          y: -10,
           style: {
             fontSize: '.8rem',
             fontWeight: 'normal'
