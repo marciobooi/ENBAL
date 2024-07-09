@@ -6,11 +6,11 @@ class FloatingChartControls {
 
     this.chartControls.innerHTML = ` 
                 <div id="switchBtn">
-                    <label id="HIDE" class="form-check-label" for="switchDetails">${languageNameSpace.labels['hidDetails']}</label>
+                    <label id="SHOW" class="form-check-label" for="switchDetails">${languageNameSpace.labels['details']}</label>
                     <div class="form-check form-switch d-inline-block">
-                      <input class="form-check-input focus-ring" type="checkbox" value="${REF.details == 1 ? 1 : 0}" role="switch" id="switchDetails" ${REF.details == 1 ? 'checked' : ''}>
-                      <label id="SHOW" class="form-check-label" for="switchDetails">${languageNameSpace.labels['details']}</label>
-                    </div>
+                      <input class="form-check-input focus-ring" type="checkbox" value="${REF.details == 0 ? 0 : 1}" role="switch" id="switchDetails" ${REF.details == 0 ? 'checked' : ''}>                      
+                      <label id="HIDE" class="form-check-label" for="switchDetails">${languageNameSpace.labels['hidDetails']}</label>
+                      </div>
                 </div>
       <div>   
         <ul id="floatingMenu">   
@@ -71,8 +71,16 @@ class FloatingChartControls {
         const hide = document.getElementById('HIDE');
         const show = document.getElementById('SHOW');
 
-        hide.style.fontWeight = switchElement.value == 0 ? 'bold' : '';
-        show.style.fontWeight = switchElement.value == 1 ? 'bold' : '';
+        if(switchElement.value == 0){
+          log('here')
+          hide.style.fontWeight = 'bold';
+          show.style.fontWeight = 'initial';
+        } else {
+          hide.style.fontWeight = 'initial';
+          show.style.fontWeight = 'bold';
+        }
+
+
 
         const percentageButton = this.chartControls.querySelector('#togglePercentage');
         percentageButton.style.display = REF.details == 1 ? '' : 'none';
