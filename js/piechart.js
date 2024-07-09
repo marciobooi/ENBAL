@@ -49,7 +49,7 @@ function renderPieChart(chartBal) {
 
  
 
-  pieChartData = [];
+  pieChartData = [].sort();
   pieSiec = d.Dimension("siec").id;
 
 
@@ -61,6 +61,8 @@ function renderPieChart(chartBal) {
         }
     }    
   });
+
+  pieChartData.sort((a, b) => b.y - a.y);
 
   const tooltipFormatter = function() {
     return chartNormalTooltip(this.point);
