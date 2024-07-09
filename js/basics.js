@@ -1121,13 +1121,13 @@ function tooltipTable(points) {
 
   const decimals = REF.decimals
 
-  if(REF.percentage == 1 ){
+  if(REF.stacking == "percent" ){
     let html = "";
     html += `<table id="tooltipTable" class="table_component">                
                 <thead>
                   <tr>
                     <th scope="cols">${points[0].x}</th>                    
-                    <th scope="cols"></th>                    
+                    <th scope="cols">%</th>                    
                   </tr>
                 </thead>`
       points.forEach(element => {
@@ -1157,7 +1157,7 @@ function tooltipTable(points) {
       <thead>
         <tr>
           <th scope="cols">${sortedPoints[0].key}</th>                    
-          <th scope="cols"></th>                    
+          <th scope="cols">${REF.unit}</th>                    
         </tr>
       </thead>`;
     
@@ -1186,13 +1186,15 @@ function tooltipTable(points) {
     if (allValuesZero) {
       html = 
     `<table id="tooltipTable" class="table_component">                
-    <thead>
-      <tr>
-        <th scope="cols">${sortedPoints[0].key}</th>                                    
+      <thead>
+        <tr>
+          <th scope="cols">${sortedPoints[0].key}</th>                                    
+        </tr>
+      </thead>
+      <tr>      
+        <td>${languageNameSpace.labels["N/A"]}</td>
       </tr>
-    </thead><tr>      
-    <td>${languageNameSpace.labels["N/A"]}</td>
-  </tr></table>`;
+    </table>`;
 
 
     } else {
@@ -1207,7 +1209,8 @@ function tooltipTable(points) {
         const totalValue = totalSum.toFixed(decimals);
     
         // Add a row for the total
-        html += `<tr>
+        html += `
+        <tr class="TOTAL">
           <td> ${languageNameSpace.labels['TOTAL']}</td>
           <td>${totalValue}</td>
         </tr>`;
@@ -1215,10 +1218,6 @@ function tooltipTable(points) {
     }
     
     html += `</table>`;
-    
-
-log(allValuesZero)
-
     return `<div>${html}</div>`;
     
   }

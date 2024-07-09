@@ -72,7 +72,6 @@ class FloatingChartControls {
         const show = document.getElementById('SHOW');
 
         if(switchElement.value == 0){
-          log('here')
           hide.style.fontWeight = 'bold';
           show.style.fontWeight = 'initial';
         } else {

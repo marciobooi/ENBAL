@@ -131,7 +131,7 @@ function createBarChart() {
     subtitle: null,
     xAxis: xAxis,
     yAxisFormat: '{value:.2f}',
-    yAxisTitle:  yAxisTitle,
+    yAxisTitle:  REF.stacking == "normal" ? yAxisTitle : languageNameSpace.labels["PERCENTAGE"],
     tooltipFormatter: tooltipFormatter,
     creditsText: credits(),
     creditsHref: "",
