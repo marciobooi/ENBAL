@@ -1098,26 +1098,34 @@ function extraBalances(id) {
 
 
 function chartNormalTooltip(points) {
-   const title = points.options.name
-    const value = Highcharts.numberFormat(points.options.y, REF.decimals);
-    const unit = `${languageNameSpace.labels[REF.unit]}`;
+  const title = points.options.name;
+  const value = Highcharts.numberFormat(points.options.y, REF.decimals);
+  const unit = `${languageNameSpace.labels[REF.unit]}`;
+  
+  // Calculate the percentage
+  const total = points.series.data.reduce((acc, point) => acc + point.y, 0);
+  const percentage = (points.options.y / total) * 100;
+  const formattedPercentage = Highcharts.numberFormat(percentage, REF.decimals);
 
-    let html = "";
-      
-    html += `<table class="table_component"> 
-    <thead class="">
-      <tr>
+  // Construct the HTML for the tooltip
+  let html = `
+    <table class="table_component"> 
+      <thead class="">
+        <tr>
           <th scope="cols" colspan="2">${title}</th>                
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-          <td><b>${value}</b> ${unit}</td>
-      </tr>
-    </tbody>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><b>${value}</b> ${unit}</td>         
+        </tr>
+        <tr>
+           <td><b>${formattedPercentage}</b> %</td>       
+        </tr>
+      </tbody>
     </table>`;
 
-    return html
+  return html;
 }
 
 function tooltipTable(points) {
