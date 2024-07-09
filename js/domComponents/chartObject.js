@@ -43,7 +43,7 @@ class Chart {
           labels: {
             format: this.yAxisFormat,
             formatter: function () {
-              return Math.round(this.value); // Remove decimals by rounding to the nearest integer
+              return Highcharts.numberFormat(this.value, 0, '.', ' ');
             }
           },
           title: {
