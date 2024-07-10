@@ -100,14 +100,13 @@ class Chart {
               marginLeft: 100,
               marginRight: 100,
               events: {
-                load: function () {
-                  const chart = this;
-                  chart.renderer.image(
-                    'https://ec.europa.eu/eurostat/cache/infographs/energy_balances/shareico.png', 
-                    1000, 
-                    600, 
-                    80, 
-                    40
+                load: function () {                  
+                  this.renderer.image(
+                    'https://ec.europa.eu/eurostat/statistics-explained/images/0/09/Logo_RGB-POS.png', 
+                    1100, 
+                    750, 
+                    90, 
+                    50
                   ).add();
                 },
                 redraw: function () {
