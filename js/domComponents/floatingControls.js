@@ -18,10 +18,10 @@ class FloatingChartControls {
           <li class="nav-item px-1" id="Agregates" role="none"></li>			  
             <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
               <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     
-                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['DESC']}</a></li>					
-                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['ASC']}</a></li>
-                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['ALPHA']}</a></li> 
-                <li><a href="#" class="dropdown-item ecl-link notLink ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['PROTO']}</a></li>
+                <li><a href="#" id="DESC" class="dropdown-item ecl-link notLink ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" aria-label="Descending values" value="DESC" >${languageNameSpace.labels['DESC']}</a></li>					
+                <li><a href="#" id="ASC" class="dropdown-item ecl-link notLink ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" aria-label="Ascending values" value="ASC">${languageNameSpace.labels['ASC']}</a></li>
+                <li><a href="#" id="ALPHA" class="dropdown-item ecl-link notLink ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" aria-label="Alphabetical order" value="ALPHA">${languageNameSpace.labels['ALPHA']}</a></li> 
+                <li><a href="#" id="PROTO" class="dropdown-item ecl-link notLink ${REF.order == "PROTO" ? "selected" : ""}" role="menuitem" aria-label="Protocol order" value="PROTO">${languageNameSpace.labels['PROTO']}</a></li>
               </ul>
             </li>
 

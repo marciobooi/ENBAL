@@ -187,11 +187,11 @@ var languageNameSpace = {
       $("#downloadChart > ul > button:nth-child(2)").attr("aria-label", languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']).html(languageNameSpace.labels['POPDOWNLOADTABLEEXCEL']);
       $("#downloadChart > ul > button:nth-child(3)").attr("aria-label", languageNameSpace.labels['POPDOWNLOADTABLECSV']).html(languageNameSpace.labels['POPDOWNLOADTABLECSV']);
 
-      // $(".IND").text(languageNameSpace.labels["IND"]);
-      // $(".CTR").text(languageNameSpace.labels["CTR"]);
-      // $(".YEAR").text(languageNameSpace.labels["YEAR"]);
-      // $(".UNIT").text(languageNameSpace.labels["UNIT"]);
-      // $(".DEC").text(languageNameSpace.labels["DEC"]);
+      $(".IND").text(languageNameSpace.labels["IND"]);
+      $(".CTR").text(languageNameSpace.labels["CTR"]);
+      $(".YEAR").text(languageNameSpace.labels["YEAR"]);
+      $(".UNIT").text(languageNameSpace.labels["UNIT"]);
+      $(".DEC").text(languageNameSpace.labels["DEC"]);
 
       document.getElementById('toTop').setAttribute('aria-label', languageNameSpace.labels["TOP"]);    
 
@@ -266,6 +266,17 @@ var languageNameSpace = {
       $("#footer-legal").html(languageNameSpace.labels["LEGAL"]);
       $("#footer-access").html(languageNameSpace.labels["ACCESS"]);
 
+      $("#DESC").html(languageNameSpace.labels["DESC"])
+      $("#ASC").html(languageNameSpace.labels["ASC"])
+      $("#ALPHA").html(languageNameSpace.labels["ALPHA"])
+      $("#PROTO").html(languageNameSpace.labels["PROTO"])
+
+      $("#SHOW").html(languageNameSpace.labels["details"])
+      $("#HIDE").html(languageNameSpace.labels["hidDetails"])
+
+      $("#tb-togle-percentage").attr("title", languageNameSpace.labels["POPPERCENTAGES"])
+      $("#toggleAgregates").attr("title", languageNameSpace.labels["TOGGLEAGREGATES"])
+      $("#tb-togle-order").attr("title", languageNameSpace.labels["ORDER"])      
 
 
       $('.ecl-modal__header-content').html(languageNameSpace.labels["EMBED"]);
