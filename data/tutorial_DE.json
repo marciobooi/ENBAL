@@ -1,6 +1,6 @@
 {
 	"START_TOUR_TITLE": "Einführung",
-	"START_TOUR_TEXT": "Willkommen im Tutorial des Visualisierungstools für die Energiebilanzen von Eurostat. Diese geführte Tour zeigt Ihnen die Hauptfunktionen des Tools. Für eine detailliertere Dokumentation folgen Sie diesem Link zur <a target='_blank' href='https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_balance_-_new_methodology'>Energiebilanz</a> Seite.",
+	"START_TOUR_TEXT": "Willkommen beim Tutorial des Eurostat-Visualisierungstools für Energiebilanzen. Diese geführte Tour zeigt Ihnen die Hauptmethoden zur Interaktion mit dem Tool. Eine ausführlichere Dokumentation finden Sie auf der Seite <a target='_blank' href='https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_balance_-_new_methodology'> Energiebilanz</a>.",
 	"TUTO_1": "Menü",
 	"TUTO_2": "Das Tool enthält ein Menü für zusätzliche Funktionen. Klicken Sie auf das Menü-Symbol, um das Diagramm anzupassen. Klicken Sie auf Weiter, um mehr über die Menüoptionen zu erfahren.",
 	"TUTO_3": "Info",

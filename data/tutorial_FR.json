@@ -1,6 +1,6 @@
 {
 	"START_TOUR_TITLE": "Introduction",
-	"START_TOUR_TEXT": "Bienvenue dans le tutoriel de l'outil de visualisation des bilans énergétiques d'Eurostat. Cette visite guidée vous montrera les principales façons d'interagir avec l'outil. Pour une documentation plus détaillée, suivez ce lien pour accéder à la page des <a target='_blank' href='https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_balance_-_new_methodology'>bilans énergétiques</a>.",
+	"START_TOUR_TEXT": "Bienvenue dans le tutoriel de l'outil de visualisation des bilans énergétiques d'Eurostat. Cette visite guidée vous montrera les principales façons d'interagir avec l'outil. Vous pouvez trouver une documentation plus détaillée sur la page <a target='_blank' href='https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Energy_balance_-_new_methodology'> Bilan énergétique</a>.",
 	"TUTO_1": "Menu",
 	"TUTO_2": "L'outil contient un menu pour des fonctionnalités supplémentaires. Cliquez sur l'icône du menu pour personnaliser le graphique. Cliquez sur Suivant pour en savoir plus sur les options du menu.",
 	"TUTO_3": "Info",
