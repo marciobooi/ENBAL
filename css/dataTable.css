@@ -952,3 +952,40 @@ table.dataTable tbody tr > .dtfc-fixed-start {
 table.dataTable tbody tr {
   transition: background-color 0.3s;
 }
+
+
+
+
+
+
+/* Style for the custom scrollbar */
+.custom-scrollbar {
+  position: fixed;
+  bottom: 0;
+  /* width: 100%; */
+  left: 0;
+  right: 0;
+  /* height: 20px; */
+  /* background: #f1f1f1; */
+  overflow-x: auto;
+  z-index: 9999;
+}
+
+.custom-scrollbar-inner {
+  height: 100%;
+  display: inline-block;
+}
+
+/* Hide the default scrollbar */
+.dt-scroll-body {
+  overflow-x: hidden;
+}
+
+/* Adjustments for DataTables structure */
+.dt-scroll-body .custom-scrollbar-inner {
+  width: 100%;
+}
+
+
+
+

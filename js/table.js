@@ -128,7 +128,10 @@ function createDataTable(dataTable) {
        }
       },
     ],
-
+    initComplete: function(settings, json) {
+      // Call initCustomScrollbar once DataTables initialization is complete
+      initCustomScrollbar();
+    }
 
   })
 

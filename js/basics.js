@@ -1289,5 +1289,64 @@ function enableScreenREader(params) {
     $("#chart").show();
   }
 
-
-
+  function initCustomScrollbar() {
+    const scrollableContent = document.querySelector('.dt-scroll-body');
+    const customScrollbar = document.querySelector('.custom-scrollbar');
+    const customScrollbarInner = document.querySelector('.custom-scrollbar-inner');
+  
+    if (scrollableContent && customScrollbar && customScrollbarInner) {
+      // Update the custom scrollbar's width dynamically
+      function updateCustomScrollbar() {
+        const elWidth = document.querySelector('.dt-scroll-headInner').offsetWidth; // Use offsetWidth to get the actual width
+        console.log(elWidth); // Log the width for debugging purposes
+        customScrollbarInner.style.width = `${elWidth + 50}px`; // Adjust width to ensure full scrollable area
+        customScrollbar.scrollLeft = scrollableContent.scrollLeft; // Sync initial positions
+      }
+  
+      // Sync the custom scrollbar with the dt-scroll-body
+      scrollableContent.addEventListener('scroll', function() {
+        customScrollbar.scrollLeft = scrollableContent.scrollLeft;
+      });
+  
+      customScrollbar.addEventListener('scroll', function() {
+        scrollableContent.scrollLeft = customScrollbar.scrollLeft;
+      });
+  
+      // Function to check if the window is scrolled near the bottom
+      function checkScrollPosition() {
+        const scrollTop = window.scrollY;
+        const windowHeight = window.innerHeight;
+        const documentHeight = document.documentElement.scrollHeight;
+        const footerHeight = 76.075; // Adjust this value to the height of your footer
+  
+        if (scrollTop + windowHeight >= documentHeight - footerHeight) {
+          customScrollbar.style.display = 'none';
+        } else {
+          customScrollbar.style.display = 'block';
+        }
+      }
+  
+      // Initial update
+      updateCustomScrollbar();
+      window.addEventListener('resize', updateCustomScrollbar);
+      window.addEventListener('load', updateCustomScrollbar);
+  
+      // Ensure the scrollbar is updated when the table's layout changes
+      const observer = new MutationObserver(updateCustomScrollbar);
+      observer.observe(scrollableContent, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        characterData: true
+      });
+  
+      // Check the scroll position on scroll and resize events
+      window.addEventListener('scroll', checkScrollPosition);
+      window.addEventListener('resize', checkScrollPosition);
+  
+      // Initial check for scroll position
+      checkScrollPosition();
+    } else {
+      console.error('One or more elements are missing.');
+    }
+  }

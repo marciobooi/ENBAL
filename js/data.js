@@ -27,38 +27,57 @@ var dataNameSpace = {
   },
 
 
-  // set global ref variables in URL
-  setRefURL: function () {
-    var url = window.location.href;
-    var end = url.indexOf("?");
-    url = (end > 0) ? url.slice(0, end) : url.slice(0);
-    var iref = 0;
-    for (ref in dataNameSpace.ref) {
-      url += (iref == 0) ? "?" : "&";
-      url += ref + "=" + dataNameSpace.ref[ref];
-      iref++;
-    };
-    changeUrl("title", url);
-  },
+// Function to set global ref variables in URL
+setRefURL: function () {
+  let url = window.location.href.split('?')[0]; // Get the base URL without query parameters
+  const params = new URLSearchParams();
+
+  // Add each ref from dataNameSpace.ref to the URL parameters
+  Object.entries(dataNameSpace.ref).forEach(([key, value], index) => {
+    params.append(key, value);
+  });
+
+  // Construct the final URL with the updated parameters
+  url += `?${params.toString()}`;
+
+  // Function to change the URL without reloading the page
+  changeUrl("title", url);
+},
+
 
   // get global ref variables in URL
   getRefURL: function () {
-    var refURL = getUrlVars();
-    for (var ref in dataNameSpace.ref) {
-      if (typeof refURL[ref] === "undefined") continue;
-      dataNameSpace.ref[ref] = refURL[ref];
+    // Function to get URL parameters as an object
+    const getUrlVars = () => {
+      const vars = {};
+      const url = window.location.href.replace(/#$/, ''); // Remove trailing '#' if exists
+      const queryString = url.split('?')[1] || '';
+      queryString.split('&').forEach(param => {
+        const [key, value] = param.split('=');
+        if (key) {
+          vars[decodeURIComponent(key)] = decodeURIComponent(value);
+        }
+      });
+      return vars;
     };
-
-
-    if(typeof refURL[ref] !== "undefined"){
-      fuelList = []
-      refURL.fuelList.split(',').forEach(fuel => {             
-        fuelList.push(fuel)
-          });
-      REF.fuelList = fuelList
+  
+    // Retrieve URL parameters
+    const refURL = getUrlVars();
+  
+    // Update dataNameSpace.ref based on URL parameters
+    for (const ref in dataNameSpace.ref) {
+      if (refURL[ref] !== undefined) {
+        dataNameSpace.ref[ref] = refURL[ref];
+      }
     }
-
+  
+    // Update REF.fuelList if fuelList parameter exists in URL
+    if (refURL.fuelList !== undefined) {
+      REF.fuelList = refURL.fuelList.split(',').map(fuel => fuel.trim());
+    }
   },
+  
+  
 
 
 };
