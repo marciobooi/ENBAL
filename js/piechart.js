@@ -43,7 +43,7 @@ function renderPieChart(chartBal) {
             fontSize: '.8rem',
             fontWeight: 'normal'
         },
-          format: "<b>{point.name}</b>:<br>{point.percentage:."+ REF.decimals +"f} %<br>"+ languageNameSpace.labels["VAL"]+": {point.y:,."+ REF.decimals +"f} " + REF.unit
+          format: "<b>{point.name}</b>:<br>{point.percentage:.1f} %<br>"+ languageNameSpace.labels["VAL"]+": {point.y:,."+ REF.decimals +"f} " + REF.unit
         },
     } 
     

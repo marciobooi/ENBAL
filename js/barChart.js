@@ -124,6 +124,8 @@ function createBarChart() {
     return tooltipTable(this.points) ;
   };
 
+
+
   const chartOptions = {
     containerId: "chart",
     type: type,
@@ -135,7 +137,7 @@ function createBarChart() {
     tooltipFormatter: tooltipFormatter,
     creditsText: credits(),
     creditsHref: "",
-    series: chartData.reverse(),
+    series: chartData.sort((a, b) => a.name.localeCompare(b.name)),
     colors: colors,
     legend: {
       enabled: legendStatus,

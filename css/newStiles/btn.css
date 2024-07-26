@@ -116,9 +116,12 @@ ul.dropdown-menu.dropdown-menu-end.show {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 } */
 .min-with--nav:hover:not(.dropdown-toggle) {
-    box-shadow: 0 0 0 0.15rem #cca3004d;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
+    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+    border: 2px solid #0e47cb !important;
+    background-color: white !important;
+    color: #0e47cb !important;
+    opacity: 1;
+    pointer-events: auto;
 }
 /* button:focus:not(:focus-visible):not(.dropdown-toggle), button:active:not(.dropdown-toggle) {
     box-shadow: 0 0 0 0.15rem #cca3004d;
@@ -127,13 +130,10 @@ ul.dropdown-menu.dropdown-menu-end.show {
 } */
 
 .btn:disabled {
-    box-shadow: 0 0 0 0.15rem #cca30000;
-    border: 2px solid #0e47cb;
-    background-color: white !important;
-    color: #0e47cb;
-    opacity: 1;
     pointer-events: auto;
-    cursor: not-allowed !important;
+    cursor: not-allowed !important; 
+    opacity: .5;
+    text-decoration: none;
 }
 
 .btn:disabled:hover {
@@ -195,17 +195,16 @@ span.agregates.fa-stack.fa-rotate-180 {
 }
 
 #btnCloseModalChart:focus {
-    box-shadow: 0 0 0 0.15rem #cca3004d;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
+    box-shadow: 0 0 0 0.15rem #0e47cb4d;
+    background-color: #0e47cb!important;
+    border-color: #0e47cb !important;
+    color: white !important;
 }
 .text-truncate {
     overflow: hidden !important;
     white-space: nowrap !important;
     text-overflow: ellipsis !important;
 }
-
-
 
 #infoCard button {
     -webkit-appearance: none;
@@ -256,12 +255,14 @@ span.agregates.fa-stack.fa-rotate-180 {
     transform: translate(0, -10%);
     background-color: #CCA300;
     border: 1px solid #cca300b3;
+    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+    border: 2px solid #0e47cb !important;
+    background-color: white !important;
 }
 
 .tableInfoIcon:hover {
     transform: translate(0, -10%);
     color: #CCA300;
-
 }
 
 #infoCard .btn-secondary {
@@ -428,3 +429,5 @@ button#menu:focus, button#menu:active {
 .notLink:hover {
 text-decoration: none !important;
 }
+
+

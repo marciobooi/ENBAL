@@ -840,7 +840,11 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
   font-size: 1rem;
 }
 
-
+.chartIcon:hover > i {
+  color: #0e47cb !important;
+  filter: drop-shadow(0 0 0 0.15rem #0e47cb) !important;
+  /* filter: invert(1); */
+}
 
 thead tr th:not(:first-child) {
     min-width: 8rem;
