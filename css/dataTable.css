@@ -991,5 +991,32 @@ table.dataTable tbody tr {
 }
 
 
+@-moz-document url-prefix() {
+  table.dataTable > thead > tr > th, table.dataTable > thead > tr > td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    height: 100%;
+    vertical-align: top;
+  }
 
+  .tableHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 7rem !important;
+    box-sizing: border-box;
+  }
+
+  tbody tr td:first-child {
+    display: table-cell;
+    justify-content: space-between;
+  }
+
+  .tableRowIcon {
+    float: right;
+
+  }
+
+}
 
