@@ -218,18 +218,24 @@ balances = ["NRGSUP","TI_E","TO","NRG_E","DL","AFC","STATDIFF","FC_NE","FC_E","G
 // balances = ["NRGSUP","TI_E","TO","NRG_E","TRANSL_DL","AFC","STATDIFF","FC_NE","FC_E","GEP","GHP",]; uncoment when trans_dl is set in the dataset
 expandables = ["NRGSUP","TI_E","TO","NRG_E","FC_E","TI_EHG_E","TI_RPI_E","TO_EHG","FC_IND_E","FC_TRA_E","TO_RPI","FC_OTH_E"];
 
-const allCountries = ["EU27_2020", "BE", "BG", "CZ", "DK", "DE", "EE", "IE", "EL", "ES", "FR", "HR", "IT", "CY", "LV", "LT", "LU", "HU", "MT", "NL", "AT", "PL", "PT", "RO", "SI", "SK", "FI", "SE", "IS", "LI", "NO", "ME", "MK", "AL", "RS", "TR", "BA", "XK", "MD", "UA", "GE"];
 
-const AGGREGATES_COUNTRY_CODES = ["EU27_2020"].sort();
-
-const EU_COUNTRY_CODES = [
-	"AT", "BE", "BG", "CY", "CZ", "DE", "DK", "EE", "EL", "ES", "FI", "FR", 
-	"HR", "HU", "IE", "IT", "LT", "LU", "LV", "MT", "NL", "PL", "PT", "RO", 
-	"SE", "SI", "SK"
-  ].sort();
+ 
+  const AGGREGATES_COUNTRY_CODES = ["EU27_2020"];
   
-  const EFTA_COUNTRY_CODES = ["IS", "LI", "NO"].sort();
+  const EU_COUNTRY_CODES = [
+	"BE","BG","CZ","DK","DE","EE","IE","EL","ES","FR","HR","IT","CY","LV","LT",
+	"LU","HU","MT","NL","AT","PL","PT","RO","SI","SK","FI","SE"
+  ]
   
-  const ENLARGEMENT_COUNTRY_CODES = ["AL", "BA", "ME", "MK", "RS", "TR", "XK"].sort();
+  const EFTA_COUNTRY_CODES = [
+	"IS", "LI", "NO"
+  ]
   
-  const OTHER_THIRD_COUNTRY_CODES = ["MD", "UA", "GE"].sort();
+  const ENLARGEMENT_COUNTRY_CODES = [
+	"ME","MK","AL","RS","TR","BA","XK"
+  ]
+  
+  const OTHER_THIRD_COUNTRY_CODES = [
+	"UA", "MD", "GE"
+  ]
+  
