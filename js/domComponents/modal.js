@@ -11,10 +11,22 @@ class Modal {
         create() {
 
           function capitalizeFirstLetter(string) {
-            string = string.toLowerCase() // Convert the string to lowercase
-            // string = string.replace(/&nbsp;/g, ' '); // Replace all occurrences of &nbsp; with space
-            return string.charAt(0).toUpperCase() + string.slice(1);
-        }    
+            // Convert the entire string to lowercase first if needed
+            string = string.toLowerCase();
+        
+            // Replace &nbsp; with spaces
+            string = string.replace(/&nbsp;/g, ' ');
+        
+            // Capitalize the first letter of the string
+            string = string.charAt(0).toUpperCase() + string.slice(1);
+        
+            // Capitalize the first letter after every period followed by a space
+            string = string.replace(/(\.\s+)([a-z])/g, function(match, separator, char) {
+                return separator + char.toUpperCase();
+            });
+        
+            return string;
+        }
 
           this.modal.innerHTML = /*html*/
     `<dialog data-ecl-auto-init="Modal" id="${this.modal.id}" data-ecl-modal-toggle="modal-toggle" class="ecl-modal ecl-modal--s">
