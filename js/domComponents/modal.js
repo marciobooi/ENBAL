@@ -10,23 +10,23 @@ class Modal {
       
         create() {
 
-          function capitalizeFirstLetter(string) {
-            // Convert the entire string to lowercase first if needed
-            string = string.toLowerCase();
+        //   function capitalizeFirstLetter(string) {
+        //     // Convert the entire string to lowercase first if needed
+        //     string = string.toLowerCase();
         
-            // Replace &nbsp; with spaces
-            string = string.replace(/&nbsp;/g, ' ');
+        //     // Replace &nbsp; with spaces
+        //     string = string.replace(/&nbsp;/g, ' ');
         
-            // Capitalize the first letter of the string
-            string = string.charAt(0).toUpperCase() + string.slice(1);
+        //     // Capitalize the first letter of the string
+        //     string = string.charAt(0).toUpperCase() + string.slice(1);
         
-            // Capitalize the first letter after every period followed by a space
-            string = string.replace(/(\.\s+)([a-z])/g, function(match, separator, char) {
-                return separator + char.toUpperCase();
-            });
+        //     // Capitalize the first letter after every period followed by a space
+        //     string = string.replace(/(\.\s+)([a-z])/g, function(match, separator, char) {
+        //         return separator + char.toUpperCase();
+        //     });
         
-            return string;
-        }
+        //     return string;
+        // }
 
           this.modal.innerHTML = /*html*/
     `<dialog data-ecl-auto-init="Modal" id="${this.modal.id}" data-ecl-modal-toggle="modal-toggle" class="ecl-modal ecl-modal--s">
@@ -51,7 +51,7 @@ class Modal {
               <div id="dialog-picture-credit" style="font-size: .7rem">
 					      <p class="text-end">${this.obj.SOURCE}</p>
               </div>
-                <p id="desc" class="card-text text-left text-wrap">${capitalizeFirstLetter(this.obj[REF.language])}</p>
+                <p id="desc" class="card-text text-left text-wrap">${this.obj[REF.language]}</p>
                 <div id="btnControl" class="d-flex justify-content-end p-2">
                   <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="ecl-button ecl-button--secondary" aria-label="Open metadata">${languageNameSpace.labels["POPMETA"]}</button>
                   <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="ecl-button ecl-button--secondary" aria-label="Open database">${languageNameSpace.labels["POPDB"]}</button>
