@@ -96,8 +96,9 @@ li > button {
 button:focus,
 .input:focus {
     box-shadow: 0 0 0 0.15rem #cca3004d;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
+    background-color: white !important;
+    border-color: var(--tool-1) !important;
+    color: var(--tool-1) !important;;
 }
 
 ul.dropdown-menu.dropdown-menu-end.show {
@@ -144,19 +145,19 @@ ul.dropdown-menu.dropdown-menu-end.show {
 }
 
 .btn:focus-visible { 
-    outline: 0;   
-    box-shadow: 0 0 0 0.15rem #cca3004d;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
+    outline: 0 !important;
+    box-shadow: 0 0 0 0.15rem #0e47cb00;
+    color: white;
+    background-color: var(--tool-1);
 }
+
 
 .tableHeader > .tableInfoIcon:focus {
     outline: 0 !important;
-    box-shadow: 0 0 0 0.15rem #cca30000;
-    background-color: #ffffff !important;
-    color: #CCA300!important;
+    box-shadow: 0 0 0 0.15rem #0e47cb00;
+    color: white;
+    background-color: var(--tool-1);
 }
-
 dl, ol, ul {
     margin-top: 0;
     margin-bottom: 0rem;
@@ -253,8 +254,6 @@ span.agregates.fa-stack.fa-rotate-180 {
 
  .chartIcon:hover {
     transform: translate(0, -10%);
-    background-color: #CCA300;
-    border: 1px solid #cca300b3;
     box-shadow: 0 0 0 0.15rem #cca30000 !important;
     border: 2px solid #0e47cb !important;
     background-color: white !important;
@@ -262,7 +261,10 @@ span.agregates.fa-stack.fa-rotate-180 {
 
 .tableInfoIcon:hover {
     transform: translate(0, -10%);
-    color: #CCA300;
+    color: white;
+    background-color: var(--tool-1);
+    border: 1px solid var(--tool-1);
+    line-height: 0;
 }
 
 #infoCard .btn-secondary {
@@ -293,8 +295,8 @@ button.btn.btn-secondary.min-with--nav.Metadata {
 button.ecl-button.ecl-button--ghost.ecl-modal__close:focus {
     box-shadow: 0 0 0 0.15rem #cca30000;
     background-color: #ffffff!important;
-    color: #CCA300!important;
-    border-color: #CCA300 !important;
+    color: var(--tool-1) !important;
+    border-color: var(--tool-1) !important;
     border-radius: 50%;
 }
 
@@ -325,7 +327,7 @@ button#menu:focus, button#menu:active {
     height: 4rem;
     align-items: center;
     justify-content: center;
-    border-color: #CCA300 !important;
+    border-color: var(--tool-1) !important;
     box-shadow: 0 0 0 0.15rem #cca30000 !important;
     color: #0e47cb;
 }
@@ -352,7 +354,7 @@ button#menu:focus, button#menu:active {
 
   #toTop:hover {   
     border:none;
-    background-color: #CCA300!important;
+    background-color: var(--tool-1)!important;
   }
 
   #toTop.show {
@@ -405,8 +407,9 @@ button#menu:focus, button#menu:active {
 
 .roundBtn:hover {
     box-shadow: 0 0 0 0.15rem #cca3004d;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important;
+    background-color: var(--tool-1) !important;
+    border-color: var(--tool-1) !important;
+    color: var(--tool-1) !important;
 }
 
 .dropdown-item:focus, .dropdown-item:hover, .dropdown-item:focus-visible {
