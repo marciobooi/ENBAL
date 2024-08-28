@@ -34,7 +34,7 @@ class Modal {
         <div class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-10">
           <header class="ecl-modal__header">
             <div class="ecl-modal__header-content">
-            <h5 class="card-title"><b>${languageNameSpace.labels[this.info]}</b></h5>
+            <h5 class="card-title"><b>${translationsCache[this.info]}</b></h5>
             </div>
             <button class="ecl-button ecl-button--ghost ecl-modal__close" type="button" data-ecl-modal-close="">
               <span class="ecl-button__container">
@@ -47,19 +47,19 @@ class Modal {
           </button>
           </header>
           <div class="ecl-modal__body">
-              <img src="./img/fuels/${this.obj.PICTURE}.jpg" class="card-img-top" alt="${languageNameSpace.labels[this.info]} representation">
+              <img src="./img/fuels/${this.obj.PICTURE}.jpg" class="card-img-top" alt="${translationsCache[this.info]} representation">
               <div id="dialog-picture-credit" style="font-size: .7rem">
 					      <p class="text-end">${this.obj.SOURCE}</p>
               </div>
                 <p id="desc" class="card-text text-left text-wrap">${this.obj[REF.language]}</p>
                 <div id="btnControl" class="d-flex justify-content-end p-2">
-                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="ecl-button ecl-button--secondary" aria-label="Open metadata">${languageNameSpace.labels["POPMETA"]}</button>
-                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="ecl-button ecl-button--secondary" aria-label="Open database">${languageNameSpace.labels["POPDB"]}</button>
+                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="ecl-button ecl-button--secondary" aria-label="Open metadata">${translationsCache["POPMETA"]}</button>
+                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="ecl-button ecl-button--secondary" aria-label="Open database">${translationsCache["POPDB"]}</button>
                 </div>
               </div>
           <footer class="ecl-modal__footer">
             <div class="ecl-modal__footer-content">
-              <button id="close" class="ecl-button ecl-button--primary" type="button" data-ecl-modal-close>${languageNameSpace.labels["close"]}</button>
+              <button id="close" class="ecl-button ecl-button--primary" type="button" data-ecl-modal-close>${translationsCache["CLOSE"]}</button>
               </div>
           </footer>
         </div>
@@ -93,9 +93,6 @@ class Modal {
     addToDOM(targetElement) {
       const container = document.querySelector(targetElement);
       container.appendChild(this.modal);
-
-      log($('#desc'))
-
       $('#desc').html($('#desc').html().replace(/&nbsp;/g, ' '));
     }
   }

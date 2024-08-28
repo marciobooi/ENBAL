@@ -36,7 +36,7 @@ function renderLineChart(chartBal) {
         valores.shift();
       }
       lineobj = {
-        name: languageNameSpace.labels[siecs[item]],
+        name: translationsCache[siecs[item]] || siecs[item],
         data: data,
       };
       lineChartData.push(lineobj);

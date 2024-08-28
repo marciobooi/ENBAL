@@ -1,12 +1,12 @@
 var countries = [];
 
 function drawEntable() {
-  languageNameSpace.initLanguage(REF.language);
 
-  countries.length = 0;
-  for (let i = 0; i < defGeos.length; i++) {
-    countries.push([defGeos[i], languageNameSpace.labels[defGeos[i]]]);
-  }
+
+  // countries.length = 0;
+  // for (let i = 0; i < defGeos.length; i++) {
+  //   countries.push([defGeos[i], translationsCache[defGeos[i]]]);
+  // }
 
   getYear();
 
@@ -17,32 +17,33 @@ function drawEntable() {
 }
 
 
-function infoModal(info) {
+// function infoModal(info) {
+//   log('here modal')
 
-  let obj = excelInfoData[0].find((o) => o.CODE === info);
+//   let obj = excelInfoData[0].find((o) => o.CODE === info);
 
-  let infoMeta = "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm";
-  let dataBrowser = "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang="+REF.language.toLowerCase();
+//   let infoMeta = "https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm";
+//   let dataBrowser = "https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang="+REF.language.toLowerCase();
 
-  $("#info").append(
-    '<div id="infoCard" class="card">' 
-    + '<img src="./img/fuels/' + obj.PICTURE +'.jpg" class="card-img-top" alt="' +obj.PICTURE +'.jpg">' 
-    + '<div class="card-body">' 
-    + '<h5 class="card-title"><b>' + languageNameSpace.labels[info] + "</b></h5>" 
-    + '<p class="card-text text-left text-wrap">' + obj[REF.language] + "</p>" 
-    + '<div class="d-flex justify-content-end pt-2">' 
-    + '<a href="' + infoMeta + '" target="_blank" class="modalBtn btn Metadata" data-tippy-content="'+ languageNameSpace.labels["POPMETA"] +'">'+ languageNameSpace.labels["META"] +'</a>' 
-    + '<a href="' + dataBrowser +'" target="_blank" class="modalBtn btn ms-2 Dataset" data-tippy-content="'+ languageNameSpace.labels["POPDB"] +'">'+ languageNameSpace.labels["DATASET"] +'</a>' 
-    + '</div>'
-    + '</div>'
-    + '</div>'
-  );
+//   $("#info").append(
+//     '<div id="infoCard" class="card">' 
+//     + '<img src="./img/fuels/' + obj.PICTURE +'.jpg" class="card-img-top" alt="' +obj.PICTURE +'.jpg">' 
+//     + '<div class="card-body">' 
+//     + '<h5 class="card-title"><b>' + translationsCache[info] + "</b></h5>" 
+//     + '<p class="card-text text-left text-wrap">' + obj[REF.language] + "</p>" 
+//     + '<div class="d-flex justify-content-end pt-2">' 
+//     + '<a href="' + infoMeta + '" target="_blank" class="modalBtn btn Metadata" data-tippy-content="'+ translationsCache["POPMETA"] +'">'+ translationsCache["META"] +'</a>' 
+//     + '<a href="' + dataBrowser +'" target="_blank" class="modalBtn btn ms-2 Dataset" data-tippy-content="'+ translationsCache["POPDB"] +'">'+ translationsCache["DATASET"] +'</a>' 
+//     + '</div>'
+//     + '</div>'
+//     + '</div>'
+//   );
 
-  $("#definitionsModal").modal("show");
-  $("#definitionsModal").on("hidden.bs.modal", function () {
-    $("#info").empty();
-  });
-}
+//   $("#definitionsModal").modal("show");
+//   $("#definitionsModal").on("hidden.bs.modal", function () {
+//     $("#info").empty();
+//   });
+// }
 
 function getYear(params) { 
 

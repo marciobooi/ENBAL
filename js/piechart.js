@@ -43,7 +43,7 @@ function renderPieChart(chartBal) {
             fontSize: '.8rem',
             fontWeight: 'normal'
         },
-          format: "<b>{point.name}</b>:<br>{point.percentage:.1f} %<br>"+ languageNameSpace.labels["VAL"]+": {point.y:,."+ REF.decimals +"f} " + REF.unit
+          format: "<b>{point.name}</b>:<br>{point.percentage:.1f} %<br>"+ translationsCache["VALUE"] +": {point.y:,."+ REF.decimals +"f} " + REF.unit
         },
     } 
     
@@ -58,7 +58,7 @@ function renderPieChart(chartBal) {
     if(siec !== "TOTAL"){     
       // d.value[sIdx] == null ? d.value[sIdx] = 0 : d.value[sIdx] = d.value[sIdx]     
         if(d.value[sIdx] > 0){
-          pieChartData.push({ name: languageNameSpace.labels[siec], y: d.value[sIdx] });
+          pieChartData.push({ name: translationsCache[siec] || siec, y: d.value[sIdx] });
         }
     }    
   });
@@ -79,7 +79,7 @@ function renderPieChart(chartBal) {
     tooltipFormatter: tooltipFormatter,
     creditsText: credits(),
     series: [{
-      name: languageNameSpace.labels["VALS"],
+      name: translationsCache["VALUE"],
       data: pieChartData
     }],
     colors: colors,

@@ -32,13 +32,15 @@ class Button {
       }
   
       createButton() {
+        log(this.ariaLabel)
         this.buttonElement = document.createElement("button");
         this.buttonElement.id = this.id;
         this.buttonElement.classList.add(...this.classes);
         this.buttonElement.setAttribute("value", this.value);
-        this.buttonElement.setAttribute("aria-label", this.ariaLabel);
+        this.buttonElement.setAttribute("data-i18n-label", this.ariaLabel);
+        this.buttonElement.setAttribute("data-i18n-title", this.ariaLabel);
         this.buttonElement.innerHTML = this.innerHtml;
-        this.buttonElement.title = this.ariaLabel;
+
         // Apply other accessibility parameters as needed
         if (this.clickHandler) {
           this.buttonElement.addEventListener("click", this.clickHandler);

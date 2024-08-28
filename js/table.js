@@ -14,6 +14,8 @@ function createDataTable(dataTable) {
 
   destroyTable()
 
+  loadTranslations(REF.language)
+
   dataTableHandler(dataTable);
   const column = tableHeader(dataTable)
 
@@ -28,21 +30,19 @@ function createDataTable(dataTable) {
       if (expandables.includes(dataTable[0])) {
 
         if (expandStatus.includes(dataTable[0])) {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<div><button class="tableRowIcon" title="${languageNameSpace.labels["POPCOLAPSE"]}"><i class="fas toggle-icon fa-minus" aria-hidden="true"></i></button></div>`);
+          $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span><div><button class="tableRowIcon" data-i18n-title="POPCOLAPSE"><i class="fas toggle-icon fa-minus" aria-hidden="true"></i></button></div>`);
         } else {
-          $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}<div><button class="tableRowIcon" title="${languageNameSpace.labels["POPEXP"]}"><i class="fas toggle-icon fa-plus" aria-hidden="true"></i></button></div>`);
+          $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span><div><button class="tableRowIcon" data-i18n-title="POPEXP""><i class="fas toggle-icon fa-plus" aria-hidden="true"></i></button></div>`);
         }
       
         $(row).find("td:first-child").on('click', function() {
           const clickedRowIndex = $("#dataTableContainer").DataTable().row($(this).closest("tr")).index();
-          // $("#dataTableContainer").DataTable().row($(this).closest("tr")).addClass('expanded');
-         
           addExtraBal(dataTable[0], clickedRowIndex);
         });
 
         $(row).find("td:first-child").css('cursor', 'pointer');
       } else {
-        $(row).find("td:first-child").html(`${languageNameSpace.labels[dataTable[0]]}`);
+        $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span>`);
       }
     },
     scrollX:"true",
@@ -58,20 +58,20 @@ function createDataTable(dataTable) {
         data: null,
         width: "80px",
         defaultContent: 
-          `<div class="icoContainer">
-            <button class="chartIcon barChart" title="${languageNameSpace.labels["POPBARCHART"]}">
-              <i class="fas fa-chart-bar" aria-hidden="true"></i>
-            </button>
-            <button class="chartIcon pieChart" title="${languageNameSpace.labels["POPPIECHART"]}">
-              <i class="fas fa-chart-pie" aria-hidden="true"></i>
-            </button>
-            <button class="chartIcon lineChart" title="${languageNameSpace.labels["POPLINECHART"]}">
-              <i class="fas fa-chart-line" aria-hidden="true"></i>
-            </button>
-            <button class="chartIcon info" title="${languageNameSpace.labels["POPINFO"]}">
-              <i class="fas fa-info" aria-hidden="true"></i>
-              </button>
-            </div>`,
+          `   <div class="icoContainer">
+        <button class="chartIcon barChart" data-i18n-title="POPBARCHART">
+            <i class="fas fa-chart-bar" aria-hidden="true"></i>
+        </button>
+        <button class="chartIcon pieChart" data-i18n-title="POPPIECHART">
+            <i class="fas fa-chart-pie" aria-hidden="true"></i>
+        </button>
+        <button class="chartIcon lineChart" data-i18n-title="POPLINECHART">
+            <i class="fas fa-chart-line" aria-hidden="true"></i>
+        </button>
+        <button class="chartIcon info" data-i18n-title="POPINFO">
+            <i class="fas fa-info" aria-hidden="true"></i>
+        </button>
+    </div>`,
       },
     ],
     ordering: false,
@@ -99,34 +99,54 @@ function createDataTable(dataTable) {
         extend: "excelHtml5",
         text: '<i class="fas fa-file-excel"></i>',
         // titleAttr: "Excel",
-        title: languageNameSpace.labels["pub2"],
-        messageTop: languageNameSpace.labels[REF.geo] + " - " +languageNameSpace.labels[REF.fuel],
-        messageBottom: "\r\n" + languageNameSpace.labels["eurostat"],
-        customize:function (xlsx) { 
-          var sheet = xlsx.xl.worksheets['sheet1.xml'];
-          $('c[r=A3] t', sheet).text( languageNameSpace.labels["tableYear"] + ": " + REF.year + " / " + languageNameSpace.labels["tableUnit"] + ": " + REF.unit );
-          
-          var COLUMNS = ['B','C','D','E','F', 'G','H','I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];            
-          for ( i=0; i < COLUMNS.length; i++ ) {
-              $('row c[r^='+COLUMNS[i]+']', sheet).attr( 's', '52' );
-              $('row c[r^='+COLUMNS[i]+"3"+']', sheet).attr( 's', '2' );
-          }
-      }
-     
-      },
-      {
-        className: 'exportcsv d-none',
-        extend: "csvHtml5",
-        bom: true,
-        text: '<i class="fas fa-file-csv"></i>',
-        // titleAttr: "CSV",
-        customize: function (csv) {
+        title: translationsCache["TOOLTITLE"] || "Default Title", // Use dynamic translation or fallback
+        messageTop: (translationsCache[REF.geo] || REF.geo) + " - " + (translationsCache[REF.fuel] || REF.fuel), // Dynamic based on REF
+        messageBottom: "\r\n" + ("Eurostat"), // Fallback to "Eurostat" if translation is missing
+        customize: function (xlsx) {
+            var sheet = xlsx.xl.worksheets['sheet1.xml'];
+            
+            // Dynamically replace year and unit in cell A3
+            $('c[r=A3] t', sheet).text(
+                (translationsCache["tableYear"] || "Year") + ": " + REF.year + " / " + 
+                (translationsCache["tableUnit"] || "Unit") + ": " + REF.unit
+            );
+            
+            var COLUMNS = ['B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];
+            for (var i = 0; i < COLUMNS.length; i++) {
+                $('row c[r^=' + COLUMNS[i] + ']', sheet).attr('s', '52');
+                $('row c[r^=' + COLUMNS[i] + "3" + ']', sheet).attr('s', '2');
+            }
+        }
+    },
+    
+    {
+      className: 'exportcsv d-none',
+      extend: "csvHtml5",
+      bom: true,
+      text: '<i class="fas fa-file-csv"></i>',
+      // titleAttr: "CSV",
+      customize: function (csv) {
           var csvRows = csv.split('\n');
-          csvRows[0] = csvRows[0].replace('"Year: 2019Unit: KTOE"', languageNameSpace.labels["tableYear"] + ": " + REF.year + " / " + languageNameSpace.labels["tableUnit"] + ": " + REF.unit)
-          csv = csvRows.join('\n');  
-          return languageNameSpace.labels["pub2"] +"\n"+ languageNameSpace.labels[REF.geo] +" - "+ languageNameSpace.labels[REF.fuel] +"\n"+  csv +"\n\n" + languageNameSpace.labels["eurostat"]
-       }
-      },
+          
+          // Replacing the text in the first CSV row dynamically
+          csvRows[0] = csvRows[0].replace(
+              '"Year: 2019Unit: KTOE"', 
+              (translationsCache["tableYear"] || "Year") + ": " + REF.year + " / " + 
+              (translationsCache["tableUnit"] || "Unit") + ": " + REF.unit
+          );
+          
+          csv = csvRows.join('\n');
+          
+          // Returning the final CSV content with dynamic translations
+          return (translationsCache["TOOLTITLE"] || "Default Title") + "\n" + 
+                 (translationsCache[REF.geo] || REF.geo) + " - " + 
+                 (translationsCache[REF.fuel] || REF.fuel) + "\n" + 
+                 csv + "\n\n" + 
+                 ("Eurostat");
+      }
+  }
+  
+  
     ],
     initComplete: function(settings, json) {
       // Call initCustomScrollbar once DataTables initialization is complete
@@ -450,6 +470,7 @@ table.draw();
 // }
 
 function tableData() {
+
   if (REF.full == 1) {
     defaultData = [];
     dataTable = []
@@ -457,9 +478,10 @@ function tableData() {
     expandStatus = [];
     destroyTable()      
   } 
+
   apiCall();
 
-  getTitle()
+  // getTitle()
 
   dataNameSpace.setRefURL();
 }

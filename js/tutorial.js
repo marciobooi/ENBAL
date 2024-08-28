@@ -2,6 +2,35 @@ let buttonTimer;
 let currentStep;
 let isOpen = false
 
+function setCookie(name, value, days = 30) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const cookieArray = decodedCookie.split(';');
+    for (let i = 0; i < cookieArray.length; i++) {
+        let cookie = cookieArray[i].trim();
+        if (cookie.indexOf(nameEQ) == 0) return cookie.substring(nameEQ.length, cookie.length);
+    }
+    return null;
+}
+
+function checkAndShowTutorial() {
+    const tutorialCookie = getCookie("tutorialShown");
+    if (!tutorialCookie) {
+        // If the cookie doesn't exist, show the tutorial and set the cookie
+        setTimeout(() => {
+            tutorial(); // Function to show the tutorial
+            setCookie("tutorialShown", "true", 30); // Set cookie for 30 days
+        }, 200);
+    }
+}
+
 
 function tutorial(buttonTimer) {
 
@@ -11,56 +40,56 @@ function tutorial(buttonTimer) {
 
 	itens = [
 		{
-			title: languageNameSpace.tutorial["START_TOUR_TITLE"],
-			intro: languageNameSpace.tutorial["START_TOUR_TEXT"],
+			title: translationsTuturialCache["START_TOUR_TITLE"],
+			intro: translationsTuturialCache["START_TOUR_TEXT"],
 			position: 'auto'
 		},
 		{
 		  element: document.querySelector("#menu"),
-		  title: languageNameSpace.tutorial["TUTO_1"],
-		  intro: languageNameSpace.tutorial["TUTO_2"],
+		  title: translationsTuturialCache["TUTO_1"],
+		  intro: translationsTuturialCache["TUTO_2"],
 		  position: 'auto'
 		},
 		{
 		  element: document.querySelector("#infoBtn"),
-		  title: languageNameSpace.tutorial["TUTO_3"],
-		  intro: languageNameSpace.tutorial["TUTO_4"],
+		  title: translationsTuturialCache["TUTO_3"],
+		  intro: translationsTuturialCache["TUTO_4"],
 		  position: 'auto'
 		},
 		{
 		  element: document.querySelector("#downloadBtn"),
-		  title: languageNameSpace.tutorial["TUTO_5"],
-		  intro: languageNameSpace.tutorial["TUTO_6"],
+		  title: translationsTuturialCache["TUTO_5"],
+		  intro: translationsTuturialCache["TUTO_6"],
 		  position: 'auto'
 		},
 		{
 		  element: document.querySelector("#embebedBtn"),
-		  title: languageNameSpace.tutorial["TUTO_7"],
-		  intro: languageNameSpace.tutorial["TUTO_8"],
+		  title: translationsTuturialCache["TUTO_7"],
+		  intro: translationsTuturialCache["TUTO_8"],
 		  position: 'auto'
 		},
 		{
 		  element: document.querySelector("td:nth-child(1) > div > button"),
-		  title: languageNameSpace.tutorial["TUTO_9"],
-		  intro: languageNameSpace.tutorial["TUTO_10"],
+		  title: translationsTuturialCache["TUTO_9"],
+		  intro: translationsTuturialCache["TUTO_10"],
 		  position: 'auto'
 		},
 		{
 		  element: document.querySelectorAll(".icoContainer")[0],
-		  title: languageNameSpace.tutorial["TUTO_11"],
-		  intro: languageNameSpace.tutorial["TUTO_12"],
+		  title: translationsTuturialCache["TUTO_11"],
+		  intro: translationsTuturialCache["TUTO_12"],
 		  position: 'auto'
 		},
 	
 		{			
 		  element: document.querySelector("#shareChart1"),
-		  title: languageNameSpace.tutorial["TUTO_21"],
-		  intro: languageNameSpace.tutorial["TUTO_22"],
+		  title: translationsTuturialCache["TUTO_21"],
+		  intro: translationsTuturialCache["TUTO_22"],
 		  position: 'auto'
 		},
 		{			
-		  title: languageNameSpace.tutorial["END_TOUR_TITLE"],
-		  intro: languageNameSpace.tutorial["END_TOUR_TEXT"],
+		  title: translationsTuturialCache["END_TOUR_TITLE"],
+		  intro: translationsTuturialCache["END_TOUR_TEXT"],
 		  position: 'auto'
 		},
 		]
@@ -72,9 +101,9 @@ function tutorial(buttonTimer) {
 		autoPosition:false,
 		tooltipClass: "customTooltip",
 		exitOnEsc: true,
-		nextLabel:  languageNameSpace.labels['tutNEXT'],
-		prevLabel: languageNameSpace.labels['tutBACK'],
-		doneLabel: languageNameSpace.labels['tutFINISH'],
+		nextLabel:  translationsCache['NEXT'],
+		prevLabel: translationsCache['BACK'],
+		doneLabel: translationsCache['CLOSE'],
 		steps: itens
 	  });  	 
 	  
@@ -89,12 +118,12 @@ function tutorial(buttonTimer) {
 		currentStep = this._currentStep
 
 		if (currentStep === 0) {
-			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = languageNameSpace.labels['tutFINISH']
+			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['CLOSE']
 			setTimeout(() => {
 				$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton.introjs-disabled").addClass( "close" )
 			}, 100);
 		} else {
-			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = languageNameSpace.labels['tutBACK']
+			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['BACK']
 			$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").removeClass( "close" )
 
 			$(".introjs-tooltip.customTooltip.introjs-auto").css({
@@ -116,14 +145,15 @@ function tutorial(buttonTimer) {
 		"class": "btn btn-primary min-with--nav"
 	});
 
-	document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = languageNameSpace.labels['tutFINISH']
+	document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['CLOSE']
 	$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").addClass( "close " )
 
 	traptutorialfocus()
 }
 
 function closeTutorial() {
-	buttonTimer = setTimeout("introJs().exit()", 4000);	
+	log("here")
+	// buttonTimer = setTimeout("introJs().exit()", 4000);	
 	isOpen = false
 }
 

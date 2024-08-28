@@ -126,6 +126,7 @@ tspan#credits {
 
 .ecl-link--standalone, .ecl-link {
  text-decoration: none !important;
+ color:black !important;
 }
 .ecl-link--standalone:hover, .ecl-link:hover {
  text-decoration: underline !important;

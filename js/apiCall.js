@@ -10,10 +10,15 @@ function apiCall() {
     d = chartApiCall();      
    
       const numRows = balances.length;
-      const numColumns = REF.siecs.length;    
- 
-      firstCol = `${languageNameSpace.labels["YEAR"]}: ${REF.year} <br> ${languageNameSpace.labels["UNIT"]}: ${REF.unit}`
-
+      const numColumns = REF.siecs.length;   
+  
+      firstCol = `<div>
+                    <span data-i18n="tableYear"></span>
+                    <span>: ${REF.year}</span>
+                    <br>
+                    <span data-i18n="tableUnit"></span>
+                    <span>: ${REF.unit}</span>
+                </div>`
 
       // Add the column headers as the first row
       dataTable.push([firstCol].concat(REF.siecs));       
@@ -31,7 +36,7 @@ function apiCall() {
       setupDefaultData();
 
 }
-function addExtraBal(id, clickedRowIndex) {  
+function addExtraBal(id) {  
   if ($('#' + id + ' > td:first-child > div > button> i').hasClass('fa-minus')) {
     removeRows(id);
   } else {

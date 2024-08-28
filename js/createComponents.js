@@ -5,15 +5,9 @@ $( document ).ready(function() {
 
   languageNameSpace.initLanguage(REF.language);
 
-  const euGlobanContainer = $('<div>').attr('id', 'euGlobanContainer')
 
-  euGlobanContainer.prependTo('header');
 
-    $wt.render("euGlobanContainer", {
-      utility: "globan",
-      lang: REF.language.toLowerCase(),
-      theme: "dark",
-    });
+
 
   buildComponents();
 })

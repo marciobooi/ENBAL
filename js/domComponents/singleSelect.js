@@ -22,36 +22,34 @@ class Singleselect {
     createSingleSelect() {
         let optionsHTML = '';
 
-
         if (this.elementId === "selectCountry") {
             optionsHTML = `
-            <optgroup label="${languageNameSpace.labels['AGGREGATE']}">
-                ${AGGREGATES_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''}>${languageNameSpace.labels[ctr]}</option>`).join('')}
-            </optgroup>            
-            <optgroup label="${languageNameSpace.labels['EUCTR']}">
-                ${EU_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''}>${languageNameSpace.labels[ctr]}</option>`).join('')}
-            </optgroup>
-            <optgroup label="${languageNameSpace.labels['EFTA']}">
-                ${EFTA_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''}>${languageNameSpace.labels[ctr]}</option>`).join('')}
-            </optgroup>
-            <optgroup label="${languageNameSpace.labels['ENLARGEMENT']}">
-                ${ENLARGEMENT_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''}>${languageNameSpace.labels[ctr]}</option>`).join('')}
-            </optgroup>
-            <optgroup label="${languageNameSpace.labels['OTHERCTR']}">
-                ${OTHER_THIRD_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''}>${languageNameSpace.labels[ctr]}</option>`).join('')}
-            </optgroup>
-            
-        `;
+                <optgroup data-i18n-label="AGGREGATES_COUNTRY_CODES">
+                    ${AGGREGATES_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''} data-i18n="${ctr}"></option>`).join('')}
+                </optgroup>
+                <optgroup data-i18n-label="EU_COUNTRY_CODES">
+                    ${EU_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''} data-i18n="${ctr}"></option>`).join('')}
+                </optgroup>
+                <optgroup data-i18n-label="EFTA_COUNTRY_CODES">
+                    ${EFTA_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''} data-i18n="${ctr}"></option>`).join('')}
+                </optgroup>
+                <optgroup data-i18n-label="ENLARGEMENT_COUNTRY_CODES">
+                    ${ENLARGEMENT_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''} data-i18n="${ctr}"></option>`).join('')}
+                </optgroup>
+                <optgroup data-i18n-label="OTHER_THIRD_COUNTRY_CODES">
+                    ${OTHER_THIRD_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''} data-i18n="${ctr}"></option>`).join('')}
+                </optgroup>
+            `;
         } else {
             const translatedOptions = this.optionsArray.map(option => {
                 const isNumber = !isNaN(option);
                 return {
                     value: option,
-                    label: isNumber ? option : (languageNameSpace.labels[option] !== undefined ? languageNameSpace.labels[option] : option),
+                    label: isNumber ? option : option,
                     isNumber: isNumber
                 };
-            });            
-           
+            });
+
             translatedOptions.sort((a, b) => {
                 if (a.isNumber && b.isNumber) return 0; // Do not sort numbers
                 if (a.isNumber) return -1; // Keep numbers at the beginning
@@ -59,19 +57,15 @@ class Singleselect {
                 return a.label.localeCompare(b.label); // Sort by label
             });
 
-             optionsHTML = translatedOptions.map(option => `
-                <option value="${option.value}" ${this.activeElement === option.value ? 'selected' : ''}>
-                    ${option.label}
-                </option>
+            optionsHTML = translatedOptions.map(option => `
+                <option value="${option.value}" ${this.activeElement === option.value ? 'selected' : ''} data-i18n="${option.label}"></option>
             `).join('');
         }
-
-    
 
         // Generate the full HTML for the single select element
         const singleSelectHTML = `
             <div class="ecl-form-group" role="application">
-                <label for="${this.elementId}" class="ecl-form-label">${this.labelDescription}</label>
+                <label for="${this.elementId}" class="ecl-form-label" data-i18n="${this.labelDescription}"></label>
                 <div class="ecl-select__container ecl-select__container--l">
                     <select class="ecl-select" id="${this.elementId}" name="country" required="">
                         ${optionsHTML}
@@ -90,13 +84,19 @@ class Singleselect {
         // Attach event listeners for mouseenter and mouseleave events to show/hide textChange
         const labelElement = document.querySelector(`label[for="${this.elementId}"]`);
         const selectElement = document.getElementById(this.elementId);
-
+    
+        if (!labelElement || !selectElement) return; // Check if elements exist
+    
         selectElement.addEventListener('mouseenter', () => {
-            labelElement.textContent = this.textChange;
+            // Use the translationsCache to get the translated text for textChange key
+            const translatedText = translationsCache[this.textChange] || this.textChange;
+            labelElement.textContent = translatedText;
         });
-
+    
         selectElement.addEventListener('mouseleave', () => {
-            labelElement.textContent = this.labelDescription;
+            // Use the translationsCache to get the translated text for labelDescription key
+            const translatedText = translationsCache[this.labelDescription] || this.labelDescription;
+            labelElement.textContent = translatedText;
         });
     }
 }

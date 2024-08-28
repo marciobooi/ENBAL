@@ -24,11 +24,11 @@ function handleData(d, series ) {
             valores.shift();
           }          
             if (barcateg.length < series.length) {
-              barcateg.push(languageNameSpace.labels[series[j]]);
+              barcateg.push(translationsCache[series[j]] || series[j]);              
             }   
         }
-        barobj = {
-          name: languageNameSpace.labels[barSiec[item]],
+        barobj = {         
+          name:  translationsCache[barSiec[item]] || barSiec[item],          
           data: data,
         };
         chartSeries.push(barobj);  
@@ -59,8 +59,8 @@ function handleData(d, series ) {
 
   } else {
     val2 = series.map((geo, yIdx) => {   
-      barcateg.push(languageNameSpace.labels[geo]);
-      const languageLabel = languageNameSpace.labels[geo];
+      barcateg.push(translationsCache[geo] || geo);
+      const languageLabel = translationsCache[geo] || geo;
       const color = geo == "EU27_2020" ? '#CCA300' : (geo == "EA" ? '#208486' : "#0E47CB");
       chartSeries.push({ name: languageLabel, y: d.value[yIdx] == null ? 0 : d.value[yIdx] , color }); 
     });
@@ -112,11 +112,11 @@ function createBarChart() {
 
   handleData(d, series);    
 
-  const yAxisTitle = d.__tree__.dimension.unit.category.label[REF.unit]   
+  const yAxisTitle = translationsCache[REF.unit] || REF.unit 
 
   const xAxis =  REF.details == 1 ? { reversedStacks: true, categories: categoriesAndStacks.map((e) => e.x) } : { type: "category" };
 
-  const chartData = REF.details == 0 ? [{name: languageNameSpace.labels[REF.unit], data: chartSeries}] : orderedSeries.reverse();
+  const chartData = REF.details == 0 ? [{name: translationsCache[REF.unit] || REF.unit, data: chartSeries}] : orderedSeries.reverse();
 
   const legendStatus = REF.details == 0 ? false : true ;
 
@@ -133,7 +133,7 @@ function createBarChart() {
     subtitle: null,
     xAxis: xAxis,
     yAxisFormat: '{value:.2f}',
-    yAxisTitle:  REF.stacking == "normal" ? yAxisTitle : languageNameSpace.labels["PERCENTAGE"],
+    yAxisTitle:  REF.stacking == "normal" ? yAxisTitle : translationsCache["PERCENTAGE"] || "PERCENTAGE",
     tooltipFormatter: tooltipFormatter,
     creditsText: credits(),
     creditsHref: "",

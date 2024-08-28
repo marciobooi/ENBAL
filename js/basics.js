@@ -327,21 +327,21 @@ function siec(key) {
 //   }
 // });
 
-function geturl(params) {
-  dataNameSpace.setRefURL();
-  iframeurl = window.location.href;
-  var url = iframeurl;
-  var new_url = url.replace("enbal", "embebed");
-  // console.log(new_url)
-  $("#contentselect").text("");
-  $("#sharemodaltitle").text(languageNameSpace.labels["sharemodaltitle"]);
-  $("#sharemodal").modal("show");
-  $("#contentselect").text(
-    '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="' +
-      new_url +
-      '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
-  );
-}
+// function geturl(params) {
+//   dataNameSpace.setRefURL();
+//   iframeurl = window.location.href;
+//   var url = iframeurl;
+//   var new_url = url.replace("enbal", "embebed");
+//   // console.log(new_url)
+//   $("#contentselect").text("");
+//   $("#sharemodaltitle").text(translationsCache["EMBEDDED_CHART_IFRAME"]);
+//   $("#sharemodal").modal("show");
+//   $("#contentselect").text(
+//     '<iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;" src="' +
+//       new_url +
+//       '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+//   );
+// }
 
 function download_DIVPdf() {
   // Create a new jsPDF instance
@@ -349,7 +349,7 @@ function download_DIVPdf() {
 
   // Add a header to the PDF
   doc.text(
-    "" + languageNameSpace.labels[REF.geo] + "\n" + languageNameSpace.labels[REF.fuel] + " - " + REF.year + "",
+    "" + translationsCache[REF.geo] || REF.geo + "\n" + translationsCache[REF.fuel] || REF.fuel + " - " + REF.year + "",
     doc.internal.pageSize.getWidth() / 2,
     50,
     null,
@@ -466,12 +466,12 @@ function orderByPiles(countriesAndValues, x, y) {
   let categories = [];
   // Populate categories array
   for (const country in x) {
-    categories.push(languageNameSpace.labels[x[country]]);
+    categories.push(translationsCache[x[country]] || x[country]);
   }
 
   // Populate Fuel types array
   for (const fuel in y) {
-    series.push(languageNameSpace.labels[y[fuel]]);
+    series.push(translationsCache[y[fuel] || y[fuel]]);
   }
 
   // Create series of fuel types and categories
@@ -895,8 +895,8 @@ function changeLegendPisition() {
 
 
  orderByPiles = (countriesAndValues, x, y) => {
-  const categories = Object.values(x).map(country => languageNameSpace.labels[country]);
-  const fuelTypes = Object.values(y).map(fuel => languageNameSpace.labels[fuel]);
+  const categories = Object.values(x).map(country => translationsCache[country] || country);
+  const fuelTypes = Object.values(y).map(fuel => translationsCache[fuel] || fuel);
 
   const mySeries = fuelTypes.map((fuel, i) => ({
     name: fuel,
@@ -1026,14 +1026,18 @@ function sortArrayByProtocolOrder(arr) {
 
 
 function getTitle() {
-  const geo = languageNameSpace.labels[REF.geo];
+
+
+
+  const geo = translationsCache[REF.geo] || REF.geo;
   const time = REF.year;
-  const dataset = languageNameSpace.labels["dataset"];
-  const fuel = languageNameSpace.labels[REF.fuel]
-  const bal = languageNameSpace.labels[REF.chartBal]
+  const dataset = translationsCache["TOOLTITLE"];
+  const fuel = translationsCache[REF.fuel] || REF.fuel
+  const bal = translationsCache[REF.chartBal] || REF.chartBal
 
   let title = ""
   let subtitle = ""
+
 
   let chartTitle = "";
   switch (REF.chart) {
@@ -1066,9 +1070,9 @@ function getTitle() {
 
 
 function credits() {
-  const chartCredits = `<span id="credits" style="font-size: .9rem; color="#262B38">${languageNameSpace.labels["eurostat"]} - </span>
+  const chartCredits = `<span id="credits" style="font-size: .9rem; color="#262B38">Eurostat - </span>
   <a style="color:blue; text-decoration: underline; font-size: .9rem;"
-  href="https://ec.europa.eu/eurostat/databrowser/view/${REF.dataset}/default/table?lang=${REF.language}">${languageNameSpace.labels['DB']}</a>,
+  href="https://ec.europa.eu/eurostat/databrowser/view/${REF.dataset}/default/table?lang=${REF.language}">${translationsCache['DB']}</a>,
   <span style="font-size: .875rem;">                           
 </span>`;
 
@@ -1100,7 +1104,7 @@ function extraBalances(id) {
 function chartNormalTooltip(points) {
   const title = points.options.name;
   const value = Highcharts.numberFormat(points.options.y, REF.decimals);
-  const unit = `${languageNameSpace.labels[REF.unit]}`;
+  const unit = `${translationsCache[REF.unit] || REF.unit}`;
   
   // Calculate the percentage
   const total = points.series.data.reduce((acc, point) => acc + point.y, 0);
@@ -1159,8 +1163,8 @@ function tooltipTable(points) {
     
     // Sort the points so that the "Total" item is at the last place
     const sortedPoints = points.sort(function (a, b) {
-      if (a.series.name == languageNameSpace.labels['TOTAL']) return 1;
-      if (b.series.name == languageNameSpace.labels['TOTAL']) return -1;
+      if (a.series.name == translationsCache['TOTAL']) return 1;
+      if (b.series.name == translationsCache['TOTAL']) return -1;
       return 0;
     });
     
@@ -1174,17 +1178,18 @@ function tooltipTable(points) {
     
     sortedPoints.forEach(function (point) {
       const color = point.series.color;
-      const value = point.y.toFixed(decimals); 
+      const value = point.y.toFixed(decimals); // This keeps the number formatted with a fixed number of decimals
+      const formattedValue = parseFloat(value).toLocaleString('en-US').replace(/,/g, ' '); // Replace commas with spaces
       const category = point.series.name;
 
       if(REF.details != 0) {
         html += `<tr>
         <td><svg width="10" height="10" style="vertical-align: baseline;"><circle cx="5" cy="5" r="3" fill="${color}" /></svg> ${category}</td>
-        <td>${value}</td>
+        <td>${formattedValue}</td>
       </tr>`;
       }    
       // Check if point is "Total" and set the flag if found
-      if (category == languageNameSpace.labels['total']) {
+      if (category == translationsCache['TOTAL']) {
         totalAdded = true;
       }
     });
@@ -1203,7 +1208,7 @@ function tooltipTable(points) {
         </tr>
       </thead>
       <tr>      
-        <td>${languageNameSpace.labels["N/A"]}</td>
+        <td>${translationsCache["N/A"]}</td>
       </tr>
     </table>`;
 
@@ -1218,12 +1223,13 @@ function tooltipTable(points) {
     
         // Format the total sum with three decimal places
         const totalValue = totalSum.toFixed(decimals);
+        const formattedValue = parseFloat(totalValue).toLocaleString('en-US').replace(/,/g, ' '); // Replace commas with spaces
     
         // Add a row for the total
         html += `
         <tr class="TOTAL">
-          <td> ${languageNameSpace.labels['TOTAL']}</td>
-          <td>${totalValue}</td>
+          <td> ${translationsCache['TOTAL']}</td>
+          <td>${formattedValue}</td>
         </tr>`;
       }
     }
@@ -1298,7 +1304,6 @@ function enableScreenREader(params) {
       // Update the custom scrollbar's width dynamically
       function updateCustomScrollbar() {
         const elWidth = document.querySelector('.dt-scroll-headInner').offsetWidth; // Use offsetWidth to get the actual width
-        console.log(elWidth); // Log the width for debugging purposes
         customScrollbarInner.style.width = `${elWidth + 50}px`; // Adjust width to ensure full scrollable area
         customScrollbar.scrollLeft = scrollableContent.scrollLeft; // Sync initial positions
       }

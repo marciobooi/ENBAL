@@ -7,8 +7,9 @@ function tableHeader(dataTable) {
     return dataTable[0].map((colTitle, index) => {
       if (index !== 0) {
         return {
-          title: `<div class="tableHeader" id=${colTitle}> ${languageNameSpace.labels[colTitle]} 
-            <button class="tableInfoIcon" title="${languageNameSpace.labels["POPINFOPRODUCTS"]}">
+          title: `<div class="tableHeader" id=${colTitle}> 
+          <span data-i18n="${translationsCache[colTitle] || colTitle}"></span>
+            <button class="tableInfoIcon" data-i18n-title="POPINFOPRODUCTS">
               <i class="fas fa-info-circle" aria-hidden="true"></i>
             </button>
           </div>`,

@@ -3,9 +3,9 @@
     const target = document.querySelector("#containerDecimals");
     const elementId = 'selectDecimals';
     const optionsArray = energyDecimals;
-    const labelDescription = languageNameSpace.labels["DECIMALS"];
+    const labelDescription = "DECIMALS";
     const activeElement = energyDecimals[REF.decimals];
-    const textChange = languageNameSpace.labels["MENU_DEC"];
+    const textChange = "MENU_DEC";
 
     const existingSingleSelect = document.getElementById(elementId);
       if (existingSingleSelect) {

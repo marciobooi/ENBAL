@@ -1,13 +1,21 @@
 function exportIframe() {
+    // Debugging: Log current translationsCache state
+    console.log(translationsCache);
 
-    $('ecl-modal__header-content').html(languageNameSpace.labels['sharemodaltitle'])
-    $('.targetUrl').html(window.location.href)     
- 
+    // Update modal content with the current page URL
+    $('.targetUrl').html(window.location.href);
+
     const modal = document.getElementById('iframeModal');
 
     // Open the modal
     modal.showModal();
 
+    // Set the modal's translation content
+    $('.ecl-modal__header-content').html(translationsCache['EMBEDDED_CHART_IFRAME'] || 'Iframe einbetten');
+    $('#close').html(translationsCache['CLOSE'] || 'Schließen');
+    $('#share').html(translationsCache['COPY'] || 'Kopieren');
+
+    // Initialize ECL components
     ECL.autoInit();
 }
 

@@ -3,9 +3,9 @@
     const target = document.querySelector("#containerUnit");
     const elementId = 'selectUnit';
     const optionsArray = units;
-    const labelDescription = languageNameSpace.labels["UNIT"];
+    const labelDescription = "UNIT";
     const activeElement = REF.unit;
-    const textChange = languageNameSpace.labels["MENU_UNIT"];
+    const textChange = "MENU_UNIT";
 
     const existingSingleSelect = document.getElementById(elementId);
     if (existingSingleSelect) {

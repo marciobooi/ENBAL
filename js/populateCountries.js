@@ -3,9 +3,9 @@ function populateCountries() {
   const target = document.querySelector("#containerCountries");
   const elementId = 'selectCountry';
   const optionsArray = defGeos;
-  const labelDescription = languageNameSpace.labels["COUNTRY"];
+  const labelDescription = "COUNTRY";
   const activeElement = REF.geo;
-  const textChange = languageNameSpace.labels["MENU_COUNTRY"];
+  const textChange = "MENU_COUNTRY"; //passing the key
 
   const existingSingleSelect = document.getElementById(elementId);
     if (existingSingleSelect) {
