@@ -27,7 +27,7 @@ function checkAndShowTutorial() {
         setTimeout(() => {
             tutorial(); // Function to show the tutorial
             setCookie("tutorialShown", "true", 30); // Set cookie for 30 days
-        }, 200);
+        }, 400);
     }
 }
 
