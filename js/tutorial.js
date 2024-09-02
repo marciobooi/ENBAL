@@ -21,7 +21,7 @@ function getCookie(name) {
 }
 
 function checkAndShowTutorial() {
-    const tutorialCookie = getCookie("tutorialShown");
+    const tutorialCookie = getCookie("tutorialeShown");
     if (!tutorialCookie) {
         // If the cookie doesn't exist, show the tutorial and set the cookie
         setTimeout(() => {
