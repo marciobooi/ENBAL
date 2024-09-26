@@ -32,7 +32,6 @@ class Button {
       }
   
       createButton() {
-        log(this.ariaLabel)
         this.buttonElement = document.createElement("button");
         this.buttonElement.id = this.id;
         this.buttonElement.classList.add(...this.classes);

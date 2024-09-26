@@ -73,7 +73,6 @@ class ChartControls {
 		  this.toolsButton.style.display = "none";
 		});
 	  } else {
-		log(isMobile);
 		this.controls.innerHTML = notMobileContent;
 	  }
 	}

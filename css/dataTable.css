@@ -906,6 +906,10 @@ table.dataTable {
   border-spacing: 0;
 }
 
+#dataTableContainer {
+  width: 100% !important;
+}
+
 table.dataTable > thead > tr > th, 
 table.dataTable > thead > tr > td {
     padding: 10px;
@@ -913,6 +917,8 @@ table.dataTable > thead > tr > td {
     height: 5rem;
     vertical-align: top;
 }
+
+
 
 .tableHeader {
   display: flex;
@@ -1020,3 +1026,13 @@ table.dataTable tbody tr {
 
 }
 
+@-moz-document url-prefix() {
+
+  table.dataTable>thead>tr>th,
+  table.dataTable>thead>tr>td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    height: 13rem;
+    vertical-align: top;
+  }
+}

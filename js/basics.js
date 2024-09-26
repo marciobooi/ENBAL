@@ -775,8 +775,8 @@ function handleChartAction() {
   addAuxiliarBarGraphOptions();
   $('#enbal').addClass('d-none');
   $('#chartContainer').removeClass('d-none');
-  log(REF.chart)
   disableChatOptionsBtn()
+  log(REF.chart)
   switch (REF.chart) {
     case "barChart":
       showMenuSwitch()
@@ -791,6 +791,9 @@ function handleChartAction() {
       renderLineChart(chartType, chartBal, chartBalText);
       break;
     default:
+
+console.trace('here')
+
         return
   }
 }
@@ -1070,7 +1073,7 @@ function getTitle() {
 
 
 function credits() {
-  const chartCredits = `<span id="credits" style="font-size: .9rem; color="#262B38">Eurostat - </span>
+  const chartCredits = `<span id="credits" style="font-size: .9rem;">Eurostat - </span>
   <a style="color:blue; text-decoration: underline; font-size: .9rem;"
   href="https://ec.europa.eu/eurostat/databrowser/view/${REF.dataset}/default/table?lang=${REF.language}">${translationsCache['DB']}</a>,
   <span style="font-size: .875rem;">                           
@@ -1304,7 +1307,7 @@ function enableScreenREader(params) {
       // Update the custom scrollbar's width dynamically
       function updateCustomScrollbar() {
         const elWidth = document.querySelector('.dt-scroll-headInner').offsetWidth; // Use offsetWidth to get the actual width
-        customScrollbarInner.style.width = `${elWidth + 50}px`; // Adjust width to ensure full scrollable area
+        customScrollbarInner.style.width = `${elWidth + 250}px`; // Adjust width to ensure full scrollable area
         customScrollbar.scrollLeft = scrollableContent.scrollLeft; // Sync initial positions
       }
   

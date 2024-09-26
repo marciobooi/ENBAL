@@ -35,11 +35,14 @@ function loadTranslations(lang) {
 
     getTitle();
 
-    Highcharts.charts.forEach((chart) => {
-      if (chart) {
-        handleChartAction();
-      }
-    });
+    if (REF.chart != "") {
+          Highcharts.charts.forEach((chart) => {
+            if (chart) {
+              handleChartAction();
+            }
+          });
+    }
+
 
     euGlobanContainer();
   }).fail(function () {
