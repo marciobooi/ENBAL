@@ -63,7 +63,8 @@ function renderPieChart(chartBal) {
     }    
   });
 
-  pieChartData.sort((a, b) => b.y - a.y);
+
+  pieChartData.sort((a, b) => a.name.localeCompare(b.name));
 
   const tooltipFormatter = function() {
     return chartNormalTooltip(this.point);

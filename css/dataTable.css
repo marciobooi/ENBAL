@@ -864,10 +864,12 @@ tbody tr td:not(:first-child) {
   justify-content: space-between;
 }
 
-tbody tr td:first-child {
+td.dtfc-fixed-start.dtfc-fixed-left{
     display: flex;
     justify-content: space-between;
 }
+
+
 
 
 /* expand conditions */
