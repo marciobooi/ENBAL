@@ -3,9 +3,11 @@ let translationsTuturialCache = {};
 let languageNameSpace = {
   initLanguage: function (lang) {
     $(document).ready(function () {
-      loadTranslations(lang);
-      loadTranslationsTuturial(lang);
-      checkAndShowTutorial();
+      setTimeout(() => {
+        loadTranslations(lang);
+        loadTranslationsTuturial(lang);
+        checkAndShowTutorial();
+      }, 200);
     });
   },
 };
