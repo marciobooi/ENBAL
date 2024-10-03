@@ -6,7 +6,7 @@
 #menu {
     position: relative;
     padding: 0.2rem !important;
-    margin-left: 2rem;
+    /* margin-left: 2rem; */
     width: 3rem;
     cursor: pointer;
     border: none;

@@ -99,6 +99,7 @@ select:focus option:focus {
     min-height: 70px;
     padding: 0px;
     align-items: center;
+    margin: 0 !important;
 }
 
 
@@ -130,7 +131,8 @@ select:focus option:focus {
     display: inline;
     padding-right: 1rem;
     padding-left: 2rem;
-    left: -2.2rem;
+    padding-left: 0;
+    margin-left: 0;
     position: relative;
     text-align: left;
     font: normal normal bold 2.4rem / 2.6rem Arial;
