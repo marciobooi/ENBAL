@@ -348,29 +348,40 @@ function download_DIVPdf() {
   var doc = new window.jspdf.jsPDF("L", "pt");
 
   // Add a header to the PDF
-  doc.text(
-    "" + translationsCache[REF.geo] || REF.geo + "\n" + translationsCache[REF.fuel] || REF.fuel + " - " + REF.year + "",
-    doc.internal.pageSize.getWidth() / 2,
-    50,
-    null,
-    null,
-    "center"
-  );
+doc.text(
+  (translationsCache[REF.geo] || REF.geo) + "\n" + (translationsCache[REF.fuel] || REF.fuel) + " - " + REF.year,
+  doc.internal.pageSize.getWidth() / 2,
+  50,
+  null,
+  null,
+  "center"
+);
+
 
   // Calculate page width and margins
   var pageWidth = doc.internal.pageSize.getWidth();
   var margin = 20; // Set a margin of 20 units on each side
   var availableWidth = pageWidth - margin * 2;
 
-  // Extract headers manually
-  var headers = [];
-  
-  $("#dataTableContainer_wrapper > div.dt-scroll > div.dt-scroll-head > div > table > thead > tr > th").each(function() {
-    var headerText = $(this).find('.tableHeader').text().trim() || $(this).text().trim();
-    if (headerText) {
-      headers.push(headerText);
-    }
-  });
+var headers = [];
+$(
+  "#dataTableContainer_wrapper > div.dt-scroll > div.dt-scroll-head > div > table > thead > tr > th"
+).each(function () {
+  var headerText =
+    $(this).find(".tableHeader").text().trim() || $(this).text().trim();
+
+  // Handle nested elements in the header
+  if ($(this).find("div").length) {
+    headerText = $(this).find("div").text().trim().replace(/\s+/g, " ");
+  }
+
+  // Add a line break after the "Year : 2022"
+  headerText = headerText.replace(/(Year\s*:\s*\d{4})\s*/, "$1\n");
+
+  if (headerText) {
+    headers.push(headerText);
+  }
+});
 
   // Extract body content manually
   var body = [];
@@ -791,8 +802,6 @@ function handleChartAction() {
       renderLineChart(chartType, chartBal, chartBalText);
       break;
     default:
-
-console.trace('here')
 
         return
   }
