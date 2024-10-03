@@ -232,10 +232,10 @@ expandables = ["NRGSUP","TI_E","TO","NRG_E","FC_E","TI_EHG_E","TI_RPI_E","TO_EHG
   ]
   
   const ENLARGEMENT_COUNTRY_CODES = [
-	"ME","MK","AL","RS","TR","BA","XK"
+	 "BA","ME","MD","MK","GE","AL","RS","TR","UA","XK",
   ]
   
   const OTHER_THIRD_COUNTRY_CODES = [
-	"UA", "MD", "GE"
+	// "UA", "MD", "GE"
   ]
   
