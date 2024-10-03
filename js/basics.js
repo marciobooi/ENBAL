@@ -809,9 +809,10 @@ let auxiliarBarGraphOptions;
   }
 
 function removeAuxiliarBarGraphOptions() {
+
     REF.percentage = 0  
     REF.chart = ""
-    
+
 
     $('#chartContainer').addClass('d-none');
     $('#enbal').removeClass('d-none');
@@ -819,10 +820,8 @@ function removeAuxiliarBarGraphOptions() {
     const auxiliarBarGraphOptions = new ChartControls();
     auxiliarBarGraphOptions.removeFromDOM("#subnavbar-container");  
     $(".containerNav").css('visibility', 'initial')
-  hideMenuSwitch()
-  
-  getTitle();   
- 
+    hideMenuSwitch()
+     getTitle();   
   }
 
   function showMenuSwitch() {
@@ -1038,32 +1037,38 @@ function getTitle() {
   const fuel = translationsCache[REF.fuel] || REF.fuel
   const bal = translationsCache[REF.chartBal] || REF.chartBal
 
+  let title = ""
+  let subtitle = ""
+
+  log(REF.chart)
+
+  let chartTitle = "";
   switch (REF.chart) {
     case "lineChart":
       chartTitle = `${dataset} - ${fuel} - ${bal} - ${geo}`;
-      title = `<strong>${fuel}, </strong> ${geo}, ${bal}`;
+      title = `<strong>${fuel}</strong> ,${geo}, ${bal}`;
       subtitle = "";
     break;
     case "pieChart":
       chartTitle = `${dataset} - ${fuel} - ${bal} - ${geo} - ${time}`;
-      title = `<strong>${geo}, </strong> ${bal}, ${dataset}, ${time}`;
+      title = `<strong>${geo}</strong> ,${bal}, ${dataset}, ${time}`;
       subtitle = "";
       break;
     case "barChart":
       chartTitle = `${dataset} - ${fuel} - ${bal} - ${time}`;
-      title = `<strong>${fuel}, </strong> ${bal}, ${time}`;
+      title = `<strong>${fuel}</strong> ,${bal}, ${time}`;
       subtitle = "";
       break;
     default:    
-
       chartTitle = `${geo} - ${fuel}, ${time}`;
-      title = `<strong>${geo}, </strong> ${fuel}, ${time}`;
-
+      title = `<strong>${geo}</strong> ,${fuel}, ${time}`;
       subtitle = "";   
   }
 
-  
-document.querySelector("#title").innerHTML = title;
+  $("#title").html(title);
+  $("#subtitle").html(subtitle);
+
+  return chartTitle;
 }
 
 
