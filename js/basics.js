@@ -808,10 +808,10 @@ let auxiliarBarGraphOptions;
     } 
   }
 
-  function removeAuxiliarBarGraphOptions() {
+function removeAuxiliarBarGraphOptions() {
     REF.percentage = 0  
     REF.chart = ""
-    getTitle()   
+    
 
     $('#chartContainer').addClass('d-none');
     $('#enbal').removeClass('d-none');
@@ -819,7 +819,9 @@ let auxiliarBarGraphOptions;
     const auxiliarBarGraphOptions = new ChartControls();
     auxiliarBarGraphOptions.removeFromDOM("#subnavbar-container");  
     $(".containerNav").css('visibility', 'initial')
-    hideMenuSwitch()
+  hideMenuSwitch()
+  
+  getTitle();   
  
   }
 
@@ -1030,19 +1032,12 @@ function sortArrayByProtocolOrder(arr) {
 
 function getTitle() {
 
-
-
   const geo = translationsCache[REF.geo] || REF.geo;
   const time = REF.year;
   const dataset = translationsCache["TOOLTITLE"];
   const fuel = translationsCache[REF.fuel] || REF.fuel
   const bal = translationsCache[REF.chartBal] || REF.chartBal
 
-  let title = ""
-  let subtitle = ""
-
-
-  let chartTitle = "";
   switch (REF.chart) {
     case "lineChart":
       chartTitle = `${dataset} - ${fuel} - ${bal} - ${geo}`;
@@ -1060,15 +1055,15 @@ function getTitle() {
       subtitle = "";
       break;
     default:    
+
       chartTitle = `${geo} - ${fuel}, ${time}`;
       title = `<strong>${geo}, </strong> ${fuel}, ${time}`;
+
       subtitle = "";   
   }
 
-  $("#title").html(title);
-  $("#subtitle").html(subtitle);
-
-  return chartTitle;
+  
+document.querySelector("#title").innerHTML = title;
 }
 
 
