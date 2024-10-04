@@ -41,7 +41,7 @@ class SubNavbar {
                       </button>
                       <ul class="dropdown-menu dropdown-menu-end" role="menu" data-i18n-labelledby="DOWNLOAD_CHART_IMAGE">     					
                           <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="download_DIVPdf()" data-i18n-label="POPDOWNLOADTABLEPDF" data-i18n="POPDOWNLOADTABLEPDF"></button>
-                          <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="table.button('.exportxcel').trigger();" data-i18n-label="POPDOWNLOADTABLEEXCEL" data-i18n="POPDOWNLOADTABLEEXCEL"></button>
+                          <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="exportToExcel()" data-i18n-label="POPDOWNLOADTABLEEXCEL" data-i18n="POPDOWNLOADTABLEEXCEL"></button>
                           <button class="dropdown-item ecl-link ecl-link--standalone" role="menuitem" onclick="table.button('.exportcsv').trigger();" data-i18n-label="POPDOWNLOADTABLECSV" data-i18n="POPDOWNLOADTABLECSV"></button>        		
                       </ul>
                   </li>

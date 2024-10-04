@@ -1366,4 +1366,145 @@ function enableScreenREader(params) {
     } else {
       console.error('One or more elements are missing.');
     }
+}
+  
+
+
+async function exportToExcel() {
+  // Create a new workbook and add a worksheet
+  var workbook = new ExcelJS.Workbook();
+  var worksheet = workbook.addWorksheet("Sheet1");
+
+  // Get the HTML table element
+  var table = document.getElementById("dataTableContainer");
+
+  // Determine the number of columns in the table
+  const totalColumns = table.rows[0].cells.length;
+
+  // Convert the column index to Excel letters (e.g., 13 -> 'M')
+  function getColumnLetter(index) {
+    let letter = "";
+    while (index >= 0) {
+      letter = String.fromCharCode((index % 26) + 65) + letter;
+      index = Math.floor(index / 26) - 1;
+    }
+    return letter;
   }
+
+  const lastColumnLetter = getColumnLetter(totalColumns - 1);
+
+  // Add a title row at the top
+  var titleRow = worksheet.addRow([translationsCache["TOOLTITLE"]]);
+  titleRow.font = { bold: true, size: 16 };
+  worksheet.mergeCells(`A1:${lastColumnLetter}1`); // Merge across only the existing columns
+  titleRow.getCell(1).alignment = { horizontal: "center", vertical: "middle" }; // Set alignment for the merged cell
+
+  // Add a subtitle row below the title row
+  var subtitleRow = worksheet.addRow([translationsCache[REF.geo] + " - " + translationsCache[REF.fuel]]);
+  subtitleRow.font = { italic: true, size: 14}; // Set subtitle font properties
+  worksheet.mergeCells(`A2:${lastColumnLetter}2`); // Merge across only the existing columns
+  subtitleRow.getCell(1).alignment = {
+    horizontal: "center",
+    vertical: "middle",
+  }; // Set alignment for the merged cell
+
+  // Extract table header row
+  let headerRow = table.rows[0];
+  let headerData = Array.from(headerRow.cells)
+    .slice(0, totalColumns)
+    .map((cell) => cell.innerText);
+  let worksheetHeaderRow = worksheet.addRow(headerData);
+  worksheetHeaderRow.font = { bold: true };
+
+  // Set custom height for the header row (third row)
+  worksheet.getRow(3).height = 60; // Set the height of the header row to 60 units
+
+  for (let i = 0; i < totalColumns; i++) {
+    let cell = worksheetHeaderRow.getCell(i + 1);
+    cell.fill = {
+      type: "pattern",
+      pattern: "solid",
+      fgColor: { argb: "FF4A90E2" }, // Softer blue for the header (#4A90E2)
+    };
+    // Align header cells: First column to left, others to right
+    cell.alignment = {
+      horizontal: i === 0 ? "left" : "right",
+      vertical: "middle",
+      wrapText: true,
+    }; // Enable text wrapping
+  }
+
+  // Set custom width for the columns
+  worksheet.getColumn(1).width = 35; // Set the width of the first column to 35 units
+  for (let i = 2; i <= totalColumns; i++) {
+    worksheet.getColumn(i).width = 12.5; // Set the width of all other columns to 12.5 units
+  }
+
+  // Extract table data rows and add striped styling
+  for (let i = 1; i < table.rows.length; i++) {
+    let row = table.rows[i];
+    let rowData = Array.from(row.cells)
+      .slice(0, totalColumns)
+      .map((cell) => cell.innerText);
+    let worksheetRow = worksheet.addRow(rowData);
+
+    for (let j = 0; j < totalColumns; j++) {
+      let cell = worksheetRow.getCell(j + 1);
+
+      // Align cells: First column to left, others to right
+      cell.alignment = {
+        horizontal: j === 0 ? "left" : "right",
+        vertical: "middle",
+      };
+
+      // Format numbers with space for thousands separator if the cell contains a number
+      if (j > 0 && !isNaN(cell.value)) {
+        cell.numFmt = "# ###"; // Set number format to include a space for thousands separator
+      }
+
+      // Add striped styling - light blue background for alternating rows
+      if (i % 2 === 0) {
+        cell.fill = {
+          type: "pattern",
+          pattern: "solid",
+          fgColor: { argb: "FFcfdaf5" }, // Row color #cfdaf5
+        };
+      }
+    }
+  }
+
+  // Add a footer row with today's date and source
+  let today = new Date().toLocaleDateString();
+  let footerRow = worksheet.addRow([`Source: Eurostat | Date: ${today}`]);
+  footerRow.font = { italic: true, size: 12 };
+  worksheet.mergeCells(
+    `A${footerRow.number}:${lastColumnLetter}${footerRow.number}`
+  ); // Merge across only the existing columns
+  footerRow.getCell(1).alignment = { horizontal: "right", vertical: "middle" }; // Set alignment for the merged footer
+
+  // Export workbook to an Excel file
+  workbook.xlsx.writeBuffer().then((buffer) => {
+    const blob = new Blob([buffer], {
+      type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "exported_table_with_title_footer_striped.xlsx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
