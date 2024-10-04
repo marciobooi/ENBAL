@@ -1038,3 +1038,9 @@ table.dataTable tbody tr {
     vertical-align: top;
   }
 }
+
+
+.highlight-na {
+  color: #0000005e;
+  font-size: .8rem;
+}

@@ -27,7 +27,7 @@ function createDataTable(dataTable) {
       $('td:eq(0)', row).css('min-width', '12rem');
       $(row).attr("id", dataTable[0]);
 
-      if (expandables.includes(dataTable[0])) {
+     if (expandables.includes(dataTable[0])) {
 
         if (expandStatus.includes(dataTable[0])) {
           $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span><div><button class="tableRowIcon" data-i18n-title="POPCOLAPSE"><i class="fas toggle-icon fa-minus" aria-hidden="true"></i></button></div>`);
