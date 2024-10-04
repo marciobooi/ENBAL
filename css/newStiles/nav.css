@@ -2,9 +2,6 @@
     display: none !important;
 }
 
-
-
-
 select#lang-selection {
     width: 7.5rem;
     height: 2rem;
@@ -22,15 +19,12 @@ select#lang-selection {
     line-height: 20px;
 }
 
-
-
 #lang-section {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 
 #toggleLanguageBtn {
     position: relative;
@@ -42,11 +36,6 @@ select#lang-selection {
     z-index: 99999999999;
 }
 
-
-
-
-
-
 option:disabled {
     color: var(--bs-gray-500);
     background-color: var(--sub-nav-color);
@@ -56,12 +45,6 @@ select:focus option:focus {
     outline: none;
     background-color: #eaf2ff;
 }
-
-
-
-
-
-
 
 .ecl-site-header__language-container {
     display: none;
@@ -76,33 +59,18 @@ select:focus option:focus {
     color:black
 }
 
-
-
-
-
-
-
-
-
-
 .ecl-site-header__language-link {
     cursor: pointer;
 }
 
-
-
-
-
 #es_app_header {
     display: grid;
-    grid-template-columns: auto 190px 220px 190px;
+    grid-template-columns: auto 250px 300px 190px;
     min-height: 70px;
     padding: 0px;
     align-items: center;
     margin: 0 !important;
 }
-
-
 
 .es_app_top {
     padding: 0rem 1rem !important;
@@ -116,13 +84,9 @@ select:focus option:focus {
     max-height: 99px;
 }
 
-
-
   #es_app_header_ribbon img {
     max-height: 99px;
   }
-  
-
 
 #header-title-label {
     font-weight: 1000;
@@ -141,11 +105,9 @@ select:focus option:focus {
     white-space: nowrap;
 }
 
-
 #es_app_header_ribbon img {
     max-height: 99px;
 }
-
 
 .es_logo {
     max-height: 26px;
@@ -153,6 +115,10 @@ select:focus option:focus {
 
 .d-inline {
     display: inline !important;
+}
+
+span.ecl-link.ecl-site-header__language-link {
+  text-decoration: none !important;
 }
 
 @media (min-width: 768px) and (max-width: 1200px) {
@@ -251,9 +217,7 @@ select:focus option:focus {
 
 
 
-  span.ecl-link.ecl-site-header__language-link {
-    text-decoration: none !important;
-}
+
 
 
 
