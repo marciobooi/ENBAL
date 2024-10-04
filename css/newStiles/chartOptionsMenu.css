@@ -167,6 +167,7 @@ ul.dropdown-menu {
 
 .dropdown-menu.show {
   padding: 12px;
+  width: auto;
 }
 
 .dropdown-toggle::after {

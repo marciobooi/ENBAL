@@ -33,7 +33,6 @@ function tableHeader(dataTable) {
     // Iterate through the dataTable and format the numbers
     for (let i = 1; i < dataTable.length; i++) {
       for (let j = 1; j < dataTable[i].length; j++) {
-          log(dataTable[i][j]);
           if (dataTable[i][j] === null) {
             dataTable[i][j] = "N/A";
         } else {

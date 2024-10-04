@@ -49,11 +49,16 @@ class Singleselect {
             });
 
             translatedOptions.sort((a, b) => {
-                if (a.isNumber && b.isNumber) return 0; // Do not sort numbers
-                if (a.isNumber) return -1; // Keep numbers at the beginning
-                if (b.isNumber) return 1;  // Keep numbers at the beginning
-                return a.label.localeCompare(b.label); // Sort by label
+              if (a.value === "fuelMainFuel") return -1; // Keep "fuelMainFuel" at the beginning
+              if (b.value === "fuelMainFuel") return 1; // Keep "fuelMainFuel" at the beginning
+
+              if (a.isNumber && b.isNumber) return 0; // Do not sort numbers
+              if (a.isNumber) return -1; // Keep numbers at the beginning
+              if (b.isNumber) return 1; // Keep numbers at the beginning
+              return a.label.localeCompare(b.label); // Sort by label
             });
+
+
 
             optionsHTML = translatedOptions.map(option => `
                 <option value="${option.value}" ${this.activeElement === option.value ? 'selected' : ''} data-i18n="${option.label}"></option>
