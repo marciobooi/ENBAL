@@ -82,10 +82,10 @@
   "YEAR": "Year",
   "MENU_YEARS": "Select year",
 
-  "AGGREGATES_COUNTRY_CODES": "Aggregate Country Codes",
-  "EU_COUNTRY_CODES": "European Union (EU) Country Codes",
-  "EFTA_COUNTRY_CODES": "European Free Trade Association (EFTA) Country Codes",
-  "ENLARGEMENT_COUNTRY_CODES": "EU Enlargement Country Codes",
+  "AGGREGATES_COUNTRY_CODES": "Aggregates",
+  "EU_COUNTRY_CODES": "European Union (EU)",
+  "EFTA_COUNTRY_CODES": "European Free Trade Association (EFTA)",
+  "ENLARGEMENT_COUNTRY_CODES": "EU Enlargement",
   "OTHER_THIRD_COUNTRY_CODES": "Other Third Country Codes",
 
   "fuelMainFuel": "Total - main fuel families",

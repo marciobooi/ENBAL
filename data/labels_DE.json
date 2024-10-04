@@ -81,10 +81,10 @@
   "YEAR": "Jahr",
   "MENU_YEARS": "Jahr auswählen",
 
-  "AGGREGATES_COUNTRY_CODES": "Aggregierte Ländercodes",
-  "EU_COUNTRY_CODES": "Ländercodes der Europäischen Union (EU)",
-  "EFTA_COUNTRY_CODES": "Ländercodes der Europäischen Freihandelsassoziation (EFTA)",
-  "ENLARGEMENT_COUNTRY_CODES": "Ländercodes der EU-Erweiterung",
+  "AGGREGATES_COUNTRY_CODES": "Aggregaten",
+  "EU_COUNTRY_CODES": "Europäische Union (EU)",
+  "EFTA_COUNTRY_CODES": "Europäische Freihandelsassoziation (EFTA)",
+  "ENLARGEMENT_COUNTRY_CODES": "EU-Erweiterung",
   "OTHER_THIRD_COUNTRY_CODES": "Ländercodes anderer Drittländer",
 
   "fuelMainFuel" :"Gesamt - Hauptkraftstofffamilien ",
