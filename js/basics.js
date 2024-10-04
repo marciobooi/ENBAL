@@ -1490,7 +1490,7 @@ async function exportToExcel() {
     });
     const link = document.createElement("a");
     link.href = URL.createObjectURL(blob);
-    link.download = "exported_table_with_title_footer_striped.xlsx";
+    link.download = "Energy_balances.xlsx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
