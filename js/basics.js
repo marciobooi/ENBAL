@@ -787,7 +787,6 @@ function handleChartAction() {
   $('#enbal').addClass('d-none');
   $('#chartContainer').removeClass('d-none');
   disableChatOptionsBtn()
-  log(REF.chart)
   switch (REF.chart) {
     case "barChart":
       showMenuSwitch()
@@ -1049,26 +1048,28 @@ function getTitle() {
   let title = ""
   let subtitle = ""
 
-  log(REF.chart)
-
   let chartTitle = "";
   switch (REF.chart) {
     case "lineChart":
+      log("here lineChart");
       chartTitle = `${dataset} - ${fuel} - ${bal} - ${geo}`;
       title = `<strong>${fuel}</strong>, ${geo}, ${bal}`;
       subtitle = "";
     break;
     case "pieChart":
+      log("here pieChart");
       chartTitle = `${dataset} - ${fuel} - ${bal} - ${geo} - ${time}`;
-      title = `<strong>${geo}</strong>, ${bal}, ${dataset}, ${time}`;
+      title = `<strong>${fuel}</strong>, ${geo}, ${bal}, ${time}`;
       subtitle = "";
       break;
     case "barChart":
+      log("here barChart");
       chartTitle = `${dataset} - ${fuel} - ${bal} - ${time}`;
       title = `<strong>${fuel}</strong>, ${bal}, ${time}`;
       subtitle = "";
       break;
     default:    
+      log("here default");
       chartTitle = `${geo} - ${fuel}, ${time}`;
       title = `<strong>${geo}</strong>, ${fuel}, ${time}`;
       subtitle = "";   

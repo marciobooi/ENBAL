@@ -36,9 +36,7 @@ class Singleselect {
                 <optgroup data-i18n-label="ENLARGEMENT_COUNTRY_CODES">
                     ${ENLARGEMENT_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''} data-i18n="${ctr}"></option>`).join('')}
                 </optgroup>
-                <optgroup data-i18n-label="OTHER_THIRD_COUNTRY_CODES">
-                    ${OTHER_THIRD_COUNTRY_CODES.map(ctr => `<option value="${ctr}" ${this.activeElement === ctr ? 'selected' : ''} data-i18n="${ctr}"></option>`).join('')}
-                </optgroup>
+
             `;
         } else {
             const translatedOptions = this.optionsArray.map(option => {

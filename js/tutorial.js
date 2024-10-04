@@ -152,7 +152,7 @@ function tutorial(buttonTimer) {
 }
 
 function closeTutorial() {
-	log("here")
+
 	// buttonTimer = setTimeout("introJs().exit()", 4000);	
 	isOpen = false
 }

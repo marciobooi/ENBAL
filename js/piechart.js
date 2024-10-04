@@ -70,6 +70,10 @@ function renderPieChart(chartBal) {
     return chartNormalTooltip(this.point);
   };
 
+
+
+
+
   const chartOptions = {
     containerId: "chart",
     type: "pie",
@@ -110,6 +114,13 @@ function renderPieChart(chartBal) {
   $(window).on('resize', function () {
     changeLegendPisition(pieChart);
   });
+
+$("#title").html('');
+  setTimeout(() => {
+      REF.chart = "pieChart";
+    log('here')
+      log(getTitle());
+  }, 1500);
 
 }
 
