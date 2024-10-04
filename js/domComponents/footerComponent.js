@@ -24,13 +24,13 @@ class Footer {
     const footerCredits = document.querySelector('#footerCredits');
     footerCredits.innerHTML = '';
 
-    const linksContent = /*html*/`     
+    const linksContent = /*html*/ `     
     <li class="ecl-site-footer__list-item">
-    <a id="footer-privacy" href="https://ec.europa.eu/info/privacy-policy_${REF.language.toLowerCase()}" data-i18n="LEGAL" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
+    <a id="footer-privacy" href="https://ec.europa.eu/info/legal-notice_${REF.language.toLowerCase()}" data-i18n="LEGAL" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
     </li>
     <hr>
     <li class="ecl-site-footer__list-item">
-    <a id="footer-legal" href="https://ec.europa.eu/info/legal-notice_${REF.language.toLowerCase()}" data-i18n="PRIVACY" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
+    <a id="footer-legal" href="https://ec.europa.eu/info/privacy-policy_${REF.language.toLowerCase()}" data-i18n="PRIVACY" class="ecl-link ecl-link--standalone ecl-site-footer__link"></a>
     </li>
     <hr>
     <li class="ecl-site-footer__list-item">
