@@ -375,8 +375,12 @@ $(
     headerText = $(this).find("div").text().trim().replace(/\s+/g, " ");
   }
 
-  // Add a line break after the "Year : 2022"
-  headerText = headerText.replace(/(Year\s*:\s*\d{4})\s*/, "$1\n");
+let textToFind = translationsCache["YEAR"]; // Example: "Year" or the translated word
+// Create a dynamic regular expression using textToFind
+let regex = new RegExp(`(${textToFind}\\s*:\\s*\\d{4})\\s*`, "i");
+
+// Replace the match with itself followed by a line break
+headerText = headerText.replace(regex, "$1\n");
 
   if (headerText) {
     headers.push(headerText);
