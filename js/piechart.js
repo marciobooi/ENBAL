@@ -20,8 +20,8 @@ function renderPieChart(chartBal) {
   
     REF.siecs = siec(REF.fuel);
 
-    d = chartApiCall();
-
+  d = chartApiCall();
+ 
     const seriesOpt = {
       showInLegend: true,
       dataLabels: {
