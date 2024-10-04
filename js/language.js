@@ -51,24 +51,21 @@ function loadTranslations(lang) {
 
     const selectElement = document.getElementById("selectFuel");
 
-    // Extract all options into an array, except "fuelMainFuel"
+
     let mainFuelOption = null;
     let options = Array.from(selectElement.options).filter((option) => {
       if (option.value === "fuelMainFuel") {
         mainFuelOption = option;
-        return false; // Exclude "fuelMainFuel" from the main list
+        return false; 
       }
       return true;
     });
 
-    // Sort the remaining options alphabetically by their text content
     options.sort((a, b) => a.text.localeCompare(b.text));
 
-    // Clear the existing options and add "fuelMainFuel" first
     selectElement.innerHTML = "";
-    if (mainFuelOption) selectElement.appendChild(mainFuelOption); // Add "fuelMainFuel" first
+    if (mainFuelOption) selectElement.appendChild(mainFuelOption); 
 
-    // Append the sorted options
     options.forEach((option) => selectElement.appendChild(option));
 
     addNAAttributes();
@@ -106,8 +103,8 @@ function addNAAttributes() {
   $("#dataTableContainer > tbody > tr > td").each(function () {
     if ($(this).text().trim() === "N/A") {
       $(this).addClass("highlight-na");
-      $(this).attr("title", translationsCache["N/A"] || "Not Available"); // Use translation if available, otherwise default
-      $(this).attr("aria-label", translationsCache["N/A"] || "Not Available"); // Same for aria-label
+      $(this).attr("title", translationsCache["N/A"] || "Not Available");
+      $(this).attr("aria-label", translationsCache["N/A"] || "Not Available");
     }
   });
 }
