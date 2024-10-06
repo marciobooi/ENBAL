@@ -969,30 +969,6 @@ function changeLegendPisition() {
 
 
 
-function showHideTimeLine() {
-  const timelineContainer = document.getElementById('timelineContainer');
-
-  // Check if a timeline instance exists
-  if (this.timeline) {
-    // Remove the existing timeline
-    this.timeline.removeFromDOM();
-    this.timeline = null;
-  }
-
-  if (REF.chartType === 'barChart' || REF.chartType === 'pieChart') {
-    // Create and add the Timeline instance to the DOM
-    this.timeline = new Timeline(timelineContainer);
-
-    // Display the timeline
-    this.timeline.addToDOM();
-
-    // Show specific chart options
-    showChartOptions();
-  } else {
-    // Hide specific chart options
-    hideChartOptions();
-  }
-}
 
 
 function sortArrayAlphabetically() {
