@@ -49,14 +49,17 @@ function loadTranslations(lang) {
       });
     }
 
-    const selectElement = document.getElementById("selectFuel");
 
+  
+
+    if (!isFirefox) {
+    const selectElement = document.getElementById("selectFuel");
 
     let mainFuelOption = null;
     let options = Array.from(selectElement.options).filter((option) => {
       if (option.value === "fuelMainFuel") {
         mainFuelOption = option;
-        return false; 
+        return false;
       }
       return true;
     });
@@ -64,9 +67,16 @@ function loadTranslations(lang) {
     options.sort((a, b) => a.text.localeCompare(b.text));
 
     selectElement.innerHTML = "";
-    if (mainFuelOption) selectElement.appendChild(mainFuelOption); 
+    if (mainFuelOption) selectElement.appendChild(mainFuelOption);
 
     options.forEach((option) => selectElement.appendChild(option));
+    }
+
+
+
+
+
+
 
     addNAAttributes();
 
