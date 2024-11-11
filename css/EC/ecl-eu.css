@@ -22793,4 +22793,23 @@
     z-index: 9999 !important
 }
 
+.ecl-site-header__language-link:focus-visible {
+    outline-offset: -2px !important;
+}
+
+.ecl-link--standalone:visited {
+    color: #0e47cb !important;
+}
+
+.ecl-link:focus-visible {
+  border-radius: 2px !important;
+  outline: 2px solid #0e47cb !important;
+  outline-offset: 2px !important;
+}
+
+.ecl-site-header__language-link:focus-visible .ecl-site-header__language-link-label, .ecl-site-header__language-link:hover .ecl-site-header__language-link-label {
+  text-decoration: underline !important;
+}
+
+
 /*# sourceMappingURL=ecl-eu.css.map */

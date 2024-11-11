@@ -113,7 +113,7 @@ transform: rotate3d(25.5, -10.5, 6, 127deg);
 }
 
 .ecl-link--standalone {
-  text-decoration: underline !important;
+  text-decoration: underline;
 }
 
 svg.highcharts-root {
@@ -125,10 +125,14 @@ tspan#credits {
 }
 
 .ecl-link--standalone, .ecl-link {
- text-decoration: none !important;
- color:black !important;
+ text-decoration: none;
+ color:black;
 }
 .ecl-link--standalone:hover, .ecl-link:hover {
  text-decoration: underline !important;
+}
+
+a.ecl-link.ecl-link--standalone.ecl-site-header__language-link:focus-visible .ecl-site-header__language-link-label {
+  text-decoration: underline
 }
 
