@@ -30,14 +30,10 @@ function loadTranslations(lang) {
     };
 
     translateElements("[data-i18n]", "i18n", "text");
-    translateElements("[data-i18n-label]", "i18n-label", "aria-label");
-    translateElements(
-      "[data-i18n-labelledby]",
-      "i18n-labelledby",
-      "aria-labelledby"
-    );
-    translateElements("[data-i18n-title]", "i18n-title", "title");
-    translateElements("optgroup[data-i18n-label]", "i18n-label", "label");
+    translateElements("[data-i18n-label]", "i18nLabel", "aria-label");
+    translateElements("[data-i18n-labelledby]", "i18nLabelledby", "aria-labelledby");
+    translateElements("[data-i18n-title]", "i18nTitle", "title");
+    translateElements("optgroup[data-i18n-label]", "i18nLabel", "label");
 
     getTitle();
 
