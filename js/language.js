@@ -71,7 +71,7 @@ function loadTranslations(lang) {
 
 
 
-
+    document.documentElement.lang = lang.toLowerCase();
 
 
     addNAAttributes();
