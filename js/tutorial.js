@@ -51,7 +51,7 @@ function tutorial(buttonTimer) {
 		  position: 'auto'
 		},
 		{
-		  element: document.querySelector("#infoBtn"),
+		  element: document.querySelector("#INFO"),
 		  title: translationsTuturialCache["TUTO_3"],
 		  intro: translationsTuturialCache["TUTO_4"],
 		  position: 'auto'
@@ -78,9 +78,10 @@ function tutorial(buttonTimer) {
 		  element: document.querySelectorAll(".icoContainer")[0],
 		  title: translationsTuturialCache["TUTO_11"],
 		  intro: translationsTuturialCache["TUTO_12"],
-		  position: 'auto'
-		},
-	
+		  position: 'auto',
+		  scrollTo: true,
+		  scrollToElement: true,
+		},	
 		{			
 		  element: document.querySelector("#shareChart1"),
 		  title: translationsTuturialCache["TUTO_21"],
@@ -96,7 +97,7 @@ function tutorial(buttonTimer) {
 
 	introProfile.setOptions({
 		showProgress: false,
-		scrollToElement: false,
+		scrollToElement: true,
 		showBullets: false,
 		autoPosition:false,
 		tooltipClass: "customTooltip",
@@ -109,7 +110,14 @@ function tutorial(buttonTimer) {
 	  
 	  introProfile.onexit(function () { window.scrollTo(0, 0) });
 
-	  introProfile.start();
+
+
+
+	horizontalNavigation(1800, event);
+
+
+		  introProfile.start();
+
   
 	  isOpen = true
 
@@ -117,12 +125,14 @@ function tutorial(buttonTimer) {
 
 		currentStep = this._currentStep
 
+
+
 		if (currentStep === 0) {
 			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['CLOSE']
 			setTimeout(() => {
 				$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton.introjs-disabled").addClass( "close" )
 			}, 100);
-		} else {
+		}  else {
 			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['BACK']
 			$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").removeClass( "close" )
 
@@ -151,9 +161,12 @@ function tutorial(buttonTimer) {
 	traptutorialfocus()
 }
 
-function closeTutorial() {
+function horizontalNavigation(position, event) {
+	$('.dt-scroll-body').scrollLeft(position);
+	
+}
 
-	// buttonTimer = setTimeout("introJs().exit()", 4000);	
+function closeTutorial() {
 	isOpen = false
 }
 
@@ -163,6 +176,7 @@ $(document).on('click', btn, function() {
 });
 
 function closeProcess(params) {
+	horizontalNavigation(-1800, event);
 	event.preventDefault();
 	introJs().exit()
 	buttonTimer = setTimeout("introJs().exit()", 4000);
@@ -171,6 +185,7 @@ function closeProcess(params) {
 	// const button = document.getElementById('tb-tutorial-btn');
 	// button.focus();
 	isOpen = false
+
 }
 
 $(document).on("click keydown", "#tutorialClose", function(event) {
@@ -178,6 +193,7 @@ $(document).on("click keydown", "#tutorialClose", function(event) {
 	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
 	if (isClickEvent || isKeyEvent) {
 		closeProcess();
+		horizontalNavigation(-1800, event);
 	}
   });
 
@@ -187,6 +203,7 @@ $(document).on("click keydown", ".close", function(event) {
 	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
 	if (isClickEvent || isKeyEvent) {
 		closeProcess();
+		horizontalNavigation(-1800, event);
 	}
 });
 
@@ -194,6 +211,7 @@ $(document).on("click keydown", ".close", function(event) {
 	if (event.key === 'Escape') {
 		if(isOpen){
 			closeProcess()
+			horizontalNavigation(-1800, event);
 		} 
 	}
   });
