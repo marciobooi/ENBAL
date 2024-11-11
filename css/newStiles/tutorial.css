@@ -464,13 +464,12 @@ tr.introjs-showElement > th {
 }
 
 .introjs-button:focus {
-  outline: 0;
-  text-decoration: none;
-  background-color: var(--tool-1);
-  -webkit-box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.5);
-  box-shadow: 0 0 0 0rem rgba(158, 158, 158, 0.5);
-  border: 1px solid var(--tool-1);
-  color: white;
+  box-shadow: 0 0 0 0.15rem #cca30000 !important;
+  border: 2px solid #0e47cb !important;
+  background-color: white !important;
+  color: #0e47cb !important;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .introjs-relativePosition {
@@ -492,16 +491,7 @@ body
   font-weight: 800;
 }
 
-body
-  > div.introjs-tooltipReferenceLayer
-  > div
-  > div.introjs-tooltip-header
-  > a:hover {
-    color: white;
-    font-weight: 600;
-    background-color: var(--tool-1) !important;
-    border-color: var(--tool-1) !important;
-}
+
 
 .introjs-tooltip-header {
   display: flex;
@@ -559,3 +549,11 @@ body
 }
 
 
+#tutorialCloser {
+  box-shadow: 0 0 0 0.15rem #cca30000 !important;
+  border: 2px solid #0e47cb !important;
+  background-color: white !important;
+  color: #0e47cb !important;
+  opacity: 1;
+  pointer-events: auto;
+}

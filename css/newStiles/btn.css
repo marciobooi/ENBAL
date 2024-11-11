@@ -95,11 +95,14 @@ li > button {
 
 button:focus,
 .input:focus {
-    box-shadow: 0 0 0 0.15rem #cca3004d;
+    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+    border: 2px solid #0e47cb !important;
     background-color: white !important;
-    border-color: var(--tool-1) !important;
-    color: var(--tool-1) !important;;
+    color: #0e47cb !important;
+    opacity: 1;
+    pointer-events: auto;
 }
+
 
 ul.dropdown-menu.dropdown-menu-end.show {
     z-index: 9999999999;
@@ -116,7 +119,7 @@ ul.dropdown-menu.dropdown-menu-end.show {
 /* #menu:hover {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 } */
-.min-with--nav:hover:not(.dropdown-toggle) {
+.min-with--nav:hover:not(.dropdown-toggle):not(#tutorialCloser),a.introjs-button.introjs-nextbutton:hover {
     box-shadow: 0 0 0 0.15rem #cca30000 !important;
     border: 2px solid #0e47cb !important;
     background-color: white !important;
@@ -371,16 +374,12 @@ button#menu:focus, button#menu:active {
 }
 
 .btn:active, .btn:hover, .btn:focus-visible, .btn.show, .btn:focus, .introjs-button:focus {
-    box-shadow: 0 2px 4px rgb(167 186 231 / 19%), 0 0 10px rgb(167 186 231 / 19%), 0 4px 5px rgb(167 186 231 / 19%), 0 -4px 4px rgb(167 186 231 / 19%);
-    text-decoration: none;
-    color: white !important;
-    /* border-color: transparent !important;
-    background-color: #CCA300!important;
-    border-color: #CCA300 !important; */
-
-    background-color: var(--c-p-10)!important;
-    border-color: var(--c-d)!important;
-    color: var(--c-d)!important;
+    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+    border: 2px solid #0e47cb !important;
+    background-color: white !important;
+    color: #0e47cb !important;
+    opacity: 1;
+    pointer-events: auto;
 }
 
 
@@ -433,4 +432,26 @@ button#menu:focus, button#menu:active {
 text-decoration: none !important;
 }
 
+button.tableRowIcon:focus {
+    background-color: var(--tool-1) !important;
 
+  }
+
+  button.tableRowIcon:focus i {
+
+    color: white !important;
+  }
+
+
+  button#close:focus, button#close:hover {
+    color: white;
+    background-color: #3e6cd5;
+    border-color: #3e6cd5;
+  }
+  button#share:focus, button#share:hover {
+    background-color: #fff;
+    color: #0e47cb;
+    border: 2px solid #0e47cb;
+    box-shadow: none;
+  }
+ 

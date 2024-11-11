@@ -846,6 +846,12 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
   /* filter: invert(1); */
 }
 
+button:focus i {
+  color: #0e47cb;
+}
+
+
+
 thead tr th:not(:first-child) {
     min-width: 8rem;
     text-align: right;
@@ -1043,4 +1049,9 @@ table.dataTable tbody tr {
 .highlight-na {
   color: #0000005e;
   font-size: .8rem;
+}
+
+button.tableRowIcon:focus {
+  background-color: var(--tool-1) !important;
+  color: white !important;
 }
