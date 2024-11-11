@@ -370,7 +370,7 @@ button#menu:focus, button#menu:active {
     border-radius: 0.2rem;
 }
 
-.btn:active, .btn:hover, .btn:focus-visible, .btn.show, .btn:focus {
+.btn:active, .btn:hover, .btn:focus-visible, .btn.show, .btn:focus, .introjs-button:focus {
     box-shadow: 0 2px 4px rgb(167 186 231 / 19%), 0 0 10px rgb(167 186 231 / 19%), 0 4px 5px rgb(167 186 231 / 19%), 0 -4px 4px rgb(167 186 231 / 19%);
     text-decoration: none;
     color: white !important;
