@@ -121,10 +121,10 @@ ul.dropdown-menu.dropdown-menu-end.show {
     box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 } */
 .min-with--nav:hover:not(.dropdown-toggle):not(#tutorialCloser),a.introjs-button.introjs-nextbutton:hover {
-    box-shadow: 0 0 0 0.15rem #cca30000 !important;
-    border: 2px solid #0e47cb !important;
+    box-shadow: 0 0 0 0.15rem #cca30000;
+    border: 2px solid #0e47cb;
     background-color: white;
-    color: #0e47cb !important;
+    color: #0e47cb;
     opacity: 1;
     pointer-events: auto;
 }
@@ -326,7 +326,7 @@ button.ecl-button.ecl-button--ghost.ecl-modal__close:focus {
 }
 
 
-button#menu:focus, button#menu:active {
+button#menu:focus, button#menu:active, button#menu:hover {
     background-color: #f3f6fc !important;
     height: 4rem;
     align-items: center;
@@ -356,10 +356,6 @@ button#menu:focus, button#menu:active {
     font-size: 1.2em !important;
 }
 
-  #toTop:hover {   
-    border:none;
-    background-color: var(--tool-1)!important;
-  }
 
   #toTop.show {
     opacity: 1; /* Fully visible */
@@ -506,3 +502,21 @@ button.tableRowIcon:focus {
     white-space: nowrap; /* Prevents text wrapping */
     border: 0;
   }
+
+
+  .btn-primary:hover, .btn-primary:focus {
+    background-color: #fff  !important;
+    border-color: #3e6cd5 !important;
+    color: #3e6cd5 !important;
+    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+  }
+
+  #toTop:hover, #toTop:focus {   
+      background-color: #fff  !important;
+      border: 2px solid #3e6cd5 !important;
+    color: #3e6cd5 !important;
+    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+  }
+
+
+  
