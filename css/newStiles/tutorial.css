@@ -466,7 +466,7 @@ tr.introjs-showElement > th {
 .introjs-button:focus {
   box-shadow: 0 0 0 0.15rem #cca30000 !important;
   border: 2px solid #0e47cb !important;
-  background-color: white !important;
+  background-color: white;
   color: #0e47cb !important;
   opacity: 1;
   pointer-events: auto;
@@ -552,7 +552,7 @@ body
 #tutorialCloser {
   box-shadow: 0 0 0 0.15rem #cca30000 !important;
   border: 2px solid #0e47cb !important;
-  background-color: white !important;
+  background-color: white;
   color: #0e47cb !important;
   opacity: 1;
   pointer-events: auto;

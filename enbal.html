@@ -181,15 +181,29 @@
         <div class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-8">
           <header class="ecl-modal__header">
             <div class="ecl-modal__header-content" data-i18n="EMBEDDED_CHART_IFRAME"></div>
-            <button class="ecl-button ecl-button--ghost ecl-modal__close" type="button" data-ecl-modal-close="">
-              <span class="ecl-button__container">
-                  <span class="ecl-u-sr-only" data-ecl-label="true">Close</span>
-                  <svg class="ecl-icon ecl-icon--s ecl-button__icon ecl-button__icon--after" focusable="false" aria-hidden="true" data-ecl-icon="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="24" height="24">
-                      <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
-                      <path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
-                  </svg>
+            <button 
+            class="ecl-button ecl-button--tertiary ecl-modal__close ecl-button--icon-only" 
+            type="button" 
+            data-i18n-label="CLOSE" 
+            aria-expanded="true" 
+            data-ecl-modal-close
+            aria-controls="chartOptionsMenu">
+            <span class="ecl-button__container">
+              <!-- Visually hidden but accessible label -->
+              <span class="ecl-button__label sr-only" data-ecl-label="true">Close</span>
+              <!-- SVG Icon -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#0F1729"/>
+              </svg>    
               </span>
           </button>
+
+
+
+
+
+
+
           </header>
           <div class="ecl-modal__body">
             <div class="ecl-modal__body-scroll targetUrl" data-ecl-modal-scroll></div>
