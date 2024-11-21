@@ -190,6 +190,7 @@ function horizontalNavigation(position, event) {
 
 function closeTutorial() {
 	isOpen = false
+	$('button#INFO').focus();
 }
 
 btn = document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-nextbutton")
@@ -205,9 +206,8 @@ function closeProcess(params) {
 	clearTimeout(buttonTimer);
 	document.querySelector("#tb-tutorial-btn");
 	// const button = document.getElementById('tb-tutorial-btn');
-	// button.focus();
+	$('button#INFO').focus();
 	isOpen = false
-
 }
 
 $(document).on("click keydown", "#tutorialClose", function(event) {
@@ -215,6 +215,7 @@ $(document).on("click keydown", "#tutorialClose", function(event) {
 	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
 	if (isClickEvent || isKeyEvent) {
 		closeProcess();
+		$('button#INFO').focus();
 		horizontalNavigation(-1800, event);
 	}
   });
@@ -225,6 +226,7 @@ $(document).on("click keydown", ".close", function(event) {
 	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
 	if (isClickEvent || isKeyEvent) {
 		closeProcess();
+		$('button#INFO').focus();
 		horizontalNavigation(-1800, event);
 	}
 });
@@ -233,6 +235,7 @@ $(document).on("click keydown", ".close", function(event) {
 	if (event.key === 'Escape') {
 		if(isOpen){
 			closeProcess()
+			$('button#INFO').focus();
 			horizontalNavigation(-1800, event);
 		} 
 	}
