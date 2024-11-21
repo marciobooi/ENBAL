@@ -17,7 +17,7 @@ class FloatingChartControls {
           <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.details == 1 ? "" : "none"}"></li>
           <li class="nav-item px-1" id="Agregates" role="none"></li>			  
             <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
-              <ul class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="select the order of the chart">     
+              <ul class="dropdown-menu dropdown-menu-end" role="menu">     
                 <li><a href="#" id="DESC" class="dropdown-item ecl-link notLink ${REF.order == "DESC" ? "selected" : ""}" role="menuitem" data-i18n-label="DESC" value="DESC" data-i18n="DESC"></a></li>					
                 <li><a href="#" id="ASC" class="dropdown-item ecl-link notLink ${REF.order == "ASC" ? "selected" : ""}" aria-selected="true" role="menuitem" data-i18n-label="ASC" value="ASC" data-i18n="ASC"></a></li>
                 <li><a href="#" id="ALPHA" class="dropdown-item ecl-link notLink ${REF.order == "ALPHA" ? "selected" : ""}" role="menuitem" data-i18n-label="ALPHA" value="ALPHA" data-i18n="ALPHA"></a></li> 

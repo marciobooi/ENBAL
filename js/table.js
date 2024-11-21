@@ -150,6 +150,11 @@ function createDataTable(dataTable) {
     ],
     initComplete: function(settings, json) {
       // Call initCustomScrollbar once DataTables initialization is complete
+      setTimeout(() => {
+        document.querySelector("#dataTableContainer > thead").remove();
+        log('here')
+      }, 1000);
+
       initCustomScrollbar();
     }
 
