@@ -230,6 +230,7 @@ class SubNavbar {
           this.closeChartMenuBtn.addEventListener('click', () => {
             this.menu.classList.toggle('d-none');
             $('#tableArea').toggleClass('pushup pushDown')
+            this.menuButton.focus();
           });
 
         }     

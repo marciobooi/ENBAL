@@ -101,6 +101,7 @@ button:focus,
     color: #0e47cb !important;
     opacity: 1;
     pointer-events: auto;
+    
 }
 
 
@@ -455,3 +456,24 @@ button.tableRowIcon:focus {
     box-shadow: none;
   }
  
+
+  .ecl-button--secondary:active, .ecl-button--secondary:hover {
+    background-color: #3e6cd5 !important;
+    border-color: #3e6cd5 !important;
+    color: #fff !important;
+}
+
+.ecl-button--primary:active, .ecl-button--primary:hover {
+    background-color: #3e6cd5 !important;
+    background-color: #fff !important;
+    border: 2px solid #0e47cb !important;
+    color: #0e47cb !important;
+}
+
+/* .ecl-modal__close:active, .ecl-modal__close:hover {
+    color: #e7edfa !important;
+    padding: 0;
+    margin: .15rem;
+    border-radius: 50%;
+    border-color: #0e47cb !important;
+} */
