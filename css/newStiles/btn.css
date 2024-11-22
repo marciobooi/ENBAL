@@ -159,7 +159,7 @@ ul.dropdown-menu.dropdown-menu-end.show {
 .tableHeader > .tableInfoIcon:focus {
     outline: 0 !important;
     box-shadow: 0 0 0 0.15rem #0e47cb00;
-    color: white;
+    color: white !important;
     background-color: var(--tool-1);
 }
 dl, ol, ul {

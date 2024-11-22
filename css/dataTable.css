@@ -845,8 +845,11 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
   /* filter: invert(1); */
 }
 
-button:focus i {
-  color: #0e47cb;
+.tableInfoIcon:focus i {
+  color: white;
+  background-color: var(--tool-1);
+  border: 2px solid var(--tool-1);
+  line-height: 0;
 }
 
 
