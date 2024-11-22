@@ -830,6 +830,7 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
     height: 34px;
 }
 
+
 .chartIcon > i {
   position: absolute;
   top: 50%;
@@ -844,6 +845,12 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
   filter: drop-shadow(0 0 0 0.15rem #0e47cb) !important;
   /* filter: invert(1); */
 }
+
+
+.chartIcon:focus i {
+  color: var(--tool-1);
+}
+
 
 .tableInfoIcon:focus i {
   color: white;
