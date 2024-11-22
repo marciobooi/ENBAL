@@ -39,6 +39,7 @@ function createDataTable(dataTable) {
           const clickedRowIndex = $("#dataTableContainer").DataTable().row($(this).closest("tr")).index();
           addExtraBal(dataTable[0], clickedRowIndex);
         });
+ 
 
         $(row).find("td:first-child").css('cursor', 'pointer');
       } else {

@@ -344,123 +344,132 @@ function siec(key) {
 // }
 
 function download_DIVPdf() {
+  // Import jsPDF and AutoTable
+  const { jsPDF } = window.jspdf;
+  const autoTable = window.jspdfAutoTable;
+
   // Create a new jsPDF instance
-  var doc = new window.jspdf.jsPDF("L", "pt");
+  const doc = new jsPDF("l", "pt");
 
-  // Add a header to the PDF
-doc.text(
-  (translationsCache[REF.geo] || REF.geo) + "\n" + (translationsCache[REF.fuel] || REF.fuel) + " - " + REF.year,
-  doc.internal.pageSize.getWidth() / 2,
-  50,
-  null,
-  null,
-  "center"
-);
+  // Set metadata for the PDF
+  doc.setProperties({
+    title: "European Union Energy Report",
+    subject: "Fuel Families Data",
+    author: "Eurostat",
+    keywords: "Energy, Fuel, EU",
+    creator: "Eurostat Team",
+    Language: "en",
+  });
 
+  // Add a document title
+  doc.setFont("helvetica", "bold");
+  doc.setFontSize(14);
+  doc.text(
+    "European Union Energy Report",
+    doc.internal.pageSize.getWidth() / 2,
+    30,
+    { align: "center" }
+  );
 
-  // Calculate page width and margins
-  var pageWidth = doc.internal.pageSize.getWidth();
-  var margin = 20; // Set a margin of 20 units on each side
-  var availableWidth = pageWidth - margin * 2;
+  // Add a description or subtitle for the table
+  doc.setFont("helvetica", "normal");
+  doc.setFontSize(12);
+  doc.text(
+    "Table: Fuel Families Data Overview",
+    doc.internal.pageSize.getWidth() / 2,
+    50,
+    { align: "center" }
+  );
 
-var headers = [];
-$(
-  "#dataTableContainer_wrapper > div.dt-scroll > div.dt-scroll-head > div > table > thead > tr > th"
-).each(function () {
-  var headerText =
-    $(this).find(".tableHeader").text().trim() || $(this).text().trim();
+  // Add alternative text for the table description
+  doc.setFontSize(10);
+  doc.text(
+    "This table provides detailed statistics about energy supply, consumption, and production across various fuel families in the European Union for 2022.",
+    20,
+    70
+  );
 
-  // Handle nested elements in the header
-  if ($(this).find("div").length) {
-    headerText = $(this).find("div").text().trim().replace(/\s+/g, " ");
-  }
+  // Extract headers for the table
+  const headers = [];
+  $(
+    "#dataTableContainer_wrapper > div.dt-scroll > div.dt-scroll-head > div > table > thead > tr > th"
+  ).each(function () {
+    const headerText =
+      $(this).find(".tableHeader").text().trim() || $(this).text().trim();
 
-let textToFind = translationsCache["YEAR"]; // Example: "Year" or the translated word
-// Create a dynamic regular expression using textToFind
-let regex = new RegExp(`(${textToFind}\\s*:\\s*\\d{4})\\s*`, "i");
-
-// Replace the match with itself followed by a line break
-headerText = headerText.replace(regex, "$1\n");
-
-  if (headerText) {
     headers.push(headerText);
-  }
-});
+  });
 
-  // Extract body content manually
-  var body = [];
-  $("#dataTableContainer tbody tr").each(function() {
-    var row = [];
-    $(this).find("td").each(function() {
+  // Extract body rows for the table
+  const body = [];
+  $("#dataTableContainer tbody tr").each(function () {
+    const row = [];
+    $(this).find("td").each(function () {
       row.push($(this).text().trim());
     });
     body.push(row);
   });
 
-  // Add a table to the PDF using autoTable plugin
+  // Use jsPDF-AutoTable to generate the table
   doc.autoTable({
     head: [headers],
     body: body,
-    theme: "striped",
-    startY: 125,
-    tableWidth: 'auto',
+    startY: 90,
+    theme: "striped", // Options: 'striped', 'grid', 'plain'
     styles: {
-      fontSize: 5,
+      fontSize: 7,
       cellPadding: 8,
+      overflow: "linebreak",
+    },
+    headStyles: {
+      fontStyle: "bold",
+      fillColor: [200, 200, 200], // Light gray background for headers
+      textColor: [0, 0, 0], // Black text for headers
+    },
+    alternateRowStyles: {
+      fillColor: [245, 245, 245], // Light gray background for alternate rows
     },
     columnStyles: {
-      0: {
-        cellWidth: 'wrap',
-        halign: "left",
-      },
-    },
-    didDrawPage: function (data) {
-      // Calculate the scale factor if the table exceeds the available width
-      var scaleFactor = 1;
-      if (data.table.width > availableWidth) {
-        scaleFactor = availableWidth / data.table.width;
-      }
-
-      // Apply scaling
-      if (scaleFactor < 1) {
-        data.table.width *= scaleFactor;
-        data.table.height *= scaleFactor;
-        data.table.rows.forEach(function (row) {
-          row.height *= scaleFactor;
-          row.cells.forEach(function (cell) {
-            cell.width *= scaleFactor;
-            cell.height *= scaleFactor;
-            cell.text = cell.text.map(function (text) {
-              return {
-                width: text.width * scaleFactor,
-                text: text.text,
-              };
-            });
-          });
-        });
-      }
+      0: { cellWidth: "wrap", halign: "left" }, // First column wraps and aligns left
     },
     didParseCell: function (data) {
-      // Ensure each cell fits within the available width
-      if (data.cell.raw && data.cell.text) {
-        var cellFontSize = (data.styles && data.styles.fontSize) ? data.styles.fontSize : 5; // Default fontSize if undefined
-        var maxCellWidth = availableWidth / data.table.columns.length;
-        if (data.cell.text[0].length * cellFontSize > maxCellWidth) {
-          data.cell.styles.cellWidth = maxCellWidth;
-        }
+      // Add simulated accessibility for headers and rows
+      if (data.row.index === 0) {
+        data.cell.text = ` ${data.cell.text}`;
+      } else if (data.column.index === 0) {
+        data.cell.text = `${data.cell.text}`;
       }
-    }
+    },
+    didDrawPage: function (data) {
+      // Add page number to each page
+      const pageCount = doc.internal.getNumberOfPages();
+      doc.setFontSize(10);
+      doc.text(
+        `Page ${data.pageNumber} of ${pageCount}`,
+        doc.internal.pageSize.getWidth() - 50,
+        doc.internal.pageSize.getHeight() - 30
+      );
+    },
   });
 
-  // Add an image to the PDF
-  var img = new Image();
+  // Add a logo to the PDF with descriptive caption
+  const img = new Image();
   img.onload = function () {
-    doc.addImage(this, 730, 30, 100, 40);
-    doc.save("table.pdf"); // Save the PDF with a specified name
+    doc.addImage(img, "PNG", 730, 30, 100, 40);
+    doc.text(
+      "Figure 1: Eurostat Logo - Representing the Eurostat organization.",
+      20,
+      doc.autoTable.previous.finalY + 20
+    );
+
+    // Save the PDF with a descriptive name
+    doc.save("EU_Energy_Report.pdf");
   };
   img.crossOrigin = "";
   img.src = "img/logo.png"; // Replace with the correct path to your image
 }
+
+
 
 
 

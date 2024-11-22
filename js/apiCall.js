@@ -39,8 +39,10 @@ function apiCall() {
 function addExtraBal(id) {  
   if ($('#' + id + ' > td:first-child > div > button> i').hasClass('fa-minus')) {
     removeRows(id);
+    $('#' + id + ' > td:first-child > div > button').focus();
   } else {
     addNewRows(id);    
+    $('#' + id + ' > td:first-child > div > button').focus();
   }
 }
 
