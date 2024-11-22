@@ -152,7 +152,23 @@ function createDataTable(dataTable) {
       // Call initCustomScrollbar once DataTables initialization is complete
       setTimeout(() => {
         document.querySelector("#dataTableContainer > thead").remove();
-        log('here')
+
+        $("#dataTableContainer_wrapper > div.dt-scroll > div.dt-scroll-head > div > table > thead > tr > th:first-child").each(function () {
+          const $th = $(this); // Get the current <th>
+          const $td = $("<td>"); // Create a new <td> element
+        
+          // Copy the inner HTML from <th> to <td>
+          $td.html($th.html());
+        
+          // Copy all attributes from <th> to <td>
+          $.each($th[0].attributes, function (_, attr) {
+            $td.attr(attr.name, attr.value);
+          });
+        
+          // Replace <th> with the new <td>
+          $th.replaceWith($td);
+        });
+  
       }, 1000);
 
       initCustomScrollbar();

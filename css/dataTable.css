@@ -342,7 +342,6 @@ table.dataTable tfoot th {
 table.dataTable > thead > tr > th,
 table.dataTable > thead > tr > td {
   padding: 10px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 table.dataTable > thead > tr > th:active,
 table.dataTable > thead > tr > td:active {
@@ -921,7 +920,6 @@ table.dataTable {
 table.dataTable > thead > tr > th, 
 table.dataTable > thead > tr > td {
     padding: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     height: 5rem;
     vertical-align: top;
 }
@@ -1008,7 +1006,6 @@ table.dataTable tbody tr {
 @-moz-document url-prefix() {
   table.dataTable > thead > tr > th, table.dataTable > thead > tr > td {
     padding: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     height: 100%;
     vertical-align: top;
   }
@@ -1039,7 +1036,6 @@ table.dataTable tbody tr {
   table.dataTable>thead>tr>th,
   table.dataTable>thead>tr>td {
     padding: 10px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     height: 13rem;
     vertical-align: top;
   }
@@ -1054,4 +1050,13 @@ table.dataTable tbody tr {
 button.tableRowIcon:focus {
   background-color: var(--tool-1) !important;
   color: white !important;
+}
+
+table > thead > tr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+table > thead > tr > td {
+  max-width: 12rem;
+  height: 8rem !important;
 }
