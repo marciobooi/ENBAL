@@ -30,9 +30,9 @@ function createDataTable(dataTable) {
      if (expandables.includes(dataTable[0])) {
 
         if (expandStatus.includes(dataTable[0])) {
-          $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span><div><button class="tableRowIcon" data-i18n-title="POPCOLAPSE"><i class="fas toggle-icon fa-minus" aria-hidden="true"></i></button></div>`);
+          $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span><div><button class="tableRowIcon" data-i18n-title="POPCOLAPSE" data-i18n-label="POPEXP"><i class="fas toggle-icon fa-minus" aria-hidden="true"></i></button></div>`);
         } else {
-          $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span><div><button class="tableRowIcon" data-i18n-title="POPEXP""><i class="fas toggle-icon fa-plus" aria-hidden="true"></i></button></div>`);
+          $(row).find("td:first-child").html(`<span data-i18n="${dataTable[0]}"></span><div><button class="tableRowIcon" data-i18n-title="POPEXP" data-i18n-label="POPEXP"><i class="fas toggle-icon fa-plus" aria-hidden="true"></i></button></div>`);
         }
       
         $(row).find("td:first-child").on('click', function() {
@@ -59,16 +59,16 @@ function createDataTable(dataTable) {
         width: "80px",
         defaultContent: 
           `   <div class="icoContainer">
-        <button class="chartIcon barChart" data-i18n-title="POPBARCHART">
+        <button class="chartIcon barChart" data-i18n-title="POPBARCHART" data-i18n-label="POPBARCHART">
             <i class="fas fa-chart-bar" aria-hidden="true"></i>
         </button>
-        <button class="chartIcon pieChart" data-i18n-title="POPPIECHART">
+        <button class="chartIcon pieChart" data-i18n-title="POPPIECHART" data-i18n-label="POPPIECHART">
             <i class="fas fa-chart-pie" aria-hidden="true"></i>
         </button>
-        <button class="chartIcon lineChart" data-i18n-title="POPLINECHART">
+        <button class="chartIcon lineChart" data-i18n-title="POPLINECHART" data-i18n-label="POPLINECHART">
             <i class="fas fa-chart-line" aria-hidden="true"></i>
         </button>
-        <button class="chartIcon info" data-i18n-title="POPINFO">
+        <button class="chartIcon info" data-i18n-title="POPINFO" data-i18n-label="POPINFO">
             <i class="fas fa-info" aria-hidden="true"></i>
         </button>
     </div>`,

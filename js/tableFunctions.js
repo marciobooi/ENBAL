@@ -9,7 +9,7 @@ function tableHeader(dataTable) {
         return {
           title: `<div class="tableHeader" id=${colTitle}> 
           <span data-i18n="${translationsCache[colTitle] || colTitle}"></span>
-            <button class="tableInfoIcon" data-i18n-title="POPINFOPRODUCTS">
+            <button class="tableInfoIcon" data-i18n-title="POPINFOPRODUCTS" data-i18n-label="POPINFOPRODUCTS">
               <i class="fas fa-info-circle" aria-hidden="true"></i>
             </button>
           </div>`,
