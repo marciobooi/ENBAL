@@ -1476,7 +1476,7 @@ async function exportToExcel() {
 
 
 
-
+// function to show tooltip on keyboard
 function enableTooltips() {
   // Select all button elements with data-i18n-title or data-i18n-label attributes
   const buttons = document.querySelectorAll("button[title], button[aria-label]");
@@ -1522,6 +1522,8 @@ function enableTooltips() {
   });
 }
 
+
+// function to correct athe aria on the chart
 function observeAriaHidden() {
   const observer = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
@@ -1543,7 +1545,7 @@ function observeAriaHidden() {
   });
 }
 
-// Initialize the observer
+
 document.addEventListener("DOMContentLoaded", observeAriaHidden);
 
 

@@ -5,13 +5,22 @@ class FloatingChartControls {
     this.chartControls.id = 'menuSwitch';
 
     this.chartControls.innerHTML = /*html*/` 
-                <div id="switchBtn">
-                    <label id="SHOW" class="form-check-label" for="switchDetails" data-i18n="DETAILS"></label>
-                    <div class="form-check form-switch d-inline-block">
-                      <input class="form-check-input focus-ring" type="checkbox" value="${REF.details == 0 ? 0 : 1}" role="switch" id="switchDetails" ${REF.details == 0 ? 'checked' : ''}>                      
-                      <label id="HIDE" class="form-check-label" for="switchDetails" data-i18n="HIDEDETAILS"></label>
-                      </div>
-                </div>
+    <div id="switchBtn">
+    <label id="SHOW" class="form-check-label" for="switchDetails" data-i18n="DETAILS">Show Details</label>
+    <div class="form-check form-switch d-inline-block">
+      <input
+        class="form-check-input focus-ring"
+        type="checkbox"
+        value="${REF.details == 1 ? '1' : '0'}"
+        role="switch"
+        id="switchDetails"
+        ${REF.details == 1 ? 'checked' : ''}
+        aria-label="${REF.details == 1 ? 'Hide Details' : 'Show Details'}"
+      >
+      <label id="HIDE" class="form-check-label" for="switchDetails" data-i18n="HIDEDETAILS">Hide Details</label>
+    </div>
+  </div>
+  
       <div>   
         <ul id="floatingMenu">   
           <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.details == 1 ? "" : "none"}"></li>
@@ -37,6 +46,7 @@ class FloatingChartControls {
 
     // Add event listeners for keyboard navigation
     switchElements.forEach(switchElement => {
+
       switchElement.addEventListener('keyup', e => {
         if (e.keyCode === 13 || e.keyCode === 32) {
           // Prevent scrolling when the spacebar or enter key is pressed
@@ -51,6 +61,19 @@ class FloatingChartControls {
             REF.chartInDetails= switchElement.value === '1' ? 1 : 0;
           } else if (switchElement.id === 'switchComponents') {
             REF.component = switchElement.value === '1' ? 1 : 0;
+          }
+
+          const hide = document.getElementById('HIDE');
+          const show = document.getElementById('SHOW');
+  
+          if(switchElement.value == 0){
+            hide.style.fontWeight = 'bold';
+            show.style.fontWeight = 'initial';
+            switchElement.setAttribute('aria-label', show.textContent.trim());
+          } else {
+            hide.style.fontWeight = 'initial';
+            show.style.fontWeight = 'bold';
+            switchElement.setAttribute('aria-label', hide.textContent.trim());
           }
 
           createBarChart()
@@ -74,9 +97,11 @@ class FloatingChartControls {
         if(switchElement.value == 0){
           hide.style.fontWeight = 'bold';
           show.style.fontWeight = 'initial';
+          switchElement.setAttribute('aria-label', show.textContent.trim());
         } else {
           hide.style.fontWeight = 'initial';
           show.style.fontWeight = 'bold';
+          switchElement.setAttribute('aria-label', hide.textContent.trim());
         }
 
 
