@@ -77,6 +77,10 @@ function loadTranslations(lang) {
     addNAAttributes();
 
     euGlobanContainer();
+
+    enableTooltips()
+
+
   }).fail(function () {
     console.error("Error loading translations for language: " + lang);
   });

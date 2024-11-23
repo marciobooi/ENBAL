@@ -7,6 +7,7 @@ $( document ).ready(function() {
   
   buildComponents();
   languageNameSpace.initLanguage(REF.language);
+
 })
 
 function buildComponents() {

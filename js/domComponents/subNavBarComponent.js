@@ -22,7 +22,7 @@ class SubNavbar {
           </div>
         </div>
         <div class="col-3" role="navigation" aria-label="Chart options">
-          <ul id="chartBtns" role="menubar" data-i18n-label="OPTIONS_GRAPH_TOOLBOX" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
+          <ul id="chartBtns" role="menubar" data-i18n-title="OPTIONS_GRAPH_TOOLBOX" data-i18n-label="OPTIONS_GRAPH_TOOLBOX" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
             <li class="nav-item dropdown px-1" id="infoBtnChart">
               <button class="btn btn-primary min-with--nav round-btn" type="button" data-i18n-label="INFO" data-bs-toggle="dropdown" aria-haspopup="menu" aria-expanded="true" id="INFO">
                 <i class="fas fa-info" aria-hidden="true"></i>
@@ -36,7 +36,7 @@ class SubNavbar {
               </ul>
             </li>
             <li class="nav-item dropdown px-1" id="downloadChart">
-              <button class="btn btn-primary min-with--nav round-btn" type="button" data-i18n-label="DOWNLOAD_CHART_IMAGE" data-bs-toggle="dropdown" aria-haspopup="menu" aria-expanded="true" id="downloadBtn">
+              <button class="btn btn-primary min-with--nav round-btn" type="button" data-i18n-title="DOWNLOAD_CHART_IMAGE" data-i18n-label="DOWNLOAD_CHART_IMAGE" data-bs-toggle="dropdown" aria-haspopup="menu" aria-expanded="true" id="downloadBtn">
                 <i class="fas fa-download" aria-hidden="true"></i>
               </button>
               <ul class="dropdown-menu dropdown-menu-end" role="menu" data-i18n-labelledby="DOWNLOAD_CHART_IMAGE">
@@ -51,7 +51,7 @@ class SubNavbar {
               </button>
             </li>
             <li class="nav-item dropdown px-1" id="social-media-dropdown">
-              <button class="btn btn-primary min-with--nav round-btn" type="button" data-i18n-label="SHARE" data-bs-toggle="dropdown" aria-haspopup="menu" aria-expanded="true" id="shareChart1">
+              <button class="btn btn-primary min-with--nav round-btn" type="button" data-i18n-title="SHARE" data-i18n-label="SHARE" data-bs-toggle="dropdown" aria-haspopup="menu" aria-expanded="true" id="shareChart1">
                 <i class="fas fa-share-alt" aria-hidden="true"></i>
               </button>
               <ul class="dropdown-menu dropdown-menu-end" style="padding: 12px;" role="menu" data-i18n-labelledby="SHARE">
