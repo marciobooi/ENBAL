@@ -146,6 +146,10 @@ class Chart {
       }
       }); // end of chart object
       enableScreenREader()
+      setTimeout(() => {
+        updateAccessibilityLabels()
+      }, 500);
+
     } // end of chart function
     
   }

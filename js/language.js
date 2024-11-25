@@ -45,7 +45,7 @@ function loadTranslations(lang) {
       });
     }
 
-
+ 
   
 
     if (!isFirefox) {

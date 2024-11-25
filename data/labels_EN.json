@@ -392,5 +392,6 @@
   "ASC": "Ascending data values",
   "DESC": "Descending data values",
   "BACK": "Back",
-  "NEXT": "Next"
+  "NEXT": "Next",
+  "SHOW": "Show"
 }

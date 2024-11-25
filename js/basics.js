@@ -1493,11 +1493,7 @@ async function exportToExcel() {
 function enableTooltips() {
   // Select all button elements with data-i18n-title or data-i18n-label attributes
   const buttons = document.querySelectorAll("button[title], button[aria-label]");
-
-  log('here')
-
-  buttons.forEach((button) => {
-    log('here')
+  buttons.forEach((button) => {  
     // Get the tooltip content from data-i18n-title or data-i18n-label
     const tooltipText =
       button.getAttribute("title") || button.getAttribute("aria-label");
@@ -1545,7 +1541,7 @@ function observeAriaHidden() {
         if (target.tagName === "svg" && target.getAttribute("aria-hidden") === "false") {
           // Remove or correct the attribute
           target.removeAttribute("aria-hidden");
-          console.log("Corrected aria-hidden on:", target);
+          // console.log("Corrected aria-hidden on:", target);
         }
       }
     });
@@ -1561,6 +1557,44 @@ function observeAriaHidden() {
 
 document.addEventListener("DOMContentLoaded", observeAriaHidden);
 
+function updateAccessibilityLabels() {
+
+  const elements = document.querySelectorAll('.highcharts-a11y-proxy-element');
+  elements.forEach((element) => {
+    let ariaLabel = element.getAttribute('aria-label');
+    if (ariaLabel && (ariaLabel.includes("Show") || ariaLabel.includes("Anzeigen") || ariaLabel.includes("Afficher"))) {
+      const updatedLabel = ariaLabel
+        .replace(/Show/g, translationsCache["SHOW"])
+        .replace(/Anzeigen/g, translationsCache["SHOW"])
+        .replace(/Afficher/g, translationsCache["SHOW"]);
+      element.setAttribute('aria-label', updatedLabel);
+    }
+  });
+}
+
+
+
+// function updateAccessibilityLabels() {
+//   // Query all highcharts-a11y-proxy-element elements with the `aria-label` attribute
+//   const elements = document.querySelectorAll('highcharts-a11y-proxy-element[aria-label]');
+
+//   elements.forEach((element) => {
+//     // Get the current aria-label
+//     let ariaLabel = element.getAttribute('aria-label');
+
+//     // Check if it contains the word "Show" (case-insensitive)
+//     if (/show/i.test(ariaLabel)) {
+//       // Replace "Show" with the translated version
+//       const translatedLabel = ariaLabel.replace(/show/i, translationsCache['SHOW']);
+
+//       // Update the aria-label attribute with the translated text
+//       element.setAttribute('aria-label', translatedLabel);
+//     }
+//   });
+// }
+
+// Call the function after Highcharts has rendered the chart
+document.addEventListener('DOMContentLoaded', updateAccessibilityLabels);
 
 
 

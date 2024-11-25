@@ -391,6 +391,7 @@
   "ASC": "Valeurs de données ascendantes",
   "DESC": "Valeurs de données descendantes",
   "BACK": "Retour",
-  "NEXT": "Suivant"
+  "NEXT": "Suivant",
+  "SHOW": "Afficher"
 
 }
