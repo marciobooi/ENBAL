@@ -20,12 +20,12 @@ class ChartControls {
 				  <li class="nav-item button px-1" id="toggleBarChart" role="none"></li>
 				  <li class="nav-item button px-1" id="togglePieChart" role="none"></li>
 				  <li class="nav-item button px-1" id="toggleLineChart" role="none"></li>
-				  <li class="nav-item button px-1" id="toggleAuxTable" role="none" style="margin-right: 2rem;"></li>
+				  <li class="nav-item button px-1" id="toggleAuxTable" role="none" style="margin-left: 1rem; margin-right: 2rem;"></li>
 
 				  <li class="nav-item button px-1" id="printChart" role="none"></li>
 				  <li class="nav-item dropdown px-1" id="downloadChart" role="none"></li>
 				  <li class="nav-item button px-1" id="downloadExcel" role="none"></li>
-				  <li class="nav-item button px-1" id="embebedChart" role="none" style="margin-right: 2rem;"></li>
+				  <li class="nav-item button px-1" id="embebedChart" role="none" style="margin-left: 1rem; margin-right: 2rem;"></li>
 				  <li class="nav-item button px-1" id="closeChart" role="none"></li>
 				</ul>
 			  </div>
@@ -142,6 +142,8 @@ class ChartControls {
 				const charts = ["barChart", "pieChart", "lineChart"];  
 				charts.forEach(chart => {$("#" + chart).attr("disabled", "disabled")})
 
+				$("#"+REF.chart).addClass('highlighDisbleBtn');
+
 				$('#menuSwitch').css('display','none')
 			
 				openVizTable();
@@ -158,9 +160,13 @@ class ChartControls {
 			
 				closeTable();
 
+				$("#"+REF.chart).removeClass('highlighDisbleBtn');
+
 				disableChatOptionsBtn(REF.chartId)
 
 				tableBtn.focus();
+
+
 			}			
 		});
 		// createprintChart.setClickHandler(function() {

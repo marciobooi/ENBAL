@@ -512,11 +512,15 @@ button.tableRowIcon:focus {
   }
 
   #toTop:hover, #toTop:focus {   
-      background-color: #fff  !important;
-      border: 2px solid #3e6cd5 !important;
-    color: #3e6cd5 !important;
-    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+        background-color: #fff  !important;
+        border: 2px solid #3e6cd5 !important;
+        color: #3e6cd5 !important;
+        box-shadow: 0 0 0 0.15rem #cca30000 !important;
   }
 
-
-  
+.highlighDisbleBtn {
+    background-color: #fff  !important;
+    border: 2px solid #3e6cd5 !important;
+    color: #3e6cd5 !important;
+    box-shadow: 0 0 0 0.15rem #cca30000 !important;
+}
