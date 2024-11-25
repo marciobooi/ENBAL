@@ -22,7 +22,7 @@ class SubNavbar {
           </div>
         </div>
         <div class="col-3" role="navigation" aria-label="Chart options">
-          <ul id="chartBtns" role="menubar" data-i18n-title="OPTIONS_GRAPH_TOOLBOX" data-i18n-label="OPTIONS_GRAPH_TOOLBOX" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
+          <ul id="chartBtns" data-i18n-title="OPTIONS_GRAPH_TOOLBOX" data-i18n-label="OPTIONS_GRAPH_TOOLBOX" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
             <li class="nav-item dropdown px-1" id="infoBtnChart">
               <button class="btn btn-primary min-with--nav round-btn" type="button" data-i18n-label="INFO" data-bs-toggle="dropdown" aria-haspopup="menu" aria-expanded="true" id="INFO">
                 <i class="fas fa-info" aria-hidden="true"></i>
@@ -142,7 +142,7 @@ class SubNavbar {
         </div>
   
         <div class="chartMenuMobile d-none">
-          <ul id="chartBtns" role="menubar" data-i18n-label="OPTIONS_GRAPH_TOOLBOX" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
+          <ul id="chartBtns" data-i18n-label="OPTIONS_GRAPH_TOOLBOX" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
             <li class="nav-item dropdown px-1" id="infoBtnChart">
               <button class="btn btn-primary min-with--nav round-btn" type="button" data-i18n-label="INFO" data-bs-toggle="dropdown" aria-haspopup="menu" aria-expanded="true" id="INFO">
                 <i class="fas fa-info" aria-hidden="true"></i>
