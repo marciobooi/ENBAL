@@ -4,6 +4,8 @@ var isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 
 
 const isEmpty = value => value == null || value === '';
 
+let lastFocusedElement = null;
+
 // browser platform support
 // taken from http://stackoverflow.com/questions/9847580/how-to-detect-safari-chrome-ie-firefox-and-opera-browser
 // Opera 8.0+
@@ -758,12 +760,14 @@ function openModal(info) {
 
 // Click event handler for elements with the class "info"
 $(document).on("click", ".info", function () {
+  lastFocusedElement = this;
   const info = $(this).closest("tr").attr("id");
   openModal(info);
 });
 
 // Click event handler for elements with the class "tableInfoIcon"
 $(document).on("click", ".tableInfoIcon", function () {
+  lastFocusedElement = this;
   const productInfo = $(this).closest(".tableHeader").attr("id");
   openModal(productInfo);
 });
@@ -772,18 +776,12 @@ function openLink(url) {
   window.location.href = url;
 }
 
-
-
 let chartType;
 let chartBal;
 let chartBalText;
 
-
-
-
-
-
 $(document).on("click", ".barChart, .pieChart, .lineChart", function () {
+  lastFocusedElement = this;
   chartBalText = [];
   chartType = $(this)[0].classList[1];
   REF.chart = chartType;
@@ -843,6 +841,10 @@ function removeAuxiliarBarGraphOptions() {
     $(".containerNav").css('visibility', 'initial')
     hideMenuSwitch()
      getTitle();   
+
+     if (lastFocusedElement) {
+      lastFocusedElement.focus();
+    }
   }
 
   function showMenuSwitch() {
@@ -1595,6 +1597,7 @@ function updateAccessibilityLabels() {
 
 // Call the function after Highcharts has rendered the chart
 document.addEventListener('DOMContentLoaded', updateAccessibilityLabels);
+
 
 
 

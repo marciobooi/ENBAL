@@ -94,6 +94,10 @@ class Modal {
 
     close() {    
       $("#definitionsModal").html("");
+
+      if (lastFocusedElement) {
+        lastFocusedElement.focus();
+      }
   }
 
   
