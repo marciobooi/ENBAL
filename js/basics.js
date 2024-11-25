@@ -1068,14 +1068,27 @@ function getTitle() {
 
 
 function credits() {
-  const chartCredits = `<span id="credits" style="font-size: .9rem;">Eurostat - </span>
-  <a style="color:blue; text-decoration: underline; font-size: .9rem;"
-  href="https://ec.europa.eu/eurostat/databrowser/view/${REF.dataset}/default/table?lang=${REF.language}">${translationsCache['DB']}</a>,
-  <span style="font-size: .875rem;">                           
-</span>`;
+  const datasetURL = `https://ec.europa.eu/eurostat/databrowser/view/${REF.dataset}/default/table?lang=${REF.language}`;
 
-  return chartCredits
+  // Return SVG-compatible credits text
+  return `
+    <tspan id="credits" style="font-size: 0.9rem;">
+      Eurostat - 
+      <tspan
+        tabindex="0"
+        role="link"
+        aria-label="Eurostat dataset link: ${datasetURL}"
+        title="Eurostat dataset link"
+        style="cursor: pointer; fill: blue; text-decoration: underline;"
+        onclick="window.open('${datasetURL}', '_blank')"
+      >
+        Access to dataset
+      </tspan>
+    </tspan>
+  `;
 }
+
+
 
 function extraBalances(id) {
   const extraBalances = {
@@ -1553,7 +1566,7 @@ document.addEventListener("DOMContentLoaded", observeAriaHidden);
 
 
 
-    //  function to check focus on building fase
+    // //  function to check focus on building fase
     // document.addEventListener('keydown', function(event) {
     //   if (event.key === 'Tab') {
     //     var focusedElement = document.activeElement;
