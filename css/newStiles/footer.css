@@ -52,3 +52,13 @@ hr {
 .ecl-site-footer__list {
   margin-top: initial !important;
 }
+
+
+.ecl-site-footer__list-item a {
+  border-right: 1px solid #0e47cb;
+  padding: 0.3rem 1rem;
+}
+
+.ecl-site-footer__list-item:last-child a {
+  border-right: none
+}
