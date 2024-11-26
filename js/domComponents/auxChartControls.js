@@ -140,7 +140,10 @@ class ChartControls {
 				tableBtn.setAttribute('title', 'Toggle chart');
 
 				const charts = ["barChart", "pieChart", "lineChart"];  
-				charts.forEach(chart => {$("#" + chart).attr("disabled", "disabled")})
+				charts.forEach(chart => {
+					$("#" + chart).attr("disabled", "disabled")
+					$("#" + chart).attr("aria-disabled", "true")
+				})
 
 				$("#"+REF.chart).addClass('highlighDisbleBtn');
 
@@ -239,8 +242,10 @@ class ChartControls {
 	charts.forEach(chart => {
 	  if (REF.chart == chart) {
 		$("#" + chart).attr("disabled", "disabled");
+		$("#" + chart).attr("aria-disabled", "true")
 	  } else {
 		$("#" + chart).removeAttr("disabled");
+		$("#" + chart).attr("aria-disabled")
 	  }
 	});
 
