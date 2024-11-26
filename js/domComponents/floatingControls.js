@@ -6,7 +6,7 @@ class FloatingChartControls {
 
     this.chartControls.innerHTML = /*html*/` 
     <div id="switchBtn">
-    <label id="SHOW" class="form-check-label" for="switchDetails" data-i18n="DETAILS">Show Details</label>
+    <label id="HIDE" class="form-check-label" for="switchDetails" data-i18n="HIDEDETAILS" aria-hidden="${REF.details == 1 ? true : false}"></label>
     <div class="form-check form-switch d-inline-block">
       <input
         class="form-check-input focus-ring"
@@ -15,11 +15,12 @@ class FloatingChartControls {
         role="switch"
         id="switchDetails"
         ${REF.details == 1 ? 'checked' : ''}
-        aria-label="${REF.details == 1 ? 'Hide Details' : 'Show Details'}"
+        data-i18n-label="DETAILS"
       >
-      <label id="HIDE" class="form-check-label" for="switchDetails" data-i18n="HIDEDETAILS">Hide Details</label>
+      <label id="SHOW" class="form-check-label" for="switchDetails" data-i18n="DETAILS" aria-hidden="${REF.details == 1 ? false : true}"></label>
     </div>
   </div>
+  
   
       <div>   
         <ul id="floatingMenu">   
@@ -47,73 +48,44 @@ class FloatingChartControls {
     // Add event listeners for keyboard navigation
     switchElements.forEach(switchElement => {
 
-      switchElement.addEventListener('keyup', e => {
-        if (e.keyCode === 13 || e.keyCode === 32) {
-          // Prevent scrolling when the spacebar or enter key is pressed
-          e.preventDefault();
+      const updateSwitchState = () => { 
 
-          // Toggle the switch when Space or Enter is released
-          switchElement.checked = !switchElement.checked;
-          switchElement.value = switchElement.value === '1' ? '0' : '1';
-
-          if (switchElement.id === 'switchDetails') {
-            REF.details = switchElement.value === '1' ? 1 : 0;
-            REF.chartInDetails= switchElement.value === '1' ? 1 : 0;
-          } else if (switchElement.id === 'switchComponents') {
-            REF.component = switchElement.value === '1' ? 1 : 0;
-          }
-
-          const hide = document.getElementById('HIDE');
-          const show = document.getElementById('SHOW');
-  
-          if(switchElement.value == 0){
-            hide.style.fontWeight = 'bold';
-            show.style.fontWeight = 'initial';
-            switchElement.setAttribute('aria-label', show.textContent.trim());
-          } else {
-            hide.style.fontWeight = 'initial';
-            show.style.fontWeight = 'bold';
-            switchElement.setAttribute('aria-label', hide.textContent.trim());
-          }
-
-          createBarChart()
-          
-        }
-      });
-
-      switchElement.addEventListener('click', () => {        
-        // Toggle the switch value between 1 and 0 when clicked
-        switchElement.value = switchElement.value === '1' ? '0' : '1';    
-        if (switchElement.id === 'switchDetails') {
-          REF.details = switchElement.value === '1' ? 1 : 0;
-          REF.chartInDetails= switchElement.value === '1' ? 1 : 0;
-        } else if (switchElement.id === 'switchComponents') {
-          REF.component = switchElement.value === '1' ? 1 : 0;
-        }     
+        const isChecked = switchElement.checked;
+        REF.details = isChecked ? 1 : 0; // 1 means "Show Details"
+        REF.chartInDetails = REF.details;
 
         const hide = document.getElementById('HIDE');
-        const show = document.getElementById('SHOW');
+        const show = document.getElementById('SHOW');   
 
-        if(switchElement.value == 0){
-          hide.style.fontWeight = 'bold';
-          show.style.fontWeight = 'initial';
-          switchElement.setAttribute('aria-label', show.textContent.trim());
-        } else {
-          hide.style.fontWeight = 'initial';
-          show.style.fontWeight = 'bold';
-          switchElement.setAttribute('aria-label', hide.textContent.trim());
-        }
-
-
-
+        hide.style.fontWeight = isChecked ? "initial" : "bold";
+        hide.setAttribute("aria-hidden", isChecked ? "true" : "false");    
+        show.style.fontWeight = isChecked ? "bold" : "initial";
+        show.setAttribute("aria-hidden", isChecked ? "false" : "true");    
+        switchElement.setAttribute("aria-label", isChecked ? translationsCache['DETAILS'] : translationsCache['HIDEDETAILS'] );
+        
+          
         const percentageButton = this.chartControls.querySelector('#togglePercentage');
         percentageButton.style.display = REF.details == 1 ? '' : 'none';
         REF.stacking = "normal"
         populateDropdownData()
         createBarChart()
 
+
+      }
+
+      switchElement.addEventListener("click", updateSwitchState);
+
+      switchElement.addEventListener("keyup", (e) => {
+        if (e.key === "Enter" || e.key === 32) {
+          e.preventDefault();
+          switchElement.checked = !switchElement.checked; 
+          updateSwitchState();
+        }
       });
-    });
+
+  
+          
+       });
   }
 
   setSelectedOrder() {

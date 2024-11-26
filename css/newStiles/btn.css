@@ -69,10 +69,10 @@ li > button {
     font-weight: bold;
 }
 
-#menuSwitch input[type="checkbox"]:checked + label {    
+/* #menuSwitch input[type="checkbox"]:checked + label {    
     font-weight: bold;
    
-}
+} */
 
 .form-check-label:first-of-type {
     margin-right: 10px; /* Adjust as needed */
