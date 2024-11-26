@@ -393,6 +393,12 @@
   "DESC": "Absteigende Datenwerte",
   "BACK": "Zurück",
   "NEXT": "Weiter",
-  "SHOW": "Anzeigen"
-
+  "SHOW": "Anzeigen",
+  "title": "Energiebericht der Europäischen Union",
+  "subject": "Daten zu Brennstofffamilien",
+  "author": "Eurostat",
+  "keywords": "Energie, Brennstoff, EU",
+  "creator": "Eurostat Team",
+  "description": "Diese Tabelle enthält detaillierte Statistiken über Energieversorgung, -verbrauch und -produktion verschiedener Brennstofffamilien in der Europäischen Union für das Jahr 2022.",
+  "file": "EU_Energiebericht.pdf"
 }

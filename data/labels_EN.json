@@ -394,5 +394,17 @@
   "DESC": "Descending data values",
   "BACK": "Back",
   "NEXT": "Next",
-  "SHOW": "Show"
+  "SHOW": "Show",
+  "title": "European Union Energy Report",
+"subject": "Fuel Families Data",
+"author": "Eurostat",
+"keywords": "Energy, Fuel, EU",
+"creator": "Eurostat Team",
+"description": "This table provides detailed statistics about energy supply, consumption, and production across various fuel families in the European Union for 2022.",
+"file": "EU_Energy_Report.pdf"
+
+  
+
+
+
 }

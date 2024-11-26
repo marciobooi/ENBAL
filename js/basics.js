@@ -346,35 +346,35 @@ function siec(key) {
 // }
 
 function download_DIVPdf() {
-  // Import jsPDF and AutoTable
   const { jsPDF } = window.jspdf;
   const autoTable = window.jspdfAutoTable;
 
-  // Create a new jsPDF instance
-  const doc = new jsPDF("l", "pt");
+  const doc = new jsPDF("landscape", "pt");
 
-  // Set metadata for the PDF
+  // Set metadata for the document
   doc.setProperties({
-    title: "European Union Energy Report",
-    subject: "Fuel Families Data",
-    author: "Eurostat",
-    keywords: "Energy, Fuel, EU",
-    creator: "Eurostat Team",
-    Language: "en",
-  });
+    title: translationsCache["title"],
+    subject: translationsCache["subject"],
+    author: translationsCache["author"],
+    keywords: translationsCache["keywords"],
+    creator: translationsCache["creator"],
+    Language: REF.language,
+  });  
 
-  // Add a document title
-  doc.setFont("helvetica", "bold");
-  doc.setFontSize(14);
+
+
+  // Simulate tagging for headings and text
+  doc.setFont("arial", "bold");
+  doc.setFontSize(16);
   doc.text(
-    "European Union Energy Report",
-    doc.internal.pageSize.getWidth() / 2,
-    30,
+    translationsCache['TOOLTITLE'], 
+    doc.internal.pageSize.getWidth() / 2, 
+    30, 
     { align: "center" }
   );
 
-  // Add a description or subtitle for the table
-  doc.setFont("helvetica", "normal");
+  // Add subtitle
+  doc.setFont("Arial", "normal");
   doc.setFontSize(12);
   doc.text(
     "Table: Fuel Families Data Overview",
@@ -386,7 +386,7 @@ function download_DIVPdf() {
   // Add alternative text for the table description
   doc.setFontSize(10);
   doc.text(
-    "This table provides detailed statistics about energy supply, consumption, and production across various fuel families in the European Union for 2022.",
+    translationsCache["description"],   
     20,
     70
   );
@@ -398,7 +398,6 @@ function download_DIVPdf() {
   ).each(function () {
     const headerText =
       $(this).find(".tableHeader").text().trim() || $(this).text().trim();
-
     headers.push(headerText);
   });
 
@@ -412,38 +411,27 @@ function download_DIVPdf() {
     body.push(row);
   });
 
-  // Use jsPDF-AutoTable to generate the table
+  // Generate the table with proper headers
   doc.autoTable({
     head: [headers],
     body: body,
     startY: 90,
-    theme: "striped", // Options: 'striped', 'grid', 'plain'
+    theme: "striped",
     styles: {
-      fontSize: 7,
-      cellPadding: 8,
+      fontSize: 8,
+      cellPadding: 5,
       overflow: "linebreak",
     },
     headStyles: {
       fontStyle: "bold",
-      fillColor: [200, 200, 200], // Light gray background for headers
-      textColor: [0, 0, 0], // Black text for headers
-    },
-    alternateRowStyles: {
-      fillColor: [245, 245, 245], // Light gray background for alternate rows
+      fillColor: [200, 200, 200],
+      textColor: [0, 0, 0],
     },
     columnStyles: {
-      0: { cellWidth: "wrap", halign: "left" }, // First column wraps and aligns left
-    },
-    didParseCell: function (data) {
-      // Add simulated accessibility for headers and rows
-      if (data.row.index === 0) {
-        data.cell.text = ` ${data.cell.text}`;
-      } else if (data.column.index === 0) {
-        data.cell.text = `${data.cell.text}`;
-      }
+      0: { cellWidth: "wrap", halign: "left" },
     },
     didDrawPage: function (data) {
-      // Add page number to each page
+      // Add page numbers
       const pageCount = doc.internal.getNumberOfPages();
       doc.setFontSize(10);
       doc.text(
@@ -454,22 +442,24 @@ function download_DIVPdf() {
     },
   });
 
-  // Add a logo to the PDF with descriptive caption
+  // Add an image with alternative text
   const img = new Image();
   img.onload = function () {
-    doc.addImage(img, "PNG", 730, 30, 100, 40);
+    doc.addImage(img, "PNG", 730, 30, 100, 40, undefined, "Eurostat Logo");
     doc.text(
       "Figure 1: Eurostat Logo - Representing the Eurostat organization.",
       20,
       doc.autoTable.previous.finalY + 20
     );
 
-    // Save the PDF with a descriptive name
-    doc.save("EU_Energy_Report.pdf");
+    // Save the PDF
+    doc.save( translationsCache["file"],);
   };
   img.crossOrigin = "";
-  img.src = "img/logo.png"; // Replace with the correct path to your image
+  img.src = "img/logo.png";
 }
+
+
 
 
 

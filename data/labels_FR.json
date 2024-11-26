@@ -393,6 +393,14 @@
   "DESC": "Valeurs de données descendantes",
   "BACK": "Retour",
   "NEXT": "Suivant",
-  "SHOW": "Afficher"
+  "SHOW": "Afficher",
+  "title": "Rapport sur l'énergie de l'Union européenne",
+  "subject": "Données sur les familles de carburants",
+  "keywords": "Énergie, carburant, UE",
+  "creator": "Eurostat Team",
+  "description": "Ce tableau fournit des statistiques détaillées sur l'approvisionnement, la consommation et la production d'énergie dans différentes familles de combustibles dans l'Union européenne pour 2022.",
+  "file": "EU_Rapport_ energie.pdf"
 
 }
+
+
