@@ -1483,10 +1483,11 @@ async function exportToExcel() {
 
 // function to show tooltip on keyboard
 function enableTooltips() {
-  // Select all button elements with data-i18n-title or data-i18n-label attributes
+  // Select all button elements with title or aria-label attributes
   const buttons = document.querySelectorAll("button[title], button[aria-label]");
+
   buttons.forEach((button) => {  
-    // Get the tooltip content from data-i18n-title or data-i18n-label
+    // Get the tooltip content from title or aria-label
     const tooltipText =
       button.getAttribute("title") || button.getAttribute("aria-label");
     if (!tooltipText) return; // Skip if neither attribute exists
@@ -1495,24 +1496,35 @@ function enableTooltips() {
     const tooltip = document.createElement("div");
     tooltip.className = "tooltip";
     tooltip.textContent = tooltipText; // Add the content
+    tooltip.style.position = "absolute"; // Ensure tooltip is positioned relative to the button
+    tooltip.style.visibility = "hidden"; // Hide by default
+    tooltip.style.opacity = "0"; // Hidden for transitions
+    tooltip.style.transition = "opacity 0.2s";
     document.body.appendChild(tooltip);
 
-    // Position tooltip
-    const positionTooltip = (element) => {
-      const rect = element.getBoundingClientRect();
-      tooltip.style.left = `${rect.left + rect.width / 2 - tooltip.offsetWidth / 2}px`;
-      tooltip.style.top = `${rect.top - tooltip.offsetHeight - 8}px`;
+    // Position the tooltip relative to the button
+    const positionTooltip = () => {
+      const rect = button.getBoundingClientRect();
+      const scrollY = window.scrollY; // Adjust for vertical scrolling
+      const scrollX = window.scrollX; // Adjust for horizontal scrolling
+      const tooltipHeight = tooltip.offsetHeight;
+      const tooltipWidth = tooltip.offsetWidth;
+
+      tooltip.style.left = `${rect.left + scrollX + rect.width / 2 - tooltipWidth / 2}px`;
+      tooltip.style.top = `${rect.top + scrollY - tooltipHeight - 10}px`; // 10px margin above the element
     };
 
     // Show tooltip
-    const showTooltip = (event) => {
-      tooltip.classList.add("visible");
-      positionTooltip(event.target);
+    const showTooltip = () => {
+      tooltip.style.visibility = "visible";
+      tooltip.style.opacity = "1";
+      positionTooltip();
     };
 
     // Hide tooltip
     const hideTooltip = () => {
-      tooltip.classList.remove("visible");
+      tooltip.style.visibility = "hidden";
+      tooltip.style.opacity = "0";
     };
 
     // Event listeners for both mouse and keyboard interactions
@@ -1520,8 +1532,18 @@ function enableTooltips() {
     button.addEventListener("mouseout", hideTooltip);
     button.addEventListener("focus", showTooltip); // For keyboard focus
     button.addEventListener("blur", hideTooltip); // Hide on blur
+
+    // Update tooltip position on resize to keep alignment
+    window.addEventListener("resize", () => {
+      if (tooltip.style.visibility === "visible") {
+        positionTooltip();
+      }
+    });
   });
 }
+
+
+
 
 
 // function to correct athe aria on the chart
