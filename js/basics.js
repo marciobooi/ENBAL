@@ -780,6 +780,20 @@ $(document).on("click", ".barChart, .pieChart, .lineChart", function () {
   chartBalText.push($(this).parents("tr").find("td:first").text());
   
   handleChartAction();
+
+
+  
+
+  setTimeout(() => {
+    if ($('#barChart').not(':disabled').length > 0) {
+      $('#barChart').focus();
+  } else if ($('#pieChart').not(':disabled').length > 0) {
+      $('#pieChart').focus();
+  } else if ($('#lineChart').not(':disabled').length > 0) {
+      $('#lineChart').focus();
+  }
+  }, 400);
+
 });
 
 
@@ -792,6 +806,7 @@ function handleChartAction() {
     case "barChart":
       showMenuSwitch()
       createBarChart(chartBal, chartBalText);
+      log('here')
       break;
     case "pieChart":      
       renderPieChart(chartType, chartBal, chartBalText);
@@ -805,6 +820,8 @@ function handleChartAction() {
 
         return
   }
+
+  
 }
 
 
