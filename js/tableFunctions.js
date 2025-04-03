@@ -1,4 +1,4 @@
-    // Define a variable to store the default data
+// Define a variable to store the default data
     let defaultData = [];
     let expandStatus = [];
     let rowIndex = []
@@ -156,7 +156,7 @@ function removeRows(id) {
   }
   
 
-  function addNewRows(id) {
+function addNewRows(id) {
     expandStatus.push(id);
   
     balances = extraBalances(id);
@@ -167,26 +167,37 @@ function removeRows(id) {
     const numColumns = REF.siecs.length;
   
     const index = dataTable.findIndex(idx => idx[0] == id);
+
+    // Get dimension information from the API response
+    const nrgBalDimension = d.Dimension("nrg_bal");
+    const nrgBalIds = nrgBalDimension.id;
   
     for (let i = 0; i < numRows; i++) {
-      const row = [balances[i]].concat(
-        Array.from({ length: numColumns }, (_, j) => {
-          let cellValue = d.value[(numRows - 1 - i) * numColumns + j];
-          
-          // Check if the condition is met for "TI_EHG_CB" and all values are null or undefined
-          if (balances[i] === "TI_EHG_CB" && (cellValue === null || cellValue === undefined)) {
-            return 0; // Set cellValue to 0
-          } else {
-            return cellValue === null ? cellValue = 0 : cellValue;
-          }
-        })
-      );
-    
-      dataTable.splice(index + 1, 0, row);
+      const balance = balances[i];
+      const row = [balance];
+      
+      // Find the corresponding index in the API data for this balance
+      const apiBalanceIndex = nrgBalIds.indexOf(balance);
+      
+      const rowData = Array.from({ length: numColumns }, (_, j) => {
+        let cellValue;
+        if (apiBalanceIndex !== -1) {
+          // If balance exists in API data, get the corresponding value
+          cellValue = d.value[apiBalanceIndex * numColumns + j];
+        } else {
+          // If balance doesn't exist in API data, set to null or 0
+          cellValue = null;
+        }
+        
+        // Special handling for TI_EHG_CB
+        if (balance === "TI_EHG_CB" && (cellValue === null || cellValue === undefined)) {
+          return 0;
+        }
+        return cellValue === null ? 0 : cellValue;
+      });
+      
+      dataTable.splice(index + 1, 0, [balance].concat(rowData));
     }
-
-
-
   
     rowIndex.forEach(idx => {
       if (idx[2] > index) {
@@ -197,7 +208,7 @@ function removeRows(id) {
     rowIndex.push([id, numRows, index]);
     createDataTable(dataTable);
     addStyleNewRows();
-  }
+}
 
 
 
