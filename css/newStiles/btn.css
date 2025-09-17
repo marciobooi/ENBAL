@@ -524,3 +524,13 @@ button.tableRowIcon:focus {
     color: #3e6cd5 !important;
     box-shadow: 0 0 0 0.15rem #cca30000 !important;
 }
+
+.modal-btn:focus {
+        border-color: #0e47cb;
+    color: #0e47cb;
+        box-shadow: 0 2px 4px rgba(9, 49, 142, .08), 0 0 10px rgba(9, 49, 142, .04), 0 4px 5px rgba(9, 49, 142, .04), 0 -4px 4px rgba(9, 49, 142, .04);
+    text-decoration: none;
+    background-color: #3e6cd5 !important;
+    border-color: #3e6cd5;
+    color: #fff !important;
+}

@@ -60,8 +60,8 @@ class Modal {
               </div>
                 <p id="desc" class="card-text text-left text-wrap">${this.obj[REF.language]}</p>
                 <div id="btnControl" class="d-flex justify-content-end p-2">
-                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" class="ecl-button ecl-button--secondary" aria-label="Open metadata">${translationsCache["POPMETA"]}</button>
-                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" class="ecl-button ecl-button--secondary" aria-label="Open database">${translationsCache["POPDB"]}</button>
+                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLink('https://ec.europa.eu/eurostat/cache/metadata/en/nrg_bal_esms.htm');}" class="ecl-button ecl-button--secondary modal-btn" aria-label="Open metadata">${translationsCache["POPMETA"]}</button>
+                  <button type="button" onclick="openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLink('https://ec.europa.eu/eurostat/databrowser/view/nrg_bal_c/default/table?lang=en');}" class="ecl-button ecl-button--secondary modal-btn" aria-label="Open database">${translationsCache["POPDB"]}</button>
                 </div>
               </div>
           <footer class="ecl-modal__footer">
@@ -81,7 +81,10 @@ class Modal {
 
     ECL.autoInit();
 
-
+    // Implement trap focus for the modal
+    setTimeout(() => {
+      this.trapModalFocus();
+    }, 100);
 
     const parentElement = document.getElementById('definitionsModal');
   
@@ -92,7 +95,59 @@ class Modal {
     });
   } 
 
+  trapModalFocus() {
+    const modal = document.getElementById('infoModal');
+    if (!modal) {
+      console.log('Modal not found');
+      return;
+    }
+
+    // Get all focusable elements in the modal
+    const focusableElements = modal.querySelectorAll('button');
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+    console.log('Focusable elements found:', focusableElements.length);
+
+    // Remove any existing listeners first
+    modal.removeEventListener('keydown', this.handleModalKeydown);
+    
+    // Bind the context for the event handler
+    this.handleModalKeydown = (e) => {
+      const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
+
+      if (!isTabPressed) {
+        return;
+      }
+
+      if (e.shiftKey) {
+        if (document.activeElement === firstFocusableElement) {
+          lastFocusableElement.focus();
+          e.preventDefault();
+        }
+      } else {
+        if (document.activeElement === lastFocusableElement) {
+          firstFocusableElement.focus();
+          e.preventDefault();
+        }
+      }
+    };
+
+    modal.addEventListener('keydown', this.handleModalKeydown);
+
+    // Set initial focus on the first focusable element
+    if (focusableElements.length > 0) {
+      firstFocusableElement.focus();
+    }
+  }
+
     close() {    
+      // Remove the keydown event listener before closing
+      const modal = document.getElementById('infoModal');
+      if (modal && this.handleModalKeydown) {
+        modal.removeEventListener('keydown', this.handleModalKeydown);
+      }
+      
       $("#definitionsModal").html("");
 
       if (lastFocusedElement) {
