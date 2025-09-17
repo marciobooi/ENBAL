@@ -129,7 +129,27 @@ function createBarChart() {
 
   const yAxisTitle = translationsCache[REF.unit] || REF.unit;
 
-  const xAxis = REF.details == 1 ? { reversedStacks: true, categories: categoriesAndStacks.map((e) => e.x) } : { type: "category" };
+  const xAxis = REF.details == 1 ? { 
+    reversedStacks: true, 
+    categories: categoriesAndStacks.map((e) => e.x),
+    labels: {
+      step: 1,
+      staggerLines: 2,
+      overflow: 'justify',
+      style: {
+        fontSize: '10px'
+      }
+    }
+  } : { 
+    type: "category",
+    labels: {
+      step: 1,
+      overflow: 'justify',
+      style: {
+        fontSize: '10px'
+      }
+    }
+  };
 
   const chartData = REF.details == 0 ? [{name: translationsCache[REF.unit] || REF.unit, data: chartSeries}] : orderedSeries.reverse();
 
