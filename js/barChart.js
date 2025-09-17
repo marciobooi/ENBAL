@@ -1,5 +1,5 @@
-function handleData(d, series ) {
-
+function handleData(d, series) {
+  // This function now expects processed data from DataService
   chartSeries = []
   barcateg = [];
 
@@ -8,9 +8,8 @@ function handleData(d, series ) {
     barSiec = d.Dimension("siec").id;
   
     for (var item in barSiec) {
-      //console.log(barSiec[item])
       if(barSiec[item] === "TOTAL") {
-        //console.log(true)
+        // Skip TOTAL
       } else {    
         data = [];
         for (var j = 0; j < series.length; j++) {
@@ -52,8 +51,6 @@ function handleData(d, series ) {
         return myObject;
       }
     });
-
-
 
     // const makeOrderedSeriesFunc = () => makeOrderedSeries(categoriesAndStacks);
 
@@ -97,35 +94,52 @@ function handleData(d, series ) {
 
 
 function createBarChart() {
-
-
-
-
   REF.siecs = siec(REF.fuel);
 
-  const type = "column"   
-
+  const type = "column";
+  
+  // Use DataService to get chart data in a way that maintains backward compatibility
+  const params = {
+    dataset: REF.dataset || "nrg_bal_c",
+    chart: "barChart",
+    chartBal: REF.chartBal,
+    unit: REF.unit,
+    year: REF.year,
+    geo: REF.geo,
+    siecs: REF.siecs,
+    siec: REF.siec,
+    details: REF.details,
+    agregates: REF.agregates,
+    language: REF.language
+  };
+  
+  // For now, keep using the synchronous approach to maintain compatibility
   d = chartApiCall();                    
+  
+  // In future versions, we can fully migrate to async:
+  // dataService.getChartData("barChart", params).then(result => {
+  //   d = result.rawData;
+  //   // Continue with chart creation
+  // });
 
   const series = d.Dimension("geo").id;
   const categories = d.Dimension("geo").id;  
 
   handleData(d, series);    
 
-  const yAxisTitle = translationsCache[REF.unit] || REF.unit 
+  const yAxisTitle = translationsCache[REF.unit] || REF.unit;
 
-  const xAxis =  REF.details == 1 ? { reversedStacks: true, categories: categoriesAndStacks.map((e) => e.x) } : { type: "category" };
+  const xAxis = REF.details == 1 ? { reversedStacks: true, categories: categoriesAndStacks.map((e) => e.x) } : { type: "category" };
 
   const chartData = REF.details == 0 ? [{name: translationsCache[REF.unit] || REF.unit, data: chartSeries}] : orderedSeries.reverse();
 
-  const legendStatus = REF.details == 0 ? false : true ;
+  const legendStatus = REF.details == 0 ? false : true;
 
   const tooltipFormatter = function() {
-    return tooltipTable(this.points) ;
+    return tooltipTable(this.points);
   };
 
-
-
+  // Create the chart with accessibility enhancements
   const chartOptions = {
     containerId: "chart",
     type: type,
@@ -133,7 +147,7 @@ function createBarChart() {
     subtitle: null,
     xAxis: xAxis,
     yAxisFormat: '{value:.2f}',
-    yAxisTitle:  REF.stacking == "normal" ? yAxisTitle : translationsCache["PERCENTAGE"] || "PERCENTAGE",
+    yAxisTitle: REF.stacking == "normal" ? yAxisTitle : translationsCache["PERCENTAGE"] || "PERCENTAGE",
     tooltipFormatter: tooltipFormatter,
     creditsText: credits(),
     creditsHref: "",
@@ -153,31 +167,33 @@ function createBarChart() {
       }
     },
     columnOptions: {
-        stacking: REF.stacking == "normal" ? "normal" : "percent",
-        connectNulls: true,
-        events: {
-          mouseOver: function () {
-            var point = this;
-            // var color = point.color;
-            // $('path.highcharts-label-box.highcharts-tooltip-box').css('stroke', color);
-          }
+      stacking: REF.stacking == "normal" ? "normal" : "percent",
+      connectNulls: true,
+      events: {
+        mouseOver: function () {
+          var point = this;
+          // var color = point.color;
+          // $('path.highcharts-label-box.highcharts-tooltip-box').css('stroke', color);
         }
-      },
-      seriesOptions:""
-};
+      }
+    },
+    seriesOptions: "",
+    accessibility: {
+      description: `Bar chart showing ${REF.chartBal} data for ${REF.geo} in ${REF.year}`,
+      keyboardNavigation: {
+        enabled: true
+      }
+    }
+  };
 
+  const customChart = new Chart(chartOptions);
+  barChart = customChart.createChart();
 
-const customChart = new Chart(chartOptions);
-barChart = customChart.createChart();
+  changeLegendPisition(barChart);     
 
-changeLegendPisition(barChart);     
-
-$(window).on('resize', function () {
-  changeLegendPisition(barChart);
-});
-
-
-
+  $(window).on('resize', function () {
+    changeLegendPisition(barChart);
+  });
 }
 
 

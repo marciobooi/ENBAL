@@ -1,33 +1,57 @@
 var cache = {};
 let dataTable = [];
 
+// Initialize service instances - moved to top-level variables to prevent reference errors
+let apiService;
+let dataService;
+
+// Initialize services when document is ready
+document.addEventListener('DOMContentLoaded', function() {
+  apiService = new ApiService();
+  dataService = new DataService(apiService);
+});
+
 function apiCall() {
-  REF.chart = ""
+  REF.chart = "";
   REF.siecs = siec(REF.fuel);
   
+  // Make sure services are initialized
+  if (!apiService) {
+    apiService = new ApiService();
+    dataService = new DataService(apiService);
+  }
+  
+  // Use the data service to fetch data
+  const params = {
+    dataset: REF.dataset || "nrg_bal_c",
+    language: REF.language,
+    year: REF.year,
+    geo: REF.geo,
+    unit: REF.unit,
+    balances: balances, 
+    siecs: REF.siecs
+  };
+
+  // Clear the datatable before populating
+  dataTable = [];
+  
+  // For now, use synchronous approach to maintain compatibility
   d = chartApiCall();      
   
   const numRows = balances.length;
   const numColumns = REF.siecs.length;   
 
   firstCol = `<div>
-                <span data-i18n="tableYear"></span>
-                <span>: ${REF.year}</span>
-                <br>
-                <span data-i18n="tableUnit"></span>
-                <span>: ${REF.unit}</span>
-            </div>`
+              <span data-i18n="tableYear"></span>
+              <span>: ${REF.year}</span>
+              <br>
+              <span data-i18n="tableUnit"></span>
+              <span>: ${REF.unit}</span>
+          </div>`;
 
   // Add the column headers as the first row
   dataTable.push([firstCol].concat(REF.siecs));       
 
-  // Create a mapping of balance to its index
-  const balanceIndices = {};
-  balances.forEach((balance, index) => {
-    balanceIndices[balance] = index;
-  });
-
-  // Get dimension information from the API response
   const nrgBalDimension = d.Dimension("nrg_bal");
   const nrgBalIds = nrgBalDimension.id;
 
@@ -54,6 +78,39 @@ function apiCall() {
 
   createDataTable(dataTable);
   setupDefaultData();
+  
+  // In future versions we'll implement promise-based approach:
+  /*
+  dataService.getBalanceData(params)
+    .then(d => {
+      const numRows = balances.length;
+      const numColumns = REF.siecs.length;   
+
+      firstCol = `<div>
+                  <span data-i18n="tableYear"></span>
+                  <span>: ${REF.year}</span>
+                  <br>
+                  <span data-i18n="tableUnit"></span>
+                  <span>: ${REF.unit}</span>
+              </div>`;
+
+      // Add the column headers as the first row
+      dataTable.push([firstCol].concat(REF.siecs));       
+
+      // Process table data using the DataService
+      const tableData = dataService.processTableData(d, balances, REF.siecs);
+      
+      // Add processed data to the dataTable
+      dataTable = dataTable.concat(tableData);
+
+      createDataTable(dataTable);
+      setupDefaultData();
+    })
+    .catch(error => {
+      console.error("Error in apiCall:", error);
+      // Show error message to the user
+    });
+  */
 }
 
 function addExtraBal(id) {  
@@ -66,6 +123,8 @@ function addExtraBal(id) {
   }
 }
 
+// Legacy function maintained for backward compatibility
+// Will eventually be deprecated as ApiService takes over caching
 function addToCache(query, d) {
   if (!cache[query]) {
     cache[query] = [];
@@ -74,88 +133,44 @@ function addToCache(query, d) {
   cache[query].push(d);
 }
 
+// Refactored to use ApiService
 function chartApiCall(id) {
-
-REF.dataset = "nrg_bal_c";
-
-  let url = "https://ec.europa.eu/eurostat/api/dissemination/statistics/1.0/data/" + REF.dataset + "?";
-  url += "format=JSON";
-  url += "&lang=" + REF.language;
-
-  switch (REF.chart) {
-    case "lineChart":
-
-    url += "&nrg_bal=" + REF.chartBal;
-    url += "&unit=" + REF.unit;
-    url += "&geo=" + REF.geo;
-    for (var i = 0; i < REF.siecs.length; i++) {    
-      if (REF.siecs[i] == "0000X0350-0370" || REF.siecs[i] == "TOTAL" ||REF.siecs[i] == "C0350-0370") {       
-      } else {
-        url += "&siec=" + REF.siecs[i];
-      }
-    }
-      break;
-      case "barChart":
-        url += "&nrg_bal=" + REF.chartBal;
-        url += "&unit=" + REF.unit;
-        url += "&time=" + REF.year;
-      
-        if (REF.details == 1) {
-          const siecsToInclude = REF.siecs.filter((siec) => siec !== "TOTAL");
-          url += siecsToInclude.map((siec) => "&siec=" + siec).join("");
-        } else {
-          url += "&siec=" + REF.siec;
-        }
-      
-        if (REF.agregates == 0) {
-          const geosToInclude = defGeos.filter(
-            (geo) => geo !== "EU27_2020" && geo !== "EA19"
-          );
-          url += geosToInclude.map((geo) => "&geo=" + geo).join("");
-        } else {
-          url += defGeos.map((geo) => "&geo=" + geo).join("");
-        }
-        break;
-  case "pieChart":
-    url += "&nrg_bal=" + REF.chartBal;
-    url += "&unit=" + REF.unit;
-    url += "&time=" + REF.year;
-    url += "&geo=" + REF.geo;
-    for (var i = 0; i < REF.siecs.length; i++) {
-      if ( REF.siecs[i] !== "0000X0350-0370" ||REF.siecs[i] !== "TOTAL" ||REF.siecs[i] !== "C0350-0370") {
-        url += "&siec=" + REF.siecs[i];
-      }
-    }  
-    break
-  default:
-      url += "&time=" + REF.year;
-      url += "&geo=" + REF.geo;
-      url += "&unit=" + REF.unit;
-      for (var i = 0; i < balances.length; i++) url += "&nrg_bal=" + balances[i];
-      for (var i = 0; i < REF.siecs.length; i++) url += "&siec=" + REF.siecs[i];
-    break 
+  // Make sure apiService is initialized
+  if (!apiService) {
+    apiService = new ApiService();
+    dataService = new DataService(apiService);
   }
+  
+  const params = {
+    dataset: REF.dataset || "nrg_bal_c",
+    chart: REF.chart,
+    chartBal: REF.chartBal,
+    unit: REF.unit,
+    year: REF.year,
+    geo: REF.geo,
+    siecs: REF.siecs,
+    siec: REF.siec,
+    details: REF.details,
+    agregates: REF.agregates,
+    language: REF.language,
+    balances: id ? extraBalances(id) : balances
+  };
 
-
-  log(url)
-
+  // Use synchronous approach for now to maintain compatibility with existing code
+  // In the future, fully migrate to async/await pattern
+  const url = apiService.buildUrl(params);
+  
   if (cache[url] && cache[url].length > 0) {  
     d = JSONstat(cache[url][cache[url].length - 1]).Dataset(0);
-    // log('load from cache')
     return d;
   } else {
-   
-
     const request = new XMLHttpRequest();
     request.open("GET", url, false); 
     request.send();
   
-    if (request.status === 500 || request.status === 503) {
-      // submitFormDown();
-    }
-  
     if (request.status !== 200) {
-      // submitFormDown();
+      console.error(`API error: ${request.status}`);
+      // Handle error gracefully
     }
   
     const data = JSON.parse(request.responseText);
@@ -165,6 +180,4 @@ REF.dataset = "nrg_bal_c";
     
     return d;
   }
-
-
 }

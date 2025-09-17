@@ -160,6 +160,19 @@ function addNewRows(id) {
     expandStatus.push(id);
   
     balances = extraBalances(id);
+    
+    // Use the DataService to get the data with proper parameter structure
+    const params = {
+      dataset: REF.dataset || "nrg_bal_c",
+      chart: "",
+      unit: REF.unit,
+      year: REF.year,
+      geo: REF.geo,
+      siecs: REF.siecs,
+      balances: balances
+    };
+    
+    // For now, maintain backward compatibility with synchronous calls
     d = chartApiCall(id);
     balances.reverse();
  
@@ -172,20 +185,19 @@ function addNewRows(id) {
     const nrgBalDimension = d.Dimension("nrg_bal");
     const nrgBalIds = nrgBalDimension.id;
   
-    for (let i = 0; i < numRows; i++) {
-      const balance = balances[i];
-      const row = [balance];
-      
+    // Process the data using a more organized approach
+    const newRows = balances.map(balance => {
       // Find the corresponding index in the API data for this balance
       const apiBalanceIndex = nrgBalIds.indexOf(balance);
       
+      // Create an array for each column in this row
       const rowData = Array.from({ length: numColumns }, (_, j) => {
         let cellValue;
         if (apiBalanceIndex !== -1) {
           // If balance exists in API data, get the corresponding value
           cellValue = d.value[apiBalanceIndex * numColumns + j];
         } else {
-          // If balance doesn't exist in API data, set to null or 0
+          // If balance doesn't exist in API data, set to null
           cellValue = null;
         }
         
@@ -196,9 +208,16 @@ function addNewRows(id) {
         return cellValue === null ? 0 : cellValue;
       });
       
-      dataTable.splice(index + 1, 0, [balance].concat(rowData));
-    }
+      // Return the complete row (balance code + data)
+      return [balance, ...rowData];
+    });
+    
+    // Insert the new rows into the dataTable
+    newRows.forEach(row => {
+      dataTable.splice(index + 1, 0, row);
+    });
   
+    // Update row indices for proper rendering
     rowIndex.forEach(idx => {
       if (idx[2] > index) {
         idx[2] = idx[2] + numRows;
@@ -208,6 +227,30 @@ function addNewRows(id) {
     rowIndex.push([id, numRows, index]);
     createDataTable(dataTable);
     addStyleNewRows();
+    
+    // In future versions, we'll implement an async approach:
+    /*
+    dataService.getBalanceData(params).then(d => {
+      // Process data and update the table
+      const tableData = dataService.processTableData(d, balances, REF.siecs);
+      
+      // Insert the new rows into the dataTable
+      tableData.forEach(row => {
+        dataTable.splice(index + 1, 0, row);
+      });
+      
+      // Update row indices
+      rowIndex.forEach(idx => {
+        if (idx[2] > index) {
+          idx[2] = idx[2] + tableData.length;
+        }
+      });
+      
+      rowIndex.push([id, tableData.length, index]);
+      createDataTable(dataTable);
+      addStyleNewRows();
+    });
+    */
 }
 
 

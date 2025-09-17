@@ -105,6 +105,14 @@
     <script type="text/javascript" src="js/iframe.js"></script>
     <script type="text/javascript" src="js/external/table/ExcelJS.js"></script>
 
+    <!-- Service layer - Ensure correct initialization order -->
+    <script type="text/javascript" src="js/services/ApiService.js"></script>
+    <script type="text/javascript" src="js/services/DataService.js"></script>
+    <script type="text/javascript" src="js/services/StateManager.js"></script>
+    <script type="text/javascript" src="js/services/AccessibilityService.js"></script>
+    <script type="text/javascript" src="js/services/PerformanceService.js"></script>
+    <script type="text/javascript" src="js/services/initServices.js"></script>
+    <!-- End of service layer -->
 
     <!-- scripts -->
     <script defer type="text/javascript" src="js/domComponents/navComponent.js"></script>
