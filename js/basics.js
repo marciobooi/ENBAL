@@ -980,14 +980,10 @@ function cleanupTooltips() {
   const existingTooltips = document.querySelectorAll('.tooltip');
   existingTooltips.forEach(tooltip => tooltip.remove());
   
-  // Remove event listeners by cloning and replacing button elements
-  // BUT exclude navbar buttons to prevent breaking language dropdown
-  const buttons = document.querySelectorAll("button[title], button[aria-label]");
-  buttons.forEach(button => {
-    // Skip navbar buttons to preserve their event listeners
-    if (button.closest('#navbar-container') || button.closest('header')) {
-      return;
-    }
+  // Only clean up specific chart-related buttons that are dynamically created
+  // and exclude all navigation, menu, and other important UI buttons
+  const buttonsToClean = document.querySelectorAll(".chartIcon, #auxChartControls button, #dataTableContainer button");
+  buttonsToClean.forEach(button => {
     const newButton = button.cloneNode(true);
     button.parentNode.replaceChild(newButton, button);
   });
