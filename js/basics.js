@@ -973,6 +973,26 @@ async function exportToExcel() {
   });
 }
 
+// Function to clean up existing tooltips
+function cleanupTooltips() {
+  log("here")
+  // Remove all existing tooltip elements
+  const existingTooltips = document.querySelectorAll('.tooltip');
+  existingTooltips.forEach(tooltip => tooltip.remove());
+  
+  // Remove event listeners by cloning and replacing button elements
+  // BUT exclude navbar buttons to prevent breaking language dropdown
+  const buttons = document.querySelectorAll("button[title], button[aria-label]");
+  buttons.forEach(button => {
+    // Skip navbar buttons to preserve their event listeners
+    if (button.closest('#navbar-container') || button.closest('header')) {
+      return;
+    }
+    const newButton = button.cloneNode(true);
+    button.parentNode.replaceChild(newButton, button);
+  });
+}
+
 // Function to show tooltip on keyboard
 function enableTooltips() {
   // Select all button elements with title or aria-label attributes

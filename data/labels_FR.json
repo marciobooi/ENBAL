@@ -49,6 +49,11 @@
   "CLOSE": "Fermer",
   "SELECTLANGUAGE": "Choisissez votre langue",
   "OFFICIAL": "Langue officielle de l'UE:",
+  "CHANGE_LANGUAGE": "Changer de langue",
+  "CURRENT_LANGUAGE_IS": "la langue actuelle est",
+  "LANG_ENGLISH": "English",
+  "LANG_DEUTSCH": "Deutsch", 
+  "LANG_FRANCAIS": "Français",
 
   "MAINMENU": "Menu",
 

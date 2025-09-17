@@ -95,6 +95,9 @@ class Navbar {
         const langValue = langItem.dataset.lang;
         this.selectLanguage(langItem); 
 
+        // Clean up existing tooltips to prevent overlap
+        cleanupTooltips();
+
         REF.language = langValue
         dataNameSpace.setRefURL()
         
@@ -122,7 +125,11 @@ selectLanguage(langItem) {
   const langLabel = langItem.querySelector(".ecl-site-header__language-link-label").textContent;
   this.langSelection.innerHTML = `<i class="fas fa-globe" focusable="false" aria-hidden="true"></i>
   <span id="lang-selection-text" class="btn-text">${langLabel}</span>`;
-  this.langSelection.setAttribute("aria-label", `Change language, current language is ${langLabel}`); 
+  
+  // Use translations for aria-label
+  const changeLanguageText = translationsCache["CHANGE_LANGUAGE"] || "Change language";
+  const currentLanguageText = translationsCache["CURRENT_LANGUAGE_IS"] || "current language is";
+  this.langSelection.setAttribute("aria-label", `${changeLanguageText}, ${currentLanguageText} ${langLabel}`); 
 }
 
 

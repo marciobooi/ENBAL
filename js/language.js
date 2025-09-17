@@ -10,6 +10,22 @@ let languageNameSpace = {
       }, 200);
     });
   },
+  setLanguage: function (lang) {
+    // Clean up existing tooltips to prevent overlap
+    cleanupTooltips();
+    
+    // Update the REF.language
+    REF.language = lang.toUpperCase();
+    
+    // Load new translations
+    loadTranslations(lang.toUpperCase());
+    loadTranslationsTuturial(lang.toUpperCase());
+    
+    // Re-enable tooltips with new language
+    setTimeout(() => {
+      enableTooltips();
+    }, 100);
+  },
 };
 
 function loadTranslations(lang) {
@@ -69,14 +85,15 @@ function loadTranslations(lang) {
     }
 
 
-
-
     document.documentElement.lang = lang.toLowerCase();
 
 
     addNAAttributes();
 
     euGlobanContainer();
+
+    // Update language selector aria-label with translated text
+    updateLanguageSelectorLabel();
 
     enableTooltips()
 
@@ -117,4 +134,17 @@ function addNAAttributes() {
       $(this).attr("aria-label", translationsCache["N/A"] || "Not Available");
     }
   });
+}
+
+function updateLanguageSelectorLabel() {
+  const langButton = document.getElementById('toggleLanguageBtn');
+  if (langButton) {
+    const langText = langButton.querySelector('#lang-selection-text');
+    if (langText) {
+      const currentLangText = langText.textContent;
+      const changeLanguageText = translationsCache["CHANGE_LANGUAGE"] || "Change language";
+      const currentLanguageText = translationsCache["CURRENT_LANGUAGE_IS"] || "current language is";
+      langButton.setAttribute("aria-label", `${changeLanguageText}, ${currentLanguageText} ${currentLangText}`);
+    }
+  }
 }

@@ -49,6 +49,11 @@
   "CLOSE": "Schließen",
   "SELECTLANGUAGE": "Wählen Sie ihre Sprache",
   "OFFICIAL": "Amtssprache der EU:",
+  "CHANGE_LANGUAGE": "Sprache ändern",
+  "CURRENT_LANGUAGE_IS": "aktuelle Sprache ist",
+  "LANG_ENGLISH": "English",
+  "LANG_DEUTSCH": "Deutsch", 
+  "LANG_FRANCAIS": "Français",
 
   "MAINMENU": "Menü",
 

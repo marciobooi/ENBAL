@@ -50,6 +50,11 @@
   "CLOSE": "Close",
   "SELECTLANGUAGE": "Select language",
   "OFFICIAL": "Official EU languages:",
+  "CHANGE_LANGUAGE": "Change language",
+  "CURRENT_LANGUAGE_IS": "current language is",
+  "LANG_ENGLISH": "English",
+  "LANG_DEUTSCH": "Deutsch", 
+  "LANG_FRANCAIS": "Français",
 
   "MAINMENU": "Menu",
 
