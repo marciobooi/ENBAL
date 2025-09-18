@@ -2,7 +2,7 @@ class Modal {
         constructor(info, obj) {
           this.info = info;
           this.obj = obj;
-          this.modal = document.createElement('div');         
+          this.modal = document.createElement('dialog');         
           this.modal.id = 'infoModal';
       
           this.create();
@@ -28,13 +28,20 @@ class Modal {
         //     return string;
         // }
 
+          const titleId = `modal-title-${this.info}`;
+          
+          // Set attributes directly on the dialog element
+          this.modal.setAttribute('data-ecl-auto-init', 'Modal');
+          this.modal.setAttribute('data-ecl-modal-toggle', 'modal-toggle');
+          this.modal.className = 'ecl-modal ecl-modal--s';
+          this.modal.setAttribute('aria-labelledby', titleId);
+          
           this.modal.innerHTML = /*html*/
-    `<dialog data-ecl-auto-init="Modal" id="${this.modal.id}" data-ecl-modal-toggle="modal-toggle" class="ecl-modal ecl-modal--s">
-      <div class="ecl-modal__container ecl-container">
+    `<div class="ecl-modal__container ecl-container">
         <div class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-10">
           <header class="ecl-modal__header">
             <div class="ecl-modal__header-content">
-            <h5 class="card-title"><b>${translationsCache[this.info]}</b></h5>
+            <h5 class="card-title" id="${titleId}"><b>${translationsCache[this.info]}</b></h5>
             </div>
             <button 
             class="ecl-button ecl-button--tertiary ecl-modal__close ecl-button--icon-only" 
@@ -70,10 +77,9 @@ class Modal {
               </div>
           </footer>
         </div>
-      </div>
-    </dialog>`
+      </div>`
 
-    $('#definitionsModal').append(this.modal.innerHTML);
+    $('#definitionsModal').append(this.modal);
 
     const modal = document.getElementById('infoModal');
 
