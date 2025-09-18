@@ -208,14 +208,7 @@ tr.introjs-showElement > th {
   background-color: #e0e0e0;
   color: #212121;
 }
-.introjs-button:focus {
-  outline: 0;
-  text-decoration: none;
-  background-color: #eee;
-  box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.5);
-  border: 1px solid #616161;
-  color: #212121;
-}
+
 .introjs-button:active {
   outline: 0;
   text-decoration: none;
@@ -463,13 +456,19 @@ tr.introjs-showElement > th {
   border-color: var(--tool-1) !important;
 }
 
+
 .introjs-button:focus {
+  text-decoration: none;
+  border: 1px solid #616161;
+  color: #212121;
   box-shadow: 0 0 0 0.15rem #cca30000 !important;
   border: 2px solid #0e47cb !important;
   background-color: white;
   color: #0e47cb !important;
   opacity: 1;
   pointer-events: auto;
+  outline: 2px solid #0e47cb82 !important;
+  outline-offset: 3px;
 }
 
 .introjs-relativePosition {
