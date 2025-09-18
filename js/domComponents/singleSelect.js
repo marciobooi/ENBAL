@@ -39,6 +39,27 @@ class Singleselect {
 
             `;
         } else {
+            // Validate that optionsArray exists and is an array
+            if (!this.optionsArray || !Array.isArray(this.optionsArray)) {
+                console.warn(`Singleselect: optionsArray is invalid for element ${this.elementId}:`, this.optionsArray);
+                // Return a safe fallback HTML
+                const helpTextId = `${this.elementId}-help`;
+                return `
+                    <div class="ecl-form-group">
+                        <label for="${this.elementId}" class="ecl-form-label" data-i18n="${this.labelDescription}"></label>
+                        <div class="ecl-select__container ecl-select__container--l">
+                            <p class="sr-only" id="${helpTextId}" data-i18n="AUTO_UPDATE_MESSAGE">Your selection will automatically update the data table</p>
+                            <select class="ecl-select" id="${this.elementId}" name="${this.elementId}" aria-describedby="${helpTextId}" disabled>
+                                <option>Loading...</option>
+                            </select>
+                            <div class="ecl-select__icon">
+                                ${this.svgArrow}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
             const translatedOptions = this.optionsArray.map(option => {
                 const isNumber = !isNaN(option);
                 return {

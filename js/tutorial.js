@@ -115,18 +115,13 @@ function tutorial(buttonTimer) {
 		const tooltip = document.querySelector('.introjs-tooltip');
 		const currentStep = introProfile._currentStep; 
 		
-		if (tooltip && itens[currentStep]) {
+		if (tooltip) {
 		  const titleId = `introjs-title-${currentStep}`;
 		  
 		  const titleElement = tooltip.querySelector('.introjs-tooltip-title');
 		  if (titleElement) {
 			titleElement.id = titleId;
 			tooltip.setAttribute('aria-labelledby', titleId);
-			
-			// Ensure the title content uses the translated text
-			if (itens[currentStep].title) {
-			  titleElement.textContent = itens[currentStep].title;
-			}
 		  }
 		}
 	  });
