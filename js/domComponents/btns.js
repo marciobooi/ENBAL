@@ -12,7 +12,16 @@ class Button {
     }
   
     setClickHandler(handler) {
-        this.clickHandler = handler;
+        this.clickHandler = (event) => {
+          // Prevent action if button is aria-disabled
+          if (this.buttonElement && this.buttonElement.getAttribute('aria-disabled') === 'true') {
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          // Call the original handler
+          handler(event);
+        };
         if (this.buttonElement) {
           this.buttonElement.addEventListener("click", this.clickHandler);
         }
@@ -27,7 +36,16 @@ class Button {
 
     setDisabled(disabled) {
         if (this.buttonElement) {
-          this.buttonElement.disabled = disabled;
+          // Use aria-disabled instead of disabled for accessibility
+          this.buttonElement.setAttribute('aria-disabled', disabled.toString());
+          // Remove disabled attribute if it exists
+          this.buttonElement.removeAttribute('disabled');
+        }
+      }
+
+    setPressed(pressed) {
+        if (this.buttonElement) {
+          this.buttonElement.setAttribute('aria-pressed', pressed.toString());
         }
       }
   

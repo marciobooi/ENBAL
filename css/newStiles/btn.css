@@ -534,3 +534,26 @@ button.tableRowIcon:focus {
     border-color: #3e6cd5;
     color: #fff !important;
 }
+
+/* Accessibility: Style for aria-disabled buttons (replaces :disabled styling) */
+.btn[aria-disabled="true"] {
+    pointer-events: auto;
+    cursor: not-allowed !important; 
+    opacity: .5;
+    text-decoration: none;
+}
+
+.btn[aria-disabled="true"]:hover {
+    background-color: white;
+    border-color: #0e47cb !important;
+    border: 2px solid #0e47cb;
+    box-shadow: 0px 0px 6px 1px #0107152b;
+}
+
+/* Accessibility: Style for aria-pressed active state */
+.btn[aria-pressed="true"] {
+    background-color: #3e6cd5 !important;
+    border-color: #3e6cd5;
+    color: #fff !important;
+    font-weight: bold;
+}

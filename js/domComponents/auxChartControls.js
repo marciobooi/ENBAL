@@ -1,6 +1,10 @@
 class ChartControls {
 	constructor() {
 	  this.controls = document.createElement("div");
+	  // Instance variables to store chart button references
+	  this.barChart = null;
+	  this.pieChart = null;
+	  this.lineChart = null;
   
 	  const select = document.createElement("select");
 	  // select.id = REF.chartId;
@@ -86,9 +90,9 @@ class ChartControls {
 
 
 	    // Create the button instances
-		const barChart = new Button("barChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPBARCHART", "barChart", "true");
-		const pieChart = new Button("pieChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPPIECHART", "pieChart", "false");
-		const lineChart = new Button("lineChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPLINECHART", "lineChart", "false");
+		this.barChart = new Button("barChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPBARCHART", "barChart", "true");
+		this.pieChart = new Button("pieChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPPIECHART", "pieChart", "false");
+		this.lineChart = new Button("lineChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPLINECHART", "lineChart", "false");
 		const table = new Button("toggleTableBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPTABLE", "table", "false");
 
 		// const createprintChart = new Button("printBtn", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Print chart", "false");
@@ -98,9 +102,9 @@ class ChartControls {
 		const closeChart = new Button("btnCloseModalChart", ["btn", "btn-primary", "min-with--nav", "round-btn"], "CLOSE", "false");
 	
 		// Set inner HTML content for each button
-		barChart.setInnerHtml('<i class="fas fa-chart-bar" aria-hidden="true"></i>');
-		pieChart.setInnerHtml('<i class="fas fa-chart-pie" aria-hidden="true"></i>');
-		lineChart.setInnerHtml('<i class="fas fa-chart-line" aria-hidden="true"></i>');
+		this.barChart.setInnerHtml('<i class="fas fa-chart-bar" aria-hidden="true"></i>');
+		this.pieChart.setInnerHtml('<i class="fas fa-chart-pie" aria-hidden="true"></i>');
+		this.lineChart.setInnerHtml('<i class="fas fa-chart-line" aria-hidden="true"></i>');
 		table.setInnerHtml('<i class="fas fa-table"></i>');
 		// createprintChart.setInnerHtml('<i class="fas fa-print" aria-hidden="true"></i>');
 		downloadChart.setInnerHtml('<i class="fas fa-download" aria-hidden="true"></i>');
@@ -109,20 +113,20 @@ class ChartControls {
 		closeChart.setInnerHtml('<i class="fas fa-times" aria-hidden="true"></i>');
 	
 		// Set click handlers for each button
-		barChart.setClickHandler(function() {
-		  disableChatOptionsBtn(this.value);
+		this.barChart.setClickHandler(() => {
+		  disableChatOptionsBtn("barChart");
 		  chartType = "barChart"
 		  REF.chart = chartType;
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
-		pieChart.setClickHandler(function() {
-		  disableChatOptionsBtn(this.value);
+		this.pieChart.setClickHandler(() => {
+		  disableChatOptionsBtn("pieChart");
 		  chartType = "pieChart"
 		  REF.chart = chartType;
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
-		lineChart.setClickHandler(function() {
-		  disableChatOptionsBtn(this.value);
+		this.lineChart.setClickHandler(() => {
+		  disableChatOptionsBtn("lineChart");
 		  chartType = "lineChart"
 		  REF.chart = chartType;
 		  handleChartAction(chartType, chartBal, chartBalText);
@@ -141,8 +145,10 @@ class ChartControls {
 
 				const charts = ["barChart", "pieChart", "lineChart"];  
 				charts.forEach(chart => {
-					$("#" + chart).attr("disabled", "disabled")
-					$("#" + chart).attr("aria-disabled", "true")
+					// Keep buttons focusable but disabled for screen readers
+					$("#" + chart).removeAttr("disabled");
+					$("#" + chart).attr("aria-disabled", "true");
+					$("#" + chart).attr("aria-pressed", "false");
 				})
 
 				$("#"+REF.chart).addClass('highlighDisbleBtn');
@@ -191,9 +197,9 @@ class ChartControls {
 		});
 
 	  	  // Create the button elements
-			const barChartElement = barChart.createButton();
-			const pieChartElement = pieChart.createButton();
-			const lineChartElement = lineChart.createButton();
+			const barChartElement = this.barChart.createButton();
+			const pieChartElement = this.pieChart.createButton();
+			const lineChartElement = this.lineChart.createButton();
 			const tableChartElement = table.createButton();
 			// const printChartElement = createprintChart.createButton();
 			const downloadChartElement = downloadChart.createButton();
@@ -213,7 +219,8 @@ class ChartControls {
 			document.getElementById("embebedChart").appendChild(embebedeChartElement);
 			document.getElementById("closeChart").appendChild(closeChartElement);
 
-			barChart.setDisabled(true);
+			this.barChart.setDisabled(true);
+			this.barChart.setPressed(true); // Set as initially pressed since it's the default chart type
 
 			loadTranslations(REF.language);
 
@@ -238,16 +245,26 @@ class ChartControls {
   }
   
   function disableChatOptionsBtn(chartid) {
-	const charts = ["barChart", "pieChart", "lineChart"];  
-	charts.forEach(chart => {
-	  if (REF.chart == chart) {
-		$("#" + chart).attr("disabled", "disabled");
-		$("#" + chart).attr("aria-disabled", "true")
+	// Get the chart controls instance to access button references
+	const chartControls = window.auxiliarBarGraphOptions;
+	if (!chartControls) return;
+
+	const chartButtons = [
+	  { name: "barChart", button: chartControls.barChart },
+	  { name: "pieChart", button: chartControls.pieChart },
+	  { name: "lineChart", button: chartControls.lineChart }
+	];
+	
+	chartButtons.forEach(({ name, button }) => {
+	  if (REF.chart === name) {
+		// Current active chart - keep enabled but indicate as pressed
+		button.setDisabled(false);
+		button.setPressed(true);
 	  } else {
-		$("#" + chart).removeAttr("disabled");
-		$("#" + chart).attr("aria-disabled")
+		// Inactive charts - keep focusable but disabled
+		button.setDisabled(true);
+		button.setPressed(false);
 	  }
 	});
-
   }
   
