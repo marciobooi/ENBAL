@@ -11,7 +11,7 @@ class TooltipManager {
     this.escListenerAdded = false;
     this.resizeHandler = null;
     this.TOOLTIP_OFFSET = 10;
-    this.SHOW_DELAY = 500; // Delay before showing tooltip
+    this.SHOW_DELAY = 200; // Delay before showing tooltip
     this.HIDE_DELAY = 100;  // Delay before hiding tooltip
     this.showTimeout = null;
     this.hideTimeout = null;
@@ -269,6 +269,15 @@ class TooltipManager {
       // Ensure button has an ID for accessibility
       if (!button.id) {
         button.id = `btn-${Math.random().toString(36).substr(2, 9)}`;
+      }
+
+      // Remove title attribute to prevent default browser tooltip
+      // but preserve text in aria-label for accessibility
+      if (button.hasAttribute("title")) {
+        if (!button.hasAttribute("aria-label")) {
+          button.setAttribute("aria-label", tooltipText);
+        }
+        button.removeAttribute("title");
       }
 
       // Create tooltip element
