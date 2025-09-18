@@ -139,17 +139,19 @@ a.ecl-link.ecl-link--standalone.ecl-site-header__language-link:focus-visible .ec
 
 .tooltip {
   position: absolute;
-  background: #ffffff9c;
+  background: rgba(255, 255, 255, 0.95); /* Increased opacity to 0.95 for better contrast */
   padding: 5px 10px;
   border-radius: 4px;
   font-size: 14px;
   white-space: nowrap;
   opacity: 0;
-  pointer-events: none;
+  pointer-events: auto; /* Changed to auto to allow focus on tooltip */
   transition: opacity 0.2s ease-in-out;
   border: 4px solid #0e47cb;
   border-radius: 10px;
   z-index: 1000;
+  /* Ensure sufficient contrast even with transparency */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 

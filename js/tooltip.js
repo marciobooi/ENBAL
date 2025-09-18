@@ -157,6 +157,7 @@ class TooltipManager {
     tooltip.textContent = text;
     tooltip.setAttribute('role', 'tooltip');
     tooltip.setAttribute('aria-hidden', 'true');
+    tooltip.setAttribute('tabindex', '0'); // Make tooltip focusable
     tooltip.id = `tooltip-${buttonId || Math.random().toString(36).substr(2, 9)}`;
     
     // Apply styles
@@ -165,8 +166,36 @@ class TooltipManager {
       visibility: "hidden",
       opacity: "0",
       transition: "opacity 0.1s ease-in-out",
-      zIndex: "10000",
-      pointerEvents: "none" // Prevent tooltip from interfering with mouse events
+      zIndex: "10000"
+    });
+    
+    // Add event listeners for tooltip focus management
+    tooltip.addEventListener('mouseenter', () => {
+      // Keep tooltip visible when hovered
+      if (this.hideTimeout) {
+        clearTimeout(this.hideTimeout);
+        this.hideTimeout = null;
+      }
+    });
+    
+    tooltip.addEventListener('mouseleave', () => {
+      // Delay hide when leaving tooltip
+      this.hideTimeout = setTimeout(() => {
+        this.hideTooltip(tooltip);
+      }, this.HIDE_DELAY);
+    });
+    
+    tooltip.addEventListener('focus', () => {
+      // Keep tooltip visible when focused
+      if (this.hideTimeout) {
+        clearTimeout(this.hideTimeout);
+        this.hideTimeout = null;
+      }
+    });
+    
+    tooltip.addEventListener('blur', () => {
+      // Hide when focus leaves tooltip
+      this.hideTooltip(tooltip);
     });
     
     document.body.appendChild(tooltip);
