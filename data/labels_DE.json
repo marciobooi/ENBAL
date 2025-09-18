@@ -398,6 +398,7 @@
   "DESC": "Absteigende Datenwerte",
   "BACK": "Zurück",
   "NEXT": "Weiter",
+  "AUTO_UPDATE_MESSAGE": "Ihre Auswahl aktualisiert automatisch die Datentabelle",
   "SHOW": "Anzeigen",
   "title": "Energiebericht der Europäischen Union",
   "subject": "Daten zu Brennstofffamilien",

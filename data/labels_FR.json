@@ -398,6 +398,7 @@
   "DESC": "Valeurs de données descendantes",
   "BACK": "Retour",
   "NEXT": "Suivant",
+  "AUTO_UPDATE_MESSAGE": "Votre sélection met automatiquement à jour le tableau de données",
   "SHOW": "Afficher",
   "title": "Rapport sur l'énergie de l'Union européenne",
   "subject": "Données sur les familles de carburants",
