@@ -1058,8 +1058,10 @@ table.dataTable tbody tr {
 }
 
 button.tableRowIcon:focus {
-  background-color: var(--tool-1) !important;
-  color: white !important;
+    background-color: var(--tool-1) !important;
+    color: white !important;
+    outline: 2px solid #0e47cb82 !important;
+    outline-offset: 3px;
 }
 
 table > thead > tr {
