@@ -126,7 +126,7 @@ function orderByPiles(countriesAndValues, x, y) {
   };
 }
 
-function makeOrderedSeries(categoriesAndStacks) {
+function makeOrderedSeries(categoriesAndStacks, bardata) {
   const ordSeries = [];
   for (let i = 0; i < categoriesAndStacks[0].y.length; i++) {
     const temp = categoriesAndStacks.map(category => category.y[i]);
@@ -431,7 +431,7 @@ function sortArrayByProtocolOrder(arr) {
       if (b.code === "all") return 1; // Move "all" to the beginning
       return energyCountriesCodes.indexOf(a.code) - energyCountriesCodes.indexOf(b.code);
     });
-    orderedSeries = makeOrderedSeries(categoriesAndStacks);
+    orderedSeries = makeOrderedSeries(categoriesAndStacks, chartSeries);
   }
 }
 

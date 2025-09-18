@@ -389,7 +389,9 @@
   "POPDB": "Open dataset",
 
   "TOGGLEAGREGATES": "Show aggregates",
+  "HIDEAGREGATES": "Hide aggregates",
   "POPPERCENTAGES": "Show percentages",
+  "HIDEPERCENTAGES": "Hide percentages",
   "ORDER": "Select sorting order",
   "DETAILS": "Show details",
   "HIDEDETAILS": "Hide details",

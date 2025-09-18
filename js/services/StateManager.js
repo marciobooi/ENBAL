@@ -16,7 +16,7 @@ class StateManager {
       siec: "TOTAL",
       fuel: "fuelMainFuel",
       language: "EN",
-      details: 0,
+      details: 1,
       agregates: 1,
       order: "DESC",
       stacking: "normal",

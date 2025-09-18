@@ -388,7 +388,9 @@
   "POPDB": "Datensatz öffnen",
 
   "TOGGLEAGREGATES": "Aggregate anzeigen",
+  "HIDEAGREGATES": "Aggregate ausblenden",
   "POPPERCENTAGES": "Prozentsätze/Werte anzeigen",
+  "HIDEPERCENTAGES": "Prozentsätze/Werte ausblenden",
   "ORDER": "Sortierreihenfolge auswählen",
   "DETAILS": "Details anzeigen",
   "HIDEDETAILS": "Details ausblenden",

@@ -51,6 +51,11 @@ function loadTranslations(lang) {
     translateElements("[data-i18n-title]", "i18nTitle", "title");
     translateElements("optgroup[data-i18n-label]", "i18nLabel", "label");
 
+    // Update floating chart controls aria-labels after translations are loaded
+    if (typeof floatingChartControls !== 'undefined' && floatingChartControls && floatingChartControls.updateButtonAriaLabels) {
+      floatingChartControls.updateButtonAriaLabels();
+    }
+
     getTitle();
 
     if (REF.chart != "") {

@@ -10,6 +10,9 @@ $( document ).ready(function() {
 
 })
 
+// Global reference to FloatingChartControls for language updates
+let floatingChartControls = null;
+
 function buildComponents() {
 
   const components = [
@@ -18,6 +21,9 @@ function buildComponents() {
     { instance: new Navbar(), target: '#navbar-container' },
     { instance: new FloatingChartControls(), target: '#componentFooter footer' },
   ];
+
+  // Store reference to FloatingChartControls
+  floatingChartControls = components.find(comp => comp.instance instanceof FloatingChartControls)?.instance;
 
   components.forEach(({ instance, target }) => {
     instance.addToDOM(target);

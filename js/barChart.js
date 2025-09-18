@@ -67,7 +67,7 @@ function handleData(d, series) {
   const order = REF.order;
 
   
-  const makeOrderedSeriesFunc = () => makeOrderedSeries(categoriesAndStacks);
+  const makeOrderedSeriesFunc = () => makeOrderedSeries(categoriesAndStacks, chartSeries);
 
 
   

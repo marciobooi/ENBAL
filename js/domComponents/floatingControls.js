@@ -3,10 +3,13 @@ class FloatingChartControls {
     this.chartControls = document.createElement('div');
     this.chartControls.className = 'menuSwitch';
     this.chartControls.id = 'menuSwitch';
+    // Instance variables to store button references
+    this.percentageButton = null;
+    this.agregatesButton = null;
 
     this.chartControls.innerHTML = /*html*/` 
     <div id="switchBtn">
-    <label id="HIDE" class="form-check-label" for="switchDetails" data-i18n="HIDEDETAILS" aria-hidden="${REF.details == 1 ? true : false}"></label>
+    <label id="HIDE" class="form-check-label" for="switchDetails" data-i18n="HIDEDETAILS" aria-hidden="${REF.details == 1 ? false : true}"></label>
     <div class="form-check form-switch d-inline-block">
       <input
         class="form-check-input focus-ring"
@@ -15,9 +18,9 @@ class FloatingChartControls {
         role="switch"
         id="switchDetails"
         ${REF.details == 1 ? 'checked' : ''}
-        data-i18n-label="DETAILS"
+        data-i18n-label="${REF.details == 1 ? 'HIDEDETAILS' : 'DETAILS'}"
       >
-      <label id="SHOW" class="form-check-label" for="switchDetails" data-i18n="DETAILS" aria-hidden="${REF.details == 1 ? false : true}"></label>
+      <label id="SHOW" class="form-check-label" for="switchDetails" data-i18n="DETAILS" aria-hidden="${REF.details == 1 ? true : false}"></label>
     </div>
   </div>
   
@@ -57,11 +60,12 @@ class FloatingChartControls {
         const hide = document.getElementById('HIDE');
         const show = document.getElementById('SHOW');   
 
-        hide.style.fontWeight = isChecked ? "initial" : "bold";
-        hide.setAttribute("aria-hidden", isChecked ? "true" : "false");    
-        show.style.fontWeight = isChecked ? "bold" : "initial";
-        show.setAttribute("aria-hidden", isChecked ? "false" : "true");    
-        switchElement.setAttribute("aria-label", isChecked ? translationsCache['DETAILS'] : translationsCache['HIDEDETAILS'] );
+        hide.style.fontWeight = isChecked ? "bold" : "initial";
+        hide.setAttribute("aria-hidden", isChecked ? "false" : "true");    
+        show.style.fontWeight = isChecked ? "initial" : "bold";
+        show.setAttribute("aria-hidden", isChecked ? "true" : "false");    
+        // aria-label should reflect the current visual state (what's bold/active)
+        switchElement.setAttribute("aria-label", isChecked ? translationsCache['HIDEDETAILS'] : translationsCache['DETAILS'] );
         
           
         const percentageButton = this.chartControls.querySelector('#togglePercentage');
@@ -129,14 +133,64 @@ class FloatingChartControls {
 
   toggleChartPercentage() {
     REF.stacking = REF.stacking == "normal" ? "percent" : "normal";
+    
+    // Update aria-label to reflect current visual state (what's active/pressed)
+    if (this.percentageButton && this.percentageButton.buttonElement) {
+      const isShowingPercentages = REF.stacking === "percent";
+      // When button is pressed (showing percentages), aria-label should say "Hide percentages"
+      // When button is not pressed (not showing percentages), aria-label should say "Show percentages"
+      const ariaLabel = isShowingPercentages ? 
+        translationsCache['HIDEPERCENTAGES'] : 
+        translationsCache['POPPERCENTAGES'];
+      this.percentageButton.buttonElement.setAttribute('aria-label', ariaLabel);
+      this.percentageButton.buttonElement.setAttribute('title', ariaLabel);
+    }
+    
     createBarChart()
   }
 
   toggleChartAgregates() {
-
     REF.agregates = REF.agregates == 0 ? 1 : 0;
 
+    // Update aria-label to reflect current visual state (what's active/pressed)
+    if (this.agregatesButton && this.agregatesButton.buttonElement) {
+      const isShowingAgregates = REF.agregates === 1;
+      // When button is pressed (showing aggregates), aria-label should say "Hide aggregates"  
+      // When button is not pressed (not showing aggregates), aria-label should say "Show aggregates"
+      const ariaLabel = isShowingAgregates ? 
+        translationsCache['HIDEAGREGATES'] : 
+        translationsCache['TOGGLEAGREGATES'];
+      this.agregatesButton.buttonElement.setAttribute('aria-label', ariaLabel);
+      this.agregatesButton.buttonElement.setAttribute('title', ariaLabel);
+    }
+
     createBarChart();
+  }
+
+  updateButtonAriaLabels() {
+    // Update percentage button aria-label to reflect current visual state
+    if (this.percentageButton && this.percentageButton.buttonElement) {
+      const isShowingPercentages = REF.stacking === "percent";
+      // When pressed (showing percentages): aria-label should be "Hide percentages"
+      // When not pressed (not showing percentages): aria-label should be "Show percentages"
+      const percentageLabel = isShowingPercentages ? 
+        translationsCache['HIDEPERCENTAGES'] : 
+        translationsCache['POPPERCENTAGES'];
+      this.percentageButton.buttonElement.setAttribute('aria-label', percentageLabel);
+      this.percentageButton.buttonElement.setAttribute('title', percentageLabel);
+    }
+
+    // Update aggregates button aria-label to reflect current visual state
+    if (this.agregatesButton && this.agregatesButton.buttonElement) {
+      const isShowingAgregates = REF.agregates === 1;
+      // When pressed (showing aggregates): aria-label should be "Hide aggregates"  
+      // When not pressed (not showing aggregates): aria-label should be "Show aggregates"
+      const agregatesLabel = isShowingAgregates ? 
+        translationsCache['HIDEAGREGATES'] : 
+        translationsCache['TOGGLEAGREGATES'];
+      this.agregatesButton.buttonElement.setAttribute('aria-label', agregatesLabel);
+      this.agregatesButton.buttonElement.setAttribute('title', agregatesLabel);
+    }
   }
 
   toggleIcons() {
@@ -167,21 +221,21 @@ class FloatingChartControls {
 
     const self = this; 
 
-		const percentageButton = new Button("tb-togle-percentage", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPPERCENTAGES", "", "true");
-		const agregatesButton = new Button("toggleAgregates", ["btn", "btn-primary", "min-with--nav", "round-btn"], "TOGGLEAGREGATES", "", "true");
+		this.percentageButton = new Button("tb-togle-percentage", ["btn", "btn-primary", "min-with--nav", "round-btn"], "POPPERCENTAGES", "", "true");
+		this.agregatesButton = new Button("toggleAgregates", ["btn", "btn-primary", "min-with--nav", "round-btn"], "TOGGLEAGREGATES", "", "true");
 		// const tableButton = new Button("tb-togle-table", ["btn", "btn-primary", "min-with--nav", "round-btn"], "Toggle table", "", "true");
 		const orderButton = new Button("tb-togle-order", ["btn", "btn-primary", "min-with--nav", "round-btn"], "ORDER", "", "true");
 
-    percentageButton.setInnerHtml('<i id="percentage-icon" class="fas fa-percentage" aria-hidden="true"></i>');
-    agregatesButton.setInnerHtml(agregateIcon())
+    this.percentageButton.setInnerHtml('<i id="percentage-icon" class="fas fa-percentage" aria-hidden="true"></i>');
+    this.agregatesButton.setInnerHtml(agregateIcon())
     // tableButton.setInnerHtml('<i id="table-icon" class="fas fa-table" aria-hidden="true"></i><i id="chart-icon" class="fas fa-chart-bar" style="display: none;" aria-hidden="true"></i>');
     orderButton.setInnerHtml('<i class="fas fa-sort-amount-down" aria-hidden="true"></i>');
 
-    percentageButton.setClickHandler(function() {
+    this.percentageButton.setClickHandler(function() {
       self.toggleChartPercentage(); // Call the class method using the stored reference
     });
 
-    agregatesButton.setClickHandler(function() {
+    this.agregatesButton.setClickHandler(function() {
       self.toggleChartAgregates(); // Call the class method using the stored reference
     });
 
@@ -189,8 +243,8 @@ class FloatingChartControls {
     //   self.toggleIcons(); // Call the class method using the stored reference
     // });
 
-    const percentageElement = percentageButton.createButton();
-    const agregatesElement = agregatesButton.createButton();
+    const percentageElement = this.percentageButton.createButton();
+    const agregatesElement = this.agregatesButton.createButton();
     // const tableElement = tableButton.createButton();
     const orderElement = orderButton.createButton();
     
@@ -199,6 +253,9 @@ class FloatingChartControls {
     document.getElementById("Agregates").appendChild(agregatesElement);
     // document.getElementById("toggleTable").appendChild(tableElement);
     document.getElementById("ChartOrder").appendChild(orderElement);
+
+    // Set initial aria-labels based on current state
+    this.updateButtonAriaLabels();
 
     const dropdownOrderBtn = document.querySelector("#tb-togle-order")
 

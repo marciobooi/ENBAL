@@ -388,7 +388,9 @@
   "POPDB": "Ensemble de données ouvertes",
 
   "TOGGLEAGREGATES": "Afficher les agrégats",
+  "HIDEAGREGATES": "Masquer les agrégats",
   "POPPERCENTAGES": "Afficher les pourcentages/les valeurs",
+  "HIDEPERCENTAGES": "Masquer les pourcentages/les valeurs",
   "ORDER": "Sélectionner l'ordre de tri",
   "DETAILS": "Afficher les détails",
   "HIDEDETAILS": "Masquer les détails",
