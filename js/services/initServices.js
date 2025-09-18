@@ -9,7 +9,7 @@
   
   // Wait for DOM ready to initialize services
   document.addEventListener('DOMContentLoaded', function() {
-    console.log('Initializing ENBAL services...');
+    // console.log('Initializing ENBAL services...');
     
     // Initialize services in order of dependencies
     initializeServices();
@@ -29,11 +29,11 @@
     try {
       // Create ApiService first as others depend on it
       window.ENBAL.services.apiService = new ApiService();
-      console.log('ApiService initialized');
+      // console.log('ApiService initialized');
       
       // Create DataService which depends on ApiService
       window.ENBAL.services.dataService = new DataService(window.ENBAL.services.apiService);
-      console.log('DataService initialized');
+      // console.log('DataService initialized');
       
       // Create StateManager and initialize with current REF object if available
       window.ENBAL.services.stateManager = new StateManager(window.REF || {});
@@ -41,19 +41,19 @@
       if (window.REF) {
         window.REF = window.ENBAL.services.stateManager.createRefProxy();
       }
-      console.log('StateManager initialized');
+      // console.log('StateManager initialized');
       
       // Initialize AccessibilityService
       window.ENBAL.services.accessibilityService = new AccessibilityService();
       window.ENBAL.services.accessibilityService.initialize();
-      console.log('AccessibilityService initialized');
+      // console.log('AccessibilityService initialized');
       
       // Initialize PerformanceService
       window.ENBAL.services.performanceService = new PerformanceService();
       window.ENBAL.services.performanceService.initialize();
-      console.log('PerformanceService initialized');
+      // console.log('PerformanceService initialized');
       
-      console.log('All ENBAL services initialized successfully');
+      // console.log('All ENBAL services initialized successfully');
     } catch (error) {
       console.error('Error initializing services:', error);
     }

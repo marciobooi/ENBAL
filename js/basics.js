@@ -281,7 +281,7 @@ function handleChartAction() {
     case "barChart":
       showMenuSwitch();
       createBarChart(chartBal, chartBalText);
-      log('here');
+      // log('here');
       break;
     case "pieChart":      
       renderPieChart(chartType, chartBal, chartBalText);

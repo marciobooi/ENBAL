@@ -159,7 +159,7 @@ class PerformanceService {
           
           if (pageNavigation) {
             const loadTime = pageNavigation.loadEventEnd - pageNavigation.startTime;
-            console.log(`Page load time: ${loadTime.toFixed(2)}ms`);
+            // console.log(`Page load time: ${loadTime.toFixed(2)}ms`);
             
             // Send metrics to analytics if loadTime is too high
             if (loadTime > 3000) {
@@ -175,7 +175,7 @@ class PerformanceService {
           );
           
           if (slowResources.length > 0) {
-            console.log('Slow-loading resources:', slowResources);
+            // console.log('Slow-loading resources:', slowResources);
             // Consider optimizing these resources
           }
         }

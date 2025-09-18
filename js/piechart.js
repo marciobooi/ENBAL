@@ -132,8 +132,8 @@ function renderPieChart(chartBal) {
     $("#title").html('');
     setTimeout(() => {
         REF.chart = "pieChart";
-        log('here')
-        log(getTitle());
+        // log('here')
+        // log(getTitle());
     }, 1500);
 
     // In future versions, we'll implement the async approach:

@@ -106,7 +106,7 @@ class TooltipManager {
       this.hideAllTooltips();
     } else if (newMode === 'mouse' && this.activeTooltip && this.activeTooltip !== currentTooltip) {
       // If we're in mouse mode and showing a different tooltip, hide the current one
-      console.log(`Same mode (${newMode}) but different tooltip - hiding current tooltip`);
+    //   console.log(`Same mode (${newMode}) but different tooltip - hiding current tooltip`);
       this.hideAllTooltips();
     }
     this.currentMode = newMode;

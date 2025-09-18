@@ -116,21 +116,21 @@ class ChartControls {
 		this.barChart.setClickHandler(() => {
 		  chartType = "barChart"
 		  REF.chart = chartType;
-		  console.log('Bar chart clicked, REF.chart set to:', REF.chart);
+		//   console.log('Bar chart clicked, REF.chart set to:', REF.chart);
 		  disableChatOptionsBtn();
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		this.pieChart.setClickHandler(() => {
 		  chartType = "pieChart"
 		  REF.chart = chartType;
-		  console.log('Pie chart clicked, REF.chart set to:', REF.chart);
+		//   console.log('Pie chart clicked, REF.chart set to:', REF.chart);
 		  disableChatOptionsBtn();
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		this.lineChart.setClickHandler(() => {
 		  chartType = "lineChart"
 		  REF.chart = chartType;
-		  console.log('Line chart clicked, REF.chart set to:', REF.chart);
+		//   console.log('Line chart clicked, REF.chart set to:', REF.chart);
 		  disableChatOptionsBtn();
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
@@ -249,11 +249,11 @@ class ChartControls {
   }
   
   function disableChatOptionsBtn(chartid) {
-	console.log('disableChatOptionsBtn called with REF.chart:', REF.chart);
+	// console.log('disableChatOptionsBtn called with REF.chart:', REF.chart);
 	
 	// Get the chart controls instance to access button references
 	const chartControls = auxiliarBarGraphOptions;
-	console.log('chartControls found:', chartControls);
+	// console.log('chartControls found:', chartControls);
 	
 	if (!chartControls) return;
 
@@ -264,15 +264,15 @@ class ChartControls {
 	];
 	
 	chartButtons.forEach(({ name, button }) => {
-	  console.log(`Processing button ${name}, current chart: ${REF.chart}`);
+	//   console.log(`Processing button ${name}, current chart: ${REF.chart}`);
 	  if (REF.chart === name) {
 		// Current active chart - disabled (can't click again) and pressed (shows current state)
-		console.log(`Setting ${name} as active (disabled=true, pressed=true)`);
+		// console.log(`Setting ${name} as active (disabled=true, pressed=true)`);
 		button.setDisabled(true);
 		button.setPressed(true);
 	  } else {
 		// Inactive charts - enabled (can be clicked) and not pressed
-		console.log(`Setting ${name} as inactive (disabled=false, pressed=false)`);
+		// console.log(`Setting ${name} as inactive (disabled=false, pressed=false)`);
 		button.setDisabled(false);
 		button.setPressed(false);
 	  }
