@@ -154,8 +154,49 @@ a.ecl-link.ecl-link--standalone.ecl-site-header__language-link:focus-visible .ec
 
 
 
+/* Tooltip positioned below element */
+.tooltip.tooltip-below::before {
+  top: -12px;
+  border-top-color: transparent;
+  border-bottom-color: rgba(46, 62, 78, 0.95);
+}
 
+/* Visible tooltip states */
+.tooltip[aria-hidden="false"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
 
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .tooltip {
+    background: black;
+    border: 2px solid white;
+    backdrop-filter: none;
+  }
+  
+  .tooltip::before {
+    border-top-color: black;
+  }
+  
+  .tooltip.tooltip-below::before {
+    border-bottom-color: black;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .tooltip {
+    transition: none;
+  }
+}
+
+/* Focus-visible styles for better keyboard navigation */
+button:focus-visible {
+  outline: 2px solid var(--btn-color);
+  outline-offset: 2px;
+}
 
 .tooltip.visible {
   opacity: 1;

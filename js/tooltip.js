@@ -1,113 +1,362 @@
 /**
- * Tooltip Management System
+ * Enhanced Tooltip Management System
  * Handles creation, display, and keyboard navigation for tooltips
- * Supports ESC key to close visible tooltips during keyboard navigation
+ * Features: ESC key support, smart positioning, performance optimization, enhanced accessibility
  */
 
-// Function to clean up existing tooltips
-function cleanupTooltips() {
-  console.log("Cleaning up tooltips");
-  
-  // Remove all existing tooltip elements
-  const existingTooltips = document.querySelectorAll('.tooltip');
-  existingTooltips.forEach(tooltip => tooltip.remove());
-  
-  // Reset ESC listener flag so it can be added again when tooltips are re-enabled
-  window.tooltipEscListenerAdded = false;
-  
-  // Only clean up specific chart-related buttons that are dynamically created
-  // and exclude all navigation, menu, and other important UI buttons
-  const buttonsToClean = document.querySelectorAll(".chartIcon, #auxChartControls button, #dataTableContainer button");
-  buttonsToClean.forEach(button => {
-    const newButton = button.cloneNode(true);
-    button.parentNode.replaceChild(newButton, button);
-  });
-}
+class TooltipManager {
+  constructor() {
+    this.visibleTooltips = new Set();
+    this.tooltipElements = new Map(); // Cache tooltip elements
+    this.escListenerAdded = false;
+    this.resizeHandler = null;
+    this.TOOLTIP_OFFSET = 10;
+    this.SHOW_DELAY = 500; // Delay before showing tooltip
+    this.HIDE_DELAY = 100;  // Delay before hiding tooltip
+    this.showTimeout = null;
+    this.hideTimeout = null;
+    this.currentMode = null; // Track current interaction mode: 'mouse' or 'keyboard'
+    this.activeTooltip = null; // Track currently active tooltip
+  }
 
-// Function to show tooltip on keyboard navigation and mouse hover
-function enableTooltips() {
-  // Select all button elements with title or aria-label attributes
-  const buttons = document.querySelectorAll("button[title], button[aria-label]");
+  /**
+   * Clean up existing tooltips and event listeners
+   */
+  cleanup() {
+    // Clear any pending timeouts
+    if (this.showTimeout) {
+      clearTimeout(this.showTimeout);
+      this.showTimeout = null;
+    }
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = null;
+    }
+    
+    // Remove all existing tooltip elements
+    const existingTooltips = document.querySelectorAll('.tooltip');
+    existingTooltips.forEach(tooltip => tooltip.remove());
+    
+    // Clear caches and reset state
+    this.visibleTooltips.clear();
+    this.tooltipElements.clear();
+    this.currentMode = null;
+    this.activeTooltip = null;
+    
+    // Remove resize listener
+    if (this.resizeHandler) {
+      window.removeEventListener('resize', this.resizeHandler);
+      this.resizeHandler = null;
+    }
+    
+    // Reset ESC listener flag
+    this.escListenerAdded = false;
+    
+    // Clean up specific chart-related buttons
+    const buttonsToClean = document.querySelectorAll(".chartIcon, #auxChartControls button, #dataTableContainer button");
+    buttonsToClean.forEach(button => {
+      const newButton = button.cloneNode(true);
+      button.parentNode?.replaceChild(newButton, button);
+    });
+  }
 
-  // Track currently visible tooltips for ESC key functionality
-  let visibleTooltips = new Set();
-
-  // ESC key handler to close visible tooltips
-  const handleEscKey = (event) => {
-    if (event.key === 'Escape' && visibleTooltips.size > 0) {
-      // Hide all visible tooltips
-      visibleTooltips.forEach(tooltip => {
-        tooltip.style.visibility = "hidden";
-        tooltip.style.opacity = "0";
-      });
-      visibleTooltips.clear();
+  /**
+   * ESC key handler to close visible tooltips
+   */
+  handleEscKey = (event) => {
+    if (event.key === 'Escape' && this.visibleTooltips.size > 0) {
+      event.preventDefault(); // Prevent default ESC behavior
+      this.hideAllTooltips();
       
-      // Return focus to the previously focused element if possible
-      if (document.activeElement && document.activeElement.blur) {
+      // Optionally restore focus to the previously focused element
+      if (document.activeElement && this.shouldBlurOnEsc(document.activeElement)) {
         document.activeElement.blur();
       }
     }
-  };
-
-  // Add global ESC key listener (only once)
-  if (!window.tooltipEscListenerAdded) {
-    document.addEventListener('keydown', handleEscKey);
-    window.tooltipEscListenerAdded = true;
   }
 
-  buttons.forEach((button) => {  
-    // Get the tooltip content from title or aria-label
-    const tooltipText = button.getAttribute("title") || button.getAttribute("aria-label");
-    if (!tooltipText) return;
+  /**
+   * Determine if we should blur the focused element on ESC
+   */
+  shouldBlurOnEsc(element) {
+    // Only blur if it's a button that triggered a tooltip
+    return element.tagName === 'BUTTON' && 
+           (element.hasAttribute('title') || element.hasAttribute('aria-label'));
+  }
 
-    // Create tooltip element
+  /**
+   * Hide all visible tooltips
+   */
+  hideAllTooltips() {
+    this.visibleTooltips.forEach(tooltip => {
+      this.hideTooltip(tooltip);
+    });
+    this.visibleTooltips.clear();
+    this.activeTooltip = null;
+    this.currentMode = null;
+  }
+
+  /**
+   * Switch interaction mode and hide conflicting tooltips
+   */
+  switchMode(newMode, currentTooltip = null) {
+    if (this.currentMode && this.currentMode !== newMode) {
+      // Hide all existing tooltips when switching modes
+      console.log(`Switching from ${this.currentMode} to ${newMode} mode - hiding all tooltips`);
+      this.hideAllTooltips();
+    } else if (newMode === 'mouse' && this.activeTooltip && this.activeTooltip !== currentTooltip) {
+      // If we're in mouse mode and showing a different tooltip, hide the current one
+      console.log(`Same mode (${newMode}) but different tooltip - hiding current tooltip`);
+      this.hideAllTooltips();
+    }
+    this.currentMode = newMode;
+    if (currentTooltip) {
+      this.activeTooltip = currentTooltip;
+    }
+  }
+
+  /**
+   * Smart positioning that avoids viewport edges
+   */
+  positionTooltip(tooltip, button) {
+    const rect = button.getBoundingClientRect();
+    const scrollY = window.scrollY;
+    const scrollX = window.scrollX;
+    const tooltipRect = tooltip.getBoundingClientRect();
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+
+    let left = rect.left + scrollX + rect.width / 2 - tooltipRect.width / 2;
+    let top = rect.top + scrollY - tooltipRect.height - this.TOOLTIP_OFFSET;
+
+    // Horizontal boundary checking
+    if (left < scrollX + 5) {
+      left = scrollX + 5; // Left edge with padding
+    } else if (left + tooltipRect.width > scrollX + viewportWidth - 5) {
+      left = scrollX + viewportWidth - tooltipRect.width - 5; // Right edge with padding
+    }
+
+    // Vertical boundary checking - show below if no space above
+    if (top < scrollY + 5) {
+      top = rect.bottom + scrollY + this.TOOLTIP_OFFSET;
+      tooltip.classList.add('tooltip-below');
+    } else {
+      tooltip.classList.remove('tooltip-below');
+    }
+
+    tooltip.style.left = `${left}px`;
+    tooltip.style.top = `${top}px`;
+  }
+
+  /**
+   * Create tooltip element with enhanced accessibility
+   */
+  createTooltip(text, buttonId) {
     const tooltip = document.createElement("div");
     tooltip.className = "tooltip";
-    tooltip.textContent = tooltipText;
-    tooltip.style.position = "absolute";
+    tooltip.textContent = text;
+    tooltip.setAttribute('role', 'tooltip');
+    tooltip.setAttribute('aria-hidden', 'true');
+    tooltip.id = `tooltip-${buttonId || Math.random().toString(36).substr(2, 9)}`;
+    
+    // Apply styles
+    Object.assign(tooltip.style, {
+      position: "absolute",
+      visibility: "hidden",
+      opacity: "0",
+      transition: "opacity 0.1s ease-in-out",
+      zIndex: "10000",
+      pointerEvents: "none" // Prevent tooltip from interfering with mouse events
+    });
+    
+    document.body.appendChild(tooltip);
+    return tooltip;
+  }
+
+  /**
+   * Show tooltip with animation
+   */
+  showTooltip(tooltip, button, mode = 'mouse') {
+    // Switch mode and hide conflicting tooltips if necessary
+    this.switchMode(mode, tooltip);
+    
+    // Clear any pending hide timeout
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout);
+      this.hideTimeout = null;
+    }
+
+    tooltip.style.visibility = "visible";
+    tooltip.style.opacity = "1";
+    tooltip.setAttribute('aria-hidden', 'false');
+    this.visibleTooltips.add(tooltip);
+    this.activeTooltip = tooltip;
+    this.positionTooltip(tooltip, button);
+
+    // Add aria-describedby to button for screen readers
+    if (button.id) {
+      button.setAttribute('aria-describedby', tooltip.id);
+    }
+  }
+
+  /**
+   * Hide tooltip with animation
+   */
+  hideTooltip(tooltip, button = null) {
     tooltip.style.visibility = "hidden";
     tooltip.style.opacity = "0";
-    tooltip.style.transition = "opacity 0.2s";
-    document.body.appendChild(tooltip);
+    tooltip.setAttribute('aria-hidden', 'true');
+    this.visibleTooltips.delete(tooltip);
 
-    // Position the tooltip relative to the button
-    const positionTooltip = () => {
-      const rect = button.getBoundingClientRect();
-      const scrollY = window.scrollY;
-      const scrollX = window.scrollX;
-      const tooltipHeight = tooltip.offsetHeight;
-      const tooltipWidth = tooltip.offsetWidth;
+    // Clear active tooltip if it's the one being hidden
+    if (this.activeTooltip === tooltip) {
+      this.activeTooltip = null;
+      this.currentMode = null;
+    }
 
-      tooltip.style.left = `${rect.left + scrollX + rect.width / 2 - tooltipWidth / 2}px`;
-      tooltip.style.top = `${rect.top + scrollY - tooltipHeight - 10}px`;
-    };
+    // Remove aria-describedby from button
+    if (button && button.hasAttribute('aria-describedby')) {
+      button.removeAttribute('aria-describedby');
+    }
+  }
 
-    // Show tooltip
-    const showTooltip = () => {
-      tooltip.style.visibility = "visible";
-      tooltip.style.opacity = "1";
-      visibleTooltips.add(tooltip);
-      positionTooltip();
-    };
-
-    // Hide tooltip
-    const hideTooltip = () => {
-      tooltip.style.visibility = "hidden";
-      tooltip.style.opacity = "0";
-      visibleTooltips.delete(tooltip);
-    };
-
-    // Event listeners for both mouse and keyboard interactions
-    button.addEventListener("mouseover", showTooltip);
-    button.addEventListener("mouseout", hideTooltip);
-    button.addEventListener("focus", showTooltip);
-    button.addEventListener("blur", hideTooltip);
-
-    // Update tooltip position on resize to keep alignment
-    window.addEventListener("resize", () => {
-      if (tooltip.style.visibility === "visible") {
-        positionTooltip();
+  /**
+   * Debounced resize handler
+   */
+  handleResize = () => {
+    this.visibleTooltips.forEach(tooltip => {
+      // Find the associated button for repositioning
+      const buttonId = tooltip.id.replace('tooltip-', '');
+      const button = document.getElementById(buttonId) || 
+                    Array.from(this.tooltipElements.keys()).find(btn => 
+                      this.tooltipElements.get(btn) === tooltip
+                    );
+      if (button) {
+        this.positionTooltip(tooltip, button);
       }
     });
-  });
+  }
+
+  /**
+   * Initialize tooltips for all qualifying buttons
+   */
+  enable() {
+    const buttons = document.querySelectorAll("button[title], button[aria-label]");
+
+    // Add global ESC key listener (only once)
+    if (!this.escListenerAdded) {
+      document.addEventListener('keydown', this.handleEscKey);
+      this.escListenerAdded = true;
+    }
+
+    // Add resize handler with debouncing
+    if (!this.resizeHandler) {
+      let resizeTimeout;
+      this.resizeHandler = () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(this.handleResize, 100);
+      };
+      window.addEventListener('resize', this.resizeHandler);
+    }
+
+    buttons.forEach((button) => {
+      // Skip if already processed
+      if (this.tooltipElements.has(button)) return;
+
+      const tooltipText = button.getAttribute("title") || button.getAttribute("aria-label");
+      if (!tooltipText) return;
+
+      // Ensure button has an ID for accessibility
+      if (!button.id) {
+        button.id = `btn-${Math.random().toString(36).substr(2, 9)}`;
+      }
+
+      // Create tooltip element
+      const tooltip = this.createTooltip(tooltipText, button.id);
+      this.tooltipElements.set(button, tooltip);
+
+      // Event handlers with mode-aware behavior
+      const showHandler = () => {
+        // Clear any pending timeouts first
+        if (this.hideTimeout) {
+          clearTimeout(this.hideTimeout);
+          this.hideTimeout = null;
+        }
+        
+        // Switch to mouse mode and hide any keyboard tooltips immediately
+        if (this.currentMode === 'keyboard') {
+          this.hideAllTooltips();
+        }
+        this.switchMode('mouse', tooltip);
+        
+        this.showTimeout = setTimeout(() => {
+          this.showTooltip(tooltip, button, 'mouse');
+        }, this.SHOW_DELAY);
+      };
+
+      const hideHandler = () => {
+        if (this.showTimeout) {
+          clearTimeout(this.showTimeout);
+          this.showTimeout = null;
+        }
+        
+        // Only hide if this tooltip is from mouse interaction
+        if (this.currentMode === 'mouse' && this.activeTooltip === tooltip) {
+          this.hideTimeout = setTimeout(() => {
+            this.hideTooltip(tooltip, button);
+          }, this.HIDE_DELAY);
+        }
+      };
+
+      // Immediate show/hide for keyboard focus (accessibility)
+      const focusHandler = () => {
+        // Clear any pending timeouts first
+        if (this.hideTimeout) {
+          clearTimeout(this.hideTimeout);
+          this.hideTimeout = null;
+        }
+        
+        // Switch to keyboard mode and hide any mouse tooltips immediately
+        if (this.currentMode === 'mouse') {
+          this.hideAllTooltips();
+        }
+        this.switchMode('keyboard', tooltip);
+        
+        this.showTooltip(tooltip, button, 'keyboard');
+      };
+
+      const blurHandler = () => {
+        if (this.showTimeout) {
+          clearTimeout(this.showTimeout);
+          this.showTimeout = null;
+        }
+        
+        // Only hide if this tooltip is from keyboard interaction
+        if (this.currentMode === 'keyboard' && this.activeTooltip === tooltip) {
+          this.hideTooltip(tooltip, button);
+        }
+      };
+
+      // Add event listeners
+      button.addEventListener("mouseenter", showHandler);
+      button.addEventListener("mouseleave", hideHandler);
+      button.addEventListener("focus", focusHandler);
+      button.addEventListener("blur", blurHandler);
+
+      // Store handlers for potential cleanup
+      button._tooltipHandlers = { showHandler, hideHandler, focusHandler, blurHandler };
+    });
+  }
+}
+
+// Create global instance
+const tooltipManager = new TooltipManager();
+
+// Export functions for backward compatibility
+function cleanupTooltips() {
+  tooltipManager.cleanup();
+}
+
+function enableTooltips() {
+  tooltipManager.enable();
 }
