@@ -134,8 +134,11 @@ function createBarChart() {
     categories: categoriesAndStacks.map((e) => e.x),
     labels: {
       step: 1,
-      staggerLines: 2,
+      staggerLines: 1,
       overflow: 'justify',
+      rotation: -45,
+      align: 'right',
+      y: 15,
       style: {
         fontSize: '10px'
       }
@@ -144,7 +147,11 @@ function createBarChart() {
     type: "category",
     labels: {
       step: 1,
+      staggerLines: 1,
       overflow: 'justify',
+      rotation: -45,
+      align: 'right',
+      y: 15,
       style: {
         fontSize: '10px'
       }
