@@ -66,12 +66,13 @@ class Singleselect {
         }
 
         // Generate the full HTML for the single select element
+        const helpTextId = `${this.elementId}-help`;
         const singleSelectHTML = `
-            <div class="ecl-form-group" role="application">
+            <div class="ecl-form-group">
                 <label for="${this.elementId}" class="ecl-form-label" data-i18n="${this.labelDescription}"></label>
                 <div class="ecl-select__container ecl-select__container--l">
-                    <p class="sr-only" data-i18n="AUTO_UPDATE_MESSAGE">Your selection will automatically update the data table</p>
-                    <select class="ecl-select" id="${this.elementId}" name="country" required="">
+                    <p class="sr-only" id="${helpTextId}" data-i18n="AUTO_UPDATE_MESSAGE">Your selection will automatically update the data table</p>
+                    <select class="ecl-select" id="${this.elementId}" name="${this.elementId}" aria-describedby="${helpTextId}" required>
                         ${optionsHTML}
                     </select>
                     <div class="ecl-select__icon">
