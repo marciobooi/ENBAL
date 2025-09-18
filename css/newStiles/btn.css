@@ -93,16 +93,7 @@ li > button {
     list-style-type: none;
 }
 
-button:focus,
-.input:focus {
-    box-shadow: 0 0 0 0.15rem #cca30000 !important;
-    border: 2px solid #0e47cb !important;
-    background-color: white;
-    color: #0e47cb !important;
-    opacity: 1;
-    pointer-events: auto;
-    
-}
+
 
 
 ul.dropdown-menu.dropdown-menu-end.show {
@@ -557,3 +548,4 @@ button.tableRowIcon:focus {
     color: #fff !important;
     font-weight: bold;
 }
+

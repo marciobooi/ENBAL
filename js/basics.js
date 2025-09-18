@@ -276,7 +276,6 @@ function handleChartAction() {
   addAuxiliarBarGraphOptions();
   $('#enbal').addClass('d-none');
   $('#chartContainer').removeClass('d-none');
-  disableChatOptionsBtn();
   
   switch (REF.chart) {
     case "barChart":
@@ -303,7 +302,12 @@ function addAuxiliarBarGraphOptions() {
   if (!auxiliarBarGraphOptions) {
     auxiliarBarGraphOptions = new ChartControls();
     auxiliarBarGraphOptions.addToDOM("#subnavbar-container");
-  } 
+  }
+  
+  // Update button states after controls are added to DOM
+  setTimeout(() => {
+    disableChatOptionsBtn();
+  }, 100);
 }
 
 function removeAuxiliarBarGraphOptions() {

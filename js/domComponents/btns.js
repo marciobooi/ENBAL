@@ -56,6 +56,8 @@ class Button {
         this.buttonElement.setAttribute("value", this.value);
         this.buttonElement.setAttribute("data-i18n-label", this.ariaLabel);
         this.buttonElement.setAttribute("data-i18n-title", this.ariaLabel);
+        this.buttonElement.setAttribute("aria-pressed", "false");
+        this.buttonElement.setAttribute("aria-disabled", "false");
         this.buttonElement.innerHTML = this.innerHtml;
 
         // Apply other accessibility parameters as needed

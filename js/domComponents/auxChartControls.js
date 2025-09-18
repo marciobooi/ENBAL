@@ -114,21 +114,24 @@ class ChartControls {
 	
 		// Set click handlers for each button
 		this.barChart.setClickHandler(() => {
-		  disableChatOptionsBtn("barChart");
 		  chartType = "barChart"
 		  REF.chart = chartType;
+		  console.log('Bar chart clicked, REF.chart set to:', REF.chart);
+		  disableChatOptionsBtn();
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		this.pieChart.setClickHandler(() => {
-		  disableChatOptionsBtn("pieChart");
 		  chartType = "pieChart"
 		  REF.chart = chartType;
+		  console.log('Pie chart clicked, REF.chart set to:', REF.chart);
+		  disableChatOptionsBtn();
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		this.lineChart.setClickHandler(() => {
-		  disableChatOptionsBtn("lineChart");
 		  chartType = "lineChart"
 		  REF.chart = chartType;
+		  console.log('Line chart clicked, REF.chart set to:', REF.chart);
+		  disableChatOptionsBtn();
 		  handleChartAction(chartType, chartBal, chartBalText);
 		});
 		table.setClickHandler(function() {
@@ -142,14 +145,18 @@ class ChartControls {
 			
 				tableBtn.setAttribute('aria-label', 'Toggle chart');
 				tableBtn.setAttribute('title', 'Toggle chart');
+				tableBtn.setAttribute('aria-pressed', 'true');
 
-				const charts = ["barChart", "pieChart", "lineChart"];  
-				charts.forEach(chart => {
-					// Keep buttons focusable but disabled for screen readers
-					$("#" + chart).removeAttr("disabled");
-					$("#" + chart).attr("aria-disabled", "true");
-					$("#" + chart).attr("aria-pressed", "false");
-				})
+				// Use the Button class methods to disable all chart buttons
+				const chartControls = auxiliarBarGraphOptions;
+				if (chartControls) {
+					chartControls.barChart.setDisabled(true);
+					chartControls.barChart.setPressed(false);
+					chartControls.pieChart.setDisabled(true);
+					chartControls.pieChart.setPressed(false);
+					chartControls.lineChart.setDisabled(true);
+					chartControls.lineChart.setPressed(false);
+				}
 
 				$("#"+REF.chart).addClass('highlighDisbleBtn');
 
@@ -164,6 +171,7 @@ class ChartControls {
 			
 				tableBtn.setAttribute('aria-label', 'Toggle table');
 				tableBtn.setAttribute('title', 'Toggle table');
+				tableBtn.setAttribute('aria-pressed', 'false');
 
 				$('#menuSwitch').css('display','flex')
 			
@@ -171,7 +179,8 @@ class ChartControls {
 
 				$("#"+REF.chart).removeClass('highlighDisbleBtn');
 
-				disableChatOptionsBtn(REF.chartId)
+				// Restore chart button states using Button class methods
+				disableChatOptionsBtn();
 
 				tableBtn.focus();
 
@@ -196,7 +205,7 @@ class ChartControls {
 		  closeTable()
 		});
 
-	  	  // Create the button elements
+		  	  // Create the button elements
 			const barChartElement = this.barChart.createButton();
 			const pieChartElement = this.pieChart.createButton();
 			const lineChartElement = this.lineChart.createButton();
@@ -219,12 +228,7 @@ class ChartControls {
 			document.getElementById("embebedChart").appendChild(embebedeChartElement);
 			document.getElementById("closeChart").appendChild(closeChartElement);
 
-			this.barChart.setDisabled(true);
-			this.barChart.setPressed(true); // Set as initially pressed since it's the default chart type
-
-			loadTranslations(REF.language);
-
-	}
+			loadTranslations(REF.language);	}
   
 	removeFromDOM() {
 	  let navElement;
@@ -245,8 +249,12 @@ class ChartControls {
   }
   
   function disableChatOptionsBtn(chartid) {
+	console.log('disableChatOptionsBtn called with REF.chart:', REF.chart);
+	
 	// Get the chart controls instance to access button references
-	const chartControls = window.auxiliarBarGraphOptions;
+	const chartControls = auxiliarBarGraphOptions;
+	console.log('chartControls found:', chartControls);
+	
 	if (!chartControls) return;
 
 	const chartButtons = [
@@ -256,13 +264,16 @@ class ChartControls {
 	];
 	
 	chartButtons.forEach(({ name, button }) => {
+	  console.log(`Processing button ${name}, current chart: ${REF.chart}`);
 	  if (REF.chart === name) {
-		// Current active chart - keep enabled but indicate as pressed
-		button.setDisabled(false);
+		// Current active chart - disabled (can't click again) and pressed (shows current state)
+		console.log(`Setting ${name} as active (disabled=true, pressed=true)`);
+		button.setDisabled(true);
 		button.setPressed(true);
 	  } else {
-		// Inactive charts - keep focusable but disabled
-		button.setDisabled(true);
+		// Inactive charts - enabled (can be clicked) and not pressed
+		console.log(`Setting ${name} as inactive (disabled=false, pressed=false)`);
+		button.setDisabled(false);
 		button.setPressed(false);
 	  }
 	});
