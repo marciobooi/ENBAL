@@ -581,12 +581,12 @@ function tooltipTable(points) {
     });
     
     html += `<table id="tooltipTable" class="table_component">                
-      <thead>
+      <tbody>
         <tr>
-          <th scope="cols">${sortedPoints[0].key}</th>                    
-          <th scope="cols">${REF.unit}</th>                    
+          <td><strong>${sortedPoints[0].key}</strong></td>                    
+          <td><strong>${REF.unit}</strong></td>                    
         </tr>
-      </thead>`;
+      </tbody>`;
     
     sortedPoints.forEach(function (point) {
       const color = point.series.color;
@@ -613,11 +613,11 @@ function tooltipTable(points) {
     if (allValuesZero) {
       html = 
       `<table id="tooltipTable" class="table_component">                
-        <thead>
+        <tbody>
           <tr>
-            <th scope="cols">${sortedPoints[0].key}</th>                                    
+            <td><strong>${sortedPoints[0].key}</strong></td>                                    
           </tr>
-        </thead>
+        </tbody>
         <tr>      
           <td>${translationsCache["N/A"]}</td>
         </tr>

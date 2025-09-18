@@ -15,7 +15,10 @@ function tableHeader(dataTable) {
           </div>`,
         };
       } else {
-        return { title: colTitle }; // For the first column, keep the original title
+        return { 
+          title: colTitle,
+          className: 'year-unit-cell' // Add special class for styling
+        }; 
       }
     }).filter(header => header !== undefined);
   } 
