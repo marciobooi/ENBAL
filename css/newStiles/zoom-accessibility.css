@@ -5,10 +5,14 @@
  */
 
 /* ==========================================================================
-   200% ZOOM LEVEL SUPPORT (Target viewport: ~640px - 960px)
+   200% ZOOM LEVEL SUPPORT
+   At 200% zoom, a 1280px screen becomes 640px, a 1920px screen becomes 960px
+   Target viewport: ~640px - 1024px (captures 200% zoom on most desktop screens)
+   Excludes actual tablets/small screens using min-resolution to detect zoom
    ========================================================================== */
 
-@media only screen and (min-width: 640px) and (max-width: 960px) {
+@media only screen and (min-width: 640px) and (max-width: 1024px),
+       only screen and (min-width: 768px) and (max-width: 1024px) and (min-resolution: 1.5dppx) {
   
   /* ==========================================================================
      HEADER AND NAVIGATION FIXES
@@ -29,14 +33,192 @@
         width: 24rem;
     }
 
+  /* ==========================================================================
+     MODAL FIXES FOR 200% ZOOM (#definitionsModal)
+     ========================================================================== */
+  
+  /* Main modal dialog positioning */
+  #definitionsModal dialog,
+  #definitionsModal .ecl-modal,
+  dialog#infoModal,
+  dialog#infoModal.ecl-modal,
+  dialog#infoModal[open] {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    max-width: 90vw !important;
+    max-height: 90vh !important;
+    width: auto !important;
+    margin: 0 !important;
+    padding: 0.5rem !important;
+    border: none !important;
+    background: transparent !important;
+  }
+  
+  /* Dialog backdrop */
+  dialog#infoModal::backdrop {
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  /* Modal container sizing - override ECL container */
+  #definitionsModal .ecl-modal__container,
+  dialog#infoModal .ecl-modal__container,
+  #definitionsModal .ecl-modal__container.ecl-container,
+  dialog#infoModal .ecl-modal__container.ecl-container,
+  .ecl-modal__container.ecl-container {
+    width: 85vw !important;
+    max-width: 85vw !important;
+    max-height: 85vh !important;
+    margin: 0 auto !important;
+    padding: 0.5rem !important;
+    box-sizing: border-box !important;
+    background: white !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Modal content area - override ECL grid classes */
+  #definitionsModal .ecl-modal__content,
+  dialog#infoModal .ecl-modal__content,
+  #definitionsModal .ecl-modal__content.ecl-col-12,
+  #definitionsModal .ecl-modal__content.ecl-col-m-10,
+  #definitionsModal .ecl-modal__content.ecl-col-l-10,
+  dialog#infoModal.ecl-modal .ecl-modal__content {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 80vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex: 1 1 auto !important;
+  }
+  
+  /* Modal header */
+  #definitionsModal .ecl-modal__header,
+  dialog#infoModal .ecl-modal__header {
+    padding: 0.5rem !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+  }
+  
+  #definitionsModal .ecl-modal__header-content,
+  dialog#infoModal .ecl-modal__header-content {
+    flex: 1;
+    margin-right: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+  
+  #definitionsModal .card-title,
+  dialog#infoModal .card-title {
+    font-size: 1.1rem !important;
+    margin: 0 !important;
+  }
+  
+  /* Modal close button */
+  #definitionsModal .ecl-modal__close,
+  dialog#infoModal .ecl-modal__close {
+    padding: 0.4rem !important;
+    min-width: 40px;
+    min-height: 40px;
+    flex-shrink: 0;
+  }
+  
+  /* Modal body with scrolling */
+  #definitionsModal .ecl-modal__body,
+  dialog#infoModal .ecl-modal__body {
+    flex: 1 1 auto;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0.5rem !important;
+    max-height: calc(80vh - 200px) !important;
+    min-height: 100px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Modal images */
+  #definitionsModal img.card-img-top,
+  dialog#infoModal img.card-img-top {
+    max-height: 200px !important;
+    width: 100% !important;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Picture credit */
+  #definitionsModal #dialog-picture-credit,
+  dialog#infoModal #dialog-picture-credit {
+    font-size: 0.7rem !important;
+    padding: 0.3rem !important;
+  }
+  
+  /* Description text */
+  #definitionsModal #desc,
+  dialog#infoModal #desc {
+    font-size: 0.9rem !important;
+    line-height: 1.4;
+    max-height: none !important;
+    overflow-y: visible !important;
+    padding: 0.5rem !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Button control area */
+  #definitionsModal #btnControl,
+  dialog#infoModal #btnControl {
+    display: flex !important;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    padding: 0.5rem !important;
+  }
+  
+  #definitionsModal #btnControl .ecl-button,
+  dialog#infoModal #btnControl .ecl-button {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.6rem !important;
+    white-space: nowrap;
+  }
+  
+  /* Modal footer */
+  #definitionsModal .ecl-modal__footer,
+  dialog#infoModal .ecl-modal__footer {
+    padding: 0.5rem !important;
+    flex-shrink: 0;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  #definitionsModal .ecl-modal__footer-content,
+  dialog#infoModal .ecl-modal__footer-content {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+  }
+  
+  #definitionsModal .ecl-modal__footer .ecl-button,
+  dialog#infoModal .ecl-modal__footer .ecl-button {
+    font-size: 0.85rem !important;
+    padding: 0.4rem 0.8rem !important;
+  }
 
 }
 
 /* ==========================================================================
-   400% ZOOM LEVEL SUPPORT (Target viewport: ~320px - 480px)
+   400% ZOOM LEVEL SUPPORT
+   At 400% zoom, a 1280px screen becomes 320px, a 1920px screen becomes 480px
+   Target viewport: ~320px - 639px
+   Uses additional checks to avoid affecting actual mobile devices
    ========================================================================== */
 
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 320px) and (max-width: 639px) and (min-resolution: 1.5dppx),
+       only screen and (max-width: 480px) and (min-resolution: 2dppx) {
   
   /* Extreme zoom adjustments */
   #chart {
@@ -83,8 +265,183 @@
   }
   
   /* ==========================================================================
-     MODAL FIXES FOR 400% ZOOM
+     MODAL FIXES FOR 400% ZOOM (#definitionsModal)
      ========================================================================== */
+  
+  /* Main modal dialog positioning - ultra compact */
+  #definitionsModal dialog,
+  #definitionsModal .ecl-modal,
+  dialog#infoModal,
+  dialog#infoModal.ecl-modal,
+  dialog#infoModal[open] {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        /* max-width: 98vw !important; */
+        /* max-height: 97vh !important; */
+        /* width: auto !important; */
+        margin: 0 !important;
+        padding: 0.3rem !important;
+        border: none !important;
+        background: transparent !important;
+  }
+  
+  /* Dialog backdrop */
+  dialog#infoModal::backdrop {
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  /* Ultra-compact modal container - override ECL container */
+  #definitionsModal .ecl-modal__container,
+  dialog#infoModal .ecl-modal__container,
+  #definitionsModal .ecl-modal__container.ecl-container,
+  dialog#infoModal .ecl-modal__container.ecl-container,
+  .ecl-modal__container.ecl-container {
+    /* width: 95vw !important;
+    max-width: 95vw !important;
+    max-height: 90vh !important; */
+    margin: 0 auto !important;
+    padding: 0.3rem !important;
+    box-sizing: border-box !important;
+    background: white !important;
+    border-radius: 4px !important;
+  }
+  
+  /* Modal content ultra compact - override ECL grid classes */
+  #definitionsModal .ecl-modal__content,
+  dialog#infoModal .ecl-modal__content,
+  #definitionsModal .ecl-modal__content.ecl-col-12,
+  #definitionsModal .ecl-modal__content.ecl-col-m-10,
+  #definitionsModal .ecl-modal__content.ecl-col-l-10,
+  dialog#infoModal.ecl-modal .ecl-modal__content {
+        /* width: 95vw !important; */
+        /* max-width: 95vw !important; */
+        /* max-height: 90vh !important; */
+        margin: 0 auto !important;
+        padding: 0.3rem !important;
+        box-sizing: border-box !important;
+        background: white !important;
+        border-radius: 4px !important;
+  }
+  
+  /* Compact modal header */
+  #definitionsModal .ecl-modal__header,
+  dialog#infoModal .ecl-modal__header {
+    padding: 0.3rem !important;
+    min-height: 45px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+  }
+  
+  #definitionsModal .ecl-modal__header-content,
+  dialog#infoModal .ecl-modal__header-content {
+    flex: 1;
+    margin-right: 0.3rem;
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+  
+  #definitionsModal .card-title,
+  dialog#infoModal .card-title {
+    font-size: 0.95rem !important;
+    margin: 0 !important;
+  }
+  
+  /* Ultra-compact close button */
+  #definitionsModal .ecl-modal__close,
+  dialog#infoModal .ecl-modal__close {
+    padding: 0.3rem !important;
+    min-width: 35px;
+    min-height: 35px;
+    flex-shrink: 0;
+  }
+  
+  /* Ultra-compact modal body */
+  #definitionsModal .ecl-modal__body,
+  dialog#infoModal .ecl-modal__body {
+    flex: 1 1 auto;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 0.3rem !important;
+    max-height: 100vh;
+    min-height: 80px !important;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Smaller modal images */
+  #definitionsModal img.card-img-top,
+  dialog#infoModal img.card-img-top {
+    max-height: 120px !important;
+    width: 100% !important;
+    object-fit: cover;
+    margin-bottom: 0.3rem;
+  }
+  
+  /* Compact picture credit */
+  #definitionsModal #dialog-picture-credit,
+  dialog#infoModal #dialog-picture-credit {
+    font-size: 0.65rem !important;
+    padding: 0.2rem !important;
+  }
+  
+  /* Compact description text */
+  #definitionsModal #desc,
+  dialog#infoModal #desc {
+    font-size: 0.75rem !important;
+    line-height: 1.3;
+    max-height: none !important;
+    overflow-y: visible !important;
+    padding: 0.3rem !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  
+  /* Stack buttons vertically in button control */
+  #definitionsModal #btnControl,
+  dialog#infoModal #btnControl {
+    display: flex !important;
+    align-items: stretch;
+    gap: 0.3rem;
+    padding: 0.3rem !important;
+  }
+  
+  #definitionsModal #btnControl .ecl-button,
+  dialog#infoModal #btnControl .ecl-button {
+    font-size: 0.7rem !important;
+    padding: 0.3rem 0.4rem !important;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Compact modal footer */
+  #definitionsModal .ecl-modal__footer,
+  dialog#infoModal .ecl-modal__footer {
+    padding: 0.3rem !important;
+    flex-shrink: 0;
+    border-top: 1px solid #dee2e6;
+  }
+  
+  #definitionsModal .ecl-modal__footer-content,
+  dialog#infoModal .ecl-modal__footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+  
+  #definitionsModal .ecl-modal__footer .ecl-button,
+  dialog#infoModal .ecl-modal__footer .ecl-button {
+    font-size: 0.7rem !important;
+    padding: 0.3rem 0.5rem !important;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Original 400% zoom fixes */
   
   /* Ultra-compact modal sizing */
   .ecl-modal {
@@ -105,7 +462,6 @@
   .ecl-modal__header {
     padding: 0.3rem !important;
     min-height: 50px;
-    flex-direction: column;
     align-items: stretch;
     gap: 0.3rem;
   }
@@ -152,7 +508,6 @@
   
   /* Stack modal buttons vertically */
   #btnControl {
-    flex-direction: column;
     align-items: stretch;
     gap: 0.3rem;
   }
@@ -160,7 +515,6 @@
   .ecl-modal .ecl-button {
     font-size: 0.75rem;
     padding: 0.3rem 0.4rem;
-    width: 100%;
     text-align: center;
   }
   
