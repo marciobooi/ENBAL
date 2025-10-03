@@ -22,14 +22,38 @@ class Chart {
       // Calculate dynamic chart height based on viewport for zoom accessibility
       const viewportWidth = window.innerWidth;
       let chartHeight = 600; // Default height
+      let legendLayout = 'vertical'; // Default legend layout
+      let legendAlign = 'right'; // Default legend alignment
+      let legendVerticalAlign = 'middle'; // Default vertical alignment
+      let legendItemWidth = null; // Default item width (auto)
+      let legendMaxHeight = null; // Default max height (no limit)
+      let legendNavigation = {}; // Default navigation options
       
       // Detect zoom levels by viewport width
       if (viewportWidth >= 640 && viewportWidth <= 1024) {
         // 200% zoom range
         chartHeight = 750;
+        legendLayout = 'horizontal';
+        legendAlign = 'center';
+        legendVerticalAlign = 'bottom';
+        legendItemWidth = null; // Auto-width to show full text
+        legendMaxHeight = 150; // Add max height with scroll if needed
+        legendNavigation = {
+          enabled: true,
+          animation: true
+        };
       } else if (viewportWidth >= 320 && viewportWidth < 640) {
         // 400% zoom range
         chartHeight = 750;
+        legendLayout = 'horizontal';
+        legendAlign = 'center';
+        legendVerticalAlign = 'bottom';
+        legendItemWidth = null; // Auto-width to show full text
+        legendMaxHeight = 120; // Add max height with scroll if needed
+        legendNavigation = {
+          enabled: true,
+          animation: true
+        };
       }
       
       Highcharts.chart(this.containerId, {
@@ -91,9 +115,16 @@ class Chart {
           },
           itemStyle: {
             fontSize: '1rem',
-          }
+            textOverflow: null, // Prevent text truncation
+          },
+          layout: legendLayout,
+          align: legendAlign,
+          verticalAlign: legendVerticalAlign,
+          itemWidth: legendItemWidth,
+          maxHeight: legendMaxHeight,
+          navigation: legendNavigation,
+          ...(this.legend || {}) // Merge with any custom legend options
         },
-        legend: this.legend,
         plotOptions: {
           column: this.columnOptions,
           pie: this.pieOptions,
