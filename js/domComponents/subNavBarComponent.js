@@ -126,20 +126,26 @@ class SubNavbar {
 
 
     const mobileContent = /*html*/ `
-    <div class="">
-      <div class="col-12 subNavOne" role="navigation" aria-label="Menu navigation">
-        <div class="menuBtn">              
+    <div class="container-fluid">
+      <div class="row align-items-center subNavOne" role="navigation" aria-label="Menu navigation">
+        <div class="col-6 col-sm-8">
+          <div class="text-group">
+            <h2 id="title" class="title"></h2> 
+          </div>
+        </div>
+        <div class="col-3 col-sm-2 d-flex justify-content-end">              
           <button id="tools" class="btnGroup" type="button" data-i18n-label="TOOLS" data-i18n-title="TOOLS" aria-haspopup="menu">
             <i class="fas fa-ellipsis-h" aria-hidden="true"></i>      
             <span class="iconText" data-i18n="TOOLS"></span>    
           </button>
         </div>
-        <div class="menuBtn">              
+        <div class="col-3 col-sm-2 d-flex justify-content-end">              
           <button id="menu" class="btnGroup" type="button" data-i18n-label="MAINMENU" data-i18n-title="MAINMENU" aria-haspopup="menu">
             <i class="fas fa-bars" aria-hidden="true"></i>                    
             <span class="iconText" data-i18n="MAINMENU"></span>           
           </button>
         </div>
+      </div>
   
         <div class="chartMenuMobile d-none">
           <ul id="chartBtns" data-i18n-label="OPTIONS_GRAPH_TOOLBOX" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
@@ -200,11 +206,7 @@ class SubNavbar {
           </div>
         </div>
       </div>
-      <div class="col-12 subNavTwo" role="navigation" aria-label="Sub navigation">
-        <div class="text-group">
-          <h2 id="title" class="title"></h2> 
-        </div>
-      </div>
+     
     </div>`;
   
       

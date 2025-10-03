@@ -241,12 +241,27 @@
   
   /* Stack navigation vertically */
   #menuToolbar {
-    flex-direction: column;
-    align-items: stretch;
+         flex-direction: column;
+        /* align-items: stretch; */
+        height: 3rem;
+        /* align-items: center; */
+        justify-content: center;
   }
+
+  .chartMenuMobile {
+    position: absolute;
+    display: flex
+;
+    top: 101%;
+    left: 62%;
+    background-color: white;
+    box-shadow: 0 11px 15px rgba(9, 49, 142, .08), 0 9px 46px rgba(9, 49, 142, .04), 0 24px 38px rgba(9, 49, 142, .04), 0 -4px 4px rgba(9, 49, 142, .04);
+    border-radius: 5px;
+    padding: 7px;
+        z-index: 999;
+}
   
   .subNavOne, .subNavTwo {
-    flex-direction: column;
     align-items: stretch;
   }
   
