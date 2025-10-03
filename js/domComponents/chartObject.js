@@ -100,7 +100,13 @@ class Chart {
           shared: true,
           useHTML: true,         
           padding: 0,
-          backgroundColor: "rgba(255,255,255,0.9)",   
+          backgroundColor: "transparent",
+          borderWidth: 0,
+          borderRadius: 0,
+          shadow: false,
+          style: {
+            padding: 0
+          }
         },
         credits: {
           text: this.creditsText,
