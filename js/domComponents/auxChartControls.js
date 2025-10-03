@@ -49,6 +49,7 @@ class ChartControls {
 				<li class="nav-item button px-1" id="toggleBarChart" role="none"></li>
 				<li class="nav-item button px-1" id="togglePieChart" role="none"></li>
 				<li class="nav-item button px-1" id="toggleLineChart" role="none"></li>
+				<li class="nav-item button px-1" id="toggleAuxTable" role="none"></li>
 				<li class="nav-item button px-1" id="printChart" role="none"></li>
 				<li class="nav-item dropdown px-1" id="downloadChart" role="none"></li>
 				<li class="nav-item button px-1" id="downloadExcel" role="none"></li>
@@ -217,16 +218,25 @@ class ChartControls {
 			const closeChartElement = closeChart.createButton();
 
 		
-			// Append the button elements to the document
-			document.getElementById("toggleBarChart").appendChild(barChartElement);
-			document.getElementById("togglePieChart").appendChild(pieChartElement);
-			document.getElementById("toggleLineChart").appendChild(lineChartElement);
-			document.getElementById("toggleAuxTable").appendChild(tableChartElement);
+			// Append the button elements to the document with null checks
+			const barChartContainer = document.getElementById("toggleBarChart");
+			const pieChartContainer = document.getElementById("togglePieChart");
+			const lineChartContainer = document.getElementById("toggleLineChart");
+			const tableChartContainer = document.getElementById("toggleAuxTable");
+			const downloadChartContainer = document.getElementById("downloadChart");
+			const downloadExcelContainer = document.getElementById("downloadExcel");
+			const embebedeChartContainer = document.getElementById("embebedChart");
+			const closeChartContainer = document.getElementById("closeChart");
+			
+			if (barChartContainer) barChartContainer.appendChild(barChartElement);
+			if (pieChartContainer) pieChartContainer.appendChild(pieChartElement);
+			if (lineChartContainer) lineChartContainer.appendChild(lineChartElement);
+			if (tableChartContainer) tableChartContainer.appendChild(tableChartElement);
 			// document.getElementById("printChart").appendChild(printChartElement);
-			document.getElementById("downloadChart").appendChild(downloadChartElement);
-			document.getElementById("downloadExcel").appendChild(downloadExcelElement);
-			document.getElementById("embebedChart").appendChild(embebedeChartElement);
-			document.getElementById("closeChart").appendChild(closeChartElement);
+			if (downloadChartContainer) downloadChartContainer.appendChild(downloadChartElement);
+			if (downloadExcelContainer) downloadExcelContainer.appendChild(downloadExcelElement);
+			if (embebedeChartContainer) embebedeChartContainer.appendChild(embebedeChartElement);
+			if (closeChartContainer) closeChartContainer.appendChild(closeChartElement);
 
 			loadTranslations(REF.language);	}
   
