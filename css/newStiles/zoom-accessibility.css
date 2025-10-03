@@ -1,0 +1,184 @@
+/* 
+ * ENBAL Zoom Accessibility CSS
+ * Handles layout fixes for 200% and 400% zoom levels
+ * Ensures WCAG compliance for zoom functionality
+ */
+
+/* ==========================================================================
+   200% ZOOM LEVEL SUPPORT (Target viewport: ~640px - 960px)
+   ========================================================================== */
+
+@media only screen and (min-width: 640px) and (max-width: 960px) {
+  
+  /* ==========================================================================
+     HEADER AND NAVIGATION FIXES
+     ========================================================================== */
+  
+    #es_app_header {
+        max-width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #language-list-overlay {
+        position: absolute;
+        top: 45px;
+        left: 19px;
+        width: 24rem;
+    }
+
+
+}
+
+/* ==========================================================================
+   400% ZOOM LEVEL SUPPORT (Target viewport: ~320px - 480px)
+   ========================================================================== */
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  
+  /* Extreme zoom adjustments */
+  #chart {
+    height: 300px !important;
+    min-height: 250px !important;
+  }
+  
+  .highcharts-container {
+    height: 300px !important;
+    min-height: 250px !important;
+  }
+  
+  /* Ultra-compact button sizing */
+  .btn, button {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.7rem;
+    min-width: 35px;
+    min-height: 35px;
+  }
+  
+  /* Stack navigation vertically */
+  #menuToolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .subNavOne, .subNavTwo {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Single column layout for extreme zoom */
+  .dropdown-grid {
+    display: block;
+  }
+  
+  .dropdown-grid .row {
+    display: block;
+  }
+  
+  .dropdown-grid .col-12 {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* ==========================================================================
+     MODAL FIXES FOR 400% ZOOM
+     ========================================================================== */
+  
+  /* Ultra-compact modal sizing */
+  .ecl-modal {
+    padding: 0.5rem !important;
+  }
+  
+  .ecl-modal__container.ecl-container {
+    width: 98vw !important;
+    max-width: 98vw !important;
+    max-height: 95vh !important;
+  }
+  
+  .ecl-modal__content {
+    max-height: 90vh !important;
+  }
+  
+  /* Compact modal header */
+  .ecl-modal__header {
+    padding: 0.3rem !important;
+    min-height: 50px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+  
+  .ecl-modal__header-content {
+    font-size: 0.9rem;
+    margin-right: 0;
+    margin-bottom: 0.2rem;
+  }
+  
+  .ecl-modal__close {
+    align-self: flex-end;
+    padding: 0.3rem !important;
+    min-width: 35px;
+    min-height: 35px;
+  }
+  
+  /* Ultra-compact modal body */
+  .ecl-modal__body {
+    padding: 0.3rem;
+    max-height: calc(90vh - 100px);
+  }
+  
+  .ecl-modal__body-scroll {
+    font-size: 0.75rem;
+    line-height: 1.3;
+  }
+  
+  /* Smaller modal images */
+  img.card-img-top {
+    max-height: 150px !important;
+  }
+  
+  /* Compact modal footer */
+  .ecl-modal__footer {
+    padding: 0.3rem !important;
+  }
+  
+  .ecl-modal__footer-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+  
+  /* Stack modal buttons vertically */
+  #btnControl {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.3rem;
+  }
+  
+  .ecl-modal .ecl-button {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.4rem;
+    width: 100%;
+    text-align: center;
+  }
+  
+  /* Language overlay for extreme zoom */
+  #language-list-overlay {
+    top: 50px !important;
+    width: 95vw !important;
+    max-width: none !important;
+    max-height: 60vh !important;
+  }
+  
+  /* Iframe modal extreme zoom */
+  #iframeModal .ecl-modal__body-scroll {
+    font-size: 0.7rem;
+    max-height: 200px;
+  }
+}
+
+.wt-globan--invalid-domain {
+    display: none;
+}

@@ -400,14 +400,6 @@ tr.introjs-showElement > th {
 }
 /*# sourceMappingURL=introjs.min.css.map */
 
-.tippy-box[data-theme~="light-border"] {
-  border-radius: 0;
-  background-color: white;
-  font-size: 0.6em;
-  color: black;
-  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
-  font-family: var(--font-family-main);
-}
 
 .introjs-tooltip {
   max-width: 400px;
