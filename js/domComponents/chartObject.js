@@ -19,9 +19,23 @@ class Chart {
     }
   
     createChart() {
+      // Calculate dynamic chart height based on viewport for zoom accessibility
+      const viewportWidth = window.innerWidth;
+      let chartHeight = 600; // Default height
+      
+      // Detect zoom levels by viewport width
+      if (viewportWidth >= 640 && viewportWidth <= 1024) {
+        // 200% zoom range
+        chartHeight = 750;
+      } else if (viewportWidth >= 320 && viewportWidth < 640) {
+        // 400% zoom range
+        chartHeight = 750;
+      }
+      
       Highcharts.chart(this.containerId, {
         chart: {
           type: this.type,
+          height: chartHeight,
           plotBackgroundColor: null,
           plotBorderWidth: null,
           plotShadow: false,
