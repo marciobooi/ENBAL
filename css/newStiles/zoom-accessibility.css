@@ -33,6 +33,13 @@
         width: 24rem;
     }
 
+    #toTop {
+   
+    top: 74vh;
+    
+}
+
+
   /* ==========================================================================
      MODAL FIXES FOR 200% ZOOM (#definitionsModal)
      ========================================================================== */
@@ -148,6 +155,17 @@
     width: 100% !important;
     object-fit: cover;
     margin-bottom: 0.5rem;
+  }
+  
+  /* Footer positioning for 200% zoom */
+  #componentFooter {
+    position: sticky !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    background-color: white !important;
+    z-index: 100 !important;
+    margin-top: 1rem !important;
   }
   
   /* Picture credit */
@@ -282,6 +300,17 @@
     overflow-x: hidden !important;
     padding: 0.5rem !important;
   }
+  
+  /* Footer positioning for 200% zoom - bottom of content */
+  #componentFooter {
+    position: relative !important;
+    width: 100% !important;
+    background-color: white !important;
+    margin-top: 2rem !important;
+    padding-top: 1rem !important;
+    border-top: 1px solid #e0e0e0 !important;
+    clear: both !important;
+  }
 
 }
 
@@ -300,6 +329,12 @@
     /* height: 300px !important; */
     min-height: 250px !important;
   }
+
+      #lang-section > button > i {
+    line-height: 0px;
+    padding-right: 0px;
+    }
+
   
   .highcharts-container {
     /* height: 300px !important; */
@@ -313,6 +348,12 @@
     min-width: 35px;
     min-height: 35px;
   }
+
+      #toTop {
+   
+    top: 74vh;
+    
+}
   
   /* Stack navigation vertically */
   #menuToolbar {
@@ -323,10 +364,9 @@
         justify-content: center;
   }
 
-  .chartMenuMobile {
+  .chartMenuMobile, #chartBtns {
     position: absolute;
-    display: flex
-;
+    display: flex;
     top: 101%;
     left: 62%;
     background-color: white;
@@ -335,6 +375,15 @@
     padding: 7px;
         z-index: 999;
 }
+#auxChartTitle {
+    padding: 12px;
+    padding-bottom: 50px;
+}
+ #chartBtns {
+        top: 50%;
+        left: 2%;
+        flex-direction: row;
+    }
   
   .subNavOne, .subNavTwo {
     align-items: stretch;
@@ -604,6 +653,17 @@
     max-width: 100vw !important;
     overflow-x: hidden !important;
     padding: 0.3rem !important;
+  }
+  
+  /* Footer positioning for 400% zoom - bottom of content */
+  #componentFooter {
+    position: relative !important;
+    width: 100% !important;
+    background-color: white !important;
+    margin-top: 1.5rem !important;
+    padding-top: 0.75rem !important;
+    border-top: 1px solid #e0e0e0 !important;
+    clear: both !important;
   }
   
   /* Original 400% zoom fixes */

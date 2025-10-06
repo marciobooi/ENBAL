@@ -152,6 +152,7 @@ a.ecl-link.ecl-link--standalone.ecl-site-header__language-link:focus-visible .ec
   z-index: 1000;
   /* Ensure sufficient contrast even with transparency */
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      top: 0;
 }
 
 
