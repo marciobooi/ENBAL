@@ -47,20 +47,23 @@
   /* Main modal dialog positioning */
   #definitionsModal dialog,
   #definitionsModal .ecl-modal,
+  #definitionsModal dialog,
   dialog#infoModal,
   dialog#infoModal.ecl-modal,
   dialog#infoModal[open] {
     position: fixed !important;
-    top: 50% !important;
-    left: 50% !important;
-    transform: translate(-50%, -50%) !important;
-    max-width: 90vw !important;
-    max-height: 90vh !important;
+    top: 25% !important;
+    left: 25% !important;
+    transform: translate(-25%, -25%) !important;
+    max-width: 98vw !important;
+    min-width: 60vw !important;
     width: auto !important;
+    max-height: 96vh !important;
     margin: 0 !important;
     padding: 0.5rem !important;
     border: none !important;
     background: transparent !important;
+    box-sizing: border-box !important;
   }
   
   /* Dialog backdrop */
@@ -144,7 +147,7 @@
     overflow-x: hidden !important;
     padding: 0.5rem !important;
     max-height: calc(80vh - 200px) !important;
-    min-height: 100px !important;
+    min-height: 170px !important;
     -webkit-overflow-scrolling: touch;
   }
   
