@@ -39,9 +39,15 @@ class ChartControls {
   
 	  const mobileContent = `
 		<div id="chartOptions">
-		  <div class="col-12 subNavOne auxChartbtn">
+				  <div class="col-8 subNavTwo">
+			<div id="auxChartTitle">
+			  <h2 id="title" class="title">title</h2>
+			  <h6 id="subtitle" class="subtitle">subtitle</h6>
+			</div>
+		  </div>
+		  <div class="col-4 subNavOne auxChartbtn">
 			<button id="tools" class="btnGroup pe-2" type="button" data-i18n="TOOLS" data-i18n-title="TOOLS" aria-haspopup="true">
-			  <i class="fas fa-ellipsis-h" aria-hidden="true"></i>
+			  <i class="fa-solid fa-bars" aria-hidden="true"></i>
 			  <span class="iconText" data-i18n="TOOLS"></span>
 			</button>
 			<div class="menu d-none">
@@ -58,12 +64,7 @@ class ChartControls {
 			  </ul>
 			</div>
 		  </div>
-		  <div class="col-12 subNavTwo">
-			<div id="auxChartTitle">
-			  <h2 id="title" class="title">title</h2>
-			  <h6 id="subtitle" class="subtitle">subtitle</h6>
-			</div>
-		  </div>
+
 		</div>`;	
 		
   
