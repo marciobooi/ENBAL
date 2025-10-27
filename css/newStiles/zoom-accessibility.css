@@ -62,6 +62,22 @@
     max-width: 100% !important;
   }
   
+  /* Hide tooltips for dropdown menu items */
+  .dropdown-menu .dropdown-item[aria-describedby],
+  .dropdown-menu button[aria-describedby] {
+    position: relative !important;
+  }
+  
+  .dropdown-menu .dropdown-item[aria-describedby]::after,
+  .dropdown-menu button[aria-describedby]::after {
+    display: none !important;
+  }
+  
+  /* Hide tooltip elements referenced by dropdown items */
+  [id^="tooltip-btn-"] {
+    display: none !important;
+  }
+  
   /* ==========================================================================
      HEADER AND NAVIGATION FIXES
      ========================================================================== */
