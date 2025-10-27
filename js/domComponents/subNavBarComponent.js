@@ -7,7 +7,7 @@ class SubNavbar {
 
       const isMobile = /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 768
   
-
+      const helpTextId = `menu-help`;
       const notMobileContent = /*html*/ `
       <div class="container-fluid">
         <div class="col-1">
@@ -101,6 +101,7 @@ class SubNavbar {
         </div>
         <div class="dropdown-grid">
           <div class="row w-75">
+          <p class="sr-only" id="${helpTextId}" data-i18n="AUTO_UPDATE_MESSAGE">Your selection will automatically update the data table</p>
             <div id="containerCountries" class="col-12 col-sm-4 p-2"></div>
             <div id="containerFuel" class="col-12 col-sm-4 p-2"></div>
             <div id="containerYear" class="col-12 col-sm-4 p-2"></div>

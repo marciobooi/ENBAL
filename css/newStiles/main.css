@@ -205,3 +205,15 @@ button:focus-visible {
   opacity: 1;
   pointer-events: auto;
 }
+
+
+/* fixes */
+.wt-globan--text-long{
+  color: white !important;
+}
+
+
+#globan .wt-globan--flag {
+  background-color: #fff; /* or rgba(255,255,255,0.8) for subtle */
+  border-radius: 1px;
+}
