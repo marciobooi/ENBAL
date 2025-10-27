@@ -41,7 +41,7 @@ class Modal {
         <div class="ecl-modal__content ecl-col-12 ecl-col-m-10 ecl-col-l-10">
           <header class="ecl-modal__header">
             <div class="ecl-modal__header-content">
-            <h5 class="card-title" id="${titleId}"><b>${translationsCache[this.info]}</b></h5>
+            <h5 class="card-title" id="${titleId}" aria-labelledby="${titleId}"><b>${translationsCache[this.info]}</b></h5>
             </div>
             <button 
             class="ecl-button ecl-button--tertiary ecl-modal__close ecl-button--icon-only" 
