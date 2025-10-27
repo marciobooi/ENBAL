@@ -367,6 +367,15 @@
     font-size: 0.9rem !important;
   }
   
+
+/* Optional: consistent focus visible treatment for the HTML overlay */
+.accessible-credits-overlay:focus,
+.accessible-credits-overlay:focus-visible {
+  outline: 2px solid #005ea2;
+  outline-offset: 2px;
+}
+
+
   /* Chart area wrapper */
   #chartArea {
     width: 100% !important;
