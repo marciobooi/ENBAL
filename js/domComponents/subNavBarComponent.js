@@ -98,16 +98,6 @@ class SubNavbar {
           </svg>    
           </span>
       </button>
-      
-
-
-
-
-
-
-
-
-
         </div>
         <div class="dropdown-grid">
           <div class="row w-75">

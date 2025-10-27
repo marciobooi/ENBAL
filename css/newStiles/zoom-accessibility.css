@@ -41,6 +41,27 @@
     display: none !important;
   }
   
+  /* Select dropdown text wrapping for 200% zoom */
+  select.ecl-select,
+  .ecl-select {
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    white-space: normal !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+    width: auto !important;
+    min-width: 200px !important;
+  }
+  
+  select.ecl-select option,
+  .ecl-select option {
+    white-space: normal !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    max-width: 100% !important;
+  }
+  
   /* ==========================================================================
      HEADER AND NAVIGATION FIXES
      ========================================================================== */
@@ -353,6 +374,11 @@
       /* align-items: center; */
       justify-content: flex-end;
     }
+
+    .w-75 {
+      width: 100% !important;
+};
+    
 
 }
 
