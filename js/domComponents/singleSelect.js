@@ -20,6 +20,7 @@ class Singleselect {
     }
 
     createSingleSelect() {
+        const helpTextId = `${this.elementId}-help`;
         let optionsHTML = '';
 
         if (this.elementId === "selectCountry") {
@@ -87,7 +88,6 @@ class Singleselect {
         }
 
         // Generate the full HTML for the single select element
-        const helpTextId = `${this.elementId}-help`;
         const singleSelectHTML = `
             <div class="ecl-form-group">
                 <label for="${this.elementId}" class="ecl-form-label" data-i18n="${this.labelDescription}"></label>

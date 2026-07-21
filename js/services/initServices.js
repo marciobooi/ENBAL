@@ -38,9 +38,8 @@
       // Create StateManager and initialize with current REF object if available
       window.ENBAL.services.stateManager = new StateManager(window.REF || {});
       // Create a backward-compatible REF proxy for legacy code
-      if (window.REF) {
-        window.REF = window.ENBAL.services.stateManager.createRefProxy();
-      }
+      // We always create/overwrite this to ensure it works with the new StateManager
+      window.REF = window.ENBAL.services.stateManager.createRefProxy();
       // console.log('StateManager initialized');
       
       // Initialize AccessibilityService

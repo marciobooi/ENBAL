@@ -1,19 +1,11 @@
 var countries = [];
 
 function drawEntable() {
-
-
-  // countries.length = 0;
-  // for (let i = 0; i < defGeos.length; i++) {
-  //   countries.push([defGeos[i], translationsCache[defGeos[i]]]);
-  // }
-
-  getYear();
-
-  tableData();
- 
-
- 
+  euGlobanContainer();
+  setTimeout(() => {
+    getYear();
+    tableData();
+  }, 200);
 }
 
 

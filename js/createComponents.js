@@ -3,10 +3,8 @@ $( document ).ready(function() {
 
   dataNameSpace.getRefURL();
 
-
-  
-  buildComponents();
   languageNameSpace.initLanguage(REF.language);
+  buildComponents();
 
 })
 

@@ -6,23 +6,27 @@ class StateManager {
   constructor(initialState = {}) {
     // Private state object
     this._state = Object.assign({
-      // Default state values
-      chart: "",
-      chartBal: "",
-      unit: "KTOE",
-      year: "2021",
+      // Default state values from data.js
       geo: "EU27_2020",
-      siecs: [],
-      siec: "TOTAL",
-      fuel: "fuelMainFuel",
+      unit: "KTOE",
       language: "EN",
+      year: "",
+      fuel: "fuelMainFuel",
+      siec: "TOTAL",
       details: 1,
-      agregates: 1,
-      order: "DESC",
+      chartOptions: 0,
       stacking: "normal",
-      percentage: 0,
-      decimals: 2,
-      dataset: "nrg_bal_c"
+      chartBal: "",
+      chart: "",
+      full: 0,
+      chartBalText: [],
+      order: "DESC",
+      siecs: "",
+      dataset: "nrg_bal_c",
+      decimals: "0",
+      agregates: "0",
+      share: "false",
+      fuelList: ["fuelElectricity", "fuelCombustible", "fuelNonCombustible", "fuelOtherPetroleum", "fuelMainPetroleum", "fuelOil", "fuelOtherFossil", "fuelFossil", "fuelCoal", "fuelMainFuel"]
     }, initialState);
     
     // Subscribers for state changes
@@ -172,9 +176,7 @@ class StateManager {
   }
 }
 
-// Create StateManager instance
-window.stateManager = new StateManager(window.REF || {});
 
 // Create a backward-compatible REF proxy
 // This allows existing code to continue working while we transition
-window.REF = window.stateManager.createRefProxy();
+// initialization moved to initServices.js to ensure StateManager is ready
