@@ -8,7 +8,6 @@ class Navbar {
   createNavbar() {
     this.navbar = document.createElement('div');
     this.navbar.className = 'es_app_top';
-    this.navbar.setAttribute('role', 'banner');
 
     this.navbar.innerHTML = /*html*/` 
 

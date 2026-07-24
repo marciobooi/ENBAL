@@ -117,6 +117,7 @@ function tutorial() {
 		steps: steps,
 		onPopoverRender: (popover) => {
 			popover.closeButton.setAttribute("aria-label", translationsCache['CLOSE']);
+			popover.footer.setAttribute("role", "presentation");
 		},
 		onDestroyed: () => {
 			window.scrollTo(0, 0);

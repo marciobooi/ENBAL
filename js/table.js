@@ -58,7 +58,8 @@ function createDataTable(dataTable) {
         orderable: false,
         data: null,
         width: "80px",
-        defaultContent: 
+        title: '<span class="sr-only" data-i18n="POPCHARTTYPECOL"></span>',
+        defaultContent:
           `   <div class="icoContainer">
         <button class="chartIcon barChart" data-i18n-title="POPBARCHART" data-i18n-label="POPBARCHART">
             <i class="fas fa-chart-bar" aria-hidden="true"></i>

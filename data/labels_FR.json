@@ -112,6 +112,7 @@
 
   "POPCOLAPSE": "Réduire le flux",
   "POPEXP": "Développer le flux",
+  "POPCHARTTYPECOL": "Type de graphique",
   "POPBARCHART": "Ouvrir le diagramme en barres",
   "POPPIECHART": "Ouvrir le diagramme circulaire",
   "POPLINECHART": "Ouvrir le diagramme linéaire",

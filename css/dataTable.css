@@ -764,7 +764,7 @@ html.dark .dt-container .dt-paging .dt-paging-button:active {
 
 
 .tableInfoIcon {
-    color: var(--tool-1);
+    color: var(--tool-1-text-aaa);
     background-color: transparent;
     border-radius: 50%;
     border: none;

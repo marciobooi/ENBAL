@@ -113,6 +113,7 @@
 
   "POPCOLAPSE": "Collapse flow",
   "POPEXP": "Expand flow",
+  "POPCHARTTYPECOL": "Chart type",
   "POPBARCHART": "Open bar chart",
   "POPPIECHART": "Open pie chart",
   "POPLINECHART": "Open line chart",
