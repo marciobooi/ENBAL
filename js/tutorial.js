@@ -1,6 +1,4 @@
-let buttonTimer;
-let currentStep;
-let isOpen = false
+let driverObj;
 
 function setCookie(name, value, days = 30) {
     const date = new Date();
@@ -31,251 +29,110 @@ function checkAndShowTutorial() {
     }
 }
 
-
-function tutorial(buttonTimer) {
+function tutorial() {
 
 	closeTutorial()
 
-	const introProfile = introJs();
+	if (driverObj) {
+		driverObj.destroy();
+	}
 
-	itens = [
+	const steps = [
 		{
-			title: translationsTuturialCache["START_TOUR_TITLE"],
-			intro: translationsTuturialCache["START_TOUR_TEXT"],
-			position: 'auto'
+			popover: {
+				title: translationsTuturialCache["START_TOUR_TITLE"],
+				description: translationsTuturialCache["START_TOUR_TEXT"]
+			}
 		},
 		{
-		  element: document.querySelector("#menu"),
-		  title: translationsTuturialCache["TUTO_1"],
-		  intro: translationsTuturialCache["TUTO_2"],
-		  position: 'auto'
+			element: "#menu",
+			popover: {
+				title: translationsTuturialCache["TUTO_1"],
+				description: translationsTuturialCache["TUTO_2"]
+			}
 		},
 		{
-		  element: document.querySelector("#INFO"),
-		  title: translationsTuturialCache["TUTO_3"],
-		  intro: translationsTuturialCache["TUTO_4"],
-		  position: 'auto'
+			element: "#INFO",
+			popover: {
+				title: translationsTuturialCache["TUTO_3"],
+				description: translationsTuturialCache["TUTO_4"]
+			}
 		},
 		{
-		  element: document.querySelector("#downloadBtn"),
-		  title: translationsTuturialCache["TUTO_5"],
-		  intro: translationsTuturialCache["TUTO_6"],
-		  position: 'auto'
+			element: "#downloadBtn",
+			popover: {
+				title: translationsTuturialCache["TUTO_5"],
+				description: translationsTuturialCache["TUTO_6"]
+			}
 		},
 		{
-		  element: document.querySelector("#embebedBtn"),
-		  title: translationsTuturialCache["TUTO_7"],
-		  intro: translationsTuturialCache["TUTO_8"],
-		  position: 'auto'
+			element: "#embebedBtn",
+			popover: {
+				title: translationsTuturialCache["TUTO_7"],
+				description: translationsTuturialCache["TUTO_8"]
+			}
 		},
 		{
-		  element: document.querySelector("td:nth-child(1) > div > button"),
-		  title: translationsTuturialCache["TUTO_9"],
-		  intro: translationsTuturialCache["TUTO_10"],
-		  position: 'auto'
+			element: "td:nth-child(1) > div > button",
+			popover: {
+				title: translationsTuturialCache["TUTO_9"],
+				description: translationsTuturialCache["TUTO_10"]
+			}
 		},
 		{
-		  element: document.querySelectorAll(".icoContainer")[0],
-		  title: translationsTuturialCache["TUTO_11"],
-		  intro: translationsTuturialCache["TUTO_12"],
-		  position: 'auto',
-		  scrollTo: true,
-		  scrollToElement: true,
-		},	
-		{			
-		  element: document.querySelector("#shareChart1"),
-		  title: translationsTuturialCache["TUTO_21"],
-		  intro: translationsTuturialCache["TUTO_22"],
-		  position: 'auto'
+			element: ".icoContainer",
+			popover: {
+				title: translationsTuturialCache["TUTO_11"],
+				description: translationsTuturialCache["TUTO_12"]
+			}
 		},
-		{			
-		  title: translationsTuturialCache["END_TOUR_TITLE"],
-		  intro: translationsTuturialCache["END_TOUR_TEXT"],
-		  position: 'auto'
-		},
-		]
-
-	introProfile.setOptions({
-		showProgress: false,
-		scrollToElement: true,
-		showBullets: false,
-		autoPosition:false,
-		tooltipClass: "customTooltip",
-		exitOnEsc: true,
-		nextLabel:  translationsCache['NEXT'],
-		prevLabel: translationsCache['BACK'],
-		doneLabel: translationsCache['CLOSE'],
-		steps: itens
-	  });  	 
-	  
-	  introProfile.onexit(function () { window.scrollTo(0, 0) });
-
-	  const observer = new MutationObserver(() => {
-		// Locate the tooltip and title elements
-		const tooltip = document.querySelector('.introjs-tooltip');
-		const currentStep = introProfile._currentStep; 
-		
-		if (tooltip) {
-		  const titleId = `introjs-title-${currentStep}`;
-		  
-		  const titleElement = tooltip.querySelector('.introjs-tooltip-title');
-		  if (titleElement) {
-			titleElement.id = titleId;
-			tooltip.setAttribute('aria-labelledby', titleId);
-		  }
-		}
-	  });
-	  
-	  observer.observe(
-		document.body,
 		{
-		  childList: true, 
-		  subtree: true,
-		}
-	  );
-
+			element: "#shareChart1",
+			popover: {
+				title: translationsTuturialCache["TUTO_21"],
+				description: translationsTuturialCache["TUTO_22"]
+			}
+		},
+		{
+			popover: {
+				title: translationsTuturialCache["END_TOUR_TITLE"],
+				description: translationsTuturialCache["END_TOUR_TEXT"]
+			}
+		},
+	]
 
 	horizontalNavigation(1800, event);
 
-
-		  introProfile.start();
-
-  
-	  isOpen = true
-
-	  introProfile.onchange(function () {
-
-		currentStep = this._currentStep
-
-
-
-		if (currentStep === 0) {
-			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['CLOSE']
-			setTimeout(() => {
-				$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton.introjs-disabled").addClass( "close" )
-			}, 100);
-		}  else {
-			document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['BACK']
-			$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").removeClass( "close" )
-
-			$(".introjs-tooltip.customTooltip.introjs-auto").css({
-				"left": "50% !important",
-				"top": "50%",
-				"margin-left": "auto",
-				"margin-top": "auto",
-				"transform": "translate(-50%,-50%)"
-			})
-	}
-
-			});
-
-	$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltip-header > a").attr({
-		"alt": "Close",
-		"id": "tutorialClose",
-		"tabindex": "0",
-		"href": "javascript:",
-		"class": "btn btn-primary min-with--nav"
+	driverObj = window.driver.js.driver({
+		showProgress: false,
+		smoothScroll: true,
+		stageRadius: 0,
+		overlayColor: "#ffffff",
+		overlayOpacity: 0.03,
+		allowClose: true,
+		overlayClickBehavior: "close",
+		nextBtnText: translationsCache['NEXT'],
+		prevBtnText: translationsCache['BACK'],
+		doneBtnText: translationsCache['CLOSE'],
+		steps: steps,
+		onPopoverRender: (popover) => {
+			popover.closeButton.setAttribute("aria-label", translationsCache['CLOSE']);
+		},
+		onDestroyed: () => {
+			window.scrollTo(0, 0);
+			horizontalNavigation(-1800, event);
+			closeTutorial();
+		}
 	});
 
-	document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").innerHTML = translationsCache['CLOSE']
-	$("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-prevbutton").addClass( "close " )
-
-	traptutorialfocus()
+	driverObj.drive();
 }
 
 function horizontalNavigation(position, event) {
 	$('.dt-scroll-body').scrollLeft(position);
-	
+
 }
 
 function closeTutorial() {
-	isOpen = false
 	$('button#INFO').focus();
 }
-
-btn = document.querySelector("body > div.introjs-tooltipReferenceLayer > div > div.introjs-tooltipbuttons > a.introjs-button.introjs-nextbutton")
-$(document).on('click', btn, function() {
-	clearTimeout(buttonTimer)	
-});
-
-function closeProcess(params) {
-	horizontalNavigation(-1800, event);
-	event.preventDefault();
-	introJs().exit()
-	buttonTimer = setTimeout("introJs().exit()", 4000);
-	clearTimeout(buttonTimer);
-	document.querySelector("#tb-tutorial-btn");
-	// const button = document.getElementById('tb-tutorial-btn');
-	$('button#INFO').focus();
-	isOpen = false
-}
-
-$(document).on("click keydown", "#tutorialClose", function(event) {
-	const isClickEvent = event.type === "click";
-	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
-	if (isClickEvent || isKeyEvent) {
-		closeProcess();
-		$('button#INFO').focus();
-		horizontalNavigation(-1800, event);
-	}
-  });
-
-
-$(document).on("click keydown", ".close", function(event) {
-	const isClickEvent = event.type === "click";
-	const isKeyEvent = event.type === "keydown" && (event.key === "Escape" || event.key === "Enter" || event.keyCode === 13);
-	if (isClickEvent || isKeyEvent) {
-		closeProcess();
-		$('button#INFO').focus();
-		horizontalNavigation(-1800, event);
-	}
-});
-
-  document.addEventListener('keydown', function(event) {
-	if (event.key === 'Escape') {
-		if(isOpen){
-			closeProcess()
-			$('button#INFO').focus();
-			horizontalNavigation(-1800, event);
-		} 
-	}
-  });
-
-  function traptutorialfocus() {	
-
-	const focusableElements = '.introjs-tooltip.customTooltip.introjs-floating a[role="button"][tabindex="0"]:not([tabindex="-1"])';
-	const element = document.querySelector('.introjs-tooltip.customTooltip.introjs-floating');
-
-	// log(element)
-
-	if (element) {
-	  const focusableContent = element.querySelectorAll(focusableElements);
-	  const firstFocusableElement = focusableContent[0];
-	  const lastFocusableElement = focusableContent[focusableContent.length - 1];
-
-	  document.addEventListener('keydown', function (e) {
-		const isTabPressed = e.key === 'Tab' || e.keyCode === 9;
-
-		if (!isTabPressed) {
-		  return;
-		}
-
-		if (e.shiftKey) {
-		  if (document.activeElement === firstFocusableElement) {
-			lastFocusableElement.focus();
-			e.preventDefault();
-		  }
-		} else {
-		  if (document.activeElement === lastFocusableElement) {
-			firstFocusableElement.focus();
-			e.preventDefault();
-		  }
-		}
-	  });
-
-	  // Set initial focus on the first focusable element
-	  if (focusableContent.length > 0) {
-		firstFocusableElement.focus();
-	  }
-	}
-  };

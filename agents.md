@@ -60,8 +60,7 @@ These are the declared assets in the HTML. Keep versions aligned and avoid dupli
 - `css/newStiles/modal.css`
 - `css/newStiles/mediaqueries.css`
 - `css/newStiles/zoom-accessibility.css`
-- `css/intro/intro.css`
-- `css/tutorial.css`
+- `css/intro/driver.css`
 - `css/dataTable.css`
 - `css/fixedColumns.dataTables.css`
 
@@ -128,7 +127,7 @@ External (additional):
 - `js/external/table/jspdf.umd.min.js`, `js/external/table/jspdf.plugin.autotable.min.js`
 - `js/external/table/xlsx.full.min.js`
 - `js/bootstrap/bootstrap@5.3.0.js`
-- `js/external/intro7.0.1.js`
+- `js/external/driver.js`
 - `js/external/ecl-eu.js`
 - `https://europa.eu/webtools/load.js` (deferred)
 
