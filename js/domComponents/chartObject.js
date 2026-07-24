@@ -295,9 +295,13 @@ class Chart {
 setTimeout(() => {
   const chartContainer = document.querySelector('#chart');
   if (!chartContainer) return;
+  // Anchor to the chart's parent, not #chart itself: Highcharts' accessibility
+  // module can set aria-hidden="true" on its own renderTo container (#chart),
+  // which would make this focusable link unreachable for assistive tech.
+  const creditsHost = chartContainer.parentElement || chartContainer;
 
   // Remove any existing accessible credits
-  const existing = chartContainer.querySelector('.accessible-credits-overlay');
+  const existing = creditsHost.querySelector('.accessible-credits-overlay');
   if (existing) existing.remove();
 
   // Build URL
@@ -308,8 +312,8 @@ setTimeout(() => {
   wrapper.className = 'accessible-credits-overlay';
   wrapper.id = 'credits';
 
-  // Position relative to the outer chart container
-  chartContainer.style.position = 'relative';
+  // Position relative to the chart's parent container
+  creditsHost.style.position = 'relative';
   Object.assign(wrapper.style, {
     position: 'absolute',
     bottom: '10px',
@@ -365,7 +369,7 @@ setTimeout(() => {
   // Compose and insert
   wrapper.appendChild(prefix);
   wrapper.appendChild(link);
-  chartContainer.appendChild(wrapper);
+  creditsHost.appendChild(wrapper);
 
   console.log('Accessible credits overlay added: "Source: Eurostat - Dataset" (Dataset is the link).');
 }, 1000);

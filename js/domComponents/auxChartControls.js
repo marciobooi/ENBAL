@@ -17,10 +17,10 @@ class ChartControls {
 			<div class="">
 			  <div id="auxChartTitle">
 				<h2 id="title" class="title">title</h2>
-				<h6 id="subtitle" class="subtitle">subtitle</h6>
+				<h3 id="subtitle" class="subtitle">subtitle</h3>
 			  </div>
 			  <div class="menu">
-				<ul id="chartBtns" aria-label="options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
+				<ul id="chartBtns" role="toolbar" aria-label="options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
 				  <li class="nav-item button px-1" id="toggleBarChart" role="none"></li>
 				  <li class="nav-item button px-1" id="togglePieChart" role="none"></li>
 				  <li class="nav-item button px-1" id="toggleLineChart" role="none"></li>
@@ -42,7 +42,7 @@ class ChartControls {
 				  <div class="col-8 subNavTwo">
 			<div id="auxChartTitle">
 			  <h2 id="title" class="title">title</h2>
-			  <h6 id="subtitle" class="subtitle">subtitle</h6>
+			  <h3 id="subtitle" class="subtitle">subtitle</h3>
 			</div>
 		  </div>
 		  <div class="col-4 subNavOne auxChartbtn">
@@ -51,7 +51,7 @@ class ChartControls {
 			  <span class="iconText" data-i18n="TOOLS"></span>
 			</button>
 			<div class="menu d-none">
-			  <ul id="chartBtns" aria-label="options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
+			  <ul id="chartBtns" role="toolbar" aria-label="options graph toolbox" class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 50vw;">
 				<li class="nav-item button px-1" id="toggleBarChart" role="none"></li>
 				<li class="nav-item button px-1" id="togglePieChart" role="none"></li>
 				<li class="nav-item button px-1" id="toggleLineChart" role="none"></li>

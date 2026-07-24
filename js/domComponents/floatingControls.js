@@ -26,7 +26,7 @@ class FloatingChartControls {
   
   
       <div>   
-        <ul id="floatingMenu">   
+        <ul id="floatingMenu" role="toolbar" data-i18n-label="OPTIONS_GRAPH_TOOLBOX">
           <li class="nav-item px-1" id="togglePercentage" role="none" style="display:${REF.details == 1 ? "" : "none"}"></li>
           <li class="nav-item px-1" id="Agregates" role="none"></li>			  
             <li class="nav-item dropdown px-1" id="ChartOrder" role="none">
@@ -262,7 +262,6 @@ class FloatingChartControls {
  
 
     dropdownOrderBtn.setAttribute("data-bs-toggle", "dropdown");
-    dropdownOrderBtn.setAttribute("role", "menuitem");
     dropdownOrderBtn.setAttribute("aria-haspopup", "true");
     dropdownOrderBtn.setAttribute("data-bs-auto-close", "true");
     dropdownOrderBtn.setAttribute("aria-expanded", "false");

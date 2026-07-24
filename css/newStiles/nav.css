@@ -63,6 +63,10 @@ select:focus option:focus {
     cursor: pointer;
 }
 
+.ecl-site-header__language-item.ecl-site-header__language-link--active .ecl-link {
+    color: var(--tool-1-text-aaa);
+}
+
 #es_app_header {
     display: grid;
     grid-template-columns: auto 250px 300px 190px;

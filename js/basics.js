@@ -469,7 +469,9 @@ function getTitle() {
   }
 
   $("#title").html(title);
-  $("#subtitle").html(subtitle);
+  // subtitle is currently never populated above; keep the (empty) heading
+  // out of the accessibility tree so it isn't exposed as a blank heading.
+  $("#subtitle").html(subtitle).attr("aria-hidden", subtitle ? null : "true");
 
   return chartTitle;
 }
