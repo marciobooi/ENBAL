@@ -289,24 +289,29 @@ class TooltipManager {
     }
 
     buttons.forEach((button) => {
-      // Skip if already processed
-      if (this.tooltipElements.has(button)) return;
-
       const tooltipText = button.getAttribute("title") || button.getAttribute("aria-label");
+
+      // Remove title attribute to prevent the default browser tooltip
+      // but preserve text in aria-label for accessibility. This must run
+      // every pass (not just on first registration): loadTranslations()
+      // re-runs on every table redraw and unconditionally re-writes
+      // title from data-i18n-title, so an already-registered button can
+      // silently get its title attribute back, causing the native
+      // browser tooltip to reappear instead of the styled one.
+      if (tooltipText && button.hasAttribute("title")) {
+        if (!button.hasAttribute("aria-label")) {
+          button.setAttribute("aria-label", tooltipText);
+        }
+        button.removeAttribute("title");
+      }
+
+      // Skip re-registering listeners/tooltip element if already processed
+      if (this.tooltipElements.has(button)) return;
       if (!tooltipText) return;
 
       // Ensure button has an ID for accessibility
       if (!button.id) {
         button.id = `btn-${Math.random().toString(36).substr(2, 9)}`;
-      }
-
-      // Remove title attribute to prevent default browser tooltip
-      // but preserve text in aria-label for accessibility
-      if (button.hasAttribute("title")) {
-        if (!button.hasAttribute("aria-label")) {
-          button.setAttribute("aria-label", tooltipText);
-        }
-        button.removeAttribute("title");
       }
 
       // Create tooltip element
