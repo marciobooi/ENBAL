@@ -1,0 +1,62 @@
+/* Accessibility statement view (enbal.html?accessibility) */
+#accessibilityView {
+  padding: 0 1rem 1rem;
+}
+
+#accessibilityView .a11y-wrapper {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+#accessibilityView #a11y-statement-title {
+  margin-bottom: 1.5rem;
+}
+
+#accessibilityView #a11y-statement-title:focus {
+  outline: none;
+}
+
+#accessibilityView .a11y-intro {
+  margin-bottom: 1.5rem;
+}
+
+/* Inline links in the text: undo the footer's padded, 44px "standalone" link style */
+#accessibilityView p .ecl-link,
+#accessibilityView li .ecl-link {
+  display: inline;
+  padding: 0;
+  min-height: 0;
+  text-decoration: underline;
+}
+
+#accessibilityView .ecl-unordered-list {
+  margin-bottom: 1rem;
+}
+
+#accessibilityView p.ecl-u-type-paragraph {
+  margin-bottom: 1rem;
+}
+
+/* "On this page" box: bluish background + blue left border */
+#accessibilityView .a11y-toc {
+  background: #f7f9fd;
+  border-left: 4px solid #0e47cb;
+  border-radius: 0 4px 4px 0;
+  padding: 1rem 1.5rem;
+}
+
+#accessibilityView .a11y-toc .ecl-u-type-heading-3 {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+}
+
+#accessibilityView .a11y-toc .ecl-unordered-list {
+  margin: 0;
+}
+
+/* Bullets in the primary blue */
+#accessibilityView .ecl-unordered-list__item::marker {
+  color: #0e47cb;
+}

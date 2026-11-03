@@ -84,3 +84,23 @@ setRefURL: function () {
 // global shortcut to reference setting
 var REF = dataNameSpace.ref;
 
+/**
+ * enbal.html?accessibility shows the accessibility statement instead of the tool.
+ * @returns {boolean}
+ */
+function isAccessibilityMode() {
+  return new URLSearchParams(window.location.search).has("accessibility");
+}
+
+/**
+ * Hides the tool and shows the (English only) accessibility statement.
+ * Safe to call more than once (e.g. after a language change).
+ */
+function showAccessibilityView() {
+  $('#page, #allContainer, #enbal, #chartContainer, #menuSwitch, #floatingMenu').addClass('d-none');
+  $('#accessibilityView').removeClass('d-none');
+  $('.a11y-back-link').attr('href', `?language=${REF.language}`);
+  $('#footer-access').attr('href', `?accessibility&language=${REF.language}`);
+  document.title = 'Accessibility statement - Energy balances - Eurostat';
+}
+

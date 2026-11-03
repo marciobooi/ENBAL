@@ -21,6 +21,11 @@ let languageNameSpace = {
     loadTranslations(lang.toUpperCase());
     loadTranslationsTuturial(lang.toUpperCase());
     
+    // Statement view stays visible; only refresh its language-dependent links
+    if (isAccessibilityMode()) {
+      showAccessibilityView();
+    }
+
     // Re-enable tooltips with new language
     setTimeout(() => {
       enableTooltips();
@@ -69,8 +74,9 @@ function loadTranslations(lang) {
  
   
 
-    if (!isFirefox) {
     const selectElement = document.getElementById("selectFuel");
+    // selectFuel does not exist on the accessibility statement page
+    if (!isFirefox && selectElement) {
 
     let mainFuelOption = null;
     let options = Array.from(selectElement.options).filter((option) => {

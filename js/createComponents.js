@@ -6,6 +6,10 @@ $( document ).ready(function() {
   languageNameSpace.initLanguage(REF.language);
   buildComponents();
 
+  if (isAccessibilityMode()) {
+    showAccessibilityView();
+  }
+
 })
 
 // Global reference to FloatingChartControls for language updates
@@ -13,21 +17,29 @@ let floatingChartControls = null;
 
 function buildComponents() {
 
-  const components = [
-    { instance: new SubNavbar(), target: '#subnavbar-container' },
-    { instance: new Footer(), target: '#componentFooter' },
-    { instance: new Navbar(), target: '#navbar-container' },
-    { instance: new FloatingChartControls(), target: '#componentFooter footer' },
-  ];
+  // Statement mode only needs header + footer
+  const components = isAccessibilityMode()
+    ? [
+        { instance: new Footer(), target: '#componentFooter' },
+        { instance: new Navbar(), target: '#navbar-container' },
+      ]
+    : [
+        { instance: new SubNavbar(), target: '#subnavbar-container' },
+        { instance: new Footer(), target: '#componentFooter' },
+        { instance: new Navbar(), target: '#navbar-container' },
+        { instance: new FloatingChartControls(), target: '#componentFooter footer' },
+      ];
 
   // Store reference to FloatingChartControls
-  floatingChartControls = components.find(comp => comp.instance instanceof FloatingChartControls)?.instance;
+  floatingChartControls = components.find(comp => comp.instance instanceof FloatingChartControls)?.instance ?? null;
 
   components.forEach(({ instance, target }) => {
     instance.addToDOM(target);
   });
 
-  populateDropdownData();
+  if (!isAccessibilityMode()) {
+    populateDropdownData();
+  }
 }
 
 function removeComponents() {
