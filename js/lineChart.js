@@ -74,6 +74,7 @@ function renderLineChart(chartBal) {
         }
       },
       yAxisFormat: "{value:.2f}",
+      yAxisTitle: translationsCache[REF.unit] || REF.unit,
       tooltipFormatter: tooltipFormatter,
       creditsText: credits(),
       creditsHref: 'https://ec.europa.eu/eurostat/databrowser/view/'+REF.dataset+'/default/table?lang=EN',
