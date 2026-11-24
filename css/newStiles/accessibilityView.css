@@ -37,26 +37,102 @@
   margin-bottom: 1rem;
 }
 
-/* "On this page" box: bluish background + blue left border */
-#accessibilityView .a11y-toc {
-  background: #f7f9fd;
-  border-left: 4px solid #0e47cb;
-  border-radius: 0 4px 4px 0;
-  padding: 1rem 1.5rem;
-}
-
-#accessibilityView .a11y-toc .ecl-u-type-heading-3 {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-  font-weight: 700;
-  margin: 0 0 0.5rem;
-}
-
-#accessibilityView .a11y-toc .ecl-unordered-list {
-  margin: 0;
-}
-
 /* Bullets in the primary blue */
 #accessibilityView .ecl-unordered-list__item::marker {
   color: #0e47cb;
+}
+
+/* Related links block (Eurostat link box) */
+#accessibilityView .block-link-item {
+  margin: 1rem 0;
+  position: relative;
+  border-left: 8px solid #0e47cb;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+  box-shadow: 0 0 6px rgba(9, 49, 142, 0.2);
+}
+#accessibilityView .block-link-item .estat-title:hover {
+  background-color: #e7ecf9;
+}
+#accessibilityView .block-link-item .estat-title a,
+#accessibilityView .block-link-item .estat-title a:visited,
+#accessibilityView .block-link-item .estat-title a:focus {
+  font-size: 1.1875rem;
+  display: block;
+  position: relative;
+  min-height: 0;
+  color: #262b38;
+  padding: 0.5rem 3rem 0.5rem 1.5rem;
+  text-decoration: none;
+}
+#accessibilityView .block-link-item .estat-title a:hover {
+  text-decoration: underline;
+}
+#accessibilityView .block-link-item-icon {
+  top: 0;
+  right: 0;
+  width: 3rem;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  background-color: #f4f5fa;
+}
+#accessibilityView .block-link-item-icon > svg {
+  height: 100%;
+  width: 1.5rem;
+  fill: none;
+  color: #1f2127;
+}
+
+/* Keep the bullets (some tool stylesheets reset list-style on list items) */
+#accessibilityView .ecl-unordered-list__item {
+  list-style-type: disc;
+}
+
+/* Link look as on the Eurostat pages */
+#accessibilityView p .ecl-link,
+#accessibilityView li .ecl-link {
+  color: #0e47cb;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}
+#accessibilityView p .ecl-link:hover,
+#accessibilityView li .ecl-link:hover {
+  color: #09318e;
+}
+#accessibilityView .text-nowrap {
+  white-space: nowrap;
+}
+#accessibilityView .ecl-link__icon {
+  width: 1rem;
+  height: 1rem;
+  margin-left: 0.25rem;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+#accessibilityView .a11y-pdf-icon {
+  width: 1.1em;
+  height: 1.1em;
+  vertical-align: -0.2em;
+}
+
+/* Spacing and list colours as on the Eurostat accessibility pages */
+#accessibilityView h2.ecl-u-type-heading-2 {
+  margin: 2rem 0 1rem;
+  font-size: 2rem !important;
+  line-height: 2.75rem !important;
+}
+#accessibilityView .ecl-unordered-list__item {
+  color: #262b38;
+}
+#accessibilityView .ecl-unordered-list__item::marker {
+  color: #262b38;
+}
+
+/* Paragraph box as on the Eurostat accessibility pages: 16px above and below, 24px lines */
+#accessibilityView p.ecl-u-type-paragraph {
+  margin: 1rem 0;
+  line-height: 1.5rem;
+  color: #515560 !important;
 }
